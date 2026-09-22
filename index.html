@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v90</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v91</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -34,11 +34,11 @@
 .homegrid81 button b{font-size:17px}.homegrid81 button small{font-size:12px;text-align:left;opacity:.8}
 @media(max-width:520px){.homegrid81{grid-template-columns:1fr 1fr}.homegrid81 button{min-height:100px;padding:10px}}
 </style><style>
-#nav90{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:9999;background:rgba(20,20,20,.92);padding:7px 10px;border-radius:22px;display:flex;gap:8px;box-shadow:0 3px 14px #0005}
-#nav90 button{width:46px;height:42px;border:0;border-radius:16px;font-size:22px}
+#nav91{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:9999;background:rgba(20,20,20,.92);padding:7px 10px;border-radius:22px;display:flex;gap:8px;box-shadow:0 3px 14px #0005}
+#nav91 button{width:46px;height:42px;border:0;border-radius:16px;font-size:22px}
 .panel82{position:fixed;z-index:9998;left:10px;right:10px;bottom:calc(72px + env(safe-area-inset-bottom));max-height:52vh;overflow:auto;background:#fff;color:#111;border:1px solid #aaa;border-radius:14px;padding:12px;box-shadow:0 4px 20px #0006}
 .panel82 button{margin:4px;padding:8px;border-radius:8px}
-.fav90{float:right;border:0;background:transparent;font-size:20px}
+.fav91{float:right;border:0;background:transparent;font-size:20px}
 body{padding-bottom:82px}
 </style><style>
 .fieldgrid84{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -63,8 +63,8 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 @media(min-width:760px){.releasegrid90{grid-template-columns:repeat(4,1fr)}}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v90</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v91</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v91：</b>ボタン・計算が反応しないJavaScript構文エラーを修正。</p>
 <div class="releasegrid90">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -76,7 +76,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="jump81('machining')">⚙️ 加工計算</button>
 </div>
 <div class="comment"><b>安全原則：</b>調整・測定・点検は設備の危険エネルギーを管理し、メーカー手順・社内手順・資格要件を優先してください。電気は活線作業、油圧は残圧のある配管を緩める確認方法を前提にしません。</div>
-</section><section id="karte89" class="card"><h2>🗂️ 設備カルテ v90</h2>
+</section><section id="karte89" class="card"><h2>🗂️ 設備カルテ v91</h2>
 <p class="note">設備を登録し、故障・部品・測定履歴・次回確認項目を1画面に集約します。v85/v88で保存した端末内データも設備名が一致すれば表示します。</p>
 <label>設備名/番号 <input id="keq89" placeholder="例：No.2 ピンチロール"></label>
 <label>設置場所 <input id="loc89" placeholder="例：スリッターライン入口"></label>
@@ -86,7 +86,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="saveK89()">設備カルテ保存</button>
 <button onclick="showK89()">カルテ表示</button>
 <div id="msg89" class="comment"></div>
-<div id="view89"></div></section><section id="trend88" class="card"><h2>📈 設備別・測定履歴トレンド v90</h2>
+<div id="view89"></div></section><section id="trend88" class="card"><h2>📈 設備別・測定履歴トレンド v91</h2>
 <p class="note">同じ設備・同じ測定項目を時系列で保存し、変化をグラフ表示します。傾向確認用であり、故障予測や交換時期を自動判定するものではありません。</p>
 <label>設備名/番号 <input id="eq88" placeholder="例：No.2 ピンチロール"></label>
 <label>測定項目 <input id="item88" placeholder="例：芯振れ"></label>
@@ -98,7 +98,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <div id="msg88" class="comment"></div>
 <canvas id="chart88" width="700" height="300" style="width:100%;max-height:320px;border:1px solid #aaa;border-radius:8px"></canvas>
 <div id="stats88" class="comment"></div>
-<h3>履歴</h3><div id="list88"></div></section><section id="multi87" class="card"><h2>📊 複数測定 Before / After＋判定 v90</h2>
+<h3>履歴</h3><div id="list88"></div></section><section id="multi87" class="card"><h2>📊 複数測定 Before / After＋判定 v91</h2>
 <p class="note">複数の測定値を比較し、入力した許容値に対してOK/NGを整理します。判定条件は現場・メーカー仕様に合わせて入力してください。</p>
 <label>設備名 <input id="eq87" placeholder="例：No.2 ピンチロール"></label>
 <div id="rows87"></div>
@@ -111,7 +111,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <div id="table87"></div>
 <div id="report87" class="report87"></div>
 <p class="note">「PDF保存／印刷」はiPhone/ブラウザの印刷画面を開きます。そこでPDFとして保存できます。</p>
-</section><section id="report86" class="card"><h2>📝 Before / After 作業報告 v90</h2>
+</section><section id="report86" class="card"><h2>📝 Before / After 作業報告 v91</h2>
 <p class="note">作業前・作業中・作業後の写真を確認し、測定値の変化と作業内容を1枚の報告文にまとめます。写真はこの版ではプレビューのみです。</p>
 <label>設備名 <input id="eq86" placeholder="例：No.2 ピンチロール"></label>
 <label>作業内容 <textarea id="work86" rows="3" placeholder="例：DS側シリンダ動作不良調査、SOL弁清掃"></textarea></label>
@@ -127,7 +127,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <label>最終確認 <textarea id="check86" rows="2" placeholder="例：手回し確認後、規定手順で試運転し異常なし"></textarea></label>
 <button onclick="makeReport86()">報告書を作成</button><button onclick="copyReport86()">コピー</button>
 <textarea id="out86" rows="15" style="width:100%;margin-top:8px"></textarea>
-<div id="msg86" class="comment"></div></section><section id="record85" class="card"><h2>📸 現場写真＋作業記録 v90</h2>
+<div id="msg86" class="comment"></div></section><section id="record85" class="card"><h2>📸 現場写真＋作業記録 v91</h2>
 <p class="note">設備・症状・測定値・処置・結果を1件にまとめて端末内へ保存します。写真はプレビュー用で、この版では容量を抑えるため記録本文には画像データを保存しません。</p>
 <label>設備名/設備番号 <input id="machine85" placeholder="例：No.2 ピンチロール"></label>
 <label>日時 <input id="date85" type="datetime-local"></label>
@@ -138,12 +138,12 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <label>結果 <textarea id="result85" rows="2" placeholder="例：正常動作確認"></textarea></label>
 <label>現場写真 <input id="photo85" type="file" accept="image/*" capture="environment" onchange="photo85fn(event)"></label>
 <img id="preview85" style="display:none;max-width:100%;max-height:360px;border-radius:8px;margin-top:8px">
-<div><button onclick="save85()">💾 記録保存</button><button onclick="clear85()">入力クリア</button><button onclick="csv90()">CSV出力</button></div>
+<div><button onclick="save85()">💾 記録保存</button><button onclick="clear85()">入力クリア</button><button onclick="csv91()">CSV出力</button></div>
 <div id="msg85" class="comment"></div>
 <h3>保存済み作業履歴</h3>
 <input id="find85" type="search" placeholder="設備名・症状・部品を検索" oninput="list85()" style="width:100%">
 <div id="list85"></div></section><section id="field84" class="card">
-<h2>🧤 現場モード v90</h2>
+<h2>🧤 現場モード v91</h2>
 <p>手袋でも押しやすい大ボタン表示。文字サイズと画面テーマも切り替えられます。</p>
 <div class="fieldgrid84">
 <button onclick="jump81('align')">🎯 芯出し</button>
@@ -159,7 +159,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 </div>
 <div id="mode84" class="comment"></div>
 </section><section id="myhome83" class="card">
-<h2>⭐ 自分専用ホーム v90</h2>
+<h2>⭐ 自分専用ホーム v91</h2>
 <p>よく使う工具と、全機能の横断検索をここから使えます。</p>
 <input id="search83" type="search" placeholder="例：6205 / 芯出し / SOL / シリンダ遅い / M12" oninput="searchAll83()" style="width:100%;font-size:18px;padding:11px">
 <div id="results83" class="comment">工具名・説明・見出しを検索します。</div>
@@ -167,7 +167,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <h3>◷ 最近使った工具</h3><div id="recenthome83" class="comment"></div>
 <button onclick="refreshHome83()">表示を更新</button>
 </section><section id="home81" class="card">
-<h1>🛠️ 現場機械アシスタント v90</h1>
+<h1>🛠️ 現場機械アシスタント v91</h1>
 <p>現場で使いたい分野を選んでください。</p>
 <div class="homegrid81">
 <button onclick="jump81('align')">🎯<b>芯出し</b><small>カップリング・4方向ダイヤル・ソフトフット</small></button>
@@ -191,7 +191,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="save45()">この記録を保存</button> <button onclick="export45()">CSVを書き出す</button>
 <hr><input id="rq45" type="search" placeholder="機械名・症状・部品などで履歴検索" oninput="render45()">
 <div id="recordsOut45" class="comment"></div></section><section id="workflow44" class="card"><h2>🔗 診断 → 測定 → 計算</h2>
-<p>v90では故障診断の結果から、既存の計算・検索ツールへ直接移動できるようにしました。</p>
+<p>v91では故障診断の結果から、既存の計算・検索ツールへ直接移動できるようにしました。</p>
 <div class="comment"><b>使い方</b><br>① 症状を選ぶ → ② YES/NOで切り分ける → ③「関連ツール」を押す → ④ 実測値を入力 → ⑤ 再測定して原因を確認</div>
 <p class="note">安全カバー内・回転部・電気盤内などの確認は、設備停止・エネルギー遮断・社内手順を優先してください。</p></section><section id="diagnosis43" class="card">
 <h2>🧭 YES / NO 故障診断フロー β</h2>
@@ -218,7 +218,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 </select></label>
 <button onclick="trouble42()">確認手順を表示</button>
 <div id="trout42" class="comment"></div>
-</section><section id="bearingWizard54" class="card"><h2>🧭 ベアリング一括選定フロー v90</h2>
+</section><section id="bearingWizard54" class="card"><h2>🧭 ベアリング一括選定フロー v91</h2>
 <p class="note">寸法 → 候補 → 密封仕様 → 内部すきま → メーカー別検索候補 → 作業記録、を1画面でつなぎます。</p>
 <label>内径 d <input id="wd54" type="number" value="25" step=".1"> mm</label>
 <label>外径 D <input id="wD54" type="number" value="52" step=".1"> mm</label>
@@ -231,7 +231,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <label>内部すきま <select id="wcl54" onchange="build54()"><option value="">標準/未指定</option><option>C2</option><option>C3</option><option>C4</option><option>C5</option></select></label>
 <div id="wo54" class="comment"></div>
 <button onclick="sendResult46('wo54','ベアリング一括選定')">📝 この候補を作業記録へ送る</button>
-</section><section id="bearingReverse52" class="card"><h2>📏 ベアリング寸法逆引き v90</h2>
+</section><section id="bearingReverse52" class="card"><h2>📏 ベアリング寸法逆引き v91</h2>
 <p class="note">型番が読めないベアリングを、内径 d・外径 D・幅 B から候補検索します。6000・6200・6300・6800・6900系をまとめて検索できる現場用DBです。</p>
 <label>内径 d <input id="brd52" type="number" value="25" step="0.1"> mm</label>
 <label>外径 D <input id="brD52" type="number" value="52" step="0.1"> mm</label>
@@ -241,27 +241,27 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="reverse52()">寸法から候補検索</button>
 <div id="bro52" class="comment"></div>
 <button onclick="sendResult46('bro52','ベアリング寸法逆引き')">📝 記録へ送る</button>
-</section><section id="interchange51" class="card"><h2>🔄 ベアリング交換・相当品候補 v90</h2>
+</section><section id="interchange51" class="card"><h2>🔄 ベアリング交換・相当品候補 v91</h2>
 <p class="note">深溝玉軸受の基本番号と代表的な密封仕様をメーカー間で整理します。「候補」であり、交換可否の確定ではありません。</p>
 <label>現在のメーカー <select id="im51"><option>NSK</option><option>NTN</option><option>JTEKT/KOYO</option><option>SKF</option></select></label>
 <label>現在の型番 <input id="in51" value="6205ZZC3"></label>
 <button onclick="inter51()">相当品候補を整理</button>
 <div id="io51" class="comment"></div>
 <button onclick="sendResult46('io51','ベアリング相当品候補')">📝 記録へ送る</button>
-</section><section id="makerBearing50" class="card"><h2>🏭 メーカー別ベアリング記号 v90</h2>
+</section><section id="makerBearing50" class="card"><h2>🏭 メーカー別ベアリング記号 v91</h2>
 <p class="note">メーカーを選び、型番を入力すると代表的な密封記号・内部すきまを読み解きます。基本番号はISO/JIS系で共通性がありますが、補助記号はメーカー独自です。</p>
 <label>メーカー <select id="bm50"><option>NSK</option><option>NTN</option><option>JTEKT/KOYO</option><option>SKF</option></select></label>
 <label>型番 <input id="bn50" value="6205ZZC3" placeholder="例 6205ZZC3"></label>
 <button onclick="maker50()">メーカー別に分解</button>
 <div id="bo50" class="comment"></div>
 <button onclick="sendResult46('bo50','メーカー別ベアリング型番')">📝 記録へ送る</button>
-</section><section id="bearingCode49" class="card"><h2>🔎 ベアリング型番 分解アシスタント v90</h2>
+</section><section id="bearingCode49" class="card"><h2>🔎 ベアリング型番 分解アシスタント v91</h2>
 <p class="note">例：6205ZZ C3 / 6205DDU / 6308VV。代表的な呼び番号とNSK系でよく使われる接尾記号を分解します。メーカーにより記号体系は異なります。</p>
 <label>型番 <input id="bc49" value="6205ZZ C3" placeholder="6205ZZ C3"></label>
 <button onclick="bearingCode49()">型番を分解</button>
 <div id="bco49" class="comment"></div>
 <button onclick="sendResult46('bco49','ベアリング型番分解')">📝 記録へ送る</button>
-</section><section id="elements48" class="card"><h2>⚙️ 機械要素データベース v90</h2>
+</section><section id="elements48" class="card"><h2>⚙️ 機械要素データベース v91</h2>
 <p class="note">ベアリング・平行キー・C形止め輪・Oリング・オイルシールを一つの入口に統合しました。規格値は図面・メーカー資料を最終優先してください。</p>
 <label>検索 <input id="eq48" type="search" placeholder="例：6205、軸30、P30、G50、止め輪30" oninput="elemSearch48()"></label>
 <div id="eout48" class="comment">型番や寸法を入力してください。</div>
@@ -269,7 +269,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <h3>C形止め輪</h3><label>種類 <select id="rt48"><option value="shaft">軸用</option><option value="hole">穴用</option></select></label><label>呼び <input id="rn48" type="number" value="30"></label><button onclick="ring48()">検索</button><div id="rout48" class="comment"></div>
 <h3>Oリング</h3><label>呼び <input id="or48" value="P30"></label><button onclick="oring48()">検索</button><div id="orout48" class="comment"></div>
 <h3>オイルシール検索メモ</h3><label>軸径 d <input id="sd48" type="number" value="30"> mm</label><label>外径 D <input id="sD48" type="number" value="50"> mm</label><label>幅 b <input id="sb48" type="number" value="10"> mm</label><button onclick="seal48()">整理</button><div id="sout48" class="comment"></div>
-</section><section id="fluidAdv90" class="card"><h2>🔧 油圧・空圧 記号辞典 v90</h2>
+</section><section id="fluidAdv91" class="card"><h2>🔧 油圧・空圧 記号辞典 v91</h2>
 <p class="note">ISO 1219系を参考にした学習用簡略図。実機はメーカー回路図・部品仕様を優先してください。</p>
 <style>.g69{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px}.g69 button{background:#fff;color:#111;border:1px solid #aaa;padding:8px}.g69 svg{width:115px;height:65px}.g69 line,.g69 rect,.g69 circle,.g69 path,.g69 polygon{stroke:currentColor;fill:none;stroke-width:2}</style>
 <div class="g69">
@@ -283,10 +283,10 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="f69('silencer')"><svg viewBox="0 0 115 65"><line x1="5" y1="32" x2="48" y2="32"/><rect x="48" y="17" width="28" height="30"/><line x1="82" y1="18" x2="105" y2="8"/><line x1="82" y1="32" x2="108" y2="32"/><line x1="82" y1="46" x2="105" y2="56"/></svg><b>サイレンサ</b></button>
 </div><div id="fo69" class="comment">記号をタップすると役割を表示します。</div>
 <h3>方向切換弁の読み方</h3>
-<label>弁 <select id="dv90" onchange="dir69()"><option value="32">3/2弁</option><option value="42">4/2弁</option><option value="43" selected>4/3弁</option></select></label>
+<label>弁 <select id="dv91" onchange="dir69()"><option value="32">3/2弁</option><option value="42">4/2弁</option><option value="43" selected>4/3弁</option></select></label>
 <label>中立形式 <select id="center69" onchange="dir69()"><option>クローズドセンタ</option><option>タンデムセンタ</option><option>オープンセンタ</option><option>フロートセンタ</option></select></label>
 <div id="do69" class="comment"></div>
-</section><section id="fluid68" class="card"><h2>💧 油圧・空圧 回路図記号 v90</h2><p class="note">ISO 1219系を参考にした学習用簡略図。実機はメーカー回路図・最新版規格を優先。</p>
+</section><section id="fluid68" class="card"><h2>💧 油圧・空圧 回路図記号 v91</h2><p class="note">ISO 1219系を参考にした学習用簡略図。実機はメーカー回路図・最新版規格を優先。</p>
 <style>.g68{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}.g68 button{background:white;color:#111;border:1px solid #aaa}.g68 svg{width:110px;height:65px}.g68 line,.g68 rect,.g68 circle,.g68 path,.g68 polygon{stroke:currentColor;fill:none;stroke-width:2}</style>
 <div class="g68">
 <button onclick="i68('pump')"><svg viewBox="0 0 110 65"><circle cx="55" cy="32" r="22"/><polygon points="42,45 76,32 42,19"/></svg><b>ポンプ</b></button>
@@ -296,8 +296,8 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="i68('filter')"><svg viewBox="0 0 110 65"><line x1="5" y1="32" x2="30" y2="32"/><polygon points="30,10 70,32 30,55"/><line x1="70" y1="32" x2="105" y2="32"/></svg><b>フィルタ</b></button>
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
-<h3>4/3方向切換弁の状態</h3><button onclick="v90('a')">SOL-a</button><button onclick="v90('n')">中立</button><button onclick="v90('b')">SOL-b</button><div id="vo68" class="comment"></div>
-</section><section id="rigGeo67" class="card"><h2>🪝 玉掛け 吊り角度・吊り具確認 v90</h2>
+<h3>4/3方向切換弁の状態</h3><button onclick="v91('a')">SOL-a</button><button onclick="v91('n')">中立</button><button onclick="v91('b')">SOL-b</button><div id="vo68" class="comment"></div>
+</section><section id="rigGeo67" class="card"><h2>🪝 玉掛け 吊り角度・吊り具確認 v91</h2>
 <p class="note"><b>安全重要：</b>計算は段取り検討用です。シャックル、アイボルト、チェーン等の使用可否・WLLは現物刻印/タグとメーカー資料で確認してください。</p>
 <h3>吊り点間距離＋スリング長 → 吊り角度</h3>
 <label>吊り点間距離 W <input id="span67" type="number" value="1000" step="1"> mm</label>
@@ -314,7 +314,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <label>現物刻印/タグ WLL <input id="gwll67" type="number" value="2" step=".1"> t</label>
 <label>計算で掛かる最大荷重 <input id="gload67" type="number" value="1" step=".1"> t</label>
 <button onclick="gearCheck67()">WLLと比較</button><div id="gearo67" class="comment"></div>
-<button onclick="sendResult46('cgo67','2点吊り重心・張力計算')">📝 作業記録へ送る</button></section><section id="rigTable66" class="card"><h2>📊 ワイヤロープ早見表 v90</h2>
+<button onclick="sendResult46('cgo67','2点吊り重心・張力計算')">📝 作業記録へ送る</button></section><section id="rigTable66" class="card"><h2>📊 ワイヤロープ早見表 v91</h2>
 <p class="note"><b>参考計算：</b>6×24ワイヤの概略式 W=0.008d²(t) を使用。実作業は現物仕様・メーカー荷重表・資格者の判断を優先してください。</p>
 <label>掛け本数 <select id="legs66" onchange="table66()"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label>
 <label>つり角度 <select id="angle66" onchange="table66()"><option>0</option><option>30</option><option selected>60</option><option>90</option><option>120</option></select> °</label>
@@ -328,7 +328,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <p class="note">製品名・タグWLLを自分の現場用に登録して比較できます。幅や色だけでは強度を決めません。</p>
 <label>名称 <input id="name66" value="パワースリング"></label><label>タグWLL <input id="wll66" type="number" value="2" step=".1"> t</label>
 <button onclick="add66()">＋登録</button><button onclick="clear66()">登録消去</button><div id="slings66" class="comment"></div>
-</section><section id="rig65" class="card"><h2>🏗️ 玉掛け・スリング荷重アシスタント v90</h2>
+</section><section id="rig65" class="card"><h2>🏗️ 玉掛け・スリング荷重アシスタント v91</h2>
 <p class="note"><b>安全重要：</b>実際の吊上げ可否は、現物タグ・メーカー使用荷重表・吊り方・角度・損傷状態・会社手順を優先。本画面だけで吊上げ可否を決定しないでください。</p>
 <h3>ワイヤロープ（6×24の概略式）</h3>
 <label>ワイヤ径 d <input id="wd65" type="number" value="12" step=".1"> mm</label>
@@ -343,14 +343,14 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <label>掛け方/メーカー係数 <input id="sf65" type="number" value="1.0" step=".05"></label>
 <button onclick="sling65()">タグ値から計算</button><div id="so65" class="comment"></div>
 <button onclick="sendResult46('so65','スリング荷重確認')">📝 作業記録へ送る</button>
-</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v90</h2>
+</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v91</h2>
 <p class="note">0°/90°/180°/270°の対向値から中心ずれを計算。安全な停止・手回し手順で測定してください。</p>
 <label>0°（+X） <input id="d064" type="number" value=".10" step=".01"> mm</label>
 <label>90°（+Y） <input id="d9064" type="number" value=".04" step=".01"> mm</label>
 <label>180°（−X） <input id="d18064" type="number" value="-.10" step=".01"> mm</label>
 <label>270°（−Y） <input id="d27064" type="number" value="-.04" step=".01"> mm</label>
 <button onclick="dial64()">芯ずれを計算</button><div id="dialo64" class="comment"></div>
-<button onclick="sendResult46('dialo64','ダイヤル4方向芯出し')">📝 作業記録へ送る</button></section><section id="coord63" class="card"><h2>🎯 穴位置・中心出しアシスタント v90</h2>
+<button onclick="sendResult46('dialo64','ダイヤル4方向芯出し')">📝 作業記録へ送る</button></section><section id="coord63" class="card"><h2>🎯 穴位置・中心出しアシスタント v91</h2>
 <p class="note">横中ぐり・フライスで使う座標計算です。加工前に図面原点、+X/+Y方向、機械座標を必ず照合してください。</p>
 <h3>3点から円中心</h3>
 <label>P1 X <input id="x163" type="number" value="50" step=".001"> Y <input id="y163" type="number" value="0" step=".001"></label>
@@ -368,7 +368,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <h3>等配穴の隣接穴ピッチ → PCD逆算</h3>
 <label>穴数 N <input id="n63" type="number" value="6" min="3"></label><label>隣接穴中心距離 C <input id="c63" type="number" value="50" step=".001"> mm</label>
 <button onclick="pcd63()">PCD逆算</button><div id="pcdo63" class="comment"></div>
-<button onclick="sendResult46('circleo63','3点円中心')">📝 円中心を記録</button></section><section id="millPro62" class="card"><h2>📍 フライス・横中ぐり 実加工アシスタント v90</h2>
+<button onclick="sendResult46('circleo63','3点円中心')">📝 円中心を記録</button></section><section id="millPro62" class="card"><h2>📍 フライス・横中ぐり 実加工アシスタント v91</h2>
 <p class="note">PCD配穴・斜め穴位置・切込み回数・円弧座標を現場で素早く計算します。原点・符号・図面寸法は加工前に必ず照合してください。</p>
 <h3>PCD等配穴</h3>
 <label>PCD <input id="pcd62" type="number" value="100" step=".01"> mm</label><label>穴数 <input id="holes62" type="number" value="6" min="2"></label><label>開始角 <input id="ang62" type="number" value="0" step=".1"> °</label>
@@ -382,7 +382,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <h3>円弧上の座標</h3>
 <label>半径 <input id="arcR62" type="number" value="50" step=".01"> mm</label><label>角度 <input id="arcA62" type="number" value="45" step=".1"> °</label>
 <button onclick="arc62()">計算</button><div id="arco62" class="comment"></div>
-<button onclick="sendResult46('pcdo62','PCD配穴座標')">📝 PCD結果を記録</button></section><section id="lathePro61" class="card"><h2>📐 旋盤 実加工アシスタント v90</h2>
+<button onclick="sendResult46('pcdo62','PCD配穴座標')">📝 PCD結果を記録</button></section><section id="lathePro61" class="card"><h2>📐 旋盤 実加工アシスタント v91</h2>
 <p class="note">テーパー・外径パス数・ねじ切りの段取り計算。実加工では図面、機械仕様、工具メーカー条件を優先してください。</p>
 <h3>テーパー加工</h3>
 <label>大径 D1 <input id="d161" type="number" value="50" step=".01"> mm</label>
@@ -400,7 +400,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <label>主軸回転数 <input id="rpm61" type="number" value="300"> min⁻¹</label>
 <button onclick="thread61()">送り計算</button><div id="thr61" class="comment"></div>
 <button onclick="sendResult46('tap61','旋盤テーパー計算')">📝 テーパー結果を記録</button>
-</section><section id="material60" class="card"><h2>🧱 材質別 切削条件ガイド v90</h2>
+</section><section id="material60" class="card"><h2>🧱 材質別 切削条件ガイド v91</h2>
 <p class="note">材質・工具・荒/仕上げから参考レンジを表示し、回転数計算へ使える初期値を作ります。工具メーカーの最新推奨条件を最優先してください。</p>
 <label>材質 <select id="mat60" onchange="mat60calc()">
 <option value="SS400">SS400系 一般構造用鋼</option><option value="S45C">S45C系 炭素鋼</option><option value="SCM">SCM系 合金鋼</option><option value="SUS304">SUS304系 ステンレス</option><option value="FC">FC系 鋳鉄</option><option value="AL">アルミ合金</option></select></label>
@@ -411,11 +411,11 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <div id="out60" class="comment"></div>
 <button onclick="send60lathe()">旋盤へ参考Vcをセット</button>
 <button onclick="send60mill()">フライスへ参考Vcをセット</button>
-</section><section id="lathe59" class="card"><h2>🔄 旋盤加工アシスタント v90</h2>
+</section><section id="lathe59" class="card"><h2>🔄 旋盤加工アシスタント v91</h2>
 <p class="note">外径・内径・端面加工の回転数、送り速度、加工時間を計算。切削条件は工具メーカー推奨値と実機条件を優先してください。</p>
 <label>加工 <select id="lt59" onchange="lathe59()"><option value="od">外径切削</option><option value="id">内径・ボーリング</option><option value="face">端面切削</option></select></label>
 <label>加工径 D <input id="ld59" type="number" value="50" step=".1"> mm</label>
-<label>切削速度 Vc <input id="lv90" type="number" value="120" step="1"> m/min</label>
+<label>切削速度 Vc <input id="lv91" type="number" value="120" step="1"> m/min</label>
 <label>1回転送り f <input id="lf59" type="number" value=".20" step=".01"> mm/rev</label>
 <label>加工長さ L <input id="ll59" type="number" value="100" step="1"> mm</label>
 <label>端面加工：開始径 <input id="lstart59" type="number" value="100" step=".1"> mm</label>
@@ -424,19 +424,19 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="lathe59()">旋盤条件を計算</button>
 <div id="lo59" class="comment"></div>
 <button onclick="sendResult46('lo59','旋盤加工条件')">📝 作業記録へ送る</button>
-</section><section id="cut58" class="card"><h2>⚙️ 切削条件アシスタント v90</h2><p class="note">フライス・横中ぐり・旋盤の回転数・送り速度・理論加工時間を計算します。入力条件は工具メーカー推奨値を優先してください。</p><label>加工 <select id="ct58" onchange="cut58()"><option value="mill">フライス / 横中ぐり</option><option value="lathe">旋盤</option></select></label><label>工具径 / ワーク径 D <input id="cd58" type="number" value="20" step=".1"> mm</label><label>切削速度 V <input id="cv90" type="number" value="80" step="1"> m/min</label><label>刃数 z <input id="cz58" type="number" value="4" min="1"></label><label>1刃送り fz <input id="cfz58" type="number" value=".08" step=".01"> mm/tooth</label><label>旋盤 1回転送り f <input id="cf58" type="number" value=".20" step=".01"> mm/rev</label><label>加工長さ L <input id="cl58" type="number" value="100"> mm</label><button onclick="cut58()">計算</button><div id="co58" class="comment"></div><button onclick="sendResult46('co58','切削条件')">📝 作業記録へ送る</button></section><section id="hole57" class="card"><h2>🛠️ 穴加工アシスタント v90</h2>
+</section><section id="cut58" class="card"><h2>⚙️ 切削条件アシスタント v91</h2><p class="note">フライス・横中ぐり・旋盤の回転数・送り速度・理論加工時間を計算します。入力条件は工具メーカー推奨値を優先してください。</p><label>加工 <select id="ct58" onchange="cut58()"><option value="mill">フライス / 横中ぐり</option><option value="lathe">旋盤</option></select></label><label>工具径 / ワーク径 D <input id="cd58" type="number" value="20" step=".1"> mm</label><label>切削速度 V <input id="cv91" type="number" value="80" step="1"> m/min</label><label>刃数 z <input id="cz58" type="number" value="4" min="1"></label><label>1刃送り fz <input id="cfz58" type="number" value=".08" step=".01"> mm/tooth</label><label>旋盤 1回転送り f <input id="cf58" type="number" value=".20" step=".01"> mm/rev</label><label>加工長さ L <input id="cl58" type="number" value="100"> mm</label><button onclick="cut58()">計算</button><div id="co58" class="comment"></div><button onclick="sendResult46('co58','切削条件')">📝 作業記録へ送る</button></section><section id="hole57" class="card"><h2>🛠️ 穴加工アシスタント v91</h2>
 <p class="note">ドリル・タップ・リーマ・座ぐり・皿もみの作業メモを1画面に統合。最終寸法は図面・工具メーカー資料を優先してください。</p>
 <label>加工 <select id="ht57" onchange="hole57()"><option value="tap">タップ下穴</option><option value="ream">リーマ下穴</option><option value="cb">座ぐり</option><option value="cs">皿もみ</option><option value="drill">ドリル回転数</option></select></label>
 <label>仕上り径 / 呼び径 D <input id="hd57" type="number" value="10" step=".1"> mm</label>
 <label>ピッチ P（タップ時） <input id="hp57" type="number" value="1.5" step=".05"> mm</label>
 <label>リーマ取代（直径） <input id="ha57" type="number" value=".2" step=".05"> mm</label>
-<label>切削速度 V <input id="hv90" type="number" value="20" step="1"> m/min</label>
+<label>切削速度 V <input id="hv91" type="number" value="20" step="1"> m/min</label>
 <label>皿角度 <select id="hang57"><option>90</option><option>82</option><option>100</option><option>120</option></select> °</label>
 <label>皿外径 <input id="hout57" type="number" value="18" step=".1"> mm</label>
 <button onclick="hole57()">計算・表示</button>
 <div id="ho57" class="comment"></div>
 <button onclick="sendResult46('ho57','穴加工')">📝 作業記録へ送る</button>
-</section><section id="threadPro56" class="card"><h2>🧵 ねじ詳細アシスタント v90</h2>
+</section><section id="threadPro56" class="card"><h2>🧵 ねじ詳細アシスタント v91</h2>
 <p class="note">並目・細目の確認、ピッチ逆引き、リード計算、簡易ねじ込み深さメモをまとめました。最終値は図面・規格・メーカー指定を優先してください。</p>
 <label>呼び径 d <input id="td56" type="number" value="10" step=".1"> mm</label>
 <label>ピッチ P <input id="tp56" type="number" value="1.5" step=".05"> mm</label>
@@ -449,7 +449,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <h3>呼び径から代表ピッチ候補</h3>
 <label>M <select id="tm56" onchange="pitch56()"><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option selected>10</option><option>12</option><option>14</option><option>16</option><option>18</option><option>20</option><option>22</option><option>24</option><option>27</option><option>30</option><option>33</option><option>36</option></select></label>
 <div id="po56" class="comment"></div>
-</section><section id="bolt55" class="card"><h2>🔩 ボルト・ねじ総合アシスタント v90</h2>
+</section><section id="bolt55" class="card"><h2>🔩 ボルト・ねじ総合アシスタント v91</h2>
 <p class="note">メートル並目ねじの現場用早見・概算です。締付トルクは締結体・潤滑・表面処理・メーカー指定を最終優先してください。</p>
 <label>呼び <select id="bm55" onchange="bolt55()">
 <option>M3</option><option>M4</option><option>M5</option><option>M6</option><option>M8</option><option selected>M10</option><option>M12</option><option>M14</option><option>M16</option><option>M18</option><option>M20</option><option>M22</option><option>M24</option><option>M27</option><option>M30</option><option>M33</option><option>M36</option>
@@ -460,7 +460,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="bolt55()">計算・表示</button>
 <div id="bo55" class="comment"></div>
 <button onclick="sendResult46('bo55','ボルト・ねじ総合')">📝 作業記録へ送る</button>
-</section><section id="tools47" class="card"><h2>🧰 現場計算ツール v90</h2>
+</section><section id="tools47" class="card"><h2>🧰 現場計算ツール v91</h2>
 <p class="note">主要計算を安定した共通構造に整理しました。各結果はそのまま作業記録へ送れます。</p>
 
 <h3>ねじ・タップ下穴</h3>
@@ -509,7 +509,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="jump41('cylinder')">💨 油圧・空圧</button><button onclick="jump41('cut')">🛠️ 加工</button>
 <button onclick="jump41('electric')">⚡ 電気</button><button onclick="jump41('weight')">📐 材料・計算</button>
 </div><p class="note">検索はこの端末内だけで動作します。通信なしでも利用できる構成です。</p></section>
-<h1 id="appTitle">現場機械アシスタント v90</h1><div class="card" style="padding:10px 14px">
+<h1 id="appTitle">現場機械アシスタント v91</h1><div class="card" style="padding:10px 14px">
 <label><b id="langLabel">言語 / Language</b>
 <select id="language" onchange="setLanguage(this.value)">
 <option value="ja">日本語</option>
@@ -541,7 +541,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button class="homebtn" id="homeAlign" onclick="go('alignment')">⚙️ 2軸芯出し</button>
 <button class="homebtn" id="homeShim" onclick="go('shim')">▤ シム計算</button>
 <button class="homebtn" id="homeSoft" onclick="go('soft')">⌁ ソフトフット</button>
-<button class="homebtn" id="homeMeasure" onclick="go('measure')">◎ 測定手順</button><button class="homebtn" onclick="go('workNav90')">🧭 芯出し作業ナビ</button><button class="homebtn" onclick="go('threeAxis')">⚙️⚙️⚙️ 3軸ライン芯出し</button>
+<button class="homebtn" id="homeMeasure" onclick="go('measure')">◎ 測定手順</button><button class="homebtn" onclick="go('workNav91')">🧭 芯出し作業ナビ</button><button class="homebtn" onclick="go('threeAxis')">⚙️⚙️⚙️ 3軸ライン芯出し</button>
 </div>
 <p class="note">この版では、これまで作った芯出し機能をiPhoneで操作しやすい「現場機械アシスタント」の入口にまとめています。</p>
 </div>
@@ -696,7 +696,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <p class="note">3軸モードではA-B、B-Cそれぞれについて、面振れから求めた上下・左右の角度差を <b>度（°）</b> と <b>分（′）</b> で同時表示します。計算は θ = atan((対向位置の面振れ差÷2)/(測定径÷2)) の簡易幾何モデルです。</p>
 </div>
 
-<div class="card" id="workNav90">
+<div class="card" id="workNav91">
 <h2>芯出し作業ナビ</h2>
 <p class="note">作業を8ステップで確認します。各ステップをタップすると、その作業の要点と次の行動を表示します。</p>
 <div id="navProgress24" style="font-weight:bold;margin:8px 0">進捗 0 / 8</div>
@@ -708,7 +708,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 </div>
 <div id="navDetail24" class="comment" style="margin-top:12px">①から順番に進めてください。</div>
 <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
-<button onclick="prev90()">← 前へ</button><button onclick="complete24()">この工程を完了 ✓</button><button onclick="next24()">次へ →</button><button onclick="reset24()">進捗リセット</button>
+<button onclick="prev91()">← 前へ</button><button onclick="complete24()">この工程を完了 ✓</button><button onclick="next24()">次へ →</button><button onclick="reset24()">進捗リセット</button>
 </div>
 </div>
 <div class="card" id="softFootGuide">
@@ -844,17 +844,17 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <script>
 
 const I18N={
-ja:{title:"現場機械アシスタント v90",menu:"現場メニュー",align:"芯出し",shim:"シム",soft:"ソフトフット",measure:"測定手順",
+ja:{title:"現場機械アシスタント v91",menu:"現場メニュー",align:"芯出し",shim:"シム",soft:"ソフトフット",measure:"測定手順",
 homeAlign:"⚙️ 2軸芯出し",homeShim:"▤ シム計算",homeSoft:"⌁ ソフトフット",homeMeasure:"◎ 測定手順",
 heads:["① 基本設定","基本設定の寸法図（L1・L2）","基本設定の寸法図（左右フット間隔 W）","② ラジアル測定（外径・360°）","③ 面振れ測定（最大実用径・360°）","④ 計算結果","⑤ 図解","⑥ 4本フット","⑦ 私からのコメント説明","⑧ 現在のズレ → 調整後の動き","⑨ 現場での測定手順","⑩ 現在のシム厚 → 調整後シム厚","⑪ ソフトフット簡易チェック"]},
-en:{title:"Field Machine Assistant v90",menu:"Field Menu",align:"Alignment",shim:"Shims",soft:"Soft Foot",measure:"Measurement",
+en:{title:"Field Machine Assistant v91",menu:"Field Menu",align:"Alignment",shim:"Shims",soft:"Soft Foot",measure:"Measurement",
 homeAlign:"⚙️ Shaft Alignment",homeShim:"▤ Shim Calculator",homeSoft:"⌁ Soft Foot",homeMeasure:"◎ Measurement Guide",
 heads:["① Basic Settings","Dimension Diagram (L1 / L2)","Dimension Diagram (Foot Width W)","② Radial Measurement (OD / 360°)","③ Face Measurement (360°)","④ Results","⑤ Diagram","⑥ Four Feet","⑦ Assistant Explanation","⑧ Current Misalignment → After Adjustment","⑨ Field Measurement Procedure","⑩ Current Shims → New Shims","⑪ Soft Foot Check"]},
-zh:{title:"现场机械助手 v90",menu:"现场菜单",align:"轴对中",shim:"垫片",soft:"软脚",measure:"测量步骤",homeAlign:"⚙️ 双轴对中",homeShim:"▤ 垫片计算",homeSoft:"⌁ 软脚检查",homeMeasure:"◎ 测量步骤",heads:["① 基本设置","尺寸图（L1 / L2）","尺寸图（左右脚间距 W）","② 径向测量（外径・360°）","③ 端面测量（360°）","④ 计算结果","⑤ 图示","⑥ 四个机脚","⑦ 助手说明","⑧ 当前偏差 → 调整后","⑨ 现场测量步骤","⑩ 当前垫片 → 调整后垫片","⑪ 软脚检查"]},
-ko:{title:"현장 기계 어시스턴트 v90",menu:"현장 메뉴",align:"축 정렬",shim:"심",soft:"소프트 풋",measure:"측정 절차",homeAlign:"⚙️ 2축 정렬",homeShim:"▤ 심 계산",homeSoft:"⌁ 소프트 풋",homeMeasure:"◎ 측정 절차",heads:["① 기본 설정","치수도 (L1 / L2)","치수도 (좌우 풋 간격 W)","② 라디얼 측정 (외경・360°)","③ 면 흔들림 측정 (360°)","④ 계산 결과","⑤ 도해","⑥ 4개 풋","⑦ 어시스턴트 설명","⑧ 현재 오차 → 조정 후","⑨ 현장 측정 절차","⑩ 현재 심 → 조정 후 심","⑪ 소프트 풋 점검"]},
-vi:{title:"Trợ lý Máy móc Hiện trường v90",menu:"Menu hiện trường",align:"Căn chỉnh trục",shim:"Căn shim",soft:"Soft foot",measure:"Quy trình đo",homeAlign:"⚙️ Căn chỉnh 2 trục",homeShim:"▤ Tính shim",homeSoft:"⌁ Kiểm tra soft foot",homeMeasure:"◎ Hướng dẫn đo",heads:["① Cài đặt cơ bản","Sơ đồ kích thước (L1 / L2)","Sơ đồ khoảng cách chân W","② Đo hướng kính (360°)","③ Đo mặt (360°)","④ Kết quả","⑤ Sơ đồ","⑥ Bốn chân","⑦ Giải thích","⑧ Sai lệch hiện tại → Sau điều chỉnh","⑨ Quy trình đo hiện trường","⑩ Shim hiện tại → Shim mới","⑪ Kiểm tra soft foot"]},
-pt:{title:"Assistente de Máquinas de Campo v90",menu:"Menu de Campo",align:"Alinhamento",shim:"Calços",soft:"Pé Manco",measure:"Medição",homeAlign:"⚙️ Alinhamento de Eixos",homeShim:"▤ Cálculo de Calços",homeSoft:"⌁ Pé Manco",homeMeasure:"◎ Guia de Medição",heads:["① Configuração Básica","Diagrama de Dimensões (L1 / L2)","Diagrama da Largura W","② Medição Radial (360°)","③ Medição Axial/Face (360°)","④ Resultados","⑤ Diagrama","⑥ Quatro Pés","⑦ Explicação","⑧ Desalinhamento → Após Ajuste","⑨ Procedimento de Medição","⑩ Calços Atuais → Novos","⑪ Verificação de Pé Manco"]},
-es:{title:"Asistente de Máquinas de Campo v90",menu:"Menú de Campo",align:"Alineación",shim:"Calces",soft:"Pie Cojo",measure:"Medición",homeAlign:"⚙️ Alineación de Ejes",homeShim:"▤ Cálculo de Calces",homeSoft:"⌁ Pie Cojo",homeMeasure:"◎ Guía de Medición",heads:["① Ajustes Básicos","Diagrama de Dimensiones (L1 / L2)","Diagrama del Ancho W","② Medición Radial (360°)","③ Medición de Cara (360°)","④ Resultados","⑤ Diagrama","⑥ Cuatro Patas","⑦ Explicación","⑧ Desalineación → Después del Ajuste","⑨ Procedimiento de Medición","⑩ Calces Actuales → Nuevos","⑪ Comprobación de Pie Cojo"]}
+zh:{title:"现场机械助手 v91",menu:"现场菜单",align:"轴对中",shim:"垫片",soft:"软脚",measure:"测量步骤",homeAlign:"⚙️ 双轴对中",homeShim:"▤ 垫片计算",homeSoft:"⌁ 软脚检查",homeMeasure:"◎ 测量步骤",heads:["① 基本设置","尺寸图（L1 / L2）","尺寸图（左右脚间距 W）","② 径向测量（外径・360°）","③ 端面测量（360°）","④ 计算结果","⑤ 图示","⑥ 四个机脚","⑦ 助手说明","⑧ 当前偏差 → 调整后","⑨ 现场测量步骤","⑩ 当前垫片 → 调整后垫片","⑪ 软脚检查"]},
+ko:{title:"현장 기계 어시스턴트 v91",menu:"현장 메뉴",align:"축 정렬",shim:"심",soft:"소프트 풋",measure:"측정 절차",homeAlign:"⚙️ 2축 정렬",homeShim:"▤ 심 계산",homeSoft:"⌁ 소프트 풋",homeMeasure:"◎ 측정 절차",heads:["① 기본 설정","치수도 (L1 / L2)","치수도 (좌우 풋 간격 W)","② 라디얼 측정 (외경・360°)","③ 면 흔들림 측정 (360°)","④ 계산 결과","⑤ 도해","⑥ 4개 풋","⑦ 어시스턴트 설명","⑧ 현재 오차 → 조정 후","⑨ 현장 측정 절차","⑩ 현재 심 → 조정 후 심","⑪ 소프트 풋 점검"]},
+vi:{title:"Trợ lý Máy móc Hiện trường v91",menu:"Menu hiện trường",align:"Căn chỉnh trục",shim:"Căn shim",soft:"Soft foot",measure:"Quy trình đo",homeAlign:"⚙️ Căn chỉnh 2 trục",homeShim:"▤ Tính shim",homeSoft:"⌁ Kiểm tra soft foot",homeMeasure:"◎ Hướng dẫn đo",heads:["① Cài đặt cơ bản","Sơ đồ kích thước (L1 / L2)","Sơ đồ khoảng cách chân W","② Đo hướng kính (360°)","③ Đo mặt (360°)","④ Kết quả","⑤ Sơ đồ","⑥ Bốn chân","⑦ Giải thích","⑧ Sai lệch hiện tại → Sau điều chỉnh","⑨ Quy trình đo hiện trường","⑩ Shim hiện tại → Shim mới","⑪ Kiểm tra soft foot"]},
+pt:{title:"Assistente de Máquinas de Campo v91",menu:"Menu de Campo",align:"Alinhamento",shim:"Calços",soft:"Pé Manco",measure:"Medição",homeAlign:"⚙️ Alinhamento de Eixos",homeShim:"▤ Cálculo de Calços",homeSoft:"⌁ Pé Manco",homeMeasure:"◎ Guia de Medição",heads:["① Configuração Básica","Diagrama de Dimensões (L1 / L2)","Diagrama da Largura W","② Medição Radial (360°)","③ Medição Axial/Face (360°)","④ Resultados","⑤ Diagrama","⑥ Quatro Pés","⑦ Explicação","⑧ Desalinhamento → Após Ajuste","⑨ Procedimento de Medição","⑩ Calços Atuais → Novos","⑪ Verificação de Pé Manco"]},
+es:{title:"Asistente de Máquinas de Campo v91",menu:"Menú de Campo",align:"Alineación",shim:"Calces",soft:"Pie Cojo",measure:"Medición",homeAlign:"⚙️ Alineación de Ejes",homeShim:"▤ Cálculo de Calces",homeSoft:"⌁ Pie Cojo",homeMeasure:"◎ Guía de Medición",heads:["① Ajustes Básicos","Diagrama de Dimensiones (L1 / L2)","Diagrama del Ancho W","② Medición Radial (360°)","③ Medición de Cara (360°)","④ Resultados","⑤ Diagrama","⑥ Cuatro Patas","⑦ Explicación","⑧ Desalineación → Después del Ajuste","⑨ Procedimiento de Medición","⑩ Calces Actuales → Nuevos","⑪ Comprobación de Pie Cojo"]}
 };
 
 const FIELD={
@@ -896,7 +896,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 
 
-const STORAGE_KEY="genba_machine_v90_inputs";
+const STORAGE_KEY="genba_machine_v91_inputs";
 function saveInputs(){
  const data={};
  document.querySelectorAll("input,select").forEach(e=>{
@@ -1009,7 +1009,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 let current24=1, done24={};
-const nav90={
+const nav91={
 1:["① ソフトフット確認","4フットの接触状態を確認します。ダイヤルはカップリングではなく対象フット付近の機械本体側へ当てます。異物・バリ・シム状態・ベースも確認してください。","softFootGuide"],
 2:["② ラジアル測定","カップリング外周で0°・90°・180°・270°を測定します。測定方向と符号を統一し、記録してください。","measure"],
 3:["③ 面振れ測定","できるだけ大きい測定径で0°・90°・180°・270°を測定します。測定径Dも必ず記録します。角度表示にも使用します。","measure"],
@@ -1020,26 +1020,26 @@ const nav90={
 8:["⑧ 合格判定","最終測定値を設備・カップリング・メーカーの許容値と比較します。アプリの目安よりメーカー指定値を優先してください。","finalJudge25"]
 };
 function render24(){
- let a=nav90[current24], d=Object.keys(done24).filter(k=>done24[k]).length;
+ let a=nav91[current24], d=Object.keys(done24).filter(k=>done24[k]).length;
  document.getElementById("navProgress24").textContent="進捗 "+d+" / 8　現在："+a[0];
  document.getElementById("navDetail24").innerHTML="<b>"+a[0]+"</b><br>"+a[1]+"<br><button style='margin-top:8px' onclick=\"go('"+a[2]+"')\">関連画面を開く</button>";
- try{localStorage.setItem("genbaNav90",JSON.stringify({current:current24,done:done24}))}catch(e){}
+ try{localStorage.setItem("genbaNav91",JSON.stringify({current:current24,done:done24}))}catch(e){}
 }
 function step24(n){current24=n;render24()}
-function prev90(){current24=Math.max(1,current24-1);render24()}
+function prev91(){current24=Math.max(1,current24-1);render24()}
 function next24(){current24=Math.min(8,current24+1);render24()}
 function complete24(){done24[current24]=true;if(current24<8)current24++;render24()}
 function reset24(){done24={};current24=1;render24()}
 document.addEventListener("DOMContentLoaded",()=>{
- try{let x=JSON.parse(localStorage.getItem("genbaNav90")||"null");if(x){current24=x.current||1;done24=x.done||{}}}catch(e){}
+ try{let x=JSON.parse(localStorage.getItem("genbaNav91")||"null");if(x){current24=x.current||1;done24=x.done||{}}}catch(e){}
  render24();
 });
 
 
-function v90(id){let e=document.getElementById(id);if(!e||e.value==="")return null;let n=parseFloat(e.value);return Number.isFinite(n)?n:null}
-function axisRange25(p,k,a,b){let x=v90(p+"_"+k+a),y=v90(p+"_"+k+b);return (x===null||y===null)?null:Math.abs(x-y)}
+function v91(id){let e=document.getElementById(id);if(!e||e.value==="")return null;let n=parseFloat(e.value);return Number.isFinite(n)?n:null}
+function axisRange25(p,k,a,b){let x=v91(p+"_"+k+a),y=v91(p+"_"+k+b);return (x===null||y===null)?null:Math.abs(x-y)}
 function judge25(){
- let tr=Math.abs(v90("tolR25")??0.05),tf=Math.abs(v90("tolF25")??0.05);
+ let tr=Math.abs(v91("tolR25")??0.05),tf=Math.abs(v91("tolF25")??0.05);
  function one(p,n){
    let rv=axisRange25(p,"r","0","180"),rh=axisRange25(p,"r","90","270");
    let fv=axisRange25(p,"f","0","180"),fh=axisRange25(p,"f","90","270");
@@ -1066,7 +1066,7 @@ function threadCalc27(){let d=+thD27.value,p=+thP27.value;let approx=d-p;thOut27
 function gearCalc27(){let m=+gm27.value,z=+gz27.value;gearOut27.innerHTML="ピッチ円直径 d = m×z = <b>"+(m*z).toFixed(3)+" mm</b><br>標準平歯車の参考：歯先円直径 ≈ <b>"+(m*(z+2)).toFixed(3)+" mm</b>"}
 function cutCalc27(){let D=+cutD27.value,V=+cutV27.value;let n=1000*V/(Math.PI*D);cutOut27.innerHTML="回転数 n = 1000V/(πD) = <b>"+n.toFixed(0)+" min⁻¹</b>"}
 function fluidCalc27(){let P=+fp27.value,D=+fd27.value,A=Math.PI*D*D/4,F=P*A;fluidOut27.innerHTML="受圧面積 = <b>"+A.toFixed(1)+" mm²</b><br>理論推力 = P×A = <b>"+F.toFixed(0)+" N</b>（約 "+(F/1000).toFixed(2)+" kN）"}
-function electricCalc27(){let V=+ev90.value,A=+ea27.value;electricOut27.innerHTML="単相・力率等を無視した基本値：V×I = <b>"+(V*A).toFixed(0)+" VA</b><br><span class='note'>三相・モータ・実電力は力率/効率等が必要です。</span>"}
+function electricCalc27(){let V=+ev91.value,A=+ea27.value;electricOut27.innerHTML="単相・力率等を無視した基本値：V×I = <b>"+(V*A).toFixed(0)+" VA</b><br><span class='note'>三相・モータ・実電力は力率/効率等が必要です。</span>"}
 function unitCalc27(){let x=+mpa27.value;unitOut27.innerHTML="<b>"+x+" MPa</b> = "+(x*1000).toFixed(1)+" kPa = "+(x*1e6).toFixed(0)+" Pa<br>≈ "+(x*10.197162).toFixed(3)+" kgf/cm²"}
 
 
@@ -1076,7 +1076,7 @@ function boltCalc28(){
  document.getElementById("boltOut28").innerHTML="概算軸力 F ≈ <b>"+(F/1000).toFixed(1)+" kN</b><br><span class='note'>トルク値から軸力を保証するものではありません。</span>";
 }
 function threeCalc28(){
- let V=+tv90.value,I=+ti28.value,pf=+tpf28.value,e=+te28.value;
+ let V=+tv91.value,I=+ti28.value,pf=+tpf28.value,e=+te28.value;
  let S=Math.sqrt(3)*V*I/1000,Pin=S*pf,Pout=Pin*e;
  threeOut28.innerHTML="皮相電力 ≈ <b>"+S.toFixed(2)+" kVA</b><br>入力有効電力 ≈ <b>"+Pin.toFixed(2)+" kW</b><br>出力目安 ≈ <b>"+Pout.toFixed(2)+" kW</b>";
 }
@@ -1211,10 +1211,10 @@ function toolBtn43(label,words){let id=findTool43(words);return id?`<button styl
 function actions43(){let t=dgType43.value,b="<hr><b>関連ツール</b><br>";if(t==="bearing")b+=toolBtn43("ベアリング検索",["bearing"])+toolBtn43("軸径から逆引き",["reverse"]);if(t==="vibration")b+=toolBtn43("芯出し計算",["align","workflow"])+toolBtn43("ソフトフット",["softfoot"]);if(t==="cylinder")b+=toolBtn43("シリンダ推力計算",["cylinder40"])+toolBtn43("油圧・空圧",["hyd","pneu"]);if(t==="align")b+=toolBtn43("芯出し計算",["align","workflow"])+toolBtn43("ソフトフット",["softfoot"])+toolBtn43("最終判定",["judgement"]);return b}
 
 const FLOW43={
-bearing:{q:"潤滑剤の量・種類・給脂履歴に異常がありますか？",y:{r:"まず潤滑条件を是正候補として確認。過多給脂も発熱要因になります。是正後は温度推移を再測定してください。"},n:{q:"カップリング芯ずれ、ベルト張力過大、配管荷重など外力が疑われますか？",y:{r:"外力・芯ずれを除去して再測定。軸受だけを交換する前に外部要因を切り分けます。"},n:{q:"異音・振動・回転の引っ掛かりがありますか？",y:{r:"軸受損傷、すきま/予圧、はめあい、シール抵抗などを停止状態で詳しく点検。"},n:{r:"運転条件、温度測定位置、周囲温度、負荷を記録し、メーカー許容値と比較してください。"}}}},
-vibration:{q:"停止状態で基礎・アンカー・取付ボルト・ガード等に緩みがありますか？",y:{r:"まず緩みや支持剛性を是正し、同条件で振動を再確認。"},n:{q:"カップリング機で芯ずれまたはソフトフットがありますか？",y:{r:"ソフトフット→芯出しの順に確認し、締付け前後の測定値も記録してください。"},n:{q:"回転数に同期して振動が強くなりますか？",y:{r:"アンバランス、偏心、曲がり、カップリング等の回転一次成分を重点確認。"},n:{r:"軸受・歯車・ベルト・共振など周期成分の測定/切り分けへ進みます。"}}}},
-cylinder:{q:"供給圧力が設定値より低いですか？",y:{r:"供給源、レギュレータ、ポンプ/コンプレッサ、圧力損失を確認。"},n:{q:"流量調整弁、フィルタ、配管、継手に絞り・詰まりが疑われますか？",y:{r:"流路抵抗を点検。むやみに調整弁を全開にせず、設備仕様に従って確認してください。"},n:{q:"外部漏れ、または停止時に位置保持できない等の内部漏れ兆候がありますか？",y:{r:"シール、弁、シリンダ内部漏れを点検候補に。"},n:{r:"負荷、横荷重、芯ずれ、摺動抵抗、背圧、油温/粘度を確認してください。"}}},
-align:{q:"ダイヤルスタンドや測定治具を触ると指示値が動きますか？",y:{r:"測定系の剛性不足が疑われます。治具固定と測定面を直してから再測定。"},n:{q:"機械脚にソフトフットがありますか？",y:{r:"芯出しより先にソフトフット原因を処置。シム・ゴミ・バリ・脚/ベース変形を確認。"},n:{q:"ボルトを締めると芯が大きく動きますか？",y:{r:"締付け順序、シム全面接触、ベース歪み、脚の浮きを重点確認。"},n:{q:"配管・ベルト・外部接続をすると芯が動きますか？",y:{r:"配管応力、ベルト張力、接続外力を切り分けてください。"},n:{r:"軸/カップリング自身の振れ、熱変位、基礎変形、測定方法を再確認します。"}}}}
+ bearing:{q:"潤滑条件に異常がありますか？",y:{r:"潤滑条件を確認し、是正後に温度推移を再測定してください。"},n:{r:"芯ずれ・外力・軸受状態・運転条件を順に確認してください。"}},
+ vibration:{q:"停止状態で緩みがありますか？",y:{r:"基礎・取付部の緩みを是正し、同条件で再測定してください。"},n:{r:"芯ずれ・ソフトフット・回転体・軸受などを順に切り分けてください。"}},
+ cylinder:{q:"供給圧力は設定範囲内ですか？",y:{r:"流量・弁・漏れ・負荷・摺動抵抗を確認してください。"},n:{r:"供給源と圧力損失を確認してください。"}},
+ align:{q:"ソフトフットがありますか？",y:{r:"芯出し前にソフトフット原因を確認してください。"},n:{r:"測定治具、締付け、外力、軸自身の振れを順に確認してください。"}}
 };
 let node43=null;
 function render43(){if(node43.r){dg43.innerHTML="<b>診断候補</b><br>"+node43.r+"<br><span class='note'>これは原因確定ではなく、次に確認する候補です。</span>"+actions43();dgBtns43.style.display="flex";return}dg43.innerHTML="<b>質問：</b><br>"+node43.q;dgBtns43.style.display="flex"}
@@ -1231,7 +1231,7 @@ function sendResult46(id,label){
  if(rec){rec.scrollIntoView({behavior:"smooth",block:"start"});rec.classList.add("flash46");setTimeout(()=>rec.classList.remove("flash46"),1400)}
 }
 
-const KEY45="genba_records_v90";
+const KEY45="genba_records_v91";
 function load45(){try{return JSON.parse(localStorage.getItem(KEY45)||"[]")}catch(e){return []}}
 function save45(){let x={id:Date.now(),date:rd45.value,machine:rm45.value.trim(),sym:rs45.value.trim(),before:rb45.value.trim(),action:ra45.value.trim(),result:rr45.value.trim()};if(!x.machine&&!x.sym){alert("機械名または作業内容を入力してください");return}let a=load45();a.unshift(x);localStorage.setItem(KEY45,JSON.stringify(a));render45();alert("端末内に保存しました")}
 function del45(id){if(confirm("この記録を削除しますか？")){localStorage.setItem(KEY45,JSON.stringify(load45().filter(x=>x.id!==id)));render45()}}
@@ -1373,7 +1373,7 @@ function pitch56(){
 }
 document.addEventListener("DOMContentLoaded",()=>{try{thread56();pitch56()}catch(e){}});
 function hole57(){
- let t=ht57.value,D=+hd57.value,P=+hp57.value,a=+ha57.value,V=+hv90.value,ang=+hang57.value,OD=+hout57.value;
+ let t=ht57.value,D=+hd57.value,P=+hp57.value,a=+ha57.value,V=+hv91.value,ang=+hang57.value,OD=+hout57.value;
  let rpm=D>0?1000*V/(Math.PI*D):0,txt="";
  if(t==="tap")txt=`タップ M${D}×${P}<br>切削タップ簡易下穴：<b>Ø${(D-P).toFixed(2)} mm</b><br>参考回転数 n=1000V/(πD)：<b>${rpm.toFixed(0)} min⁻¹</b><br><span class="note">転造タップは下穴径の考え方が異なるため、このd−P式を使用しないでください。</span>`;
  if(t==="ream")txt=`仕上り Ø${D} mm<br>入力取代 ${a} mm（直径）→ 下穴目安 <b>Ø${(D-a).toFixed(2)} mm</b><br><span class="note">実際の取代は材質・径・工具・加工精度により決定。</span>`;
@@ -1383,9 +1383,9 @@ function hole57(){
  ho57.innerHTML=txt;
 }
 document.addEventListener("DOMContentLoaded",()=>{try{hole57()}catch(e){}});
-function cut58(){let t=ct58.value,D=+cd58.value,V=+cv90.value,z=Math.max(1,+cz58.value||1),fz=+cfz58.value,f=+cf58.value,L=+cl58.value;if(D<=0){co58.innerHTML="径Dは0より大きくしてください。";return}let n=1000*V/(Math.PI*D),feed=t==="mill"?fz*z*n:f*n,time=feed>0?L/feed:0;co58.innerHTML=`<b>${t==="mill"?"フライス / 横中ぐり":"旋盤"}</b><br>D=${D} mm / V=${V} m/min<br>回転数 n=1000V/(πD)：<b>${n.toFixed(0)} min⁻¹</b><br>送り速度：<b>${feed.toFixed(0)} mm/min</b><br>${L} mmの理論送り時間：<b>${time.toFixed(2)} min</b><br><span class="note">実機では被削材、工具材種・コーティング、切込み、突出し、断続切削、機械剛性、クーラント等を考慮してください。これは入力条件からの計算値で、自動推奨値ではありません。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{cut58()}catch(e){}});
+function cut58(){let t=ct58.value,D=+cd58.value,V=+cv91.value,z=Math.max(1,+cz58.value||1),fz=+cfz58.value,f=+cf58.value,L=+cl58.value;if(D<=0){co58.innerHTML="径Dは0より大きくしてください。";return}let n=1000*V/(Math.PI*D),feed=t==="mill"?fz*z*n:f*n,time=feed>0?L/feed:0;co58.innerHTML=`<b>${t==="mill"?"フライス / 横中ぐり":"旋盤"}</b><br>D=${D} mm / V=${V} m/min<br>回転数 n=1000V/(πD)：<b>${n.toFixed(0)} min⁻¹</b><br>送り速度：<b>${feed.toFixed(0)} mm/min</b><br>${L} mmの理論送り時間：<b>${time.toFixed(2)} min</b><br><span class="note">実機では被削材、工具材種・コーティング、切込み、突出し、断続切削、機械剛性、クーラント等を考慮してください。これは入力条件からの計算値で、自動推奨値ではありません。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{cut58()}catch(e){}});
 function lathe59(){
- let t=lt59.value,D=+ld59.value,V=+lv90.value,f=+lf59.value,L=+ll59.value,ds=+lstart59.value,de=+lend59.value,ap=+lap59.value;
+ let t=lt59.value,D=+ld59.value,V=+lv91.value,f=+lf59.value,L=+ll59.value,ds=+lstart59.value,de=+lend59.value,ap=+lap59.value;
  let calcD=t==="face"?(ds+de)/2:D;
  let n=calcD>0?1000*V/(Math.PI*calcD):0;
  let vf=f*n;
@@ -1444,12 +1444,12 @@ function angle67(){let W=+span67.value,L=+len67.value;if(W<=0||L<=0||W>2*L){ango
 function cg67(){let W=+load67.value,a=+a67.value,b=+b67.value,th=+vangle67.value*Math.PI/180;if(W<=0||a<0||b<0||a+b<=0||Math.cos(th)<=0){cgo67.innerHTML="入力条件を確認してください。";return}let VL=W*b/(a+b),VR=W*a/(a+b),TL=VL/Math.cos(th),TR=VR/Math.cos(th);cgo67.innerHTML=`鉛直荷重分担：左 <b>${VL.toFixed(3)} t</b> / 右 <b>${VR.toFixed(3)} t</b><br>スリング張力：左 <b>${TL.toFixed(3)} t</b> / 右 <b>${TR.toFixed(3)} t</b><br>最大張力：<b>${Math.max(TL,TR).toFixed(3)} t</b><br><span class="note">静的な2点吊りの単純モデルです。加速・衝撃・偏荷重、吊り点高さ差、スリング長差、荷崩れ等は含みません。重心位置が不確かな場合はこの結果で吊上げ可否を決めないでください。</span>`}
 function gearCheck67(){let w=+gwll67.value,l=+gload67.value;if(w<=0||l<0){gearo67.innerHTML="WLLと荷重を確認してください。";return}let r=l/w*100;gearo67.innerHTML=`${gear67.value}：WLL <b>${w.toFixed(2)} t</b> / 入力荷重 <b>${l.toFixed(2)} t</b><br>WLLに対する入力荷重：<b>${r.toFixed(1)}%</b><br><span class="note">${l<=w?"数値上はWLL以下です。ただし使用可否の判定ではありません。":"入力荷重がWLLを超えています。使用しないでください。"} 横引き・斜め吊り・多点吊り等の許容条件は製品ごとに異なるため、メーカー資料を確認してください。</span>`}
 document.addEventListener("DOMContentLoaded",()=>{try{angle67();cg67();gearCheck67()}catch(e){}});
-const X68={pump:["ポンプ","機械エネルギーを流体の流れへ変換。"],cyl:["複動シリンダ","A/B両室を切替えて伸縮。ロッド側は有効面積が小さい。"],check:["チェック弁","一方向は流し、逆方向は止める。パイロットチェックは別機能。"],relief:["リリーフ弁","設定圧を超えると逃がし、最高圧を制限する代表的な圧力制御弁。"],filter:["フィルタ","流体中の異物を除去。目詰まりにも注意。"],gauge:["圧力計","接続した位置の圧力を表示。測定位置で意味が変わる。"]};function i68(k){io68.innerHTML=`<b>${X68[k][0]}</b><br>${X68[k][1]}`}function v90(m){vo68.innerHTML=m==="a"?"<b>SOL-a例：</b> P→A、B→T":m==="b"?"<b>SOL-b例：</b> P→B、A→T":"<b>中立：</b>説明例は全ポート閉止。4/3弁にはオープン、タンデム、フロート等の中立形式があります。"}document.addEventListener("DOMContentLoaded",()=>{try{i68("check");v90("n")}catch(e){}});
-const F69={reduce:["減圧弁","下流側を設定圧以下に保つ圧力制御弁。リリーフ弁との役割の違いに注意。"],flow:["流量調整弁","通過流量を調整し、アクチュエータ速度を調整。圧力補償形など種類があります。"],pilot:["パイロットチェック","通常は逆流を止め、パイロット圧で逆方向も開放できるチェック弁。保持回路などで使用。"],acc:["アキュムレータ","流体エネルギーを蓄える機器。残圧が残るため保守時は特に注意。"],motor:["油圧モータ","油圧エネルギーを回転運動へ変換。"],frl:["FRL","Filter・Regulator・Lubricator。空気のろ過、圧力調整、必要に応じ給油。"],quick:["急速排気弁","シリンダ近くから大気へ直接排気し、排気抵抗を減らして速度を上げる用途。"],silencer:["サイレンサ","空圧排気音を低減。目詰まりすると背圧や動作速度に影響する場合があります。"]};function f69(k){fo69.innerHTML=`<b>${F69[k][0]}</b><br>${F69[k][1]}`}function dir69(){let v=dv90.value;if(v==="32"){do69.innerHTML="<b>3/2弁：</b>3ポート・2位置。単動シリンダやパイロット信号などでよく使用。常閉/常開を休止位置で確認。";center69.disabled=true}else if(v==="42"){do69.innerHTML="<b>4/2弁：</b>4ポート・2位置。P/T/A/Bを2状態で切替。中立位置はありません。";center69.disabled=true}else{center69.disabled=false;let c=center69.value,m={"クローズドセンタ":"中立でP/T/A/Bを閉止する代表形式。","タンデムセンタ":"代表例ではP→T、A/B閉止。ポンプアンロードと負荷保持を組み合わせる用途。","オープンセンタ":"中立で各ポートが開放側につながる形式。","フロートセンタ":"代表例ではA/B→T、P閉止。アクチュエータを外力で動かせる用途。"};do69.innerHTML=`<b>4/3弁・${c}：</b>${m[c]}<br><span class="note">実際のスプール機能は必ず回路記号とメーカー型式で確認してください。</span>`}}document.addEventListener("DOMContentLoaded",()=>{try{f69("pilot");dir69()}catch(e){}});
+const X68={pump:["ポンプ","機械エネルギーを流体の流れへ変換。"],cyl:["複動シリンダ","A/B両室を切替えて伸縮。ロッド側は有効面積が小さい。"],check:["チェック弁","一方向は流し、逆方向は止める。パイロットチェックは別機能。"],relief:["リリーフ弁","設定圧を超えると逃がし、最高圧を制限する代表的な圧力制御弁。"],filter:["フィルタ","流体中の異物を除去。目詰まりにも注意。"],gauge:["圧力計","接続した位置の圧力を表示。測定位置で意味が変わる。"]};function i68(k){io68.innerHTML=`<b>${X68[k][0]}</b><br>${X68[k][1]}`}function v91(m){vo68.innerHTML=m==="a"?"<b>SOL-a例：</b> P→A、B→T":m==="b"?"<b>SOL-b例：</b> P→B、A→T":"<b>中立：</b>説明例は全ポート閉止。4/3弁にはオープン、タンデム、フロート等の中立形式があります。"}document.addEventListener("DOMContentLoaded",()=>{try{i68("check");v91("n")}catch(e){}});
+const F69={reduce:["減圧弁","下流側を設定圧以下に保つ圧力制御弁。リリーフ弁との役割の違いに注意。"],flow:["流量調整弁","通過流量を調整し、アクチュエータ速度を調整。圧力補償形など種類があります。"],pilot:["パイロットチェック","通常は逆流を止め、パイロット圧で逆方向も開放できるチェック弁。保持回路などで使用。"],acc:["アキュムレータ","流体エネルギーを蓄える機器。残圧が残るため保守時は特に注意。"],motor:["油圧モータ","油圧エネルギーを回転運動へ変換。"],frl:["FRL","Filter・Regulator・Lubricator。空気のろ過、圧力調整、必要に応じ給油。"],quick:["急速排気弁","シリンダ近くから大気へ直接排気し、排気抵抗を減らして速度を上げる用途。"],silencer:["サイレンサ","空圧排気音を低減。目詰まりすると背圧や動作速度に影響する場合があります。"]};function f69(k){fo69.innerHTML=`<b>${F69[k][0]}</b><br>${F69[k][1]}`}function dir69(){let v=dv91.value;if(v==="32"){do69.innerHTML="<b>3/2弁：</b>3ポート・2位置。単動シリンダやパイロット信号などでよく使用。常閉/常開を休止位置で確認。";center69.disabled=true}else if(v==="42"){do69.innerHTML="<b>4/2弁：</b>4ポート・2位置。P/T/A/Bを2状態で切替。中立位置はありません。";center69.disabled=true}else{center69.disabled=false;let c=center69.value,m={"クローズドセンタ":"中立でP/T/A/Bを閉止する代表形式。","タンデムセンタ":"代表例ではP→T、A/B閉止。ポンプアンロードと負荷保持を組み合わせる用途。","オープンセンタ":"中立で各ポートが開放側につながる形式。","フロートセンタ":"代表例ではA/B→T、P閉止。アクチュエータを外力で動かせる用途。"};do69.innerHTML=`<b>4/3弁・${c}：</b>${m[c]}<br><span class="note">実際のスプール機能は必ず回路記号とメーカー型式で確認してください。</span>`}}document.addEventListener("DOMContentLoaded",()=>{try{f69("pilot");dir69()}catch(e){}});
 const E70={no:["a接点 / NO","通常時は開。対応するコイルや操作機構が動作すると閉じる接点。"],nc:["b接点 / NC","通常時は閉。対応するコイルや操作機構が動作すると開く接点。"],coil:["リレーコイル","コイルが励磁されると、そのリレーに対応するa/b接点の状態が切り替わります。"],pb:["押しボタン","押している間だけ接点状態が変わるものなどがあります。NO/NCを図面で確認。"],ls:["リミットスイッチ","機械位置で操作されるスイッチ。アクチュエータ形状と接点構成を確認。"],motor:["モータ","電気エネルギーを回転へ変換。主回路では接触器・過負荷保護等と組み合わせます。"],sol:["ソレノイド","電気信号を機械的な動作へ変換。電磁弁SOL-a/SOL-b等に使用。"],plc:["PLC 入出力","入力はセンサ/スイッチ等の状態を受け、出力はリレー・ソレノイド等を制御。PNP/NPNや電圧仕様を確認。"]};function e70(k){eo70.innerHTML=`<b>${E70[k][0]}</b><br>${E70[k][1]}`}function relay70(on){let a=document.getElementById("ano70"),b=document.getElementById("bnc70"),c=document.getElementById("coil70");if(on){a.setAttribute("y2","60");b.setAttribute("y2","38");c.classList.add("on70");ro70.innerHTML="<b>RY ON：</b>a接点は閉、b接点は開。"}else{a.setAttribute("y2","38");b.setAttribute("y2","60");c.classList.remove("on70");ro70.innerHTML="<b>RY OFF：</b>a接点は開、b接点は閉。"}}document.addEventListener("DOMContentLoaded",()=>{try{e70("no");relay70(false)}catch(e){}});
-let MC71=false,F71=false,R71=false;function paint71(){document.getElementById("mc71").style.stroke=MC71?"#087fdb":"currentColor";document.getElementById("mc71").style.strokeWidth=MC71?"4":"2";let h=document.getElementById("hold71");h.setAttribute("y2",MC71?"100":"85");selfo71.innerHTML=MC71?"<b>MC励磁・自己保持中：</b>MC補助a接点が閉じ、STARTを離してもコイルへの回路が成立する考え方です。":"<b>MC OFF：</b>自己保持接点は開いています。"}function start71(){if(estop71.checked||ol71.checked){selfo71.innerHTML="安全系が作動中のため、学習回路ではMCを励磁しません。";return}MC71=true;paint71()}function stop71(){MC71=false;paint71()}function reset71(){MC71=false;F71=false;R71=false;estop71.checked=false;ol71.checked=false;paint71();fr71();safe71()}function fr71(){fro71.innerHTML=F71?"<b>正転MC ON：</b>逆転側b接点インターロックにより逆転MCを同時投入しない構成。":R71?"<b>逆転MC ON：</b>正転側b接点インターロックにより正転MCを同時投入しない構成。":"<b>停止：</b>正転MC・逆転MCともOFF。<br><span class='note'>実機では電気的インターロックに加え、機械的インターロック等を用いる構成があります。</span>"}function fwd71(){if(estop71.checked||ol71.checked)return safe71();if(R71){fro71.innerHTML="<b>インターロック：</b>逆転MCがONのため正転MCは投入しません。";return}F71=true;fr71()}function rev90(){if(estop71.checked||ol71.checked)return safe71();if(F71){fro71.innerHTML="<b>インターロック：</b>正転MCがONのため逆転MCは投入しません。";return}R71=true;fr71()}function allstop71(){F71=false;R71=false;MC71=false;fr71();paint71()}function safe71(){if(estop71.checked||ol71.checked){MC71=F71=R71=false;paint71();fr71();safeo71.innerHTML="<b>安全/保護接点が開いた想定：</b>制御出力をOFFにしています。原因確認と規定の復帰手順が必要です。"}else safeo71.innerHTML="非常停止・過負荷保護とも未作動の表示です。<br><span class='note'>非常停止回路の実設計は安全リレー/安全PLC、接点冗長性、監視、要求PL/SIL等を含むため、この簡略回路を設計根拠にはしないでください。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{paint71();fr71();safe71()}catch(e){}});
+let MC71=false,F71=false,R71=false;function paint71(){document.getElementById("mc71").style.stroke=MC71?"#087fdb":"currentColor";document.getElementById("mc71").style.strokeWidth=MC71?"4":"2";let h=document.getElementById("hold71");h.setAttribute("y2",MC71?"100":"85");selfo71.innerHTML=MC71?"<b>MC励磁・自己保持中：</b>MC補助a接点が閉じ、STARTを離してもコイルへの回路が成立する考え方です。":"<b>MC OFF：</b>自己保持接点は開いています。"}function start71(){if(estop71.checked||ol71.checked){selfo71.innerHTML="安全系が作動中のため、学習回路ではMCを励磁しません。";return}MC71=true;paint71()}function stop71(){MC71=false;paint71()}function reset71(){MC71=false;F71=false;R71=false;estop71.checked=false;ol71.checked=false;paint71();fr71();safe71()}function fr71(){fro71.innerHTML=F71?"<b>正転MC ON：</b>逆転側b接点インターロックにより逆転MCを同時投入しない構成。":R71?"<b>逆転MC ON：</b>正転側b接点インターロックにより正転MCを同時投入しない構成。":"<b>停止：</b>正転MC・逆転MCともOFF。<br><span class='note'>実機では電気的インターロックに加え、機械的インターロック等を用いる構成があります。</span>"}function fwd71(){if(estop71.checked||ol71.checked)return safe71();if(R71){fro71.innerHTML="<b>インターロック：</b>逆転MCがONのため正転MCは投入しません。";return}F71=true;fr71()}function rev91(){if(estop71.checked||ol71.checked)return safe71();if(F71){fro71.innerHTML="<b>インターロック：</b>正転MCがONのため逆転MCは投入しません。";return}R71=true;fr71()}function allstop71(){F71=false;R71=false;MC71=false;fr71();paint71()}function safe71(){if(estop71.checked||ol71.checked){MC71=F71=R71=false;paint71();fr71();safeo71.innerHTML="<b>安全/保護接点が開いた想定：</b>制御出力をOFFにしています。原因確認と規定の復帰手順が必要です。"}else safeo71.innerHTML="非常停止・過負荷保護とも未作動の表示です。<br><span class='note'>非常停止回路の実設計は安全リレー/安全PLC、接点冗長性、監視、要求PL/SIL等を含むため、この簡略回路を設計根拠にはしないでください。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{paint71();fr71();safe71()}catch(e){}});
 function p72(on){po72.innerHTML=on?"<b>MCコイル励磁：</b>制御回路のMCコイルがON → MC主接点が閉じる想定 → 主回路からモータへ給電可能になります。<br><span class='note'>実際の運転条件には安全回路、サーマル、インターロック、PLC条件などが加わります。</span>":"<b>MCコイルOFF：</b>MC主接点は開く想定 → モータ主回路を遮断します。<br><span class='note'>ただしMCCB一次側などには電圧が残り得ます。「モータ停止＝盤内無電圧」ではありません。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{p72(false)}catch(e){}});
-const D73={"MCCB":"配線用遮断器。主回路の開閉・過電流保護など。遮断後も一次側に電圧が存在し得ます。","ヒューズ":"規定以上の電流で溶断し回路を保護。定格・遮断容量・種類を確認。","トランス":"交流電圧を変換し、必要に応じて回路を絶縁。一次/二次の電圧を銘板・図面で確認。","DC24V電源":"AC入力をDC24V制御電源へ変換する電源装置。P24/+24V、N24/0V等の表記は設備ごとに確認。","PLC入力":"センサ・押しボタン・LSなどの信号をPLCへ取り込む側。","PLC出力":"PLC演算結果からリレー、ランプ、ソレノイド等へ指令する側。出力方式と定格を確認。","近接センサ":"金属等を非接触検出。PNP/NPN、NO/NC、電源電圧、配線色は製品仕様を確認。","光電センサ":"光を利用して物体を検出。透過・回帰反射・拡散反射など方式があります。","リミットSW":"機械位置で作動する接点式スイッチ。NO/NCと機械的操作状態を確認。","電磁弁SOL":"PLC/リレー出力等でソレノイドを励磁し、油圧・空圧の流路を切替。","サーマルTHR":"モータ過負荷保護に使われる機器。補助接点を制御回路へ組み込みMCを落とす構成があります。"};function devInfo73(){devo73.innerHTML=`<b>${dev90.value}</b><br>${D73[dev90.value]}`}function sig73(m){sigo73.innerHTML=m==="sensor"?"<b>入力側：</b>センサ検出 → PLC入力端子がON、という信号の流れを図面で追います。":m==="plc"?"<b>出力側：</b>PLC内部条件成立 → 出力ON → RY/SOL等の負荷へ、という流れ。実際にはインターロック条件を確認します。":"<b>全OFF：</b>入力/出力とも非動作の学習状態です。"}document.addEventListener("DOMContentLoaded",()=>{try{devInfo73();sig73("off")}catch(e){}});
+const D73={"MCCB":"配線用遮断器。主回路の開閉・過電流保護など。遮断後も一次側に電圧が存在し得ます。","ヒューズ":"規定以上の電流で溶断し回路を保護。定格・遮断容量・種類を確認。","トランス":"交流電圧を変換し、必要に応じて回路を絶縁。一次/二次の電圧を銘板・図面で確認。","DC24V電源":"AC入力をDC24V制御電源へ変換する電源装置。P24/+24V、N24/0V等の表記は設備ごとに確認。","PLC入力":"センサ・押しボタン・LSなどの信号をPLCへ取り込む側。","PLC出力":"PLC演算結果からリレー、ランプ、ソレノイド等へ指令する側。出力方式と定格を確認。","近接センサ":"金属等を非接触検出。PNP/NPN、NO/NC、電源電圧、配線色は製品仕様を確認。","光電センサ":"光を利用して物体を検出。透過・回帰反射・拡散反射など方式があります。","リミットSW":"機械位置で作動する接点式スイッチ。NO/NCと機械的操作状態を確認。","電磁弁SOL":"PLC/リレー出力等でソレノイドを励磁し、油圧・空圧の流路を切替。","サーマルTHR":"モータ過負荷保護に使われる機器。補助接点を制御回路へ組み込みMCを落とす構成があります。"};function devInfo73(){devo73.innerHTML=`<b>${dev91.value}</b><br>${D73[dev91.value]}`}function sig73(m){sigo73.innerHTML=m==="sensor"?"<b>入力側：</b>センサ検出 → PLC入力端子がON、という信号の流れを図面で追います。":m==="plc"?"<b>出力側：</b>PLC内部条件成立 → 出力ON → RY/SOL等の負荷へ、という流れ。実際にはインターロック条件を確認します。":"<b>全OFF：</b>入力/出力とも非動作の学習状態です。"}document.addEventListener("DOMContentLoaded",()=>{try{devInfo73();sig73("off")}catch(e){}});
 function plcInfo74(){let v=plc74.value;plco74.innerHTML=v==="mits"?"<b>X / Y型：</b>Xを入力、Yを出力として表すPLCでよく見られる方式。X0→X1…の進み方や進数はシリーズごとに確認。":v==="iec"?"<b>I / Q型：</b>I(Input)を入力、Q(Output)を出力として扱う表記例。例：I0.0、Q0.0など。":"<b>IN / OUT型：</b>図面や端子台で入力/出力を文字で表す一般的な例。実アドレスとの対応表を確認。"}function trace74(){traceo74.innerHTML=`<b>${sigtype74.value}</b> → 線番 <b>${wire74.value}</b> → 端子 <b>${term74.value}</b> → PLC入力 <b>${addr74.value}</b><br><span class="note">ここからPLCプログラム/クロスリファレンスで、この入力を使用している条件を探す流れになります。</span>`}function outTrace74(){outo74.innerHTML=`PLC出力 <b>${outaddr74.value}</b> → <b>${relay74.value}</b> → 負荷 <b>${load74.value}</b><br><span class="note">中継リレーがある場合は、そのコイルと全接点の参照先を図面上で確認します。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{plcInfo74();trace74();outTrace74()}catch(e){}});
 let step75=0,path75=[];const Q75={sol:["PLC/制御側でSOL出力指令が成立している表示ですか？","SOLコイル/コネクタ側まで制御信号が成立していることを安全な方法で確認済みですか？","電気指令時に弁の切替状態（表示・機械的状態等）に変化がありますか？","供給圧力と戻り/排気条件は正常ですか？"],cyl:["電磁弁/方向切換弁への作動指令は成立していますか？","弁は実際に切り替わっていますか？","シリンダ入口側に必要な圧力/流量がありますか？","機械的な噛み込み・過大負荷はありませんか？"],slow:["供給圧力は通常値ですか？","流量調整弁や絞り設定に異常はありませんか？","フィルタ詰まり・排気抵抗・戻り背圧の兆候はありませんか？","内部漏れ/外部漏れやシール劣化の兆候はありませんか？"],motor:["運転指令は成立していますか？","MCコイルが励磁する条件は成立していますか？","サーマル/保護装置が作動していませんか？","機械側の拘束・過負荷の兆候はありませんか？"],mc:["非常停止・安全回路が復帰条件を満たしていますか？","STOP/b接点・インターロック条件は成立していますか？","PLC/リレーからMCへの運転指令は成立していますか？","MCコイル回路の電源仕様と図面条件は一致していますか？"]};function diag75(){step75=0;path75=[];res75.innerHTML="";showQ75()}function showQ75(){let a=Q75[sym75.value];q75.innerHTML=step75<a.length?`<b>確認 ${step75+1}/${a.length}</b><br>${a[step75]}`:"確認項目を一巡しました。"}function ans75(y){let a=Q75[sym75.value];if(step75>=a.length)return;path75.push(y);if(!y){let msg=["指令/入力条件側を図面で前段へ戻って確認。","この段階の機器・配線・作動条件を重点確認。","供給エネルギー（電源/圧力/流量）側を重点確認。","負荷・機械・下流側を重点確認。"][Math.min(step75,3)];res75.innerHTML=`<b>切り分けポイント：</b>${msg}<br><span class="note">原因確定ではありません。停止・隔離した安全状態で、図面とメーカー手順に従って確認してください。</span>`;return}step75++;if(step75>=a.length)res75.innerHTML="<b>上流条件は概ね成立：</b>機器内部、負荷側、機械側、流体側など次段を重点的に確認する段階です。";showQ75()}function reset75(){diag75()}document.addEventListener("DOMContentLoaded",()=>{try{diag75()}catch(e){}});
 function hyd76(m){let p=document.getElementById("hp76"),t=document.getElementById("ht76"),a=document.getElementById("ha76"),b=document.getElementById("hb76");[p,t,a,b].forEach(x=>x.setAttribute("class","h76"));if(m==="up"){p.setAttribute("class","h76 p76");a.setAttribute("class","h76 p76");b.setAttribute("class","h76 r76");t.setAttribute("class","h76 r76");hydtxt76.innerHTML="<b>SOL-a：</b>P→A、B→T の例。キャップ側へ圧油、ロッド側が戻りとなり、図ではロッドが伸びる方向。"}else if(m==="down"){p.setAttribute("class","h76 p76");b.setAttribute("class","h76 p76");a.setAttribute("class","h76 r76");t.setAttribute("class","h76 r76");hydtxt76.innerHTML="<b>SOL-b：</b>P→B、A→T の例。ロッド側へ圧油、キャップ側が戻りとなり、図ではロッドが縮む方向。"}else{hydtxt76.innerHTML="<b>中立：</b>ここではクローズドセンタの説明想定。P/A/B/Tを閉止する代表例です。中立形式により挙動は変わります。"}}function force76(){let P=+pr76.value,D=+pd76.value,d=+rd76.value;if(P<0||D<=0||d<0||d>=D){forceo76.innerHTML="寸法を確認してください。";return}let A=Math.PI*D*D/4,Ar=Math.PI*(D*D-d*d)/4,F=P*A/1000,Fr=P*Ar/1000;forceo76.innerHTML=`押し側理論力：<b>${F.toFixed(1)} kN</b>（約 ${(F/9.80665).toFixed(2)} tf）<br>引き側理論力：<b>${Fr.toFixed(1)} kN</b>（約 ${(Fr/9.80665).toFixed(2)} tf）<br><span class="note">摩擦・背圧・効率・圧力損失等を含まない理論値です。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{hyd76("neutral");force76()}catch(e){}});
@@ -1480,7 +1480,7 @@ function secName82(el){return (el.querySelector("h1,h2")?.textContent||el.id||"�
 function get82(k){try{return JSON.parse(localStorage.getItem(k)||"[]")}catch(e){return[]}}
 function set82(k,v){localStorage.setItem(k,JSON.stringify(v))}
 function addRecent82(id,name){if(!id)return;let a=get82(KEYR82).filter(x=>x.id!==id);a.unshift({id,name});set82(KEYR82,a.slice(0,12))}
-function toggleFav90(id,name){let a=get82(KEYF82),i=a.findIndex(x=>x.id===id);if(i>=0)a.splice(i,1);else a.unshift({id,name});set82(KEYF82,a);decorate82()}
+function toggleFav91(id,name){let a=get82(KEYF82),i=a.findIndex(x=>x.id===id);if(i>=0)a.splice(i,1);else a.unshift({id,name});set82(KEYF82,a);decorate82()}
 function openSec82(id){let e=document.getElementById(id);if(e){e.scrollIntoView({behavior:"smooth",block:"start"});addRecent82(id,secName82(e))}closePanel82()}
 function favPanel82(){let p=panel82,a=get82(KEYF82);p.style.display="block";p.innerHTML="<b>★ お気に入り</b><button onclick='closePanel82()'>閉じる</button><br>"+(a.length?a.map(x=>`<button onclick="openSec82('${x.id}')">${x.name}</button>`).join(""):"まだありません。各ツール右上の ☆ で登録できます。")}
 function recentPanel82(){let p=panel82,a=get82(KEYR82);p.style.display="block";p.innerHTML="<b>◷ 最近使った工具</b><button onclick='closePanel82()'>閉じる</button><br>"+(a.length?a.map(x=>`<button onclick="openSec82('${x.id}')">${x.name}</button>`).join(""):"まだ履歴がありません。")}
@@ -1489,14 +1489,14 @@ function decorate82(){
  document.querySelectorAll("section.card[id]").forEach(sec=>{
    if(sec.id==="home81")return;
    let h=sec.querySelector("h2,h1"); if(!h)return;
-   let b=h.querySelector(".fav90");
-   if(!b){b=document.createElement("button");b.className="fav90";b.onclick=(ev)=>{ev.stopPropagation();toggleFav90(sec.id,secName82(sec))};h.appendChild(b)}
+   let b=h.querySelector(".fav91");
+   if(!b){b=document.createElement("button");b.className="fav91";b.onclick=(ev)=>{ev.stopPropagation();toggleFav91(sec.id,secName82(sec))};h.appendChild(b)}
    b.textContent=fav.some(x=>x.id===sec.id)?"★":"☆";
  });
 }
 document.addEventListener("click",e=>{
  let sec=e.target.closest("section.card[id]");
- if(sec&&sec.id!=="home81"&&!e.target.classList.contains("fav90")) addRecent82(sec.id,secName82(sec));
+ if(sec&&sec.id!=="home81"&&!e.target.classList.contains("fav91")) addRecent82(sec.id,secName82(sec));
 });
 document.addEventListener("DOMContentLoaded",()=>{setTimeout(decorate82,0)});
 
@@ -1539,7 +1539,7 @@ function save85(){let v=vals85();if(!v.machine&&!v.sym){msg85.innerHTML="設備�
 function clear85(){["machine85","sym85","measure85","parts85","action85","result85"].forEach(id=>document.getElementById(id).value="");photoName85="";preview85.style.display="none";msg85.innerHTML=""}
 function del85(id){let a=JSON.parse(localStorage.getItem(KR85)||"[]").filter(x=>x.id!==id);localStorage.setItem(KR85,JSON.stringify(a));list85()}
 function list85(){let a=[];try{a=JSON.parse(localStorage.getItem(KR85)||"[]")}catch(e){}let q=(find85.value||"").toLowerCase();a=a.filter(x=>JSON.stringify(x).toLowerCase().includes(q));list85.innerHTML=a.length?a.map(x=>`<div class="comment"><b>${esc83(x.machine||"設備未入力")}</b>　${esc83(x.date||"")}<br>症状：${esc83(x.sym||"-")}<br>測定：${esc83(x.measure||"-")}<br>部品：${esc83(x.parts||"-")}<br>処置：${esc83(x.action||"-")}<br>結果：${esc83(x.result||"-")}<br>写真：${esc83(x.photo||"なし")}<br><button onclick="del85(${x.id})">削除</button></div>`).join(""):"保存記録はありません。"}
-function csv90(){let a=[];try{a=JSON.parse(localStorage.getItem(KR85)||"[]")}catch(e){};if(!a.length){msg85.innerHTML="出力する記録がありません。";return}let cols=["date","machine","sym","measure","parts","action","result","photo"],esc=v=>'"'+String(v??"").replace(/"/g,'""')+'"';let csv="\\ufeff"+cols.join(",")+"\\n"+a.map(r=>cols.map(c=>esc(r[c])).join(",")).join("\\n");let b=new Blob([csv],{type:"text/csv;charset=utf-8"}),u=URL.createObjectURL(b),ln=document.createElement("a");ln.href=u;ln.download="genba_work_records.csv";ln.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+function csv91(){let a=[];try{a=JSON.parse(localStorage.getItem(KR85)||"[]")}catch(e){};if(!a.length){msg85.innerHTML="出力する記録がありません。";return}let cols=["date","machine","sym","measure","parts","action","result","photo"],esc=v=>'"'+String(v??"").replace(/"/g,'""')+'"';let csv="\\ufeff"+cols.join(",")+"\\n"+a.map(r=>cols.map(c=>esc(r[c])).join(",")).join("\\n");let b=new Blob([csv],{type:"text/csv;charset=utf-8"}),u=URL.createObjectURL(b),ln=document.createElement("a");ln.href=u;ln.download="genba_work_records.csv";ln.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
 document.addEventListener("DOMContentLoaded",()=>{try{if(!date85.value){let d=new Date(Date.now()-new Date().getTimezoneOffset()*60000);date85.value=d.toISOString().slice(0,16)}list85()}catch(e){}});
 
 
@@ -1687,7 +1687,7 @@ let y1=150-fv*250,y2=150-rv*250;document.getElementById('svg').innerHTML=`<text 
 calc();</script><div class="card">
 <h2>多言語表示について / About translations</h2>
 <p class="note">数値・単位・計算式は全言語で共通です。翻訳は現場で理解しやすい表現を優先しています。機械メーカーの取扱説明書・社内安全基準・正式な専門用語がある場合は、それらを優先してください。</p>
-</div><div id="nav90">
+</div><div id="nav91">
 <button onclick="history.back()" title="戻る">←</button>
 <button onclick="home82()" title="ホーム">⌂</button>
 <button onclick="favPanel82()" title="お気に入り">★</button>
