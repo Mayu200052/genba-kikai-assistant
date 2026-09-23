@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v91</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v93</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -63,8 +63,8 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 @media(min-width:760px){.releasegrid90{grid-template-columns:repeat(4,1fr)}}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v91</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v91：</b>ボタン・計算が反応しないJavaScript構文エラーを修正。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v93</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v93：</b>故障診断を修正し、欠けていた電気・図面ツール画面を復元。</p>
 <div class="releasegrid90">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -269,6 +269,35 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <h3>C形止め輪</h3><label>種類 <select id="rt48"><option value="shaft">軸用</option><option value="hole">穴用</option></select></label><label>呼び <input id="rn48" type="number" value="30"></label><button onclick="ring48()">検索</button><div id="rout48" class="comment"></div>
 <h3>Oリング</h3><label>呼び <input id="or48" value="P30"></label><button onclick="oring48()">検索</button><div id="orout48" class="comment"></div>
 <h3>オイルシール検索メモ</h3><label>軸径 d <input id="sd48" type="number" value="30"> mm</label><label>外径 D <input id="sD48" type="number" value="50"> mm</label><label>幅 b <input id="sb48" type="number" value="10"> mm</label><button onclick="seal48()">整理</button><div id="sout48" class="comment"></div>
+</section><section id="electric70" class="card"><h2>⚡ 電気記号・接点の基礎 v93</h2>
+<p class="note">学習用の簡略表示です。実機確認は図面・メーカー資料・社内手順を優先し、活線作業は行わないでください。</p>
+<div><button onclick="e70('no')">a接点 / NO</button><button onclick="e70('nc')">b接点 / NC</button><button onclick="e70('coil')">リレーコイル</button><button onclick="e70('pb')">押しボタン</button><button onclick="e70('ls')">リミットSW</button><button onclick="e70('motor')">モータ</button><button onclick="e70('sol')">ソレノイド</button><button onclick="e70('plc')">PLC入出力</button></div>
+<div id="eo70" class="comment"></div>
+<h3>リレー接点の動き</h3>
+<svg viewBox="0 0 360 110" style="width:100%;max-width:520px;border:1px solid #aaa;border-radius:10px">
+<text x="18" y="25">a接点</text><line x1="25" y1="70" x2="95" y2="70" stroke="currentColor" stroke-width="3"/><line id="ano70" x1="95" y1="70" x2="155" y2="38" stroke="currentColor" stroke-width="3"/><line x1="155" y1="70" x2="205" y2="70" stroke="currentColor" stroke-width="3"/>
+<text x="218" y="25">b接点</text><line x1="225" y1="70" x2="270" y2="70" stroke="currentColor" stroke-width="3"/><line id="bnc70" x1="270" y1="70" x2="325" y2="60" stroke="currentColor" stroke-width="3"/>
+<circle id="coil70" cx="180" cy="92" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
+</svg>
+<button onclick="relay70(false)">RY OFF</button><button onclick="relay70(true)">RY ON</button><div id="ro70" class="comment"></div>
+</section><section id="control71" class="card"><h2>🔁 自己保持・正逆転インターロック v93</h2>
+<p class="note">制御回路の考え方を確認する学習用表示です。</p>
+<label><input id="estop71" type="checkbox" onchange="safe71()"> 非常停止作動</label><label><input id="ol71" type="checkbox" onchange="safe71()"> 過負荷保護作動</label>
+<div><button onclick="start71()">START</button><button onclick="stop71()">STOP</button><button onclick="reset71()">リセット</button></div>
+<svg viewBox="0 0 360 125" style="width:100%;max-width:520px;border:1px solid #aaa;border-radius:10px"><line x1="30" y1="28" x2="330" y2="28" stroke="currentColor" stroke-width="3"/><line x1="30" y1="100" x2="330" y2="100" stroke="currentColor" stroke-width="3"/><line id="hold71" x1="125" y1="85" x2="190" y2="85" stroke="currentColor" stroke-width="3"/><circle id="mc71" cx="255" cy="64" r="25" fill="none" stroke="currentColor" stroke-width="2"/><text x="240" y="70">MC</text></svg>
+<div id="selfo71" class="comment"></div>
+<h3>正転・逆転</h3><button onclick="fwd71()">正転</button><button onclick="rev91()">逆転</button><button onclick="allstop71()">全停止</button><div id="fro71" class="comment"></div><div id="safeo71" class="comment"></div>
+</section><section id="power72" class="card"><h2>🔌 主回路と制御回路 v93</h2>
+<p>MCCB → MC主接点 → サーマル → モータ、制御回路 → MCコイル、という代表的な関係を確認します。</p>
+<button onclick="p72(false)">MCコイル OFF</button><button onclick="p72(true)">MCコイル ON</button><div id="po72" class="comment"></div>
+</section><section id="panel73" class="card"><h2>🧰 電気盤・機器の読み方 v93</h2>
+<label>機器 <select id="dev91" onchange="devInfo73()"><option>MCCB</option><option>ヒューズ</option><option>トランス</option><option>DC24V電源</option><option>PLC入力</option><option>PLC出力</option><option>近接センサ</option><option>光電センサ</option><option>リミットSW</option><option>電磁弁SOL</option><option>サーマルTHR</option></select></label>
+<div id="devo73" class="comment"></div><button onclick="sig73('sensor')">入力信号の流れ</button><button onclick="sig73('plc')">出力信号の流れ</button><button onclick="sig73('off')">全OFF</button><div id="sigo73" class="comment"></div>
+</section><section id="drawing74" class="card"><h2>📐 電気図面・PLC信号追跡 v93</h2>
+<p class="note">線番・端子番号・PLCアドレスを順番につないで整理します。</p>
+<label>PLC表記 <select id="plc74" onchange="plcInfo74()"><option value="mits">X / Y型</option><option value="iec">I / Q型</option><option value="io">IN / OUT型</option></select></label><div id="plco74" class="comment"></div>
+<h3>入力側</h3><label>信号 <input id="sigtype74" value="近接センサ"></label><label>線番 <input id="wire74" value="101"></label><label>端子 <input id="term74" value="TB1-05"></label><label>PLC入力 <input id="addr74" value="X10"></label><button onclick="trace74()">入力を追う</button><div id="traceo74" class="comment"></div>
+<h3>出力側</h3><label>PLC出力 <input id="outaddr74" value="Y20"></label><label>中継リレー <input id="relay74" value="RY20"></label><label>負荷 <input id="load74" value="SOL-a"></label><button onclick="outTrace74()">出力を追う</button><div id="outo74" class="comment"></div>
 </section><section id="fluidAdv91" class="card"><h2>🔧 油圧・空圧 記号辞典 v91</h2>
 <p class="note">ISO 1219系を参考にした学習用簡略図。実機はメーカー回路図・部品仕様を優先してください。</p>
 <style>.g69{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px}.g69 button{background:#fff;color:#111;border:1px solid #aaa;padding:8px}.g69 svg{width:115px;height:65px}.g69 line,.g69 rect,.g69 circle,.g69 path,.g69 polygon{stroke:currentColor;fill:none;stroke-width:2}</style>
@@ -296,7 +325,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="i68('filter')"><svg viewBox="0 0 110 65"><line x1="5" y1="32" x2="30" y2="32"/><polygon points="30,10 70,32 30,55"/><line x1="70" y1="32" x2="105" y2="32"/></svg><b>フィルタ</b></button>
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
-<h3>4/3方向切換弁の状態</h3><button onclick="v91('a')">SOL-a</button><button onclick="v91('n')">中立</button><button onclick="v91('b')">SOL-b</button><div id="vo68" class="comment"></div>
+<h3>4/3方向切換弁の状態</h3><button onclick="valve68('a')">SOL-a</button><button onclick="valve68('n')">中立</button><button onclick="valve68('b')">SOL-b</button><div id="vo68" class="comment"></div>
 </section><section id="rigGeo67" class="card"><h2>🪝 玉掛け 吊り角度・吊り具確認 v91</h2>
 <p class="note"><b>安全重要：</b>計算は段取り検討用です。シャックル、アイボルト、チェーン等の使用可否・WLLは現物刻印/タグとメーカー資料で確認してください。</p>
 <h3>吊り点間距離＋スリング長 → 吊り角度</h3>
@@ -1444,7 +1473,7 @@ function angle67(){let W=+span67.value,L=+len67.value;if(W<=0||L<=0||W>2*L){ango
 function cg67(){let W=+load67.value,a=+a67.value,b=+b67.value,th=+vangle67.value*Math.PI/180;if(W<=0||a<0||b<0||a+b<=0||Math.cos(th)<=0){cgo67.innerHTML="入力条件を確認してください。";return}let VL=W*b/(a+b),VR=W*a/(a+b),TL=VL/Math.cos(th),TR=VR/Math.cos(th);cgo67.innerHTML=`鉛直荷重分担：左 <b>${VL.toFixed(3)} t</b> / 右 <b>${VR.toFixed(3)} t</b><br>スリング張力：左 <b>${TL.toFixed(3)} t</b> / 右 <b>${TR.toFixed(3)} t</b><br>最大張力：<b>${Math.max(TL,TR).toFixed(3)} t</b><br><span class="note">静的な2点吊りの単純モデルです。加速・衝撃・偏荷重、吊り点高さ差、スリング長差、荷崩れ等は含みません。重心位置が不確かな場合はこの結果で吊上げ可否を決めないでください。</span>`}
 function gearCheck67(){let w=+gwll67.value,l=+gload67.value;if(w<=0||l<0){gearo67.innerHTML="WLLと荷重を確認してください。";return}let r=l/w*100;gearo67.innerHTML=`${gear67.value}：WLL <b>${w.toFixed(2)} t</b> / 入力荷重 <b>${l.toFixed(2)} t</b><br>WLLに対する入力荷重：<b>${r.toFixed(1)}%</b><br><span class="note">${l<=w?"数値上はWLL以下です。ただし使用可否の判定ではありません。":"入力荷重がWLLを超えています。使用しないでください。"} 横引き・斜め吊り・多点吊り等の許容条件は製品ごとに異なるため、メーカー資料を確認してください。</span>`}
 document.addEventListener("DOMContentLoaded",()=>{try{angle67();cg67();gearCheck67()}catch(e){}});
-const X68={pump:["ポンプ","機械エネルギーを流体の流れへ変換。"],cyl:["複動シリンダ","A/B両室を切替えて伸縮。ロッド側は有効面積が小さい。"],check:["チェック弁","一方向は流し、逆方向は止める。パイロットチェックは別機能。"],relief:["リリーフ弁","設定圧を超えると逃がし、最高圧を制限する代表的な圧力制御弁。"],filter:["フィルタ","流体中の異物を除去。目詰まりにも注意。"],gauge:["圧力計","接続した位置の圧力を表示。測定位置で意味が変わる。"]};function i68(k){io68.innerHTML=`<b>${X68[k][0]}</b><br>${X68[k][1]}`}function v91(m){vo68.innerHTML=m==="a"?"<b>SOL-a例：</b> P→A、B→T":m==="b"?"<b>SOL-b例：</b> P→B、A→T":"<b>中立：</b>説明例は全ポート閉止。4/3弁にはオープン、タンデム、フロート等の中立形式があります。"}document.addEventListener("DOMContentLoaded",()=>{try{i68("check");v91("n")}catch(e){}});
+const X68={pump:["ポンプ","機械エネルギーを流体の流れへ変換。"],cyl:["複動シリンダ","A/B両室を切替えて伸縮。ロッド側は有効面積が小さい。"],check:["チェック弁","一方向は流し、逆方向は止める。パイロットチェックは別機能。"],relief:["リリーフ弁","設定圧を超えると逃がし、最高圧を制限する代表的な圧力制御弁。"],filter:["フィルタ","流体中の異物を除去。目詰まりにも注意。"],gauge:["圧力計","接続した位置の圧力を表示。測定位置で意味が変わる。"]};function i68(k){io68.innerHTML=`<b>${X68[k][0]}</b><br>${X68[k][1]}`}function valve68(m){vo68.innerHTML=m==="a"?"<b>SOL-a例：</b> P→A、B→T":m==="b"?"<b>SOL-b例：</b> P→B、A→T":"<b>中立：</b>説明例は全ポート閉止。4/3弁にはオープン、タンデム、フロート等の中立形式があります。"}document.addEventListener("DOMContentLoaded",()=>{try{i68("check");valve68("n")}catch(e){}});
 const F69={reduce:["減圧弁","下流側を設定圧以下に保つ圧力制御弁。リリーフ弁との役割の違いに注意。"],flow:["流量調整弁","通過流量を調整し、アクチュエータ速度を調整。圧力補償形など種類があります。"],pilot:["パイロットチェック","通常は逆流を止め、パイロット圧で逆方向も開放できるチェック弁。保持回路などで使用。"],acc:["アキュムレータ","流体エネルギーを蓄える機器。残圧が残るため保守時は特に注意。"],motor:["油圧モータ","油圧エネルギーを回転運動へ変換。"],frl:["FRL","Filter・Regulator・Lubricator。空気のろ過、圧力調整、必要に応じ給油。"],quick:["急速排気弁","シリンダ近くから大気へ直接排気し、排気抵抗を減らして速度を上げる用途。"],silencer:["サイレンサ","空圧排気音を低減。目詰まりすると背圧や動作速度に影響する場合があります。"]};function f69(k){fo69.innerHTML=`<b>${F69[k][0]}</b><br>${F69[k][1]}`}function dir69(){let v=dv91.value;if(v==="32"){do69.innerHTML="<b>3/2弁：</b>3ポート・2位置。単動シリンダやパイロット信号などでよく使用。常閉/常開を休止位置で確認。";center69.disabled=true}else if(v==="42"){do69.innerHTML="<b>4/2弁：</b>4ポート・2位置。P/T/A/Bを2状態で切替。中立位置はありません。";center69.disabled=true}else{center69.disabled=false;let c=center69.value,m={"クローズドセンタ":"中立でP/T/A/Bを閉止する代表形式。","タンデムセンタ":"代表例ではP→T、A/B閉止。ポンプアンロードと負荷保持を組み合わせる用途。","オープンセンタ":"中立で各ポートが開放側につながる形式。","フロートセンタ":"代表例ではA/B→T、P閉止。アクチュエータを外力で動かせる用途。"};do69.innerHTML=`<b>4/3弁・${c}：</b>${m[c]}<br><span class="note">実際のスプール機能は必ず回路記号とメーカー型式で確認してください。</span>`}}document.addEventListener("DOMContentLoaded",()=>{try{f69("pilot");dir69()}catch(e){}});
 const E70={no:["a接点 / NO","通常時は開。対応するコイルや操作機構が動作すると閉じる接点。"],nc:["b接点 / NC","通常時は閉。対応するコイルや操作機構が動作すると開く接点。"],coil:["リレーコイル","コイルが励磁されると、そのリレーに対応するa/b接点の状態が切り替わります。"],pb:["押しボタン","押している間だけ接点状態が変わるものなどがあります。NO/NCを図面で確認。"],ls:["リミットスイッチ","機械位置で操作されるスイッチ。アクチュエータ形状と接点構成を確認。"],motor:["モータ","電気エネルギーを回転へ変換。主回路では接触器・過負荷保護等と組み合わせます。"],sol:["ソレノイド","電気信号を機械的な動作へ変換。電磁弁SOL-a/SOL-b等に使用。"],plc:["PLC 入出力","入力はセンサ/スイッチ等の状態を受け、出力はリレー・ソレノイド等を制御。PNP/NPNや電圧仕様を確認。"]};function e70(k){eo70.innerHTML=`<b>${E70[k][0]}</b><br>${E70[k][1]}`}function relay70(on){let a=document.getElementById("ano70"),b=document.getElementById("bnc70"),c=document.getElementById("coil70");if(on){a.setAttribute("y2","60");b.setAttribute("y2","38");c.classList.add("on70");ro70.innerHTML="<b>RY ON：</b>a接点は閉、b接点は開。"}else{a.setAttribute("y2","38");b.setAttribute("y2","60");c.classList.remove("on70");ro70.innerHTML="<b>RY OFF：</b>a接点は開、b接点は閉。"}}document.addEventListener("DOMContentLoaded",()=>{try{e70("no");relay70(false)}catch(e){}});
 let MC71=false,F71=false,R71=false;function paint71(){document.getElementById("mc71").style.stroke=MC71?"#087fdb":"currentColor";document.getElementById("mc71").style.strokeWidth=MC71?"4":"2";let h=document.getElementById("hold71");h.setAttribute("y2",MC71?"100":"85");selfo71.innerHTML=MC71?"<b>MC励磁・自己保持中：</b>MC補助a接点が閉じ、STARTを離してもコイルへの回路が成立する考え方です。":"<b>MC OFF：</b>自己保持接点は開いています。"}function start71(){if(estop71.checked||ol71.checked){selfo71.innerHTML="安全系が作動中のため、学習回路ではMCを励磁しません。";return}MC71=true;paint71()}function stop71(){MC71=false;paint71()}function reset71(){MC71=false;F71=false;R71=false;estop71.checked=false;ol71.checked=false;paint71();fr71();safe71()}function fr71(){fro71.innerHTML=F71?"<b>正転MC ON：</b>逆転側b接点インターロックにより逆転MCを同時投入しない構成。":R71?"<b>逆転MC ON：</b>正転側b接点インターロックにより正転MCを同時投入しない構成。":"<b>停止：</b>正転MC・逆転MCともOFF。<br><span class='note'>実機では電気的インターロックに加え、機械的インターロック等を用いる構成があります。</span>"}function fwd71(){if(estop71.checked||ol71.checked)return safe71();if(R71){fro71.innerHTML="<b>インターロック：</b>逆転MCがONのため正転MCは投入しません。";return}F71=true;fr71()}function rev91(){if(estop71.checked||ol71.checked)return safe71();if(F71){fro71.innerHTML="<b>インターロック：</b>正転MCがONのため逆転MCは投入しません。";return}R71=true;fr71()}function allstop71(){F71=false;R71=false;MC71=false;fr71();paint71()}function safe71(){if(estop71.checked||ol71.checked){MC71=F71=R71=false;paint71();fr71();safeo71.innerHTML="<b>安全/保護接点が開いた想定：</b>制御出力をOFFにしています。原因確認と規定の復帰手順が必要です。"}else safeo71.innerHTML="非常停止・過負荷保護とも未作動の表示です。<br><span class='note'>非常停止回路の実設計は安全リレー/安全PLC、接点冗長性、監視、要求PL/SIL等を含むため、この簡略回路を設計根拠にはしないでください。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{paint71();fr71();safe71()}catch(e){}});
@@ -1462,9 +1491,9 @@ const candidates={
 align:["dialCenter64","alignment","align","softfoot"],
 machining:["cut58","lathe59","millPro62","lathePro61"],
 elements:["bearing","elements","bolt55","thread"],
-electric:["drawing74","panel73","power72","electric70"],
+electric:["electric70","power72","panel73","drawing74"],
 fluid:["hydAnim76","fluidAdv69","fluid68","pinch78"],
-trouble:["trouble75","diagnosis","diag"],
+trouble:["diagnosis43","trouble42","trouble75"],
 ai:["aiPrompt80","circuitPhoto79"]
 };
 let ids=candidates[cat]||[];
