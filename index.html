@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v95</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v96</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -76,10 +76,10 @@ body.dark84 .symitem94{background:#252525;color:#fff}body.dark84 .symitem94 smal
 .signedpad95 button{width:auto;min-width:46px;min-height:48px;margin:0;font-size:19px;font-weight:bold;touch-action:manipulation}
 .signedpad95 button:last-child{font-size:14px}.signed95{font-size:16px;max-width:125px}
 body.dark84 .signedpad95{background:#242e3c;color:#fff}
-</style></head><body>
+</style><style>.ref96 .refgrid96{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;margin:10px 0}.ref96 .refgrid96>div,.ref96 .refgrid96>button{border:1px solid #ccd8e2;background:#f5f9fc;border-radius:10px;padding:10px;white-space:normal;text-align:left}.ref96 .refgrid96 button{width:100%;color:#162536}.ref96 .refgrid96 button small{display:block;color:#52637a;margin-top:5px}.ref96 .refgrid96 label{display:block}.ref96 .refgrid96 input,.ref96 .refgrid96 select{display:block;width:100%;max-width:100%;box-sizing:border-box;margin-top:5px}.ref96 .sources96{font-size:.86em;overflow-wrap:anywhere}.ref96 .wshape96{display:block;width:115px;height:57px;max-width:100%;background:#fff;margin-bottom:6px;border-radius:6px}.ref96 .comment{min-height:24px}</style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v95</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v95：</b>回路記号辞典に加え、芯出し測定値の＋・－・小数入力を改善。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v96</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v96：</b>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
 <div class="releasegrid90">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -89,6 +89,7 @@ body.dark84 .signedpad95{background:#242e3c;color:#fff}
 <button onclick="open90('karte89')">🗂️ 設備カルテ</button>
 <button onclick="open90('trend88')">📈 測定履歴</button>
 <button onclick="jump81('machining')">⚙️ 加工計算</button>
+<button onclick="openSec82('weld96')">🔥 溶接辞典</button><button onclick="openSec82('fit96')">📐 公差・はめあい</button><button onclick="openSec82('unit96')">⇄ 単位換算</button>
 </div>
 <div class="comment"><b>安全原則：</b>調整・測定・点検は設備の危険エネルギーを管理し、メーカー手順・社内手順・資格要件を優先してください。電気は活線作業、油圧は残圧のある配管を緩める確認方法を前提にしません。</div>
 </section><section id="karte89" class="card"><h2>🗂️ 設備カルテ v91</h2>
@@ -167,6 +168,7 @@ body.dark84 .signedpad95{background:#242e3c;color:#fff}
 <button onclick="jump81('fluid')">💧 油圧・空圧</button>
 <button onclick="jump81('trouble')">🩺 故障診断</button>
 <button onclick="jump81('ai')">🤖 AI解析</button>
+<button onclick="openSec82('weld96')">🔥 溶接</button><button onclick="openSec82('fit96')">📐 公差</button><button onclick="openSec82('unit96')">⇄ 換算</button>
 </div>
 <div class="controls84">
 <button onclick="font84(-1)">A−</button><button onclick="font84(1)">A＋</button>
@@ -192,6 +194,7 @@ body.dark84 .signedpad95{background:#242e3c;color:#fff}
 <button onclick="jump81('fluid')">💧<b>油圧・空圧</b><small>記号・シリンダ・残圧・ピンチロール</small></button>
 <button onclick="jump81('trouble')">🩺<b>故障診断</b><small>症状からYES/NOで切り分け</small></button>
 <button onclick="jump81('ai')">🤖<b>AI回路解析</b><small>写真＋質問文で回路を整理</small></button>
+<button onclick="openSec82('weld96')">🔥<b>溶接</b><small>記号・継手・溶接法</small></button><button onclick="openSec82('fit96')">📐<b>寸法公差</b><small>穴基準・軸基準・すきま計算</small></button><button onclick="openSec82('unit96')">⇄<b>単位換算</b><small>圧力・力・トルク・流量など</small></button>
 </div>
 <div id="homeMsg81" class="comment">下の検索機能や各専門ツールもそのまま利用できます。</div>
 </section><section id="records45" class="card"><h2>📝 作業記録・履歴 β</h2>
@@ -558,6 +561,25 @@ body.dark84 .signedpad95{background:#242e3c;color:#fff}
 <button onclick="jump41('cylinder')">💨 油圧・空圧</button><button onclick="jump41('cut')">🛠️ 加工</button>
 <button onclick="jump41('electric')">⚡ 電気</button><button onclick="jump41('weight')">📐 材料・計算</button>
 </div><p class="note">検索はこの端末内だけで動作します。通信なしでも利用できる構成です。</p></section>
+
+<section id="weld96" class="card ref96"><h2>🔥 溶接記号・溶接種類 v96</h2>
+<p class="note">図面で最初に確認：適用規格と記号方式（ISO 2553 のシステムA／Bなど）、矢の指す側、継手の断面、寸法と施工要領。下の図形は学習用の簡略図です。</p>
+<h3>記号の読み順</h3><div class="refgrid96"><div><b>① 矢と基線</b><p>矢先が指す継手を特定。矢側／反対側の指定は図面の適用方式で確認。</p></div><div><b>② 基本記号</b><p>すみ肉、I／V／X／レ形、プラグなどで溶接部の形を表す。</p></div><div><b>③ 寸法</b><p>脚長・のど厚・長さ・ピッチ・開先角度・ルート間隔など。数値の意味は規格と図面注記で確認。</p></div><div><b>④ 補助表示</b><p>全周、現場溶接、仕上げ形状、施工方法、品質要求などを読む。</p></div></div>
+<h3>基本記号と継手</h3><div id="weldList96" class="refgrid96"></div><div id="weldDetail96" class="comment" aria-live="polite">記号をタップすると形と用途を表示します。</div>
+<h3>溶接方法の比較</h3><div id="processList96" class="refgrid96"></div><div id="processDetail96" class="comment" aria-live="polite"></div>
+<p class="note">すみ肉の脚長 z と有効のど厚 a は別の寸法です。等脚の理想直角三角形では a ≒ 0.707z ですが、実際の有効寸法は図面・施工条件で判定してください。溶接法の番号は ISO 4063 の体系を参照。</p>
+<p class="sources96">参照：<a href="https://www.iso.org/standard/72740.html" target="_blank" rel="noopener">ISO 2553</a> ・ <a href="https://www.iso.org/standard/38134.html" target="_blank" rel="noopener">ISO 4063</a></p></section>
+<section id="fit96" class="card ref96"><h2>📐 寸法公差・はめあい v96</h2>
+<p>寸法公差は、許される最大寸法と最小寸法の幅です。<b>呼び寸法＋上の寸法差＝最大許容寸法</b>、<b>呼び寸法＋下の寸法差＝最小許容寸法</b>。穴の記号は大文字、軸は小文字です。</p>
+<div class="refgrid96"><div><b>穴基準：H</b><p>H穴の下の寸法差は0。例：H7/g6。穴寸法を基準に軸の公差域を変える。</p></div><div><b>軸基準：h</b><p>h軸の上の寸法差は0。例：G7/h6。軸寸法を基準に穴の公差域を変える。</p></div><div><b>記号の読み方</b><p>Ø30 H7/g6ならØ30が呼び寸法、H7が穴、g6が軸。数字は公差等級。</p></div><div><b>はめあいの種類</b><p>常にすきま＝すきまばめ／すきまとしめしろ両方あり得る＝中間ばめ／常にしめしろ＝しまりばめ。</p></div></div>
+<h3>図面の上・下の寸法差から計算</h3><p class="note">ISO 286の公差表値を自動推定しません。図面や公差表にある上・下の寸法差を <b>mm、符号付き</b> で入力します。H7やg6の数値は呼び寸法の範囲でも変わります。</p>
+<div class="refgrid96"><label>呼び寸法 mm<input id="fitNom96" type="text" inputmode="decimal" value="30"></label><label>穴 上の寸法差 mm<input id="holeUp96" type="text" inputmode="decimal" value="+0.021"></label><label>穴 下の寸法差 mm<input id="holeLo96" type="text" inputmode="decimal" value="0"></label><label>軸 上の寸法差 mm<input id="shaftUp96" type="text" inputmode="decimal" value="-0.007"></label><label>軸 下の寸法差 mm<input id="shaftLo96" type="text" inputmode="decimal" value="-0.020"></label></div><button type="button" onclick="calcFit96()">最大・最小すきまを計算</button><div id="fitResult96" class="comment" aria-live="polite"></div>
+<h3>図面で間違えやすい点</h3><ul><li>寸法公差と幾何公差（真円度、同軸度、振れ）は別々に確認。</li><li>はめあいの判定は穴の最小値−軸の最大値、穴の最大値−軸の最小値を計算。</li><li>熱ばめ、圧入、ベアリング座では温度、材質、表面状態、メーカー指定も確認。</li></ul>
+<p class="sources96">参照：<a href="https://www.iso.org/standard/54915.html" target="_blank" rel="noopener">ISO 286-2（公差等級と限界寸法差）</a></p></section>
+<section id="unit96" class="card ref96"><h2>⇄ ものづくりの単位換算 v96</h2>
+<p class="note">入力値を同じ物理量の単位へ換算します。ゲージ圧／絶対圧、標準状態の流量、米国馬力と仏馬力は定義が異なります。</p><label>種類<select id="unitCat96" onchange="makeUnit96()"></select></label><div class="refgrid96"><label>入力値<input id="unitValue96" type="text" inputmode="decimal" value="1" oninput="calcUnit96()"></label><label>元の単位<select id="unitFrom96" onchange="calcUnit96()"></select></label><label>換算先<select id="unitTo96" onchange="calcUnit96()"></select></label></div><div id="unitResult96" class="comment" aria-live="polite"></div>
+<details><summary>現場でよく使う関係式</summary><p>1 MPa＝10 bar＝約145.038 psi。1 kgf＝9.80665 N。1 kgf·m＝9.80665 N·m。1 in＝25.4 mm。温度は °F＝°C×9/5＋32。1 L/min＝0.001/60 m³/s。</p></details>
+<p class="sources96">参照：<a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" target="_blank" rel="noopener">NIST 単位換算係数</a></p></section>
 <h1 id="appTitle">現場機械アシスタント v91</h1><div class="card" style="padding:10px 14px">
 <label><b id="langLabel">言語 / Language</b>
 <select id="language" onchange="setLanguage(this.value)">
@@ -1798,4 +1820,46 @@ function draw94(){
  document.getElementById('count94').textContent=total+'種類を表示 / 全'+(SYMBOLS94.electric.length+SYMBOLS94.fluid.length)+'種類';
 }
 document.addEventListener('DOMContentLoaded',draw94);
+</script><script>
+const WELDS96=[
+ ['すみ肉','隅部・T継手・重ね継手など。脚長zとのど厚aを区別。','2本の板が作る角に三角形状の溶着金属。','<path d="M14 48H100 M55 9V48 M55 48L83 48L55 20Z"/>'],
+ ['I形突合せ','板端をほぼ直角に突き合わせる。板厚とルート間隔を確認。','薄板や所定の施工条件など。','<path d="M10 15V48H55 M65 48H108V15 M55 19V47 M65 19V47"/>'],
+ ['V形開先','片面からV形の開先を取る。角度とルート間隔を確認。','厚板の突合せなど。','<path d="M15 14L55 48 M105 14L65 48 M15 14H4 M105 14H116"/>'],
+ ['X形開先','両面V形。表裏の施工順と裏はつりを確認。','厚板で両面施工できる場合など。','<path d="M18 12L58 30L18 48 M102 12L62 30L102 48"/>'],
+ ['レ形開先','片方の板に開先を取る。矢が指す部材に注意。','板厚や加工できる側の制約に対応。','<path d="M20 10V48L75 48 M105 10L75 48"/>'],
+ ['U形・J形開先','曲面状の開先。加工寸法と残り厚を確認。','開先体積を抑えたい厚板など。','<path d="M17 12V48Q22 55 55 48 M103 12V48Q98 55 65 48"/>'],
+ ['プラグ・スロット','穴または長穴を通して接合。穴径・長穴寸法と充填を確認。','重ね継手など。','<rect x="21" y="20" width="75" height="24" rx="3"/><path d="M42 21V43 M75 21V43"/>'],
+ ['スポット・シーム','スポットは点、シームは連続した線状の抵抗溶接。','薄板の重ね継手など。','<circle cx="37" cy="32" r="9"/><circle cx="77" cy="32" r="9"/><path d="M46 32H68"/>'],
+ ['全周・現場溶接','全周は継手周囲、現場溶接は工場外など施工場所の指示。基本記号との組合せを確認。','補助記号。','<circle cx="35" cy="30" r="11"/><path d="M45 30H103 M64 30V13L82 20L64 27"/>']
+];
+const PROCESS96=[['被覆アーク（111）','被覆溶接棒を使う手溶接。姿勢、棒種、スラグ除去を確認。'],['MAG・炭酸ガス系（135等）','消耗電極と活性ガスを使う。ワイヤ・ガス・電流条件を確認。'],['MIG（131等）','消耗電極と不活性ガスを使う。材料、ガス、ワイヤを確認。'],['TIG（141等）','非消耗タングステン電極。不活性ガス、溶加材の有無を確認。'],['サブマージアーク（12系）','フラックスの下で連続溶接。継手形状と入熱を確認。'],['抵抗スポット・シーム（21系）','通電抵抗熱と加圧で接合。ナゲット・加圧・電極状態を確認。'],['レーザ・電子ビーム（52／51系）','高エネルギー密度で溶接。設備・施工条件と品質確認。'],['ろう付け','母材を溶融させず、溶加材を用いて接合。溶接とは施工温度・継手設計が異なる。']];
+function drawRef96(){const w=document.getElementById('weldList96'),p=document.getElementById('processList96');if(!w||!p)return;
+ WELDS96.forEach(([name,meaning,use,shape])=>{const b=document.createElement('button');b.type='button';b.innerHTML='<svg class="wshape96" viewBox="0 0 120 60" aria-hidden="true"><g fill="none" stroke="#243749" stroke-width="3" stroke-linejoin="round">'+shape+'</g></svg>';b.append(document.createTextNode(name));b.onclick=()=>document.getElementById('weldDetail96').textContent=name+'：'+meaning+' 用途例：'+use;w.append(b)});
+ PROCESS96.forEach(([name,meaning])=>{const b=document.createElement('button');b.type='button';b.textContent=name;b.onclick=()=>document.getElementById('processDetail96').textContent=name+'：'+meaning;p.append(b)});
+}
+function num96(id){const el=document.getElementById(id),s=el.value.trim().replace(/[＋]/g,'+').replace(/[－−]/g,'-').replace(/[．]/g,'.');return /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(s)?Number(s):NaN}
+function calcFit96(){let n=num96('fitNom96'),hu=num96('holeUp96'),hl=num96('holeLo96'),su=num96('shaftUp96'),sl=num96('shaftLo96'),out=document.getElementById('fitResult96');
+ if(![n,hu,hl,su,sl].every(Number.isFinite)||n<=0||hu<hl||su<sl){out.textContent='呼び寸法（0より大きい数）と上・下の寸法差を確認してください。上の寸法差は下以上にします。';return}
+ let hmin=n+hl,hmax=n+hu,smin=n+sl,smax=n+su,min=hmin-smax,max=hmax-smin,fmt=x=>x.toFixed(3),kind=min>0?'すきまばめ':max<0?'しまりばめ':min===0&&max>0?'最小すきま0のすきまばめ':max===0&&min<0?'最大すきま0のしまりばめ':min===0&&max===0?'すきま・しめしろとも0':'中間ばめ';
+ out.textContent='穴：'+fmt(hmin)+' ～ '+fmt(hmax)+' mm（公差幅 '+fmt(hu-hl)+' mm）／軸：'+fmt(smin)+' ～ '+fmt(smax)+' mm（公差幅 '+fmt(su-sl)+' mm）\n最小すきま＝穴最小−軸最大＝'+fmt(min)+' mm、最大すきま＝穴最大−軸最小＝'+fmt(max)+' mm。判定：'+kind+'。負のすきまはしめしろを表します。';out.style.whiteSpace='pre-line';
+}
+const UNITS96={
+ '長さ':[['mm',.001],['µm',.000001],['cm',.01],['m',1],['in',.0254],['ft',.3048]],
+ '面積':[['mm²',.000001],['cm²',.0001],['m²',1],['in²',.00064516]],
+ '体積':[['mm³',1e-9],['cm³',1e-6],['mL',1e-6],['L',.001],['m³',1],['US gal',.003785411784]],
+ '質量':[['g',.001],['kg',1],['t',1000],['lb',.45359237]],
+ '力':[['N',1],['kN',1000],['kgf',9.80665],['lbf',4.4482216152605]],
+ '圧力（差圧・ゲージ圧）':[['Pa',1],['kPa',1000],['MPa',1e6],['bar',1e5],['kgf/cm²',98066.5],['psi',6894.757293168]],
+ 'トルク':[['N·m',1],['N·mm',.001],['kgf·m',9.80665],['lbf·ft',1.3558179483314]],
+ '動力':[['W',1],['kW',1000],['PS（仏馬力）',735.49875],['hp（機械馬力）',745.6998715822702]],
+ '流量（体積/時間）':[['L/min',.001/60],['L/h',.001/3600],['m³/h',1/3600],['m³/s',1],['US gal/min',.003785411784/60]],
+ '回転速度':[['rpm',1],['rps',60],['rad/s',60/(2*Math.PI)]],
+ '速度':[['mm/s',.001],['m/s',1],['m/min',1/60],['km/h',1/3.6]],
+ 'エネルギー':[['J',1],['kJ',1000],['kWh',3.6e6]],
+ '温度':[['°C',1],['°F',1],['K',1]]};
+function makeUnit96(){const cat=document.getElementById('unitCat96');if(!cat.options.length){Object.keys(UNITS96).forEach(k=>cat.add(new Option(k,k)))}let a=UNITS96[cat.value],f=document.getElementById('unitFrom96'),t=document.getElementById('unitTo96');f.replaceChildren();t.replaceChildren();a.forEach(([name],i)=>{f.add(new Option(name,i));t.add(new Option(name,i))});t.selectedIndex=Math.min(1,a.length-1);calcUnit96()}
+function calcUnit96(){const val=num96('unitValue96'),cat=document.getElementById('unitCat96').value,a=UNITS96[cat],from=Number(document.getElementById('unitFrom96').value),to=Number(document.getElementById('unitTo96').value),out=document.getElementById('unitResult96');if(!a||!Number.isFinite(val)){out.textContent='数値を入力してください。';return}let res;
+ if(cat==='温度'){let c=from===0?val:from===1?(val-32)*5/9:val-273.15;res=to===0?c:to===1?c*9/5+32:c+273.15;if(c< -273.15-1e-9){out.textContent='絶対零度より低い温度は入力できません。';return}}
+ else res=val*a[from][1]/a[to][1];out.textContent=val+' '+a[from][0]+' ＝ '+Number(res.toPrecision(10))+' '+a[to][0]}
+document.addEventListener('DOMContentLoaded',()=>{drawRef96();calcFit96();makeUnit96()});
 </script></body></html>
