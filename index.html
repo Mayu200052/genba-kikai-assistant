@@ -76,11 +76,18 @@ body.dark84 .symitem94{background:#252525;color:#fff}body.dark84 .symitem94 smal
 .signedpad95 button{width:auto;min-width:46px;min-height:48px;margin:0;font-size:19px;font-weight:bold;touch-action:manipulation}
 .signedpad95 button:last-child{font-size:14px}.signed95{font-size:16px;max-width:125px}
 body.dark84 .signedpad95{background:#242e3c;color:#fff}
-</style><style>.ref96 .refgrid96{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;margin:10px 0}.ref96 .refgrid96>div,.ref96 .refgrid96>button{border:1px solid #ccd8e2;background:#f5f9fc;border-radius:10px;padding:10px;white-space:normal;text-align:left}.ref96 .refgrid96 button{width:100%;color:#162536}.ref96 .refgrid96 button small{display:block;color:#52637a;margin-top:5px}.ref96 .refgrid96 label{display:block}.ref96 .refgrid96 input,.ref96 .refgrid96 select{display:block;width:100%;max-width:100%;box-sizing:border-box;margin-top:5px}.ref96 .sources96{font-size:.86em;overflow-wrap:anywhere}.ref96 .wshape96{display:block;width:115px;height:57px;max-width:100%;background:#fff;margin-bottom:6px;border-radius:6px}.ref96 .comment{min-height:24px}</style></head><body>
+</style><style>.ref96 .refgrid96{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;margin:10px 0}.ref96 .refgrid96>div,.ref96 .refgrid96>button{border:1px solid #ccd8e2;background:#f5f9fc;border-radius:10px;padding:10px;white-space:normal;text-align:left}.ref96 .refgrid96 button{width:100%;color:#162536}.ref96 .refgrid96 button small{display:block;color:#52637a;margin-top:5px}.ref96 .refgrid96 label{display:block}.ref96 .refgrid96 input,.ref96 .refgrid96 select{display:block;width:100%;max-width:100%;box-sizing:border-box;margin-top:5px}.ref96 .sources96{font-size:.86em;overflow-wrap:anywhere}.ref96 .wshape96{display:block;width:115px;height:57px;max-width:100%;background:#fff;margin-bottom:6px;border-radius:6px}.ref96 .comment{min-height:24px}</style><style>
+.page97hidden{display:none!important}#release90{min-height:60vh}
+#contents97{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#contents97 button{width:100%;min-height:62px;margin:0;padding:8px;font-size:15px;overflow-wrap:anywhere}
+#contents97 h2{grid-column:1/-1;margin:17px 0 0;font-size:17px;border-bottom:1px solid #ddd;padding-bottom:6px}
+.back97{width:auto;min-height:45px;background:#eaf4ff;border:1px solid #8bb8da;border-radius:10px}
+body.dark84 #contents97 button{color:#fff;background:#303030}
+</style></head><body>
 <section id="release90" class="card">
 <h1>🛠️ 現場機械アシスタント 1.0候補 <small>v96</small></h1>
 <p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v96：</b>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
-<div class="releasegrid90">
+<div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
 <button onclick="jump81('fluid')">💧 油圧・空圧</button>
@@ -1539,20 +1546,20 @@ trouble:["diagnosis43","trouble42","trouble75"],
 ai:["aiPrompt80","circuitPhoto79"]
 };
 let ids=candidates[cat]||[];
-for(let id of ids){let el=document.getElementById(id);if(el){el.scrollIntoView({behavior:"smooth",block:"start"});return}}
+for(let id of ids){let el=document.getElementById(id);if(el){openView97(el.id);return}}
 homeMsg81.innerHTML="<b>関連ツールはページ内検索から開けます。</b>";
 }
 
 
 const KEYF82="genba_favorites82", KEYR82="genba_recent82";
-function home82(){(document.getElementById("release90")||document.getElementById("myhome83")||document.getElementById("home81"))?.scrollIntoView({behavior:"smooth"});closePanel82();setTimeout(()=>{try{refreshHome83()}catch(e){}},50)}
+function home82(){openView97("release90");closePanel82();setTimeout(()=>{try{refreshHome83()}catch(e){}},50)}
 function closePanel82(){let p=document.getElementById("panel82");if(p)p.style.display="none"}
 function secName82(el){return (el.querySelector("h1,h2")?.textContent||el.id||"ツール").trim()}
 function get82(k){try{return JSON.parse(localStorage.getItem(k)||"[]")}catch(e){return[]}}
 function set82(k,v){localStorage.setItem(k,JSON.stringify(v))}
 function addRecent82(id,name){if(!id)return;let a=get82(KEYR82).filter(x=>x.id!==id);a.unshift({id,name});set82(KEYR82,a.slice(0,12))}
 function toggleFav91(id,name){let a=get82(KEYF82),i=a.findIndex(x=>x.id===id);if(i>=0)a.splice(i,1);else a.unshift({id,name});set82(KEYF82,a);decorate82()}
-function openSec82(id){let e=document.getElementById(id);if(e){e.scrollIntoView({behavior:"smooth",block:"start"});addRecent82(id,secName82(e))}closePanel82()}
+function openSec82(id){let e=document.getElementById(id);if(e){openView97(id);addRecent82(id,secName82(e))}closePanel82()}
 function favPanel82(){let p=panel82,a=get82(KEYF82);p.style.display="block";p.innerHTML="<b>★ お気に入り</b><button onclick='closePanel82()'>閉じる</button><br>"+(a.length?a.map(x=>`<button onclick="openSec82('${x.id}')">${x.name}</button>`).join(""):"まだありません。各ツール右上の ☆ で登録できます。")}
 function recentPanel82(){let p=panel82,a=get82(KEYR82);p.style.display="block";p.innerHTML="<b>◷ 最近使った工具</b><button onclick='closePanel82()'>閉じる</button><br>"+(a.length?a.map(x=>`<button onclick="openSec82('${x.id}')">${x.name}</button>`).join(""):"まだ履歴がありません。")}
 function decorate82(){
@@ -1653,9 +1660,9 @@ view89.innerHTML=`<div class="report87"><h3>${esc83(eq)}</h3>
 document.addEventListener("DOMContentLoaded",()=>{try{showK89()}catch(e){}});
 
 
-function open90(id){let e=document.getElementById(id);if(e){e.scrollIntoView({behavior:"smooth",block:"start"});try{addRecent82(id,secName82(e))}catch(x){}}}
+function open90(id){let e=document.getElementById(id);if(e){openView97(id);try{addRecent82(id,secName82(e))}catch(x){}}}
 
-function go(id){let e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth',block:'start'});}
+function go(id){let e=document.getElementById(id);if(e)openView97(id);}
 
 function updateShimPlan(){
  if(!shimCorrection.ready){return;}
@@ -1862,4 +1869,45 @@ function calcUnit96(){const val=num96('unitValue96'),cat=document.getElementById
  if(cat==='温度'){let c=from===0?val:from===1?(val-32)*5/9:val-273.15;res=to===0?c:to===1?c*9/5+32:c+273.15;if(c< -273.15-1e-9){out.textContent='絶対零度より低い温度は入力できません。';return}}
  else res=val*a[from][1]/a[to][1];out.textContent=val+' '+a[from][0]+' ＝ '+Number(res.toPrecision(10))+' '+a[to][0]}
 document.addEventListener('DOMContentLoaded',()=>{drawRef96();calcFit96();makeUnit96()});
+</script><script>
+(function(){
+const itemGroups97=[
+ ['🎯 測定・芯出し',['dialCenter64','alignment','shim','soft','measure','coord63','multi87','trend88']],
+ ['🩺 点検・記録',['diagnosis43','trouble42','workflow44','record85','records45','karte89','report86','field84']],
+ ['⚡ 電気・油圧・空圧',['electric70','control71','power72','panel73','drawing74','fluidAdv91','fluid68','symbol94']],
+ ['🔥 溶接・公差・換算',['weld96','fit96','unit96']],
+ ['⚙️ 加工・機械要素',['cut58','lathe59','lathePro61','millPro62','material60','hole57','threadPro56','bolt55','elements48','bearingCode49','bearingWizard54','bearingReverse52','interchange51','makerBearing50','tools47']],
+ ['🏗️ 玉掛け・その他',['rigGeo67','rigTable66','rig65','dashboard41','home81','myhome83']]
+];
+let pages97=[];let active97='release90';
+function section97(id){let e=document.getElementById(id);return e&&e.closest('body > .card')===e?e:null}
+function page97(id){let e=document.getElementById(id);if(!e)return null;return e.closest('body > .card')||e.closest('body > section.card')||e}
+window.openView97=function(id){
+ let e=document.getElementById(id),p=id==='release90'?e:page97(id);if(!p)return;
+ active97=id;
+ pages97.forEach(x=>x.classList.toggle('page97hidden',x!==p && !(p.id==='alignment'&&x.dataset.align97==='yes')));
+ document.querySelectorAll('.back97').forEach(b=>b.remove());
+ if(id!=='release90'){
+  let b=document.createElement('button');b.type='button';b.className='back97';b.textContent='← 目次へ戻る';b.onclick=()=>openView97('release90');p.prepend(b);
+ }
+ window.scrollTo(0,0);
+ try{history.replaceState(null,'',id==='release90'?location.pathname:('#'+id))}catch(ex){}
+};
+document.addEventListener('DOMContentLoaded',function(){
+ const index=document.getElementById('release90'),list=document.getElementById('contents97');
+ list.replaceChildren();
+ const seen=new Set();
+ for(const [title,ids] of itemGroups97){
+  let h=document.createElement('h2');h.textContent=title;list.appendChild(h);
+  for(const id of ids){let e=document.getElementById(id);if(!e)continue;
+   let b=document.createElement('button');b.type='button';b.textContent=(e.querySelector('h2,h1')?.textContent||id).replace(/\s*v9[0-9]\s*$/,'');b.onclick=()=>openView97(id);list.appendChild(b);seen.add(id);
+  }
+ }
+ const extras=[...document.querySelectorAll('body > section.card[id]')].filter(e=>!seen.has(e.id)&&e.id!=='release90');
+ if(extras.length){let h=document.createElement('h2');h.textContent='その他の機能';list.appendChild(h);extras.forEach(e=>{let b=document.createElement('button');b.type='button';b.textContent=e.querySelector('h2,h1')?.textContent||e.id;b.onclick=()=>openView97(e.id);list.appendChild(b)})}
+ pages97=[...document.body.children].filter(e=>e.tagName!=='SCRIPT'&&e.id!=='nav91'&&e.id!=='panel82'&&e.id!=='signedpad95'&&!e.classList.contains('signedpad95'));
+ let align=false;for(const p of pages97){if(p.id==='alignment')align=true;if(align)p.dataset.align97='yes';if(p.id==='soft')align=false;}
+ let target=location.hash.slice(1);openView97(target&&document.getElementById(target)?target:'release90');
+});
+})();
 </script></body></html>
