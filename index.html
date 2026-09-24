@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v93</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v95</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -61,10 +61,25 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 .releasegrid90 button{min-height:72px;border-radius:15px;font-size:17px;font-weight:800}
 #release90 h1{line-height:1.2}#release90 h1 small{font-size:13px;opacity:.7}
 @media(min-width:760px){.releasegrid90{grid-template-columns:repeat(4,1fr)}}
+</style><style>
+.symcontrols94{display:flex;flex-wrap:wrap;gap:5px}.symcontrols94 button{width:auto;min-height:44px;margin:3px;border-radius:9px}
+#query94{display:block;box-sizing:border-box;width:100%;min-height:48px;font-size:16px;margin:8px 0 12px;border:1px solid #888;border-radius:9px}
+.symgrid94{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:560px;overflow-y:auto;padding:2px}
+.symitem94{width:100%;min-width:0;min-height:112px;margin:0;padding:8px;border:1px solid #aaa;border-radius:10px;background:#fff;color:#111;text-align:left;display:flex;flex-direction:column;justify-content:center;gap:5px}
+.symitem94:focus-visible{outline:3px solid #087fdb}.symitem94 b{font-size:14px}.symitem94 small{font-size:11px;color:#555}
+.symmark94{font:17px/1.25 ui-monospace,Menlo,monospace;white-space:normal;word-break:break-word;color:#124f80}
+#detail94{position:sticky;bottom:60px;z-index:5;border:1px solid #9ac4e7;box-shadow:0 2px 8px #0002;margin-top:12px}
+@media(min-width:700px){.symgrid94{grid-template-columns:repeat(3,minmax(0,1fr))}}
+body.dark84 .symitem94{background:#252525;color:#fff}body.dark84 .symitem94 small{color:#bbb}
+</style><style>
+.signedpad95{position:fixed;left:10px;right:10px;bottom:calc(70px + env(safe-area-inset-bottom));z-index:10000;display:none;align-items:center;justify-content:center;gap:5px;padding:8px;background:#e8f3ff;border:1px solid #87add0;border-radius:12px;box-shadow:0 3px 15px #0005}
+.signedpad95 button{width:auto;min-width:46px;min-height:48px;margin:0;font-size:19px;font-weight:bold;touch-action:manipulation}
+.signedpad95 button:last-child{font-size:14px}.signed95{font-size:16px;max-width:125px}
+body.dark84 .signedpad95{background:#242e3c;color:#fff}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v93</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v93：</b>故障診断を修正し、欠けていた電気・図面ツール画面を復元。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v95</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v95：</b>回路記号辞典に加え、芯出し測定値の＋・－・小数入力を改善。</p>
 <div class="releasegrid90">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -272,7 +287,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 </section><section id="electric70" class="card"><h2>⚡ 電気記号・接点の基礎 v93</h2>
 <p class="note">学習用の簡略表示です。実機確認は図面・メーカー資料・社内手順を優先し、活線作業は行わないでください。</p>
 <div><button onclick="e70('no')">a接点 / NO</button><button onclick="e70('nc')">b接点 / NC</button><button onclick="e70('coil')">リレーコイル</button><button onclick="e70('pb')">押しボタン</button><button onclick="e70('ls')">リミットSW</button><button onclick="e70('motor')">モータ</button><button onclick="e70('sol')">ソレノイド</button><button onclick="e70('plc')">PLC入出力</button></div>
-<div id="eo70" class="comment"></div>
+<div id="eo70" class="comment"></div><button type="button" onclick="filter94('electric');document.getElementById('symbol94').scrollIntoView()">電気記号をもっと見る →</button>
 <h3>リレー接点の動き</h3>
 <svg viewBox="0 0 360 110" style="width:100%;max-width:520px;border:1px solid #aaa;border-radius:10px">
 <text x="18" y="25">a接点</text><line x1="25" y1="70" x2="95" y2="70" stroke="currentColor" stroke-width="3"/><line id="ano70" x1="95" y1="70" x2="155" y2="38" stroke="currentColor" stroke-width="3"/><line x1="155" y1="70" x2="205" y2="70" stroke="currentColor" stroke-width="3"/>
@@ -310,7 +325,7 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="f69('frl')"><svg viewBox="0 0 115 65"><rect x="8" y="14" width="28" height="36"/><rect x="43" y="14" width="28" height="36"/><rect x="78" y="14" width="28" height="36"/><line x1="36" y1="32" x2="43" y2="32"/><line x1="71" y1="32" x2="78" y2="32"/></svg><b>空圧 FRL</b></button>
 <button onclick="f69('quick')"><svg viewBox="0 0 115 65"><line x1="5" y1="32" x2="40" y2="32"/><rect x="40" y="15" width="35" height="35"/><line x1="75" y1="32" x2="110" y2="32"/><line x1="57" y1="50" x2="57" y2="64"/></svg><b>急速排気弁</b></button>
 <button onclick="f69('silencer')"><svg viewBox="0 0 115 65"><line x1="5" y1="32" x2="48" y2="32"/><rect x="48" y="17" width="28" height="30"/><line x1="82" y1="18" x2="105" y2="8"/><line x1="82" y1="32" x2="108" y2="32"/><line x1="82" y1="46" x2="105" y2="56"/></svg><b>サイレンサ</b></button>
-</div><div id="fo69" class="comment">記号をタップすると役割を表示します。</div>
+</div><div id="fo69" class="comment">記号をタップすると役割を表示します。</div><button type="button" onclick="filter94('fluid');document.getElementById('symbol94').scrollIntoView()">油圧・空圧記号をもっと見る →</button>
 <h3>方向切換弁の読み方</h3>
 <label>弁 <select id="dv91" onchange="dir69()"><option value="32">3/2弁</option><option value="42">4/2弁</option><option value="43" selected>4/3弁</option></select></label>
 <label>中立形式 <select id="center69" onchange="dir69()"><option>クローズドセンタ</option><option>タンデムセンタ</option><option>オープンセンタ</option><option>フロートセンタ</option></select></label>
@@ -326,7 +341,12 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
 <h3>4/3方向切換弁の状態</h3><button onclick="valve68('a')">SOL-a</button><button onclick="valve68('n')">中立</button><button onclick="valve68('b')">SOL-b</button><div id="vo68" class="comment"></div>
-</section><section id="rigGeo67" class="card"><h2>🪝 玉掛け 吊り角度・吊り具確認 v91</h2>
+</section><section id="symbol94" class="card"><h2>📚 電気・油圧 回路記号辞典 v94</h2>
+<p class="note">図は形を覚えるための<b>模式表示</b>です。規格の記号を正確に複製したものではありません。機器ごとの図面凡例、型式、端子表、回路図を優先してください。</p>
+<div class="symcontrols94"><button type="button" onclick="filter94('all')">すべて</button><button type="button" onclick="filter94('electric')">⚡ 電気</button><button type="button" onclick="filter94('fluid')">💧 油圧・空圧</button></div>
+<label for="query94">記号名・用途で探す</label><input id="query94" type="search" placeholder="例：P24、チェック、サーマル" oninput="draw94()">
+<p id="count94" class="note"></p><div id="list94" class="symgrid94"></div><div id="detail94" class="comment" aria-live="polite">記号を選ぶと、用途と確認点を表示します。</div>
+<p class="note">参考規格の領域：電気回路図 IEC 60617、流体回路図 ISO 1219。各図形と文字表記は学習用で、規格適合を保証しません。</p></section><section id="rigGeo67" class="card"><h2>🪝 玉掛け 吊り角度・吊り具確認 v91</h2>
 <p class="note"><b>安全重要：</b>計算は段取り検討用です。シャックル、アイボルト、チェーン等の使用可否・WLLは現物刻印/タグとメーカー資料で確認してください。</p>
 <h3>吊り点間距離＋スリング長 → 吊り角度</h3>
 <label>吊り点間距離 W <input id="span67" type="number" value="1000" step="1"> mm</label>
@@ -652,23 +672,23 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 </div>
 </div>
 <div class="card"><h2>② ラジアル測定（外径・360°）</h2>
-<p class="note">ダイヤルゲージで測った位置と同じ場所へ数値を入力してください。</p>
+<p class="note">ダイヤルゲージで測った位置と同じ場所へ数値を入力してください。欄を押すと＋・－・小数点ボタンが表示されます。</p>
 <div style="position:relative;width:330px;height:330px;margin:auto">
 <div style="position:absolute;left:115px;top:115px;width:100px;height:100px;border:4px solid #555;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold">軸 外径</div>
-<label style="position:absolute;left:115px;top:5px;text-align:center">0°（上）<br><input id="r0" type="number" step=".001" value=".10"></label>
-<label style="position:absolute;right:0;top:135px;text-align:center">90°（右）<br><input id="r90" type="number" step=".001" value=".04"></label>
-<label style="position:absolute;left:115px;bottom:0;text-align:center">180°（下）<br><input id="r180" type="number" step=".001" value="0"></label>
-<label style="position:absolute;left:0;top:135px;text-align:center">270°（左）<br><input id="r270" type="number" step=".001" value=".06"></label>
+<label style="position:absolute;left:115px;top:5px;text-align:center">0°（上）<br><input id="r0" type="text" inputmode="decimal" autocomplete="off" value=".10"></label>
+<label style="position:absolute;right:0;top:135px;text-align:center">90°（右）<br><input id="r90" type="text" inputmode="decimal" autocomplete="off" value=".04"></label>
+<label style="position:absolute;left:115px;bottom:0;text-align:center">180°（下）<br><input id="r180" type="text" inputmode="decimal" autocomplete="off" value="0"></label>
+<label style="position:absolute;left:0;top:135px;text-align:center">270°（左）<br><input id="r270" type="text" inputmode="decimal" autocomplete="off" value=".06"></label>
 </div></div>
 
 <div class="card"><h2>③ 面振れ測定（最大実用径・360°）</h2>
 <p class="note">カップリング面のなるべく大きな測定径で測り、同じ位置へ入力します。</p>
 <div style="position:relative;width:330px;height:330px;margin:auto">
 <div style="position:absolute;left:100px;top:100px;width:130px;height:130px;border:5px double #555;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:bold">カップリング面<br>測定径 D</div>
-<label style="position:absolute;left:115px;top:5px;text-align:center">0°（上）<br><input id="f0" type="number" step=".001" value=".08"></label>
-<label style="position:absolute;right:0;top:135px;text-align:center">90°（右）<br><input id="f90" type="number" step=".001" value=".02"></label>
-<label style="position:absolute;left:115px;bottom:0;text-align:center">180°（下）<br><input id="f180" type="number" step=".001" value="0"></label>
-<label style="position:absolute;left:0;top:135px;text-align:center">270°（左）<br><input id="f270" type="number" step=".001" value=".05"></label>
+<label style="position:absolute;left:115px;top:5px;text-align:center">0°（上）<br><input id="f0" type="text" inputmode="decimal" autocomplete="off" value=".08"></label>
+<label style="position:absolute;right:0;top:135px;text-align:center">90°（右）<br><input id="f90" type="text" inputmode="decimal" autocomplete="off" value=".02"></label>
+<label style="position:absolute;left:115px;bottom:0;text-align:center">180°（下）<br><input id="f180" type="text" inputmode="decimal" autocomplete="off" value="0"></label>
+<label style="position:absolute;left:0;top:135px;text-align:center">270°（左）<br><input id="f270" type="text" inputmode="decimal" autocomplete="off" value=".05"></label>
 </div>
 <button onclick="calc()">計算・図解を更新</button>
 </div>
@@ -826,11 +846,11 @@ body.contrast84 input,body.contrast84 select,body.contrast84 textarea{border:3px
 <text x="305" y="95" font-size="13">Coupling ①</text><text x="630" y="95" font-size="13">Coupling ②</text></svg>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:12px">
 <div class="comment"><b>A-B カップリング①</b><br>D1 <input id="D1" type="number" value="300"> mm　L1 <input id="L1A" type="number" value="250"> mm　L2 <input id="L2A" type="number" value="500"> mm<br><br>
-ラジアル 0° <input id="ab_r0" type="number" step=".001" value="0">　90° <input id="ab_r90" type="number" step=".001" value="0"><br>180° <input id="ab_r180" type="number" step=".001" value="0">　270° <input id="ab_r270" type="number" step=".001" value="0"><br>
-面 0° <input id="ab_f0" type="number" step=".001" value="0">　90° <input id="ab_f90" type="number" step=".001" value="0"><br>180° <input id="ab_f180" type="number" step=".001" value="0">　270° <input id="ab_f270" type="number" step=".001" value="0"></div>
+ラジアル 0° <input id="ab_r0" type="text" inputmode="decimal" autocomplete="off" value="0">　90° <input id="ab_r90" type="text" inputmode="decimal" autocomplete="off" value="0"><br>180° <input id="ab_r180" type="text" inputmode="decimal" autocomplete="off" value="0">　270° <input id="ab_r270" type="text" inputmode="decimal" autocomplete="off" value="0"><br>
+面 0° <input id="ab_f0" type="text" inputmode="decimal" autocomplete="off" value="0">　90° <input id="ab_f90" type="text" inputmode="decimal" autocomplete="off" value="0"><br>180° <input id="ab_f180" type="text" inputmode="decimal" autocomplete="off" value="0">　270° <input id="ab_f270" type="text" inputmode="decimal" autocomplete="off" value="0"></div>
 <div class="comment"><b>B-C カップリング②</b><br>D2 <input id="D2" type="number" value="300"> mm　L1 <input id="L1C" type="number" value="250"> mm　L2 <input id="L2C" type="number" value="500"> mm<br><br>
-ラジアル 0° <input id="bc_r0" type="number" step=".001" value="0">　90° <input id="bc_r90" type="number" step=".001" value="0"><br>180° <input id="bc_r180" type="number" step=".001" value="0">　270° <input id="bc_r270" type="number" step=".001" value="0"><br>
-面 0° <input id="bc_f0" type="number" step=".001" value="0">　90° <input id="bc_f90" type="number" step=".001" value="0"><br>180° <input id="bc_f180" type="number" step=".001" value="0">　270° <input id="bc_f270" type="number" step=".001" value="0"></div></div>
+ラジアル 0° <input id="bc_r0" type="text" inputmode="decimal" autocomplete="off" value="0">　90° <input id="bc_r90" type="text" inputmode="decimal" autocomplete="off" value="0"><br>180° <input id="bc_r180" type="text" inputmode="decimal" autocomplete="off" value="0">　270° <input id="bc_r270" type="text" inputmode="decimal" autocomplete="off" value="0"><br>
+面 0° <input id="bc_f0" type="text" inputmode="decimal" autocomplete="off" value="0">　90° <input id="bc_f90" type="text" inputmode="decimal" autocomplete="off" value="0"><br>180° <input id="bc_f180" type="text" inputmode="decimal" autocomplete="off" value="0">　270° <input id="bc_f270" type="text" inputmode="decimal" autocomplete="off" value="0"></div></div>
 <button onclick="calc3Axis()">3軸ラインを計算</button><div id="threeResult" class="comment" style="margin-top:12px">測定値を入力して計算してください。</div>
 <div id="angle3" class="comment" style="margin-top:10px">面振れ角度：計算後に表示します。</div>
 <div class="comment" style="margin-top:10px">
@@ -957,13 +977,13 @@ document.addEventListener("DOMContentLoaded",()=>{
  }
 });
 
-function g3(id){return parseFloat((document.getElementById(id)||{}).value)||0;}
+function g3(id){return signedIds95.has(id)?number95(document.getElementById(id)):(parseFloat((document.getElementById(id)||{}).value)||0);}
 function pc3(p,D,L1,L2){let vx=(g3(p+"_r0")-g3(p+"_r180"))/2,hy=(g3(p+"_r90")-g3(p+"_r270"))/2,fv=(g3(p+"_f0")-g3(p+"_f180"))/2,fh=(g3(p+"_f90")-g3(p+"_f270"))/2,R=Math.max(D/2,.0001),tv=Math.atan2(fv,R),th=Math.atan2(fh,R);return {fv:-(vx+Math.tan(tv)*L1),rv:-(vx+Math.tan(tv)*(L1+L2)),fh:-(hy+Math.tan(th)*L1),rh:-(hy+Math.tan(th)*(L1+L2))};}
 function dv(v){return Math.abs(v)<.0005?"ほぼ調整不要":(v>0?"シム追加 ":"シムを抜く ")+Math.abs(v).toFixed(3)+" mm";}
 function dh(v){return Math.abs(v)<.0005?"ほぼ調整不要":(v>0?"右へ ":"左へ ")+Math.abs(v).toFixed(3)+" mm";}
 function mi3(n,r){return "<b>"+n+"</b><br>前フット：上下 "+dv(r.fv)+" ／ 左右 "+dh(r.fh)+"<br>後フット：上下 "+dv(r.rv)+" ／ 左右 "+dh(r.rh);}
 function names3(){let A=document.getElementById("nameA").value,B=document.getElementById("nameB").value,C=document.getElementById("nameC").value,b=document.getElementById("base3").value;document.getElementById("svgA").textContent="A "+A;document.getElementById("svgB").textContent="B "+B;document.getElementById("svgC").textContent="C "+C;["A","B","C"].forEach(x=>document.getElementById("lock"+x).textContent=b===x?"🔒 基準":"");}
-function calc3Axis(){names3();let A=document.getElementById("nameA").value,B=document.getElementById("nameB").value,C=document.getElementById("nameC").value,b=document.getElementById("base3").value,ab=pc3("ab",g3("D1"),g3("L1A"),g3("L2A")),bc=pc3("bc",g3("D2"),g3("L1C"),g3("L2C")),h="<b>固定基準："+b+"軸</b><br><br>";if(b==="B")h+=mi3("A軸 "+A,ab)+"<br><br><b>B軸 "+B+"：🔒 固定・移動なし</b><br><br>"+mi3("C軸 "+C,bc);else if(b==="A")h+="<b>A軸 "+A+"：🔒 固定</b><br><br>"+mi3("B軸 "+B+"（A-Bからの目安）",ab)+"<br><br>B調整後にB-Cを再測定してから、"+mi3("C軸 "+C,bc);else h+="<b>C軸 "+C+"：🔒 固定</b><br><br>"+mi3("B軸 "+B+"（B-Cからの目安）",bc)+"<br><br>B調整後にA-Bを再測定してから、"+mi3("A軸 "+A,ab);document.getElementById("threeResult").innerHTML=h;
+function calc3Axis(){if(!valid95([...signedIds95].filter(id=>id.startsWith('ab_')||id.startsWith('bc_')))){document.getElementById('threeResult').textContent='測定値を確認してください。空欄や符号だけでは計算できません。';return}names3();let A=document.getElementById("nameA").value,B=document.getElementById("nameB").value,C=document.getElementById("nameC").value,b=document.getElementById("base3").value,ab=pc3("ab",g3("D1"),g3("L1A"),g3("L2A")),bc=pc3("bc",g3("D2"),g3("L1C"),g3("L2C")),h="<b>固定基準："+b+"軸</b><br><br>";if(b==="B")h+=mi3("A軸 "+A,ab)+"<br><br><b>B軸 "+B+"：🔒 固定・移動なし</b><br><br>"+mi3("C軸 "+C,bc);else if(b==="A")h+="<b>A軸 "+A+"：🔒 固定</b><br><br>"+mi3("B軸 "+B+"（A-Bからの目安）",ab)+"<br><br>B調整後にB-Cを再測定してから、"+mi3("C軸 "+C,bc);else h+="<b>C軸 "+C+"：🔒 固定</b><br><br>"+mi3("B軸 "+B+"（B-Cからの目安）",bc)+"<br><br>B調整後にA-Bを再測定してから、"+mi3("A軸 "+A,ab);document.getElementById("threeResult").innerHTML=h;
 let av=Math.atan2((g3("ab_f0")-g3("ab_f180"))/2,Math.max(g3("D1")/2,.0001))*180/Math.PI;
 let ah=Math.atan2((g3("ab_f90")-g3("ab_f270"))/2,Math.max(g3("D1")/2,.0001))*180/Math.PI;
 let cv=Math.atan2((g3("bc_f0")-g3("bc_f180"))/2,Math.max(g3("D2")/2,.0001))*180/Math.PI;
@@ -1651,8 +1671,28 @@ function softFoot(){
 </script>
 <div class="card note"><b>注意：</b>簡易芯出しモデルです。ダイヤル取付方法・回転側・測定基準で符号関係は変わります。最終調整は機械・カップリングメーカーの仕様を優先してください。</div>
 <script>
+// Signed dial readings: text input permits explicit + and - on iPhone.
+const signedIds95=new Set(['r0', 'r90', 'r180', 'r270', 'f0', 'f90', 'f180', 'f270', 'ab_r0', 'ab_r90', 'ab_r180', 'ab_r270', 'ab_f0', 'ab_f90', 'ab_f180', 'ab_f270', 'bc_r0', 'bc_r90', 'bc_r180', 'bc_r270', 'bc_f0', 'bc_f90', 'bc_f180', 'bc_f270']);
+let activeSigned95=null;
+function number95(el){const raw=el.value.trim().replace(/[＋]/g,'+').replace(/[－−ー]/g,'-').replace(/[．。]/g,'.');return /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw)?Number(raw):NaN}
+function valid95(ids){for(const id of ids){const el=document.getElementById(id);if(!el||!Number.isFinite(number95(el))){if(el){el.focus();el.setAttribute('aria-invalid','true')}return false}el.removeAttribute('aria-invalid')}return true}
+function press95(key){const el=activeSigned95;if(!el)return;let v=el.value;
+ if(key==='done'){document.getElementById('signedpad95').style.display='none';el.blur();activeSigned95=null;return}
+ if(key==='+'||key==='-'){v=v.replace(/^[+\-－−]/,'');v=key+v}
+ else if(key==='.'){if(!/[.．。]/.test(v))v=(v===''||v==='+'||v==='-'?v+'0':v)+'.'}
+ else if(key==='back')v=v.slice(0,-1);
+ el.value=v;el.dispatchEvent(new Event('input',{bubbles:true}));el.focus({preventScroll:true});
+}
+document.addEventListener('DOMContentLoaded',()=>{
+ for(const id of signedIds95){const el=document.getElementById(id);if(!el)continue;el.classList.add('signed95');
+  el.addEventListener('focus',()=>{activeSigned95=el;document.getElementById('signedpad95').style.display='flex'});
+ }
+ document.querySelectorAll('#signedpad95 button').forEach(b=>b.addEventListener('pointerdown',e=>e.preventDefault()));
+ document.querySelectorAll('#signedpad95 button').forEach(b=>b.addEventListener('click',()=>press95(b.dataset.sign95)));
+});
+</script><script>
 let shimCorrection={fv:0,rv:0,ready:false};
-const n=i=>parseFloat(document.getElementById(i).value)||0,F=x=>Math.abs(x).toFixed(3);
+const n=i=>signedIds95.has(i)?number95(document.getElementById(i)):(parseFloat(document.getElementById(i).value)||0),F=x=>Math.abs(x).toFixed(3);
 
 let lastMove={fv:0,rv:0,fh:0,rh:0,ref:'A',mov:'B'};
 function showBefore(){
@@ -1694,7 +1734,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  updateDimensions();
 });
 
-function calc(){updateDimensions();let D=n('D'),R=D/2,L1=n('L1'),L2=n('L2'),ref=document.getElementById('ref').value,mov=ref==='A'?'B':'A';
+function calc(){updateDimensions();if(!valid95(['r0','r90','r180','r270','f0','f90','f180','f270'])){document.getElementById('res').textContent='測定値を確認してください。空欄や符号だけでは計算できません。';return}let D=n('D'),R=D/2,L1=n('L1'),L2=n('L2'),ref=document.getElementById('ref').value,mov=ref==='A'?'B':'A';
 let v=(n('r0')-n('r180'))/2,h=(n('r90')-n('r270'))/2,tv=Math.atan2((n('f0')-n('f180'))/2,R||1),th=Math.atan2((n('f90')-n('f270'))/2,R||1);
 let fv=-(v+Math.tan(tv)*L1),rv=-(v+Math.tan(tv)*(L1+L2)),fh=-(h+Math.tan(th)*L1),rh=-(h+Math.tan(th)*(L1+L2));
 lastMove={fv,rv,fh,rh,ref,mov}; updateMultilingualResult();
@@ -1716,10 +1756,46 @@ let y1=150-fv*250,y2=150-rv*250;document.getElementById('svg').innerHTML=`<text 
 calc();</script><div class="card">
 <h2>多言語表示について / About translations</h2>
 <p class="note">数値・単位・計算式は全言語で共通です。翻訳は現場で理解しやすい表現を優先しています。機械メーカーの取扱説明書・社内安全基準・正式な専門用語がある場合は、それらを優先してください。</p>
+</div><div id="signedpad95" class="signedpad95" role="group" aria-label="測定値の符号入力">
+<button type="button" data-sign95="+" aria-label="プラスを入力">＋</button>
+<button type="button" data-sign95="-" aria-label="マイナスを入力">－</button>
+<button type="button" data-sign95="." aria-label="小数点を入力">.</button>
+<button type="button" data-sign95="back" aria-label="最後の文字を消す">⌫</button>
+<button type="button" data-sign95="done">閉じる</button>
 </div><div id="nav91">
 <button onclick="history.back()" title="戻る">←</button>
 <button onclick="home82()" title="ホーム">⌂</button>
 <button onclick="favPanel82()" title="お気に入り">★</button>
 <button onclick="recentPanel82()" title="最近">◷</button>
 </div>
-<div id="panel82" class="panel82" style="display:none"></div></body></html>
+<div id="panel82" class="panel82" style="display:none"></div><script>
+const SYMBOLS94 = {"electric": [["接点", "a接点 / NO", "—| |—", "通常時は開。操作・励磁で閉じる。", "コイルや押しボタンが非動作の状態を基準に読む。"], ["接点", "b接点 / NC", "—|/|—", "通常時は閉。操作・励磁で開く。", "非常停止などの安全機能は接点一つだけで判断しない。"], ["接点", "切換接点 / c接点", "COM → NO / NC", "共通端子がNO側とNC側を切り替える。", "端子番号は機器の端子図で確認。"], ["接点", "タイマ遅延接点", "—| |— ⏱", "設定時間後に接点が切り替わる。オン遅延・オフ遅延を区別。", "タイマの動作図と時限設定を確認。"], ["操作", "押しボタン", "PB —| |—", "押した間だけ接点が切り替わる代表例。", "a/b接点と保持形・復帰形を確認。"], ["操作", "セレクタスイッチ", "SS 0–1–2", "手動・自動など選択位置ごとに接点が変わる。", "各位置で閉じる端子の組合せを確認。"], ["操作", "リミットスイッチ", "LS —| |—", "機械位置により接点が切り替わる。", "カム位置と作動前後の接点状態を照合。"], ["検出", "近接センサ", "PX → IN", "近づいた対象物を非接触で検出する。", "PNP/NPN、電源、出力形式を型式で確認。"], ["検出", "光電センサ", "光 ⇢ IN", "光の遮断・反射で物体を検出する。", "透過・回帰反射・拡散反射の方式を確認。"], ["検出", "圧力スイッチ", "PS —| |—", "設定圧に応じて接点または出力が変わる。", "設定値とヒステリシス、NO/NCを確認。"], ["検出", "温度スイッチ", "TS —| |—", "温度条件で接点が変わる。", "上昇時か下降時か、復帰温度を確認。"], ["制御", "リレーコイル", "—( RY )—", "励磁で対応する接点を切り替える。", "同じ機器番号の接点を図面の別ページまで追う。"], ["制御", "電磁接触器", "—( MC )—", "コイル励磁で主接点・補助接点を切り替える。", "コイル電圧と主接点側の電圧は別に確認。"], ["制御", "電磁弁コイル", "—( SOL )—", "電気指令で弁を切り替える電磁部。", "SOL-a/bと油圧弁本体、コイル定格を対応させる。"], ["制御", "タイマリレー", "—( T )—", "設定時間に応じ接点を切り替える。", "コイルと時限接点の参照番号を追う。"], ["保護", "配線用遮断器 MCCB", "—[ MCCB ]—", "過電流保護・回路の開閉に使う。", "OFFでも一次側は充電している可能性がある。"], ["保護", "漏電遮断器 ELCB", "—[ ELCB ]—", "漏電検出と遮断を行う機器。", "機種による過電流保護の有無を確認。"], ["保護", "ヒューズ", "—[ F ]—", "過電流で溶断する保護部品。", "定格・種類・遮断容量を図面と現物で照合。"], ["保護", "サーマルリレー", "THR → b接点", "モータ過負荷時に制御回路を開く構成に使う。", "主回路側と補助接点を別々に追う。"], ["電源", "変圧器", "AC ~ [TR] ~", "交流電圧を変換する。", "一次・二次端子と各定格電圧を銘板で照合。"], ["電源", "DC24V電源", "AC → 24V DC", "制御回路へ直流24Vを供給する。", "P24/N24等の名称は設備の図面で定義を確認。"], ["電源", "接地 / PE", "⏚ PE", "保護接地の接続を示す代表例。", "PE・0V・盤アースを名称だけで短絡しない。"], ["配線", "端子台 / TB", "—● TB-01 ●—", "配線を接続・中継する端子。", "端子番号と渡り線、盤外への接続先を追う。"], ["配線", "配線の接続点", "─●─", "黒点などで交差線が接続される表現の例。", "単なる交差との描き分けは図面凡例を確認。"], ["PLC", "PLC入力", "センサ → X / I", "外部のセンサや接点信号を受ける。", "COM、入力方式、アドレスと端子を確認。"], ["PLC", "PLC出力", "Y / Q → 負荷", "リレーやランプなどへ指令を出す。", "トランジスタ/リレー出力、極性、定格を確認。"], ["負荷", "表示灯 / PL", "—( PL )—", "運転や異常などの状態を表示する。", "表示条件とLEDの定格、共通線を確認。"], ["負荷", "三相モータ", "3~ ( M )", "三相交流で回転する電動機。", "U/V/W、MC、サーマルと回転方向を図面で追う。"]], "fluid": [["線・ポート", "主配管 / 作動線", "P ───── A", "圧力源から機器へつながる主流路。", "線の交点・分岐を凡例で確認。"], ["線・ポート", "パイロット線", "X - - - ▷", "圧力を使って弁を操作する信号線。", "外部・内部パイロットの取り方を確認。"], ["線・ポート", "ドレン線", "Y ⋯⋯ T", "機器の漏れ油をタンクへ逃がす系統。", "ケースドレンを塞がない。戻り圧条件を確認。"], ["線・ポート", "P / T / A / B", "P→弁→A/B→T", "Pは供給、Tは戻り、A/Bはアクチュエータ側の代表表記。", "実回路のポート表記と中立時の接続を照合。"], ["線・ポート", "チェックポイント", "● M / G", "測定口や圧力計接続点を示す例。", "どの配管の圧力かを図面で追う。"], ["動力源", "油圧ポンプ", "○▷", "機械エネルギーを流体の流れに変える。", "固定・可変容量、回転方向、吸込・吐出を確認。"], ["動力源", "可変容量ポンプ", "○▷ ↗", "吐出容量を変えられるポンプ。", "制御圧、ドレン、圧力補償方式を確認。"], ["動力源", "油圧モータ", "◁○", "流体エネルギーを回転運動に変える。", "ケースドレンと負荷による回転方向を確認。"], ["動力源", "タンク / リザーバ", "┴ TANK", "作動油の貯留・戻り先。", "開放/密閉表記、戻り線、吸込線を確認。"], ["アクチュエータ", "単動シリンダ", "[□|→] ↩", "圧力で一方向へ動き、ばねや外力で戻る。", "戻り側の力と排出先を確認。"], ["アクチュエータ", "複動シリンダ", "A [□|→] B", "両室に圧力を切り替えて伸縮する。", "ロッド側とヘッド側の面積差を確認。"], ["方向弁", "2/2方向切換弁", "[→][×]", "2ポート・2位置の開閉弁。", "無励磁時に通るか止まるかを確認。"], ["方向弁", "3/2方向切換弁", "[P→A][A→T]", "3ポート・2位置。単動シリンダやパイロット用。", "ばね側の休止位置とポート番号を確認。"], ["方向弁", "4/2方向切換弁", "[P→A][P→B]", "4ポート・2位置でA/Bの流路を切り替える。", "反対側の戻り経路も各枠内で追う。"], ["方向弁", "4/3方向切換弁", "[左][中][右]", "4ポート・3位置。中央枠が中立位置。", "中立のP/T/A/Bの接続は弁ごとに異なる。"], ["方向弁", "ソレノイド・ばね復帰", "SOL [弁] /\\/\\/", "電磁操作とばね復帰を表す組合せ。", "ばね側の枠が無励磁時の位置。"], ["逆止・保持", "チェック弁", "→|●", "一方向に流し逆方向は止める。", "向きを確認。これだけで負荷保持の安全性は判断しない。"], ["逆止・保持", "パイロットチェック弁", "→|● ⋯ X", "パイロット圧で逆方向にも開放できる逆止弁。", "解除圧と戻り背圧、シリンダ両室を確認。"], ["逆止・保持", "カウンタバランス弁", "負荷 ↘ [CB]", "下降負荷の暴走を抑える用途の弁。", "設定圧とパイロット比、逆流経路を確認。"], ["圧力制御", "リリーフ弁", "P → [RV] → T", "圧力が設定値に達すると逃がす代表的な弁。", "設定位置とタンク戻り、アンロード経路を確認。"], ["圧力制御", "減圧弁", "P → [PR] → A", "下流側の圧力を設定値に保つ圧力制御弁。", "下流感圧とドレンの接続を確認。"], ["圧力制御", "シーケンス弁", "P → [SEQ] → A", "設定圧到達後に次の動作系統へ通す。", "リリーフ弁との戻り先の違いを確認。"], ["圧力制御", "圧力スイッチ", "● → PS", "圧力を電気信号へ変える機器。", "測定位置、ON/OFF設定を確認。"], ["流量制御", "絞り弁", "──▷◁──", "流路を絞って流量を変える。", "固定/可変を区別し、絞り前後の圧力を確認。"], ["流量制御", "逆止弁付き流量調整弁", "→▷◁ / ←自由", "一方向を絞り、反対方向は自由流れにする。", "メータイン/メータアウトの向きを確認。"], ["流量制御", "圧力補償付き流量調整弁", "▷◁ ＋ ΔP", "差圧を補償し流量を保つ形式。", "補償範囲と設定、並列回路を確認。"], ["補機", "アキュムレータ", "( N₂ | 油 )", "ガス等で油圧エネルギーを蓄える。", "ポンプ停止後も残圧が残り得る。専用の隔離・放圧手順を確認。"], ["補機", "フィルタ", "──◇──", "作動油や圧縮空気中の異物を除去。", "吸込/圧力/戻りの設置位置と差圧表示を確認。"], ["補機", "クーラ / 熱交換器", "──[ HX ]──", "流体の熱を逃がす。", "冷却媒体側と油側、バイパス回路を確認。"], ["補機", "圧力計", "○↗ G", "接続点の圧力を表示する。", "目盛・単位と接続位置を確認。"], ["空圧", "FRL", "[F][R][L]", "フィルタ・レギュレータ・ルブリケータの組合せ。", "給油が必要か、圧力設定と排水方法を確認。"], ["空圧", "急速排気弁", "A → EXH", "シリンダ近くで直接大気へ排気する。", "急な動作と排気方向に注意。"], ["空圧", "サイレンサ", "EXH [S]", "空圧排気の騒音を下げる。", "目詰まりによる背圧を確認。"]]};
+let mode94='all';
+function filter94(mode){mode94=mode;draw94()}
+function draw94(){
+ const q=document.getElementById('query94').value.trim().toLocaleLowerCase();
+ const list=document.getElementById('list94');list.replaceChildren();let total=0;
+ for(const [kind,items] of Object.entries(SYMBOLS94)){
+  if(mode94!=='all'&&mode94!==kind)continue;
+  for(const item of items){
+   if(q&&!item.join(' ').toLocaleLowerCase().includes(q))continue;
+   total++;const [group,name,mark,meaning,check]=item;
+   const b=document.createElement('button');b.type='button';b.className='symitem94';
+   const label=document.createElement('small');label.textContent=(kind==='electric'?'⚡ 電気':'💧 油圧・空圧')+' / '+group;
+   const visual=document.createElement('span');visual.className='symmark94';visual.textContent=mark;
+   const title=document.createElement('b');title.textContent=name;
+   b.append(label,visual,title);
+   b.onclick=()=>{
+    const detail=document.getElementById('detail94');detail.replaceChildren();
+    const strong=document.createElement('strong');strong.textContent=name+'　'+mark;
+    const role=document.createElement('p');role.textContent='役割：'+meaning;
+    const point=document.createElement('p');point.textContent='図面で確認：'+check;
+    detail.append(strong,role,point);
+    detail.scrollIntoView({block:'nearest',behavior:'smooth'});
+   };list.append(b);
+  }
+ }
+ document.getElementById('count94').textContent=total+'種類を表示 / 全'+(SYMBOLS94.electric.length+SYMBOLS94.fluid.length)+'種類';
+}
+document.addEventListener('DOMContentLoaded',draw94);
+</script></body></html>
