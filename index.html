@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v105</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v107</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -90,8 +90,8 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 @media(max-width:360px){#dialCenter64 .dial-row98{grid-template-columns:6.3em minmax(0,1fr) 1.8em;gap:5px}}
 </style><style>#photoReport101{padding:12px;border:1px solid #ccc;background:white;color:#222;overflow-wrap:anywhere}#photoReport101 img{max-width:100%;height:auto}#photoReport101 figure{margin:16px 0}#photoReport101 .text101{white-space:pre-wrap}</style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v105</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v105：</b>関連画面への移動、作業履歴表示、CSV出力、保存エラー表示、計算の入力チェックを修正。<br>幾何公差・はめあい・止め輪・キー・軸受を写真なしの一覧表に変更。公差を記号・直径で検索できます。<br>写真入り作業報告書の作成・保存に対応。点検・記録から「Before / After 作業報告」を開いてください。<br>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v107</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v107：</b>全画面点検で見つかったコピー失敗時の表示と、送り量0での加工時間表示を修正。記号検索は全分類から検索できます。<br>関連画面への移動、作業履歴表示、CSV出力、保存エラー表示、計算の入力チェックを修正。<br>幾何公差・はめあい・止め輪・キー・軸受を写真なしの一覧表に変更。公差を記号・直径で検索できます。<br>写真入り作業報告書の作成・保存に対応。点検・記録から「Before / After 作業報告」を開いてください。<br>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -356,10 +356,10 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
 <h3>4/3方向切換弁の状態</h3><button onclick="valve68('a')">SOL-a</button><button onclick="valve68('n')">中立</button><button onclick="valve68('b')">SOL-b</button><div id="vo68" class="comment"></div>
-</section><section id="symbol94" class="card"><h2>📚 電気・油圧 回路記号辞典 v94</h2>
+</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧 回路記号辞典 v107</h2>
 <p class="note">図は形を覚えるための<b>模式表示</b>です。規格の記号を正確に複製したものではありません。機器ごとの図面凡例、型式、端子表、回路図を優先してください。</p>
 <div class="symcontrols94"><button type="button" onclick="filter94('all')">すべて</button><button type="button" onclick="filter94('electric')">⚡ 電気</button><button type="button" onclick="filter94('fluid')">💧 油圧・空圧</button></div>
-<label for="query94">記号名・用途で探す</label><input id="query94" type="search" placeholder="例：P24、チェック、サーマル" oninput="draw94()">
+<label for="query94">記号名・用途で探す（入力すると全分類から検索）</label><input id="query94" type="search" placeholder="例：P24、チェック、サーマル" oninput="search94()">
 <p id="count94" class="note"></p><div id="list94" class="symgrid94"></div><div id="detail94" class="comment" aria-live="polite">記号を選ぶと、用途と確認点を表示します。</div>
 <p class="note">参考規格の領域：電気回路図 IEC 60617、流体回路図 ISO 1219。各図形と文字表記は学習用で、規格適合を保証しません。</p></section><section id="rigGeo67" class="card"><h2>🪝 玉掛け 吊り角度・吊り具確認 v91</h2>
 <p class="note"><b>安全重要：</b>計算は段取り検討用です。シャックル、アイボルト、チェーン等の使用可否・WLLは現物刻印/タグとメーカー資料で確認してください。</p>
@@ -421,7 +421,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <label>掛け方/メーカー係数 <input id="sf65" type="number" value="1.0" step=".05"></label>
 <button onclick="sling65()">タグ値から計算</button><div id="so65" class="comment"></div>
 <button onclick="sendResult46('so65','スリング荷重確認')">📝 作業記録へ送る</button>
-</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v105</h2>
+</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v107</h2>
 <p class="note">0°/90°/180°/270°の対向値から中心ずれを計算。安全な停止・手回し手順で測定してください。</p>
 <label class="dial-row98" for="d064"><span>0°（+X）</span><input id="d064" type="number" value=".10" step=".01"><span>mm</span></label>
 <label class="dial-row98" for="d9064"><span>90°（+Y）</span><input id="d9064" type="number" value=".04" step=".01"><span>mm</span></label>
@@ -1480,10 +1480,12 @@ function hole57(){
  ho57.innerHTML=txt;
 }
 document.addEventListener("DOMContentLoaded",()=>{try{hole57()}catch(e){}});
-function cut58(){if(!valid105("cd58",v=>v>0)||!valid105("cv91",v=>v>0)||!valid105("cz58",v=>v>0)||!valid105("cfz58",v=>v>=0)||!valid105("cf58",v=>v>=0)||!valid105("cl58",v=>v>=0)){document.getElementById("co58").textContent="入力を確認してください。空欄・範囲外の値では計算できません。";return;}let t=ct58.value,D=+cd58.value,V=+cv91.value,z=Math.max(1,+cz58.value||1),fz=+cfz58.value,f=+cf58.value,L=+cl58.value;if(D<=0){co58.innerHTML="径Dは0より大きくしてください。";return}let n=1000*V/(Math.PI*D),feed=t==="mill"?fz*z*n:f*n,time=feed>0?L/feed:0;co58.innerHTML=`<b>${t==="mill"?"フライス / 横中ぐり":"旋盤"}</b><br>D=${D} mm / V=${V} m/min<br>回転数 n=1000V/(πD)：<b>${n.toFixed(0)} min⁻¹</b><br>送り速度：<b>${feed.toFixed(0)} mm/min</b><br>${L} mmの理論送り時間：<b>${time.toFixed(2)} min</b><br><span class="note">実機では被削材、工具材種・コーティング、切込み、突出し、断続切削、機械剛性、クーラント等を考慮してください。これは入力条件からの計算値で、自動推奨値ではありません。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{cut58()}catch(e){}});
+function cut58(){if(!valid105("cd58",v=>v>0)||!valid105("cv91",v=>v>0)||!valid105("cz58",v=>v>0)||!valid105("cfz58",v=>v>=0)||!valid105("cf58",v=>v>=0)||!valid105("cl58",v=>v>=0)){document.getElementById("co58").textContent="入力を確認してください。空欄・範囲外の値では計算できません。";return;}let t=ct58.value,D=+cd58.value,V=+cv91.value,z=Math.max(1,+cz58.value||1),fz=+cfz58.value,f=+cf58.value,L=+cl58.value;if(L>0&&(t==="mill"?fz:f)<=0){co58.textContent="送り量を0より大きくしてください。送り時間は計算できません。";return}let n=1000*V/(Math.PI*D),feed=t==="mill"?fz*z*n:f*n,time=feed>0?L/feed:0;co58.innerHTML=`<b>${t==="mill"?"フライス / 横中ぐり":"旋盤"}</b><br>D=${D} mm / V=${V} m/min<br>回転数 n=1000V/(πD)：<b>${n.toFixed(0)} min⁻¹</b><br>送り速度：<b>${feed.toFixed(0)} mm/min</b><br>${L} mmの理論送り時間：<b>${time.toFixed(2)} min</b><br><span class="note">実機では被削材、工具材種・コーティング、切込み、突出し、断続切削、機械剛性、クーラント等を考慮してください。これは入力条件からの計算値で、自動推奨値ではありません。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{cut58()}catch(e){}});
 function lathe59(){
+ if(!valid105("lv91",v=>v>0)||!valid105("lf59",v=>v>=0)||!valid105("lap59",v=>v>=0)||!valid105("ll59",v=>v>=0)||!valid105("ld59",v=>v>0)||!valid105("lstart59",v=>v>=0)||!valid105("lend59",v=>v>=0)){lo59.textContent="寸法・切削速度・送り量を確認してください。";return}
  let t=lt59.value,D=+ld59.value,V=+lv91.value,f=+lf59.value,L=+ll59.value,ds=+lstart59.value,de=+lend59.value,ap=+lap59.value;
  let calcD=t==="face"?(ds+de)/2:D;
+ if(calcD<=0||(f<=0&&(t==="face"?Math.abs(ds-de)>0:L>0))){lo59.textContent="計算径と送り量を0より大きくしてください。送り時間は計算できません。";return}
  let n=calcD>0?1000*V/(Math.PI*calcD):0;
  let vf=f*n;
  let travel=t==="face"?Math.abs(ds-de)/2:L;
@@ -1553,7 +1555,7 @@ function hyd76(m){let p=document.getElementById("hp76"),t=document.getElementByI
 const R77={check:"<b>チェック弁：</b>一方向の流れを許し、逆流を止める基本弁。負荷保持専用としての安全性を単純なチェック弁だけで判断しません。",pilot:"<b>パイロットチェック：</b>通常は逆流を止め、パイロット圧で逆方向を開放する構成。シリンダ保持回路で使われます。",counter:"<b>カウンタバランス弁：</b>下降する負荷などの暴走を抑え、背圧を保ちながら制御する用途があります。設定・回路構成が重要です。",flow:"<b>流量調整弁：</b>流量を絞って速度を調整。メータイン/メータアウト等で挙動が異なります。"};function sim77(){let v=valve77.value,p=power77.checked,so=sol77.checked,l=load77.checked;role77.innerHTML=R77[v];let t=p?(so?"<b>ポンプON・SOL ON：</b>指令された流路へ圧油が流れる想定。":"<b>ポンプON・SOL OFF：</b>中立回路の形式により保持・アンロード・浮動などが変化。"):"<b>ポンプOFF：</b>新たなポンプ流量はありません。";if(!p&&l)t+="<br><b>ただし自重負荷あり：</b>保持弁、残圧、弁の内部漏れ等によっては機械が動く可能性を考慮します。";if(v==="pilot"&&!so)t+="<br>パイロットチェックは逆流を遮断して保持する方向の想定ですが、実回路のパイロット条件を確認します。";if(v==="counter"&&l)t+="<br>自重下降負荷ではカウンタバランス弁が下降制御に関係する代表例があります。";vis77.innerHTML=t}function res77(){reso77.innerHTML="<b>図面上で確認する候補：</b>圧力計/残圧表示、アキュムレータ、チェック/パイロットチェック、カウンタバランス、シリンダ両室、戻り配管、機械の自重方向。<br><span class='note'>実際の圧抜きは設備メーカーの手順・会社のLOTO/エネルギー隔離手順に従ってください。ホースや継手を緩めて確認する方法は避けます。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{sim77();res77()}catch(e){}});
 let mode78="hold";function sim78(){let p=pump78.checked,r=resid78.checked,w=weight78.checked,side=side78.value;let state=mode78==="inc"?"INC指令":mode78==="dec"?"DEC指令":"保持";let energy=p?"ポンプ圧あり":r?"ポンプOFFでも残圧あり":"供給圧なし";pinchVis78.innerHTML=`<b>${side}側 / ${state}</b><br>${energy} ／ 自重 ${w?"あり":"なし"}`;if(mode78==="dec"){dec78.innerHTML=p?"<b>ポンプ運転中：</b>DEC弁がどの室をタンク/低圧側へつなぐかでロールの動作方向が決まります。":r?"<b>ポンプOFF＋残圧あり：</b>DEC操作で閉じ込められていた油の逃げ道やパイロット経路が成立すると、蓄積エネルギーや反対室の圧力によってロールが動く可能性があります。":"<b>ポンプOFF＋残圧なし：</b>油圧による駆動力は小さい想定ですが、自重や機械リンクによる移動可能性は別に考えます。"}else dec78.innerHTML="<b>保持/INC：</b>保持弁・方向弁・シリンダ両室の圧力バランスで位置が決まるため、名称だけで動作方向は判断しません。"}function why78(){whyout78.innerHTML="<b>考えられる仕組み：</b>①片側室に残圧、②アキュムレータ圧、③DECで戻り/パイロット経路が開いた、④反対室の圧力が優勢、⑤ロールやリンクの自重/ばね力、⑥チェック弁の開放条件、⑦弁内部漏れ・スプール位置。<br><span class='note'>これは原因候補であり故障確定ではありません。実機の回路図と圧力保持構成を確認してください。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{sim78();why78()}catch(e){}});
 const S79={"ポンプ":"油圧源。Pラインへ流量を供給する代表要素。","タンク":"作動油の戻り先/貯油部。Tラインを追う手掛かり。","チェック弁":"一方向流れを許可し逆流を阻止。向きが重要。","リリーフ弁":"設定圧付近で圧力を逃がす圧力制御弁。","方向切換弁":"P/A/B/T等の接続を切替。位置数・ポート数・中立形を確認。","シリンダ":"油圧/空圧を直線運動へ変換。ロッド側/ヘッド側を確認。","圧力計":"回路圧力の表示点。どのラインにつながるか確認。","MC":"電磁接触器。コイルと主接点/補助接点を関連付けて読む。","サーマル":"モータ過負荷保護。補助接点が制御回路へ入る例があります。","PLC入力":"センサ/SW信号をPLCへ取り込む側。","PLC出力":"PLCからRY/SOL等へ指令する側。","ソレノイド":"電気信号を弁等の機械動作へ変換する電磁部。"};function preview79(e){let f=e.target.files[0];if(!f)return;let u=URL.createObjectURL(f);img79.src=u;img79.style.display="block"}function symInfo79(){symo79.innerHTML=`<b>${sym79.value}</b><br>${S79[sym79.value]}`}function guide79(){let k=kind79.value;guideo79.innerHTML=k==="油圧"?"PUMP→Pライン→圧力制御→方向弁→A/B→シリンダ→Tを追い、チェック弁・パイロット線・アキュムレータも確認。":k==="空圧"?"供給源→FRL→方向弁→速度制御→シリンダ→排気を追い、サイレンサ/急速排気等も確認。":"電源→保護→操作/安全接点→PLC I/O/RY→MC/SOL等の負荷→戻りを追い、線番・端子・ページ参照を確認。"}function sum79(){sumo79.innerHTML=`<b>整理した流れ：</b><br>${src79.value||"（源未入力）"} → ${ctl79.value||"（制御未入力）"} → ${safe79.value||"（保持/保護未入力）"} → ${load79.value||"（負荷未入力）"} → ${ret79.value||"（戻り未入力）"}<br><span class="note">写真だけで弁の内部構造や安全機能を断定せず、型式・メーカー回路図も照合してください。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{guide79();symInfo79();sum79()}catch(e){}});
-function make80(){let t=type80.value,g=goal80.value,m=memo80.value.trim(),k=known80.value.trim();prompt80.value=`この${t}回路図の写真を、現場保全の初心者にも分かるように解析してください。\n\n【知りたいこと】\n${g}\n\n【設備・症状】\n${m||"未記入"}\n\n【分かっている記号・型式】\n${k||"未記入"}\n\n次の順で説明してください。\n1. 写真から確実に読める記号・配管/配線\n2. 推測が必要な部分は「推測」と明記\n3. 電源/圧力源から負荷、戻りまでの流れ\n4. 各弁・接点・センサの役割\n5. この症状に関係しそうな箇所を原因候補として整理\n6. 追加で確認すべき図面箇所・型式・情報\n7. 危険な活線作業、残圧のある配管を緩める作業は提案しない\n\n記号や文字が読めない場合は断定せず、どの部分の拡大写真が必要か教えてください。`;copyo80.innerHTML=""}async function copy80(){try{await navigator.clipboard.writeText(prompt80.value);copyo80.innerHTML="<b>コピーしました。</b> 回路図写真と一緒に質問文を貼り付けて使えます。"}catch(e){prompt80.select();document.execCommand("copy");copyo80.innerHTML="<b>コピーしました。</b>"}}document.addEventListener("DOMContentLoaded",()=>{try{make80()}catch(e){}});
+function make80(){let t=type80.value,g=goal80.value,m=memo80.value.trim(),k=known80.value.trim();prompt80.value=`この${t}回路図の写真を、現場保全の初心者にも分かるように解析してください。\n\n【知りたいこと】\n${g}\n\n【設備・症状】\n${m||"未記入"}\n\n【分かっている記号・型式】\n${k||"未記入"}\n\n次の順で説明してください。\n1. 写真から確実に読める記号・配管/配線\n2. 推測が必要な部分は「推測」と明記\n3. 電源/圧力源から負荷、戻りまでの流れ\n4. 各弁・接点・センサの役割\n5. この症状に関係しそうな箇所を原因候補として整理\n6. 追加で確認すべき図面箇所・型式・情報\n7. 危険な活線作業、残圧のある配管を緩める作業は提案しない\n\n記号や文字が読めない場合は断定せず、どの部分の拡大写真が必要か教えてください。`;copyo80.innerHTML=""}async function copy80(){let ok=await copyText107(prompt80);copyo80.textContent=ok?'コピーしました。回路図写真と一緒に質問文を貼り付けて使えます。':'コピーできませんでした。文章欄を長押しして「コピー」を選んでください。'}document.addEventListener("DOMContentLoaded",()=>{try{make80()}catch(e){}});
 function jump81(cat){
 const candidates={
 align:["dialCenter64","alignment","align","softfoot"],
@@ -1672,7 +1674,7 @@ function saveReport101(){if(!readyReport101())return;const blob=new Blob([report
 function printReport101(){if(!readyReport101())return;const win=window.open('','_blank');if(!win){document.getElementById('msg86').textContent='別画面を開けませんでした。「写真入り報告書を保存」を使ってください。';return;}win.document.write(reportDocument101());win.document.close();}
 
 function makeReport86(){let d=new Date().toLocaleString("ja-JP"),item=item86.value||"測定値",b=bval86.value||"未記入",a=aval86.value||"未記入";out86.value=`【作業報告】\n日時：${d}\n設備：${eq86.value||"未記入"}\n\n■作業内容\n${work86.value||"未記入"}\n\n■測定値\n${item}：Before ${b} → After ${a}\n\n■交換部品・調整\n${parts86.value||"なし／未記入"}\n\n■最終確認\n${check86.value||"未記入"}\n\n■写真\n作業前・作業中・作業後：${before86.src?"確認済み":"未登録"} / ${during86.src?"確認済み":"未登録"} / ${after86.src?"確認済み":"未登録"}\n\n※測定条件・許容値・メーカー仕様・社内基準を別途照合してください。`;msg86.innerHTML="<b>報告文を作成しました。</b>"}
-async function copyReport86(){if(!out86.value)makeReport86();try{await navigator.clipboard.writeText(out86.value);msg86.innerHTML="<b>報告文をコピーしました。</b>"}catch(e){out86.select();document.execCommand("copy");msg86.innerHTML="<b>コピーしました。</b>"}}
+async function copyReport86(){if(!out86.value)makeReport86();let ok=await copyText107(out86);msg86.textContent=ok?'報告文をコピーしました。':'コピーできませんでした。文章欄を長押しして「コピー」を選んでください。'}
 
 
 let n87=0;
@@ -1850,6 +1852,10 @@ calc();</script><div class="card">
 const SYMBOLS94 = {"electric": [["接点", "a接点 / NO", "—| |—", "通常時は開。操作・励磁で閉じる。", "コイルや押しボタンが非動作の状態を基準に読む。"], ["接点", "b接点 / NC", "—|/|—", "通常時は閉。操作・励磁で開く。", "非常停止などの安全機能は接点一つだけで判断しない。"], ["接点", "切換接点 / c接点", "COM → NO / NC", "共通端子がNO側とNC側を切り替える。", "端子番号は機器の端子図で確認。"], ["接点", "タイマ遅延接点", "—| |— ⏱", "設定時間後に接点が切り替わる。オン遅延・オフ遅延を区別。", "タイマの動作図と時限設定を確認。"], ["操作", "押しボタン", "PB —| |—", "押した間だけ接点が切り替わる代表例。", "a/b接点と保持形・復帰形を確認。"], ["操作", "セレクタスイッチ", "SS 0–1–2", "手動・自動など選択位置ごとに接点が変わる。", "各位置で閉じる端子の組合せを確認。"], ["操作", "リミットスイッチ", "LS —| |—", "機械位置により接点が切り替わる。", "カム位置と作動前後の接点状態を照合。"], ["検出", "近接センサ", "PX → IN", "近づいた対象物を非接触で検出する。", "PNP/NPN、電源、出力形式を型式で確認。"], ["検出", "光電センサ", "光 ⇢ IN", "光の遮断・反射で物体を検出する。", "透過・回帰反射・拡散反射の方式を確認。"], ["検出", "圧力スイッチ", "PS —| |—", "設定圧に応じて接点または出力が変わる。", "設定値とヒステリシス、NO/NCを確認。"], ["検出", "温度スイッチ", "TS —| |—", "温度条件で接点が変わる。", "上昇時か下降時か、復帰温度を確認。"], ["制御", "リレーコイル", "—( RY )—", "励磁で対応する接点を切り替える。", "同じ機器番号の接点を図面の別ページまで追う。"], ["制御", "電磁接触器", "—( MC )—", "コイル励磁で主接点・補助接点を切り替える。", "コイル電圧と主接点側の電圧は別に確認。"], ["制御", "電磁弁コイル", "—( SOL )—", "電気指令で弁を切り替える電磁部。", "SOL-a/bと油圧弁本体、コイル定格を対応させる。"], ["制御", "タイマリレー", "—( T )—", "設定時間に応じ接点を切り替える。", "コイルと時限接点の参照番号を追う。"], ["保護", "配線用遮断器 MCCB", "—[ MCCB ]—", "過電流保護・回路の開閉に使う。", "OFFでも一次側は充電している可能性がある。"], ["保護", "漏電遮断器 ELCB", "—[ ELCB ]—", "漏電検出と遮断を行う機器。", "機種による過電流保護の有無を確認。"], ["保護", "ヒューズ", "—[ F ]—", "過電流で溶断する保護部品。", "定格・種類・遮断容量を図面と現物で照合。"], ["保護", "サーマルリレー", "THR → b接点", "モータ過負荷時に制御回路を開く構成に使う。", "主回路側と補助接点を別々に追う。"], ["電源", "変圧器", "AC ~ [TR] ~", "交流電圧を変換する。", "一次・二次端子と各定格電圧を銘板で照合。"], ["電源", "DC24V電源", "AC → 24V DC", "制御回路へ直流24Vを供給する。", "P24/N24等の名称は設備の図面で定義を確認。"], ["電源", "接地 / PE", "⏚ PE", "保護接地の接続を示す代表例。", "PE・0V・盤アースを名称だけで短絡しない。"], ["配線", "端子台 / TB", "—● TB-01 ●—", "配線を接続・中継する端子。", "端子番号と渡り線、盤外への接続先を追う。"], ["配線", "配線の接続点", "─●─", "黒点などで交差線が接続される表現の例。", "単なる交差との描き分けは図面凡例を確認。"], ["PLC", "PLC入力", "センサ → X / I", "外部のセンサや接点信号を受ける。", "COM、入力方式、アドレスと端子を確認。"], ["PLC", "PLC出力", "Y / Q → 負荷", "リレーやランプなどへ指令を出す。", "トランジスタ/リレー出力、極性、定格を確認。"], ["負荷", "表示灯 / PL", "—( PL )—", "運転や異常などの状態を表示する。", "表示条件とLEDの定格、共通線を確認。"], ["負荷", "三相モータ", "3~ ( M )", "三相交流で回転する電動機。", "U/V/W、MC、サーマルと回転方向を図面で追う。"]], "fluid": [["線・ポート", "主配管 / 作動線", "P ───── A", "圧力源から機器へつながる主流路。", "線の交点・分岐を凡例で確認。"], ["線・ポート", "パイロット線", "X - - - ▷", "圧力を使って弁を操作する信号線。", "外部・内部パイロットの取り方を確認。"], ["線・ポート", "ドレン線", "Y ⋯⋯ T", "機器の漏れ油をタンクへ逃がす系統。", "ケースドレンを塞がない。戻り圧条件を確認。"], ["線・ポート", "P / T / A / B", "P→弁→A/B→T", "Pは供給、Tは戻り、A/Bはアクチュエータ側の代表表記。", "実回路のポート表記と中立時の接続を照合。"], ["線・ポート", "チェックポイント", "● M / G", "測定口や圧力計接続点を示す例。", "どの配管の圧力かを図面で追う。"], ["動力源", "油圧ポンプ", "○▷", "機械エネルギーを流体の流れに変える。", "固定・可変容量、回転方向、吸込・吐出を確認。"], ["動力源", "可変容量ポンプ", "○▷ ↗", "吐出容量を変えられるポンプ。", "制御圧、ドレン、圧力補償方式を確認。"], ["動力源", "油圧モータ", "◁○", "流体エネルギーを回転運動に変える。", "ケースドレンと負荷による回転方向を確認。"], ["動力源", "タンク / リザーバ", "┴ TANK", "作動油の貯留・戻り先。", "開放/密閉表記、戻り線、吸込線を確認。"], ["アクチュエータ", "単動シリンダ", "[□|→] ↩", "圧力で一方向へ動き、ばねや外力で戻る。", "戻り側の力と排出先を確認。"], ["アクチュエータ", "複動シリンダ", "A [□|→] B", "両室に圧力を切り替えて伸縮する。", "ロッド側とヘッド側の面積差を確認。"], ["方向弁", "2/2方向切換弁", "[→][×]", "2ポート・2位置の開閉弁。", "無励磁時に通るか止まるかを確認。"], ["方向弁", "3/2方向切換弁", "[P→A][A→T]", "3ポート・2位置。単動シリンダやパイロット用。", "ばね側の休止位置とポート番号を確認。"], ["方向弁", "4/2方向切換弁", "[P→A][P→B]", "4ポート・2位置でA/Bの流路を切り替える。", "反対側の戻り経路も各枠内で追う。"], ["方向弁", "4/3方向切換弁", "[左][中][右]", "4ポート・3位置。中央枠が中立位置。", "中立のP/T/A/Bの接続は弁ごとに異なる。"], ["方向弁", "ソレノイド・ばね復帰", "SOL [弁] /\\/\\/", "電磁操作とばね復帰を表す組合せ。", "ばね側の枠が無励磁時の位置。"], ["逆止・保持", "チェック弁", "→|●", "一方向に流し逆方向は止める。", "向きを確認。これだけで負荷保持の安全性は判断しない。"], ["逆止・保持", "パイロットチェック弁", "→|● ⋯ X", "パイロット圧で逆方向にも開放できる逆止弁。", "解除圧と戻り背圧、シリンダ両室を確認。"], ["逆止・保持", "カウンタバランス弁", "負荷 ↘ [CB]", "下降負荷の暴走を抑える用途の弁。", "設定圧とパイロット比、逆流経路を確認。"], ["圧力制御", "リリーフ弁", "P → [RV] → T", "圧力が設定値に達すると逃がす代表的な弁。", "設定位置とタンク戻り、アンロード経路を確認。"], ["圧力制御", "減圧弁", "P → [PR] → A", "下流側の圧力を設定値に保つ圧力制御弁。", "下流感圧とドレンの接続を確認。"], ["圧力制御", "シーケンス弁", "P → [SEQ] → A", "設定圧到達後に次の動作系統へ通す。", "リリーフ弁との戻り先の違いを確認。"], ["圧力制御", "圧力スイッチ", "● → PS", "圧力を電気信号へ変える機器。", "測定位置、ON/OFF設定を確認。"], ["流量制御", "絞り弁", "──▷◁──", "流路を絞って流量を変える。", "固定/可変を区別し、絞り前後の圧力を確認。"], ["流量制御", "逆止弁付き流量調整弁", "→▷◁ / ←自由", "一方向を絞り、反対方向は自由流れにする。", "メータイン/メータアウトの向きを確認。"], ["流量制御", "圧力補償付き流量調整弁", "▷◁ ＋ ΔP", "差圧を補償し流量を保つ形式。", "補償範囲と設定、並列回路を確認。"], ["補機", "アキュムレータ", "( N₂ | 油 )", "ガス等で油圧エネルギーを蓄える。", "ポンプ停止後も残圧が残り得る。専用の隔離・放圧手順を確認。"], ["補機", "フィルタ", "──◇──", "作動油や圧縮空気中の異物を除去。", "吸込/圧力/戻りの設置位置と差圧表示を確認。"], ["補機", "クーラ / 熱交換器", "──[ HX ]──", "流体の熱を逃がす。", "冷却媒体側と油側、バイパス回路を確認。"], ["補機", "圧力計", "○↗ G", "接続点の圧力を表示する。", "目盛・単位と接続位置を確認。"], ["空圧", "FRL", "[F][R][L]", "フィルタ・レギュレータ・ルブリケータの組合せ。", "給油が必要か、圧力設定と排水方法を確認。"], ["空圧", "急速排気弁", "A → EXH", "シリンダ近くで直接大気へ排気する。", "急な動作と排気方向に注意。"], ["空圧", "サイレンサ", "EXH [S]", "空圧排気の騒音を下げる。", "目詰まりによる背圧を確認。"]]};
 let mode94='all';
 function filter94(mode){mode94=mode;draw94()}
+function search94(){
+ // A query is a search of the whole dictionary, even when opened from a category shortcut.
+ mode94='all';draw94();
+}
 function draw94(){
  const q=document.getElementById('query94').value.trim().toLocaleLowerCase();
  const list=document.getElementById('list94');list.replaceChildren();let total=0;
@@ -1873,7 +1879,13 @@ function draw94(){
    };list.append(b);
   }
  }
- document.getElementById('count94').textContent=total+'種類を表示 / 全'+(SYMBOLS94.electric.length+SYMBOLS94.fluid.length)+'種類';
+ const all=SYMBOLS94.electric.length+SYMBOLS94.fluid.length;
+ document.getElementById('count94').textContent=total+'種類を表示 / 全'+all+'種類'+(q?'（全分類を検索）':'');
+ if(total===0){
+  const p=document.createElement('p');p.className='comment';
+  p.textContent=q?'該当する記号がありません。別の呼び名や略号でも検索してください。この辞典に登録された記号から探しています。':'この分類には記号が登録されていません。';
+  list.append(p);
+ }
 }
 document.addEventListener('DOMContentLoaded',draw94);
 </script><script>
@@ -2001,6 +2013,10 @@ function drawFits104(){const kind=document.getElementById('fitKind104').value,co
 document.addEventListener('DOMContentLoaded',classes104);
 </script><script>
 function valid105(id,rule){let e=document.getElementById(id);return !!e&&e.value.trim()!==''&&Number.isFinite(Number(e.value))&&rule(Number(e.value))}
+async function copyText107(field){
+ try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(field.value);return true}}catch(e){}
+ try{field.select();return typeof document.execCommand==='function'&&document.execCommand('copy')===true}catch(e){return false}
+}
 function array105(key){try{let a=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(a)?a.filter(x=>x&&typeof x==='object'):[]}catch(e){return []}}
 function store105(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){alert('保存できませんでした。端末の保存容量またはブラウザの設定を確認してください。入力内容は画面に残しています。');return false}}
 </script></body></html>
