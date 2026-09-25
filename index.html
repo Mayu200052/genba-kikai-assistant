@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v99</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v100</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -90,8 +90,8 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 @media(max-width:360px){#dialCenter64 .dial-row98{grid-template-columns:6.3em minmax(0,1fr) 1.8em;gap:5px}}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v99</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v99：</b>芯出し入力欄のスマートフォン表示を修正。目次から各項目を開けます。<br>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v100</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v100：</b>点検・記録の目次名を修正。作業報告・写真付き記録・設備カルテを開けます。<br>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -407,7 +407,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <label>掛け方/メーカー係数 <input id="sf65" type="number" value="1.0" step=".05"></label>
 <button onclick="sling65()">タグ値から計算</button><div id="so65" class="comment"></div>
 <button onclick="sendResult46('so65','スリング荷重確認')">📝 作業記録へ送る</button>
-</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v99</h2>
+</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v100</h2>
 <p class="note">0°/90°/180°/270°の対向値から中心ずれを計算。安全な停止・手回し手順で測定してください。</p>
 <label class="dial-row98" for="d064"><span>0°（+X）</span><input id="d064" type="number" value=".10" step=".01"><span>mm</span></label>
 <label class="dial-row98" for="d9064"><span>90°（+Y）</span><input id="d9064" type="number" value=".04" step=".01"><span>mm</span></label>
@@ -628,8 +628,8 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 </div>
 <p class="note">この版では、これまで作った芯出し機能をiPhoneで操作しやすい「現場機械アシスタント」の入口にまとめています。</p>
 </div>
-<div class="card" id="alignment"><h2>① 基本設定</h2>基準軸 <select id="ref"><option>A</option><option>B</option></select>　面振れ測定径D <input id="D" type="number" value="600"> mm<br>基準中心→前フットL1 <input id="L1" type="number" value="250"> mm　前→後フットL2 <input id="L2" type="number" value="500"> mm　左右フット中心間 W <input id="W" type="number" value="300"> mm</div>
-<div class="card"><h2>基本設定の寸法図（L1・L2）</h2>
+<div class="card" id="alignment"><h2 data-heading100="0">① 基本設定</h2>基準軸 <select id="ref"><option>A</option><option>B</option></select>　面振れ測定径D <input id="D" type="number" value="600"> mm<br>基準中心→前フットL1 <input id="L1" type="number" value="250"> mm　前→後フットL2 <input id="L2" type="number" value="500"> mm　左右フット中心間 W <input id="W" type="number" value="300"> mm</div>
+<div class="card"><h2 data-heading100="1">基本設定の寸法図（L1・L2）</h2>
 <p class="note">側面から見たイメージです。L1・L2を「どこから、どこまで測るか」が分かるようにしました。</p>
 <svg viewBox="0 0 900 390" style="width:100%;border:1px solid #ddd;background:#fff">
   <text x="28" y="32" font-size="19" font-weight="bold">モーター／調整側　側面図</text>
@@ -672,7 +672,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <div id="dimensionLive" style="margin-top:10px"><b>現在の設定：</b>L1 = 250 mm、L2 = 500 mm、基準→後フット = 750 mm</div>
 </div>
 </div>
-<div class="card"><h2>基本設定の寸法図（左右フット間隔 W）</h2>
+<div class="card"><h2 data-heading100="2">基本設定の寸法図（左右フット間隔 W）</h2>
 <p class="note">モーターを上から見た図です。Wは左フット中心から右フット中心までの距離です。</p>
 <svg viewBox="0 0 900 440" style="width:100%;border:1px solid #ddd;background:#fff">
  <text x="28" y="32" font-size="19" font-weight="bold">モーター／調整側　上面図</text>
@@ -705,7 +705,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <div id="footGeometryLive" style="margin-top:8px"><b>現在のフット配置：</b>L2 = 500 mm × W = 300 mm</div>
 </div>
 </div>
-<div class="card"><h2>② ラジアル測定（外径・360°）</h2>
+<div class="card"><h2 data-heading100="3">② ラジアル測定（外径・360°）</h2>
 <p class="note">ダイヤルゲージで測った位置と同じ場所へ数値を入力してください。欄を押すと＋・－・小数点ボタンが表示されます。</p>
 <div style="position:relative;width:330px;height:330px;margin:auto">
 <div style="position:absolute;left:115px;top:115px;width:100px;height:100px;border:4px solid #555;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold">軸 外径</div>
@@ -715,7 +715,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <label style="position:absolute;left:0;top:135px;text-align:center">270°（左）<br><input id="r270" type="text" inputmode="decimal" autocomplete="off" value=".06"></label>
 </div></div>
 
-<div class="card"><h2>③ 面振れ測定（最大実用径・360°）</h2>
+<div class="card"><h2 data-heading100="4">③ 面振れ測定（最大実用径・360°）</h2>
 <p class="note">カップリング面のなるべく大きな測定径で測り、同じ位置へ入力します。</p>
 <div style="position:relative;width:330px;height:330px;margin:auto">
 <div style="position:absolute;left:100px;top:100px;width:130px;height:130px;border:5px double #555;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:bold">カップリング面<br>測定径 D</div>
@@ -726,9 +726,9 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 </div>
 <button onclick="calc()">計算・図解を更新</button>
 </div>
-<div class="card"><h2>④ 計算結果</h2><div id="res"></div></div>
-<div class="card"><h2>⑤ 図解</h2><svg id="svg" viewBox="0 0 800 300" style="width:100%;border:1px solid #ddd"></svg></div>
-<div class="card"><h2>⑥ 4本フット</h2>
+<div class="card"><h2 data-heading100="5">④ 計算結果</h2><div id="res"></div></div>
+<div class="card"><h2 data-heading100="6">⑤ 図解</h2><svg id="svg" viewBox="0 0 800 300" style="width:100%;border:1px solid #ddd"></svg></div>
+<div class="card"><h2 data-heading100="7">⑥ 4本フット</h2>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;margin:10px auto 18px">
  <div class="comment" style="text-align:center"><b>前・左 FL</b><br>シム／横移動</div>
  <div class="comment" style="text-align:center"><b>後・左 RL</b><br>シム／横移動</div>
@@ -736,8 +736,8 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
  <div class="comment" style="text-align:center"><b>後・右 RR</b><br>シム／横移動</div>
 </div>
 <div id="feet"></div><p class="note">上下はシム追加・抜きの目安です。左右は機械本体の横移動として扱います。</p></div>
-<div class="card"><h2>⑦ 私からのコメント説明</h2><div id="com" class="comment"></div></div>
-<div class="card"><h2>⑧ 現在のズレ → 調整後の動き</h2>
+<div class="card"><h2 data-heading100="8">⑦ 私からのコメント説明</h2><div id="com" class="comment"></div></div>
+<div class="card"><h2 data-heading100="9">⑧ 現在のズレ → 調整後の動き</h2>
 <p class="note">「調整前」「調整後」を切り替えると、調整側の軸がどちらへ動くかを誇張表示します。実寸スケールではありません。</p>
 <button onclick="showBefore()">調整前を見る</button>
 <button onclick="showAfter()">調整後を見る</button>
@@ -763,7 +763,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 </svg>
 <div id="motionComment" class="comment" style="margin-top:10px"></div>
 </div>
-<div class="card" id="measure"><h2>⑨ 現場での測定手順</h2>
+<div class="card" id="measure"><h2 data-heading100="10">⑨ 現場での測定手順</h2>
 <div class="comment">
 <b>1.</b> 基準にする軸（A/B）を決める。<br>
 <b>2.</b> ラジアルは軸・カップリング外径で、0°→90°→180°→270°→0°と360°確認する。<br>
@@ -897,7 +897,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <p id="mlIntro" class="note">計算後の前・後フット補正と方向を、選択した言語で表示します。</p>
 <div id="mlOutput" class="comment">芯出し計算を実行すると、ここに現場指示が表示されます。</div>
 </div>
-<div class="card" id="shim"><h2>⑩ 現在のシム厚 → 調整後シム厚</h2>
+<div class="card" id="shim"><h2 data-heading100="11">⑩ 現在のシム厚 → 調整後シム厚</h2>
 <p class="note">現在4本のフットに入っている合計シム厚を入力してください。芯出し計算の上下補正量を加減して、調整後の目安を表示します。</p>
 <table>
 <tr><th>フット</th><th>現在の合計シム厚 mm</th><th>今回の変更</th><th>調整後の目安 mm</th></tr>
@@ -910,7 +910,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <div id="shimComment" class="comment" style="margin-top:10px">先に芯出し計算を実行してください。</div>
 <p class="note">この版では、上下補正を前側2本・後側2本へ同量配分する簡易モデルです。左右方向は機械本体の横移動として扱い、左右シム厚の差には変換していません。</p>
 </div>
-<div class="card" id="soft"><h2>⑪ ソフトフット簡易チェック</h2>
+<div class="card" id="soft"><h2 data-heading100="12">⑪ ソフトフット簡易チェック</h2>
 <p class="note">全ボルトを規定状態で締めた後、各フットを1本ずつ緩めたときの浮き量（ダイヤル変化）を入力してください。</p>
 <table>
 <tr><th>フット</th><th>緩めた時の浮き量 mm</th><th>判定</th></tr>
@@ -969,7 +969,7 @@ function setLanguage(lang){
  document.documentElement.lang=lang;
  const ids={appTitle:"title",menuTitle:"menu",navAlign:"align",navShim:"shim",navSoft:"soft",navMeasure:"measure",homeAlign:"homeAlign",homeShim:"homeShim",homeSoft:"homeSoft",homeMeasure:"homeMeasure"};
  Object.entries(ids).forEach(([id,k])=>{let e=document.getElementById(id);if(e)e.textContent=t[k]});
- document.querySelectorAll(".card h2").forEach((e,i)=>{ if(t.heads[i])e.textContent=t.heads[i]; });
+ document.querySelectorAll("h2[data-heading100]").forEach(e=>{ const i=Number(e.dataset.heading100); if(t.heads[i])e.textContent=t.heads[i]; });
  localStorage.setItem("genbaLang",lang); updateMultilingualResult();
 }
 document.addEventListener("DOMContentLoaded",()=>{
@@ -1912,7 +1912,7 @@ document.addEventListener('DOMContentLoaded',function(){
  for(const [title,ids] of itemGroups97){
   let h=document.createElement('h2');h.textContent=title;list.appendChild(h);
   for(const id of ids){let e=document.getElementById(id);if(!e)continue;
-   let b=document.createElement('button');b.type='button';b.textContent=(e.querySelector('h2,h1')?.textContent||id).replace(/\s*v9[0-9]\s*$/,'');b.onclick=()=>openView97(id);list.appendChild(b);seen.add(id);
+   let b=document.createElement('button');b.type='button';b.textContent=(e.querySelector('h2,h1')?.textContent||id).replace(/\s*v\d+\s*$/,'');b.onclick=()=>openView97(id);list.appendChild(b);seen.add(id);
   }
  }
  const extras=[...document.querySelectorAll('body > section.card[id]')].filter(e=>!seen.has(e.id)&&e.id!=='release90');
