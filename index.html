@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v96</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v98</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -83,10 +83,15 @@ body.dark84 .signedpad95{background:#242e3c;color:#fff}
 #contents97 h2{grid-column:1/-1;margin:17px 0 0;font-size:17px;border-bottom:1px solid #ddd;padding-bottom:6px}
 .back97{width:auto;min-height:45px;background:#eaf4ff;border:1px solid #8bb8da;border-radius:10px}
 body.dark84 #contents97 button{color:#fff;background:#303030}
+</style><style>
+#dialCenter64 .dial-row98{display:grid;grid-template-columns:7em minmax(0,1fr) 2em;align-items:center;gap:8px;margin:10px 0}
+#dialCenter64 .dial-row98>span{white-space:nowrap}
+#dialCenter64 .dial-row98 input{box-sizing:border-box;width:100%;min-width:0;margin:0;font-size:16px}
+@media(max-width:360px){#dialCenter64 .dial-row98{grid-template-columns:6.3em minmax(0,1fr) 1.8em;gap:5px}}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v96</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v96：</b>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v98</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v98：</b>芯出し入力欄のスマートフォン表示を修正。目次から各項目を開けます。<br>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -402,12 +407,12 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <label>掛け方/メーカー係数 <input id="sf65" type="number" value="1.0" step=".05"></label>
 <button onclick="sling65()">タグ値から計算</button><div id="so65" class="comment"></div>
 <button onclick="sendResult46('so65','スリング荷重確認')">📝 作業記録へ送る</button>
-</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v91</h2>
+</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v98</h2>
 <p class="note">0°/90°/180°/270°の対向値から中心ずれを計算。安全な停止・手回し手順で測定してください。</p>
-<label>0°（+X） <input id="d064" type="number" value=".10" step=".01"> mm</label>
-<label>90°（+Y） <input id="d9064" type="number" value=".04" step=".01"> mm</label>
-<label>180°（−X） <input id="d18064" type="number" value="-.10" step=".01"> mm</label>
-<label>270°（−Y） <input id="d27064" type="number" value="-.04" step=".01"> mm</label>
+<label class="dial-row98" for="d064"><span>0°（+X）</span><input id="d064" type="number" value=".10" step=".01"><span>mm</span></label>
+<label class="dial-row98" for="d9064"><span>90°（+Y）</span><input id="d9064" type="number" value=".04" step=".01"><span>mm</span></label>
+<label class="dial-row98" for="d18064"><span>180°（−X）</span><input id="d18064" type="number" value="-.10" step=".01"><span>mm</span></label>
+<label class="dial-row98" for="d27064"><span>270°（−Y）</span><input id="d27064" type="number" value="-.04" step=".01"><span>mm</span></label>
 <button onclick="dial64()">芯ずれを計算</button><div id="dialo64" class="comment"></div>
 <button onclick="sendResult46('dialo64','ダイヤル4方向芯出し')">📝 作業記録へ送る</button></section><section id="coord63" class="card"><h2>🎯 穴位置・中心出しアシスタント v91</h2>
 <p class="note">横中ぐり・フライスで使う座標計算です。加工前に図面原点、+X/+Y方向、機械座標を必ず照合してください。</p>
