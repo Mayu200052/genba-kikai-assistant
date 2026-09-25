@@ -1,4 +1,4 @@
-const CACHE='genba-kikai-v103';
+const CACHE='genba-kikai-v104';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',event=>{
