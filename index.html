@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v98</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v99</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -90,8 +90,8 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 @media(max-width:360px){#dialCenter64 .dial-row98{grid-template-columns:6.3em minmax(0,1fr) 1.8em;gap:5px}}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v98</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v98：</b>芯出し入力欄のスマートフォン表示を修正。目次から各項目を開けます。<br>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v99</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v99：</b>芯出し入力欄のスマートフォン表示を修正。目次から各項目を開けます。<br>溶接・寸法公差・はめあい・現場の単位換算を追加。芯出しの符号付き入力も利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -407,7 +407,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <label>掛け方/メーカー係数 <input id="sf65" type="number" value="1.0" step=".05"></label>
 <button onclick="sling65()">タグ値から計算</button><div id="so65" class="comment"></div>
 <button onclick="sendResult46('so65','スリング荷重確認')">📝 作業記録へ送る</button>
-</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v98</h2>
+</section><section id="dialCenter64" class="card"><h2>🎯 ダイヤルゲージ 4方向芯出し v99</h2>
 <p class="note">0°/90°/180°/270°の対向値から中心ずれを計算。安全な停止・手回し手順で測定してください。</p>
 <label class="dial-row98" for="d064"><span>0°（+X）</span><input id="d064" type="number" value=".10" step=".01"><span>mm</span></label>
 <label class="dial-row98" for="d9064"><span>90°（+Y）</span><input id="d9064" type="number" value=".04" step=".01"><span>mm</span></label>
@@ -1797,7 +1797,7 @@ calc();</script><div class="card">
 <button type="button" data-sign95="back" aria-label="最後の文字を消す">⌫</button>
 <button type="button" data-sign95="done">閉じる</button>
 </div><div id="nav91">
-<button onclick="history.back()" title="戻る">←</button>
+<button onclick="backView99()" title="一つ前の画面へ戻る">←</button>
 <button onclick="home82()" title="ホーム">⌂</button>
 <button onclick="favPanel82()" title="お気に入り">★</button>
 <button onclick="recentPanel82()" title="最近">◷</button>
@@ -1885,10 +1885,17 @@ const itemGroups97=[
  ['🏗️ 玉掛け・その他',['rigGeo67','rigTable66','rig65','dashboard41','home81','myhome83']]
 ];
 let pages97=[];let active97='release90';
+const viewHistory99=[];
+window.backView99=function(){
+ const panel=document.getElementById('panel82');
+ if(panel && panel.style.display!=='none' && panel.style.display!==''){closePanel82();return;}
+ window.openView97(viewHistory99.pop() || 'release90',false);
+};
 function section97(id){let e=document.getElementById(id);return e&&e.closest('body > .card')===e?e:null}
 function page97(id){let e=document.getElementById(id);if(!e)return null;return e.closest('body > .card')||e.closest('body > section.card')||e}
-window.openView97=function(id){
+window.openView97=function(id,remember99=true){
  let e=document.getElementById(id),p=id==='release90'?e:page97(id);if(!p)return;
+ if(remember99 && id!==active97){viewHistory99.push(active97);}
  active97=id;
  pages97.forEach(x=>x.classList.toggle('page97hidden',x!==p && !(p.id==='alignment'&&x.dataset.align97==='yes')));
  document.querySelectorAll('.back97').forEach(b=>b.remove());
@@ -1912,7 +1919,7 @@ document.addEventListener('DOMContentLoaded',function(){
  if(extras.length){let h=document.createElement('h2');h.textContent='その他の機能';list.appendChild(h);extras.forEach(e=>{let b=document.createElement('button');b.type='button';b.textContent=e.querySelector('h2,h1')?.textContent||e.id;b.onclick=()=>openView97(e.id);list.appendChild(b)})}
  pages97=[...document.body.children].filter(e=>e.tagName!=='SCRIPT'&&e.id!=='nav91'&&e.id!=='panel82'&&e.id!=='signedpad95'&&!e.classList.contains('signedpad95'));
  let align=false;for(const p of pages97){if(p.id==='alignment')align=true;if(align)p.dataset.align97='yes';if(p.id==='soft')align=false;}
- let target=location.hash.slice(1);openView97(target&&document.getElementById(target)?target:'release90');
+ let target=location.hash.slice(1);openView97(target&&document.getElementById(target)?target:'release90',false);
 });
 })();
 </script></body></html>
