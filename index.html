@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v108</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v109</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -90,8 +90,8 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 @media(max-width:360px){#dialCenter64 .dial-row98{grid-template-columns:6.3em minmax(0,1fr) 1.8em;gap:5px}}
 </style><style>#photoReport101{padding:12px;border:1px solid #ccc;background:white;color:#222;overflow-wrap:anywhere}#photoReport101 img{max-width:100%;height:auto}#photoReport101 figure{margin:16px 0}#photoReport101 .text101{white-space:pre-wrap}</style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v108</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v108：</b>電気・油圧・空圧の故障切り分け、油圧動作・残圧、回路図写真の整理と解析用質問文の画面を復旧しました。<br>記号検索は全分類から検索できます。写真入り作業報告書は点検・記録から開けます。<br>幾何公差・はめあい・止め輪・キー・軸受の一覧表、溶接・単位換算も利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v109</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v109：</b>故障診断を8症状・32確認項目に詳しくしました。確認方法・原因候補・次の確認先と回答履歴を表示し、作業記録へ送れます。<br>下の←は診断の質問を含めて一つ前へ戻ります。⌂は目次へ戻ります。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -224,17 +224,13 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <p>v91では故障診断の結果から、既存の計算・検索ツールへ直接移動できるようにしました。</p>
 <div class="comment"><b>使い方</b><br>① 症状を選ぶ → ② YES/NOで切り分ける → ③「関連ツール」を押す → ④ 実測値を入力 → ⑤ 再測定して原因を確認</div>
 <p class="note">安全カバー内・回転部・電気盤内などの確認は、設備停止・エネルギー遮断・社内手順を優先してください。</p></section><section id="diagnosis43" class="card">
-<h2>🧭 YES / NO 故障診断フロー β</h2>
+<h2>🧭 症状別 故障診断フロー</h2>
 <p class="note">症状を選び、現場で確認した事実に答えて原因候補を絞ります。点検は停止・隔離・ロックアウト等の安全手順を優先してください。</p>
-<label>診断 <select id="dgType43" onchange="startDiag43()">
-<option value="bearing">ベアリングが熱い</option>
-<option value="vibration">振動が大きい</option>
-<option value="cylinder">シリンダが遅い／力が弱い</option>
-<option value="align">芯出しが安定しない</option>
-</select></label>
-<button onclick="startDiag43()">診断開始</button>
-<div id="dg43" class="comment"></div>
-<div id="dgBtns43" style="display:none;gap:8px;margin-top:8px"><button onclick="ans43(true)">YES</button><button onclick="ans43(false)">NO</button><button onclick="startDiag43()">最初から</button></div>
+<p class="note">煙・焦げ臭・急な振動増大や異常動作がある場合は、設備の停止基準を優先してください。電源遮断後も残圧・自重・蓄電を考慮し、活線測定や安全回路の迂回は行いません。</p>
+<label>症状 <select id="dgType43" onchange="startDiag43()">
+<option value="bearing">ベアリングが熱い</option><option value="vibration">モータ・機械の振動が大きい</option><option value="cylinder">油圧シリンダが遅い／力が弱い</option><option value="pneumatic">空圧シリンダが動かない／速度が不安定</option><option value="motor">モータが始動しない／途中で止まる</option><option value="solenoid">電磁弁が切り替わらない</option><option value="gear">ギヤ・減速機の音が大きい</option><option value="align">芯出しが安定しない</option></select></label>
+<div id="dg43" class="comment" aria-live="polite"></div><div id="dgBtns43" style="display:flex;flex-wrap:wrap;gap:8px"></div><div id="dgLog109"></div>
+<details><summary>参考資料</summary><p>一般的な切り分け用に整理しています。個別機器の条件は型式ごとの資料を確認してください。</p><ul><li><a href="https://www.nsk.com/tools-resources/abc-bearings/damage-and-countermeasures/" target="_blank" rel="noopener">NSK：軸受の損傷と対策</a></li><li><a href="https://www.smcworld.com/support/faq/ja-jp/guide.html" target="_blank" rel="noopener">SMC：トラブルシューティング・チェックシート</a></li><li><a href="https://www.ia.omron.com/support/guide/36/troubleshooting.html" target="_blank" rel="noopener">OMRON：リレーのトラブルシューティング</a></li><li><a href="https://www.skf.com/group/products/maintenance-products/alignment-tools/shaft-alignment/shaft-alignment-apps/soft-foot-app" target="_blank" rel="noopener">SKF：ソフトフットの確認</a></li></ul></details>
 </section><section id="trouble42" class="card">
 <h2>🩺 現場トラブルシューティング β</h2>
 <p class="note">症状を選ぶと、まず確認する順序を表示します。停止・隔離・ロックアウト等、会社の安全手順を優先してください。</p>
@@ -329,6 +325,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <h3>入力側</h3><label>信号 <input id="sigtype74" value="近接センサ"></label><label>線番 <input id="wire74" value="101"></label><label>端子 <input id="term74" value="TB1-05"></label><label>PLC入力 <input id="addr74" value="X10"></label><button onclick="trace74()">入力を追う</button><div id="traceo74" class="comment"></div>
 <h3>出力側</h3><label>PLC出力 <input id="outaddr74" value="Y20"></label><label>中継リレー <input id="relay74" value="RY20"></label><label>負荷 <input id="load74" value="SOL-a"></label><button onclick="outTrace74()">出力を追う</button><div id="outo74" class="comment"></div>
 </section><section id="diagnose75" class="card"><h2>🩺 電気・油圧・空圧 故障切り分け</h2>
+<button type="button" onclick="openView97('diagnosis43')">詳しい症状別診断へ →</button>
 <p class="note">症状ごとに上流から条件を確認する学習用の手順です。結果は原因の確定ではありません。</p>
 <label>症状 <select id="sym75" onchange="diag75()"><option value="sol">電磁弁が動かない</option><option value="cyl">シリンダが動かない</option><option value="slow">動きが遅い</option><option value="motor">モータが動かない</option><option value="mc">電磁接触器が入らない</option></select></label>
 <div id="q75" class="comment"></div><button type="button" onclick="ans75(true)">はい</button><button type="button" onclick="ans75(false)">いいえ</button><button type="button" onclick="reset75()">最初から</button><div id="res75" class="comment" aria-live="polite"></div>
@@ -1337,17 +1334,70 @@ function findTool43(words){let els=[...document.querySelectorAll("[id]")];for(le
 function toolBtn43(label,words){let id=findTool43(words);return id?`<button style="margin:5px 5px 0 0" onclick="openView97('${id}')">${label} →</button>`:""}
 function actions43(){let t=dgType43.value,b="<hr><b>関連ツール</b><br>";if(t==="bearing")b+=toolBtn43("ベアリング検索",["bearing"])+toolBtn43("軸径から逆引き",["reverse"]);if(t==="vibration")b+=toolBtn43("芯出し計算",["align","workflow"])+toolBtn43("ソフトフット",["softfoot"]);if(t==="cylinder")b+=toolBtn43("シリンダ推力計算",["cylinder40"])+toolBtn43("油圧・空圧",["hyd","pneu"]);if(t==="align")b+=toolBtn43("芯出し計算",["align","workflow"])+toolBtn43("ソフトフット",["softfoot"])+toolBtn43("最終判定",["judgement"]);return b}
 
-const FLOW43={
- bearing:{q:"潤滑条件に異常がありますか？",y:{r:"潤滑条件を確認し、是正後に温度推移を再測定してください。"},n:{r:"芯ずれ・外力・軸受状態・運転条件を順に確認してください。"}},
- vibration:{q:"停止状態で緩みがありますか？",y:{r:"基礎・取付部の緩みを是正し、同条件で再測定してください。"},n:{r:"芯ずれ・ソフトフット・回転体・軸受などを順に切り分けてください。"}},
- cylinder:{q:"供給圧力は設定範囲内ですか？",y:{r:"流量・弁・漏れ・負荷・摺動抵抗を確認してください。"},n:{r:"供給源と圧力損失を確認してください。"}},
- align:{q:"ソフトフットがありますか？",y:{r:"芯出し前にソフトフット原因を確認してください。"},n:{r:"測定治具、締付け、外力、軸自身の振れを順に確認してください。"}}
+// Symptom-specific checks. Yes means an observed abnormal condition, not a confirmed cause.
+const DIAG109={
+ bearing:{name:'ベアリングが熱い',tools:['bearingWizard54','bearingCode49'],steps:[
+ ['指定と異なる潤滑剤・量・給脂間隔の記録がありますか？','型式、給脂記録、指定銘柄と量を照合。温度は測定位置・運転時間をそろえて比較します。','潤滑条件の不適合','むやみに追加給脂せず、適量・銘柄・給脂経路をメーカー指定と照合。'],
+ ['交換・組立・締付けの直後から発熱しましたか？','交換前後の温度、軸受番号、すきま記号、組立記録を比較。','取付け・はめあい・内部すきまの影響','軸・ハウジング寸法、締付け、予圧の指定を確認。分解は設備手順に従います。'],
+ ['負荷・回転数・周囲温度が以前より上がっていますか？','運転記録と銘板条件を照合。配管やベルト等からの外力も図面で確認。','運転条件・外力・放熱の影響','定格条件と冷却状態、芯ずれの測定記録を確認。'],
+ ['異音・振動・潤滑剤の汚れも増えていますか？','既存の監視値、潤滑剤交換時の記録、シール状態を確認。急変時は運転継続を判断せず担当者へ。','軸受損傷・異物侵入等の候補','温度だけで断定せず、音・振動の推移と軸受状態をメーカー手順で評価。']]},
+ vibration:{name:'モータ・機械の振動が大きい',tools:['alignment','soft','trend88'],steps:[
+ ['停止・隔離後の点検で基礎や取付部に緩みがありますか？','アンカ、フット、ブラケットの点検記録を確認。回転中に接触して調べません。','取付け剛性・緩み','取付面と締結状態を指定手順で是正し、同じ運転条件の測定値を比較。'],
+ ['芯出し値・ソフトフットが設備の許容値外ですか？','冷間／温間、測定方向、締付け状態をそろえた値で確認。','芯ずれ・フットの不均等な接触','フットの接触・外力を確認後、設備指定の基準で芯出しを再測定。'],
+ ['特定の回転数・負荷だけで振動が大きくなりますか？','既にある運転記録から発生条件を整理。診断目的で危険な回転域を試しません。','共振・回転体・負荷変動等の候補','回転数、方向別振動、発生タイミングを専門担当者へ。周波数だけで原因確定しません。'],
+ ['軸受温度・異音の変化もありますか？','同じ位置で採った温度・音・振動の履歴を比較。','軸受・潤滑・接触の影響','軸受発熱のフローと併せて確認し、急増時は設備の停止基準を優先。']]},
+ cylinder:{name:'油圧シリンダが遅い／力が弱い',tools:['hydraulic76','holding77','circuit79'],steps:[
+ ['既設の圧力表示が、通常の同一動作時より低いですか？','停止時の表示だけで判断せず、既存の動作記録と指定測定点を照合。配管を緩めて調べません。','供給源・圧力損失の候補','ポンプ、油量、圧力制御、警報の記録を確認。リリーフ設定を安易に上げません。'],
+ ['弁の指令と切替表示に食い違いがありますか？','PLC指令、弁型式、既設表示を図面で対応づける。表示灯だけではスプール動作を断定できません。','電気指令・弁切替の候補','電磁弁フローで前段条件から確認。手動操作で安全条件を迂回しません。'],
+ ['絞り設定変更・フィルタ警報・戻り側の異常記録がありますか？','流量調整の変更履歴、差圧表示、温度の変化を確認。','流量不足・戻り抵抗の候補','配管図の絞り・戻り経路とメーカー点検手順を照合。'],
+ ['外部漏れ、保持位置の変化、機械抵抗の増加がありますか？','外観と停止位置の記録を確認。自重負荷と残圧がある部分へ立ち入りません。','漏れ・保持回路・機械負荷の候補','シリンダだけでなく弁の漏れ・負荷も検討。負荷支持と隔離を含む点検手順を作成。']]},
+ pneumatic:{name:'空圧シリンダが動かない／速度が不安定',tools:['fluidAdv91','circuit79'],steps:[
+ ['供給・レギュレータの表示に通常時との差がありますか？','供給源、元弁、調圧器の既設表示と、動作時に記録された圧力を比較。','供給圧力・供給流量の候補','配管径、フィルタ状態、同時使用条件を指定仕様と照合。'],
+ ['方向弁の指令・切替表示が期待する状態と違いますか？','型式、電圧仕様、指令とポート接続を図面で確認。','指令・方向弁の候補','電磁弁フローで切り分け。強制出力や手動弁操作で保護条件を迂回しません。'],
+ ['速度調整器・排気部の変更や目詰まりの兆候がありますか？','メータイン／メータアウトの構成、サイレンサの保守記録を確認。','流量調整・排気抵抗の候補','圧抜きと負荷支持を確認した設備手順で点検。'],
+ ['漏れ音・ロッド偏荷重・動作位置による引っ掛かりがありますか？','過去の動作記録と取付状態を確認。手を添えて動作確認しません。','漏れ・ガイド／取付け・負荷の候補','シリンダ許容荷重と機械側の摺動条件を照合。']]},
+ motor:{name:'モータが始動しない／途中で止まる',tools:['control71','panel73','drawing74'],steps:[
+ ['過負荷・インバータ・安全回路の警報がありますか？','表示されたコードと発生時刻をそのまま記録。','保護動作・運転条件の不成立','警報の取扱説明書と発生条件を照合。原因不明の繰返しリセットはしません。'],
+ ['運転要求に対しPLC・操作盤の指令表示が成立していませんか？','モード、起動条件、インターロックを図面と既設表示で確認。','指令より前段の条件','センサ、停止条件、シーケンスの該当段を制御担当者と確認。'],
+ ['指令は成立しているのに接触器・ドライブの状態表示が変わりませんか？','表示と実動作は同じとは限りません。線番と機器型式を記録。','駆動指令経路・接触器等の候補','電圧測定が必要なら電気担当者へ依頼。一次側は停止後も充電部になり得ます。'],
+ ['負荷増加・機械の拘束・異音の記録がありますか？','設備を停止・隔離して、詰まりや駆動側の点検記録を確認。','機械負荷・駆動部の候補','電気側と機械側を分けて点検計画を立て、定格と負荷条件を照合。']]},
+ solenoid:{name:'電磁弁が切り替わらない',tools:['drawing74','fluidAdv91','circuit79'],steps:[
+ ['PLC・操作側のSOL指令が成立していませんか？','指令アドレス、モード、安全条件を既設表示と図面で確認。','入力条件・指令経路','前段の条件を順に確認。安全回路を短絡しません。'],
+ ['コイル仕様・接続の記録に図面との違いがありますか？','AC/DC、定格電圧、極性、コネクタ型式を銘板・図面で照合。','コイル・接続仕様の不一致','配線点検は電気担当者の隔離手順で実施。表示灯点灯だけで正常と判断しません。'],
+ ['パイロット圧・供給条件が指定範囲外ですか？','パイロット式か直動式か、既設の圧力表示と型式資料を確認。','流体供給・パイロット条件','必要な供給条件と排気／ドレン経路を図面で照合。'],
+ ['指令と供給条件は成立しても切替状態が変わりませんか？','機器の指示機構・既存の動作記録を確認。手動切替で負荷を動かして調べません。','コイル・スプール・異物等の候補','メーカー指定の故障点検へ。写真・型式・発生条件をまとめます。']]},
+ gear:{name:'ギヤ・減速機の音が大きい',tools:['elements48','trend88'],steps:[
+ ['油量・油種・交換時期に指定との違いがありますか？','指定の停止条件で読む油面と保守記録を確認。','潤滑条件','油種・量・交換条件を機器説明書と照合。'],
+ ['負荷・速度・回転方向の変更と同時に音が変わりましたか？','運転履歴と発生時期を比較。','運転条件・負荷','定格と変更点を確認して設備担当者と評価。'],
+ ['取付け・カップリングの測定値に異常がありますか？','停止・隔離後の取付点検と芯出し記録を確認。','取付け・芯ずれ・外力','基礎と取付状態を確認し、メーカー基準で再測定。'],
+ ['温度上昇・振動増加・油中異物の記録がありますか？','記録と外観を照合。運転中にカバーを開けません。','歯面・軸受等の損傷候補','摩耗の程度は断定せず、メーカーの点検・分析へ。']]},
+ align:{name:'芯出しが安定しない',tools:['alignment','soft','dialCenter64'],steps:[
+ ['同じ角度・締付け状態でも測定値が再現しませんか？','同じ基準・方向で複数回測定した記録を比較。','測定治具・接触・軸の振れ','ブラケット固定、測定子の接触、ゼロ位置、軸／カップリング自身の振れを分けて確認。'],
+ ['フット締付けで測定値が変わり、接触が均等でない兆候がありますか？','指定のソフトフット点検手順と各足の測定値を確認。','ソフトフット・取付面','シムの状態と接触面、ボルト締付けを確認してから芯出しを実施。'],
+ ['配管接続・締付け・荷重変化に伴って芯出し値が変わりますか？','接続前後の記録、機器配置、荷重条件を確認。','外力・締付けによる移動','機器を無理に引き寄せず、配管荷重・基礎・締付け順を担当者と確認。'],
+ ['冷間と運転後で値が変わり、温度条件がそろっていませんか？','測定時の温度・停止後の時間とメーカーの目標値を確認。','熱変位・測定条件','冷間目標と運転時目標を区別して再測定。独自の許容値で合否を決めません。']]}
 };
-let node43=null;
-function render43(){if(node43.r){dg43.innerHTML="<b>診断候補</b><br>"+node43.r+"<br><span class='note'>これは原因確定ではなく、次に確認する候補です。</span>"+actions43();dgBtns43.style.display="flex";return}dg43.innerHTML="<b>質問：</b><br>"+node43.q;dgBtns43.style.display="flex"}
-function startDiag43(){node43=FLOW43[dgType43.value];render43()}
-function ans43(v){if(!node43||node43.r)return;node43=v?node43.y:node43.n;render43()}
-document.addEventListener("DOMContentLoaded",()=>{try{startDiag43()}catch(e){}});
+const DIAGKEY109='genba-diag109:'+location.pathname;
+let diag109={type:'bearing',step:0,answers:[],result:false};
+function validDiag109(x){return x&&DIAG109[x.type]&&Number.isInteger(x.step)&&x.step>=0&&x.step<=DIAG109[x.type].steps.length&&Array.isArray(x.answers)&&x.answers.length<=4&&x.answers.every(a=>a&&Number.isInteger(a.step)&&a.step>=0&&a.step<4&&['はい','いいえ','未確認'].includes(a.answer)&&typeof a.note==='string');}
+window.getDiag109=()=>JSON.parse(JSON.stringify(diag109));
+function saveDiag109(){try{sessionStorage.setItem(DIAGKEY109,JSON.stringify(diag109))}catch(e){}if(window.saveViewState109)window.saveViewState109()}
+window.restoreDiag109=function(x){if(!validDiag109(x))return;diag109=JSON.parse(JSON.stringify(x));document.getElementById('dgType43').value=diag109.type;render43();saveDiag109()};
+function startDiag43(remember=true){if(remember&&window.pushViewState109)window.pushViewState109();diag109={type:document.getElementById('dgType43').value,step:0,answers:[],result:false};render43();saveDiag109()}
+function ans43(v){if(diag109.result||diag109.step>=DIAG109[diag109.type].steps.length)return;if(window.pushViewState109)window.pushViewState109();let note=document.getElementById('dgNote109').value.trim();delete diag109.draft;diag109.answers.push({step:diag109.step,answer:v===true?'はい':v===false?'いいえ':'未確認',note});if(v===true)diag109.result=true;else diag109.step++;render43();saveDiag109()}
+function nextDiag109(){if(!diag109.result)return;if(window.pushViewState109)window.pushViewState109();diag109.result=false;diag109.step++;render43();saveDiag109()}
+function render43(){
+ const cfg=DIAG109[diag109.type],item=cfg.steps[diag109.step],out=document.getElementById('dg43'),controls=document.getElementById('dgBtns43'),log=document.getElementById('dgLog109');out.replaceChildren();controls.replaceChildren();log.replaceChildren();controls.style.display='flex';controls.style.flexWrap='wrap';
+ const el=(tag,text,parent=out)=>{const n=document.createElement(tag);n.textContent=text;parent.append(n);return n};
+ const button=(label,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=fn;controls.append(b)};
+ el('b',cfg.name);
+ if(item&&!diag109.result){el('h3','確認 '+(diag109.step+1)+' / '+cfg.steps.length+'：'+item[0]);el('p','確認の仕方：'+item[1]);let label=el('label','確認した値・表示・状況（任意）');let input=document.createElement('textarea');input.id='dgNote109';input.rows=2;input.value=diag109.draft||'';input.oninput=()=>{diag109.draft=input.value;saveDiag109()};input.placeholder='例：警報コード、圧力表示、発生条件';label.append(input);button('はい',()=>ans43(true));button('いいえ',()=>ans43(false));button('未確認・分からない',()=>ans43(null));}
+ else {el('h3',item?'原因候補：'+item[2]:'確認項目を一巡しました');el('p',item?'次に確認すること：'+item[3]:'該当なしでも正常とは確定できません。未確認事項と記録をまとめ、機器の取扱説明書・担当者へ照合してください。');el('p','診断結果は原因候補です。是正後は同じ条件で再測定し、設備の復帰手順に従って確認します。');if(item)button('ほかの原因も確認',nextDiag109);for(const id of cfg.tools){const target=document.getElementById(id);if(target){const b=document.createElement('button');b.type='button';b.textContent=(target.querySelector('h2,h1')?.textContent||id)+' →';b.onclick=()=>openView97(id);out.append(b)}}}
+ button('一つ前へ',()=>backView99());button('最初から',()=>startDiag43());
+ if(diag109.answers.length){el('h3','回答履歴',log);for(const a of diag109.answers){const row=el('p',(a.step+1)+'. '+cfg.steps[a.step][0]+' → '+a.answer+(a.note?' ／ '+a.note:''),log)}const b=document.createElement('button');b.type='button';b.textContent='診断内容を作業記録へ送る';b.onclick=sendDiag109;log.append(b)}
+}
+function sendDiag109(){const cfg=DIAG109[diag109.type];const text=cfg.name+'\n'+diag109.answers.map(a=>(a.step+1)+'. '+cfg.steps[a.step][0]+' → '+a.answer+(a.note?' ／ '+a.note:'')+(a.answer==='はい'?'\n候補：'+cfg.steps[a.step][2]+'\n次の確認：'+cfg.steps[a.step][3]:'')).join('\n');const before=document.getElementById('rb45');before.value+=(before.value?'\n\n':'')+'【故障診断】\n'+text;document.getElementById('rs45').value=cfg.name;openView97('records45')}
+document.addEventListener('DOMContentLoaded',()=>{try{const x=JSON.parse(sessionStorage.getItem(DIAGKEY109)||'null');if(validDiag109(x))diag109=x}catch(e){}document.getElementById('dgType43').value=diag109.type;render43()});
 function textResult46(id){let e=document.getElementById(id);return e?(e.innerText||e.textContent||"").trim():""}
 function sendResult46(id,label){
  let val=textResult46(id); if(!val){alert("先に計算してください");return}
@@ -1580,7 +1630,7 @@ let MC71=false,F71=false,R71=false;function paint71(){document.getElementById("m
 function p72(on){po72.innerHTML=on?"<b>MCコイル励磁：</b>制御回路のMCコイルがON → MC主接点が閉じる想定 → 主回路からモータへ給電可能になります。<br><span class='note'>実際の運転条件には安全回路、サーマル、インターロック、PLC条件などが加わります。</span>":"<b>MCコイルOFF：</b>MC主接点は開く想定 → モータ主回路を遮断します。<br><span class='note'>ただしMCCB一次側などには電圧が残り得ます。「モータ停止＝盤内無電圧」ではありません。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{p72(false)}catch(e){}});
 const D73={"MCCB":"配線用遮断器。主回路の開閉・過電流保護など。遮断後も一次側に電圧が存在し得ます。","ヒューズ":"規定以上の電流で溶断し回路を保護。定格・遮断容量・種類を確認。","トランス":"交流電圧を変換し、必要に応じて回路を絶縁。一次/二次の電圧を銘板・図面で確認。","DC24V電源":"AC入力をDC24V制御電源へ変換する電源装置。P24/+24V、N24/0V等の表記は設備ごとに確認。","PLC入力":"センサ・押しボタン・LSなどの信号をPLCへ取り込む側。","PLC出力":"PLC演算結果からリレー、ランプ、ソレノイド等へ指令する側。出力方式と定格を確認。","近接センサ":"金属等を非接触検出。PNP/NPN、NO/NC、電源電圧、配線色は製品仕様を確認。","光電センサ":"光を利用して物体を検出。透過・回帰反射・拡散反射など方式があります。","リミットSW":"機械位置で作動する接点式スイッチ。NO/NCと機械的操作状態を確認。","電磁弁SOL":"PLC/リレー出力等でソレノイドを励磁し、油圧・空圧の流路を切替。","サーマルTHR":"モータ過負荷保護に使われる機器。補助接点を制御回路へ組み込みMCを落とす構成があります。"};function devInfo73(){devo73.innerHTML=`<b>${dev91.value}</b><br>${D73[dev91.value]}`}function sig73(m){sigo73.innerHTML=m==="sensor"?"<b>入力側：</b>センサ検出 → PLC入力端子がON、という信号の流れを図面で追います。":m==="plc"?"<b>出力側：</b>PLC内部条件成立 → 出力ON → RY/SOL等の負荷へ、という流れ。実際にはインターロック条件を確認します。":"<b>全OFF：</b>入力/出力とも非動作の学習状態です。"}document.addEventListener("DOMContentLoaded",()=>{try{devInfo73();sig73("off")}catch(e){}});
 function plcInfo74(){let v=plc74.value;plco74.innerHTML=v==="mits"?"<b>X / Y型：</b>Xを入力、Yを出力として表すPLCでよく見られる方式。X0→X1…の進み方や進数はシリーズごとに確認。":v==="iec"?"<b>I / Q型：</b>I(Input)を入力、Q(Output)を出力として扱う表記例。例：I0.0、Q0.0など。":"<b>IN / OUT型：</b>図面や端子台で入力/出力を文字で表す一般的な例。実アドレスとの対応表を確認。"}function trace74(){traceo74.innerHTML=`<b>${sigtype74.value}</b> → 線番 <b>${wire74.value}</b> → 端子 <b>${term74.value}</b> → PLC入力 <b>${addr74.value}</b><br><span class="note">ここからPLCプログラム/クロスリファレンスで、この入力を使用している条件を探す流れになります。</span>`}function outTrace74(){outo74.innerHTML=`PLC出力 <b>${outaddr74.value}</b> → <b>${relay74.value}</b> → 負荷 <b>${load74.value}</b><br><span class="note">中継リレーがある場合は、そのコイルと全接点の参照先を図面上で確認します。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{plcInfo74();trace74();outTrace74()}catch(e){}});
-let step75=0,path75=[];const Q75={sol:["PLC/制御側でSOL出力指令が成立している表示ですか？","SOLコイル/コネクタ側まで制御信号が成立していることを安全な方法で確認済みですか？","電気指令時に弁の切替状態（表示・機械的状態等）に変化がありますか？","供給圧力と戻り/排気条件は正常ですか？"],cyl:["電磁弁/方向切換弁への作動指令は成立していますか？","弁は実際に切り替わっていますか？","シリンダ入口側に必要な圧力/流量がありますか？","機械的な噛み込み・過大負荷はありませんか？"],slow:["供給圧力は通常値ですか？","流量調整弁や絞り設定に異常はありませんか？","フィルタ詰まり・排気抵抗・戻り背圧の兆候はありませんか？","内部漏れ/外部漏れやシール劣化の兆候はありませんか？"],motor:["運転指令は成立していますか？","MCコイルが励磁する条件は成立していますか？","サーマル/保護装置が作動していませんか？","機械側の拘束・過負荷の兆候はありませんか？"],mc:["非常停止・安全回路が復帰条件を満たしていますか？","STOP/b接点・インターロック条件は成立していますか？","PLC/リレーからMCへの運転指令は成立していますか？","MCコイル回路の電源仕様と図面条件は一致していますか？"]};function diag75(){step75=0;path75=[];res75.innerHTML="";showQ75()}function showQ75(){let a=Q75[sym75.value];q75.innerHTML=step75<a.length?`<b>確認 ${step75+1}/${a.length}</b><br>${a[step75]}`:"確認項目を一巡しました。"}function ans75(y){let a=Q75[sym75.value];if(step75>=a.length)return;path75.push(y);if(!y){let msg=["指令/入力条件側を図面で前段へ戻って確認。","この段階の機器・配線・作動条件を重点確認。","供給エネルギー（電源/圧力/流量）側を重点確認。","負荷・機械・下流側を重点確認。"][Math.min(step75,3)];res75.innerHTML=`<b>切り分けポイント：</b>${msg}<br><span class="note">原因確定ではありません。停止・隔離した安全状態で、図面とメーカー手順に従って確認してください。</span>`;return}step75++;if(step75>=a.length)res75.innerHTML="<b>上流条件は概ね成立：</b>機器内部、負荷側、機械側、流体側など次段を重点的に確認する段階です。";showQ75()}function reset75(){diag75()}document.addEventListener("DOMContentLoaded",()=>{try{diag75()}catch(e){}});
+let step75=0,path75=[];const Q75={sol:["PLC/制御側でSOL出力指令が成立している表示ですか？","SOLコイル/コネクタ側まで制御信号が成立していることを安全な方法で確認済みですか？","電気指令時に弁の切替状態（表示・機械的状態等）に変化がありますか？","供給圧力と戻り/排気条件は正常ですか？"],cyl:["電磁弁/方向切換弁への作動指令は成立していますか？","弁は実際に切り替わっていますか？","シリンダ入口側に必要な圧力/流量がありますか？","機械的な噛み込み・過大負荷はありませんか？"],slow:["供給圧力は通常値ですか？","流量調整弁や絞り設定に異常はありませんか？","フィルタ詰まり・排気抵抗・戻り背圧の兆候はありませんか？","内部漏れ/外部漏れやシール劣化の兆候はありませんか？"],motor:["運転指令は成立していますか？","MCコイルが励磁する条件は成立していますか？","サーマル/保護装置が作動していませんか？","機械側の拘束・過負荷の兆候はありませんか？"],mc:["非常停止・安全回路が復帰条件を満たしていますか？","STOP/b接点・インターロック条件は成立していますか？","PLC/リレーからMCへの運転指令は成立していますか？","MCコイル回路の電源仕様と図面条件は一致していますか？"]};function diag75(remember=true){if(remember&&window.pushViewState109)window.pushViewState109();step75=0;path75=[];res75.innerHTML="";showQ75()}function showQ75(){let a=Q75[sym75.value];q75.innerHTML=step75<a.length?`<b>確認 ${step75+1}/${a.length}</b><br>${a[step75]}`:"確認項目を一巡しました。"}function ans75(y){let a=Q75[sym75.value];if(step75>=a.length)return;if(window.pushViewState109)window.pushViewState109();path75.push(y);if(!y){let msg=["指令/入力条件側を図面で前段へ戻って確認。","この段階の機器・配線・作動条件を重点確認。","供給エネルギー（電源/圧力/流量）側を重点確認。","負荷・機械・下流側を重点確認。"][Math.min(step75,3)];res75.innerHTML=`<b>切り分けポイント：</b>${msg}<br><span class="note">原因確定ではありません。停止・隔離した安全状態で、図面とメーカー手順に従って確認してください。</span>`;return}step75++;if(step75>=a.length)res75.innerHTML="<b>上流条件は概ね成立：</b>機器内部、負荷側、機械側、流体側など次段を重点的に確認する段階です。";showQ75()}function reset75(){diag75()}document.addEventListener("DOMContentLoaded",()=>{try{diag75(false)}catch(e){}});
 function hyd76(m){let p=document.getElementById("hp76"),t=document.getElementById("ht76"),a=document.getElementById("ha76"),b=document.getElementById("hb76");[p,t,a,b].forEach(x=>x.setAttribute("class","h76"));if(m==="up"){p.setAttribute("class","h76 p76");a.setAttribute("class","h76 p76");b.setAttribute("class","h76 r76");t.setAttribute("class","h76 r76");hydtxt76.innerHTML="<b>SOL-a：</b>P→A、B→T の例。キャップ側へ圧油、ロッド側が戻りとなり、図ではロッドが伸びる方向。"}else if(m==="down"){p.setAttribute("class","h76 p76");b.setAttribute("class","h76 p76");a.setAttribute("class","h76 r76");t.setAttribute("class","h76 r76");hydtxt76.innerHTML="<b>SOL-b：</b>P→B、A→T の例。ロッド側へ圧油、キャップ側が戻りとなり、図ではロッドが縮む方向。"}else{hydtxt76.innerHTML="<b>中立：</b>ここではクローズドセンタの説明想定。P/A/B/Tを閉止する代表例です。中立形式により挙動は変わります。"}}function force76(){if(!valid105("pr76",v=>v>=0)||!valid105("pd76",v=>v>0)||!valid105("rd76",v=>v>=0)){document.getElementById("forceo76").textContent="入力を確認してください。空欄・範囲外の値では計算できません。";return;}let P=+pr76.value,D=+pd76.value,d=+rd76.value;if(P<0||D<=0||d<0||d>=D){forceo76.innerHTML="寸法を確認してください。";return}let A=Math.PI*D*D/4,Ar=Math.PI*(D*D-d*d)/4,F=P*A/1000,Fr=P*Ar/1000;forceo76.innerHTML=`押し側理論力：<b>${F.toFixed(1)} kN</b>（約 ${(F/9.80665).toFixed(2)} tf）<br>引き側理論力：<b>${Fr.toFixed(1)} kN</b>（約 ${(Fr/9.80665).toFixed(2)} tf）<br><span class="note">摩擦・背圧・効率・圧力損失等を含まない理論値です。</span>`}document.addEventListener("DOMContentLoaded",()=>{try{hyd76("neutral");force76()}catch(e){}});
 const R77={check:"<b>チェック弁：</b>一方向の流れを許し、逆流を止める基本弁。負荷保持専用としての安全性を単純なチェック弁だけで判断しません。",pilot:"<b>パイロットチェック：</b>通常は逆流を止め、パイロット圧で逆方向を開放する構成。シリンダ保持回路で使われます。",counter:"<b>カウンタバランス弁：</b>下降する負荷などの暴走を抑え、背圧を保ちながら制御する用途があります。設定・回路構成が重要です。",flow:"<b>流量調整弁：</b>流量を絞って速度を調整。メータイン/メータアウト等で挙動が異なります。"};function sim77(){let v=valve77.value,p=power77.checked,so=sol77.checked,l=load77.checked;role77.innerHTML=R77[v];let t=p?(so?"<b>ポンプON・SOL ON：</b>指令された流路へ圧油が流れる想定。":"<b>ポンプON・SOL OFF：</b>中立回路の形式により保持・アンロード・浮動などが変化。"):"<b>ポンプOFF：</b>新たなポンプ流量はありません。";if(!p&&l)t+="<br><b>ただし自重負荷あり：</b>保持弁、残圧、弁の内部漏れ等によっては機械が動く可能性を考慮します。";if(v==="pilot"&&!so)t+="<br>パイロットチェックは逆流を遮断して保持する方向の想定ですが、実回路のパイロット条件を確認します。";if(v==="counter"&&l)t+="<br>自重下降負荷ではカウンタバランス弁が下降制御に関係する代表例があります。";vis77.innerHTML=t}function res77(){reso77.innerHTML="<b>図面上で確認する候補：</b>圧力計/残圧表示、アキュムレータ、チェック/パイロットチェック、カウンタバランス、シリンダ両室、戻り配管、機械の自重方向。<br><span class='note'>実際の圧抜きは設備メーカーの手順・会社のLOTO/エネルギー隔離手順に従ってください。ホースや継手を緩めて確認する方法は避けます。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{sim77();res77()}catch(e){}});
 let mode78="hold";function sim78(){let p=pump78.checked,r=resid78.checked,w=weight78.checked,side=side78.value;let state=mode78==="inc"?"INC指令":mode78==="dec"?"DEC指令":"保持";let energy=p?"ポンプ圧あり":r?"ポンプOFFでも残圧あり":"供給圧なし";pinchVis78.innerHTML=`<b>${side}側 / ${state}</b><br>${energy} ／ 自重 ${w?"あり":"なし"}`;if(mode78==="dec"){dec78.innerHTML=p?"<b>ポンプ運転中：</b>DEC弁がどの室をタンク/低圧側へつなぐかでロールの動作方向が決まります。":r?"<b>ポンプOFF＋残圧あり：</b>DEC操作で閉じ込められていた油の逃げ道やパイロット経路が成立すると、蓄積エネルギーや反対室の圧力によってロールが動く可能性があります。":"<b>ポンプOFF＋残圧なし：</b>油圧による駆動力は小さい想定ですが、自重や機械リンクによる移動可能性は別に考えます。"}else dec78.innerHTML="<b>保持/INC：</b>保持弁・方向弁・シリンダ両室の圧力バランスで位置が決まるため、名称だけで動作方向は判断しません。"}function why78(){whyout78.innerHTML="<b>考えられる仕組み：</b>①片側室に残圧、②アキュムレータ圧、③DECで戻り/パイロット経路が開いた、④反対室の圧力が優勢、⑤ロールやリンクの自重/ばね力、⑥チェック弁の開放条件、⑦弁内部漏れ・スプール位置。<br><span class='note'>これは原因候補であり故障確定ではありません。実機の回路図と圧力保持構成を確認してください。</span>"}document.addEventListener("DOMContentLoaded",()=>{try{sim78();why78()}catch(e){}});
@@ -1982,16 +2032,27 @@ const itemGroups97=[
 ];
 let pages97=[];let active97='release90';
 const viewHistory99=[];
+const NAVKEY109='genba-nav109:'+location.pathname;
+function snapshot109(){return {id:active97,scroll:window.scrollY||0,diag:active97==='diagnosis43'&&window.getDiag109?window.getDiag109():null,legacy:active97==='diagnose75'?{type:document.getElementById('sym75').value,step:step75,path:[...path75],result:document.getElementById('res75').textContent}:null}}
+function persist109(){try{sessionStorage.setItem(NAVKEY109,JSON.stringify({current:snapshot109(),history:viewHistory99.slice(-100)}))}catch(e){}}
+window.saveViewState109=persist109;
+window.pushViewState109=function(){viewHistory99.push(snapshot109());if(viewHistory99.length>100)viewHistory99.shift();persist109()};
+function restoreLegacy109(x){if(!x||!Q75[x.type]||!Number.isInteger(x.step)||x.step<0||x.step>Q75[x.type].length||!Array.isArray(x.path))return;document.getElementById('sym75').value=x.type;step75=x.step;path75=x.path;showQ75();document.getElementById('res75').textContent=x.result||'';}
 window.backView99=function(){
  const panel=document.getElementById('panel82');
  if(panel && panel.style.display!=='none' && panel.style.display!==''){closePanel82();return;}
- window.openView97(viewHistory99.pop() || 'release90',false);
+ const prev=viewHistory99.pop();
+ if(!prev){if(active97!=='release90')window.openView97('release90',false);return;}
+ window.openView97(prev.id,false);
+ if(prev.diag&&window.restoreDiag109)window.restoreDiag109(prev.diag);
+ restoreLegacy109(prev.legacy);
+ window.scrollTo(0,Math.max(0,Number(prev.scroll)||0));persist109();
 };
 function section97(id){let e=document.getElementById(id);return e&&e.closest('body > .card')===e?e:null}
 function page97(id){let e=document.getElementById(id);if(!e)return null;return e.closest('body > .card')||e.closest('body > section.card')||e}
 window.openView97=function(id,remember99=true){
  let e=document.getElementById(id),p=id==='release90'?e:page97(id);if(!p)return;
- if(remember99 && id!==active97){viewHistory99.push(active97);}
+ if(remember99 && id!==active97){window.pushViewState109();}
  active97=id;
  pages97.forEach(x=>x.classList.toggle('page97hidden',x!==p && !(p.id==='alignment'&&x.dataset.align97==='yes')));
  document.querySelectorAll('.back97').forEach(b=>b.remove());
@@ -2000,6 +2061,7 @@ window.openView97=function(id,remember99=true){
  }
  window.scrollTo(0,0);
  try{history.replaceState(null,'',id==='release90'?location.pathname:('#'+id))}catch(ex){}
+ persist109();
 };
 document.addEventListener('DOMContentLoaded',function(){
  const index=document.getElementById('release90'),list=document.getElementById('contents97');
@@ -2015,7 +2077,14 @@ document.addEventListener('DOMContentLoaded',function(){
  if(extras.length){let h=document.createElement('h2');h.textContent='その他の機能';list.appendChild(h);extras.forEach(e=>{let b=document.createElement('button');b.type='button';b.textContent=e.querySelector('h2,h1')?.textContent||e.id;b.onclick=()=>openView97(e.id);list.appendChild(b)})}
  pages97=[...document.body.children].filter(e=>e.tagName!=='SCRIPT'&&e.id!=='nav91'&&e.id!=='panel82'&&e.id!=='signedpad95'&&!e.classList.contains('signedpad95'));
  let align=false;for(const p of pages97){if(p.id==='alignment')align=true;if(align)p.dataset.align97='yes';if(p.id==='soft')align=false;}
- let target=location.hash.slice(1);openView97(target&&document.getElementById(target)?target:'release90',false);
+ let target=location.hash.slice(1);target=target&&document.getElementById(target)?target:'release90';
+ let saved=null;try{saved=JSON.parse(sessionStorage.getItem(NAVKEY109)||'null')}catch(e){}
+ if(saved&&saved.current?.id===target&&Array.isArray(saved.history)){
+  viewHistory99.push(...saved.history.filter(x=>x&&typeof x.id==='string'&&document.getElementById(x.id)).slice(-100));
+ }else saved=null;
+ openView97(target,false);
+ if(saved){if(saved.current.diag&&window.restoreDiag109)window.restoreDiag109(saved.current.diag);restoreLegacy109(saved.current.legacy);window.scrollTo(0,Math.max(0,Number(saved.current.scroll)||0));persist109()}
+ window.addEventListener('pagehide',persist109);
 });
 })();
 </script><script>// Toray NIII E, manual BT2302D p.4. Published ratings, not inferred breaking loads.
