@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v109</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v111</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -88,10 +88,14 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 #dialCenter64 .dial-row98>span{white-space:nowrap}
 #dialCenter64 .dial-row98 input{box-sizing:border-box;width:100%;min-width:0;margin:0;font-size:16px}
 @media(max-width:360px){#dialCenter64 .dial-row98{grid-template-columns:6.3em minmax(0,1fr) 1.8em;gap:5px}}
-</style><style>#photoReport101{padding:12px;border:1px solid #ccc;background:white;color:#222;overflow-wrap:anywhere}#photoReport101 img{max-width:100%;height:auto}#photoReport101 figure{margin:16px 0}#photoReport101 .text101{white-space:pre-wrap}</style></head><body>
+</style><style>#photoReport101{padding:12px;border:1px solid #ccc;background:white;color:#222;overflow-wrap:anywhere}#photoReport101 img{max-width:100%;height:auto}#photoReport101 figure{margin:16px 0}#photoReport101 .text101{white-space:pre-wrap}</style><style>
+#symbol94 input{box-sizing:border-box;width:100%;max-width:100%;font-size:16px}#symbol94 .symcontrols94{display:flex;flex-wrap:wrap;gap:6px}#symbol94 .symcontrols94 button{width:auto;min-width:65px;margin:2px;padding:12px}#symbol94 .symcontrols94 button[aria-pressed="true"]{background:#d5eaff;outline:2px solid #1671b8}#detail94{scroll-margin:20px;overflow-wrap:anywhere}#detail94 svg{display:block;width:100%;max-width:480px;height:auto;background:white;border:1px solid #d5e1ed;border-radius:12px;margin:12px 0}#detail94 h3{font-size:1.15em}#detail94 button{width:auto;padding:10px;margin:4px}#list94 .symitem94{overflow-wrap:anywhere;min-width:0}#symbol94 .symgrid94{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}
+</style><style>
+.guide111{margin:24px 0 12px;border:1px solid #a9cbe3;border-radius:12px;background:#f5faff;padding:14px;clear:both}.guide111 summary{cursor:pointer;font-weight:700;line-height:1.7;padding:8px 0;color:#18527c}.guide111 details{border-top:1px solid #d8e6f0;padding:6px 0}.guide111 p,.guide111 li,.guide111 dd{font-size:16px;line-height:1.85;overflow-wrap:anywhere}.guide111 li{margin:8px 0}.guide111 dt{font-weight:bold;margin-top:12px}.guide111 dd{margin:4px 0 14px 12px}.guideFocus111{background:#e6f2fc;padding:12px;border-radius:8px}.guideFigure111{margin:12px 0}.guideFigure111 svg{display:block;background:white;width:100%;max-width:440px;height:auto;border-radius:8px}.guideFigure111 text{font-size:14px;text-anchor:middle;fill:#17364f;stroke:none}.guideFigure111 figcaption{font-size:14px;color:#425c70}.guide111 a{overflow-wrap:anywhere}
+</style><style>@media print{.guide111{display:none!important}}</style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v109</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v109：</b>故障診断を8症状・32確認項目に詳しくしました。確認方法・原因候補・次の確認先と回答履歴を表示し、作業記録へ送れます。<br>下の←は診断の質問を含めて一つ前へ戻ります。⌂は目次へ戻ります。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v111</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v111：</b>各項目に「詳しい使い方・実務例」を追加。基本・図解・手順・数値例・よくある失敗・完了前の確認を開いて読めます。<br>111項目の記号・用語検索と故障診断、一つ前に戻る操作も引き継いでいます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -381,11 +385,11 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
 <h3>4/3方向切換弁の状態</h3><button onclick="valve68('a')">SOL-a</button><button onclick="valve68('n')">中立</button><button onclick="valve68('b')">SOL-b</button><div id="vo68" class="comment"></div>
-</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧 回路記号辞典 v108</h2>
+</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v110</h2>
 <p class="note">図は形を覚えるための<b>模式表示</b>です。規格の記号を正確に複製したものではありません。機器ごとの図面凡例、型式、端子表、回路図を優先してください。</p>
-<div class="symcontrols94"><button type="button" onclick="filter94('all')">すべて</button><button type="button" onclick="filter94('electric')">⚡ 電気</button><button type="button" onclick="filter94('fluid')">💧 油圧・空圧</button></div>
-<label for="query94">記号名・用途で探す（入力すると全分類から検索）</label><input id="query94" type="search" placeholder="例：P24、チェック、サーマル" oninput="search94()">
-<p id="count94" class="note"></p><div id="list94" class="symgrid94"></div><div id="detail94" class="comment" aria-live="polite">記号を選ぶと、用途と確認点を表示します。</div>
+<div class="symcontrols94"><button type="button" onclick="filter94('all')">すべて</button><button type="button" onclick="filter94('electric')">⚡ 電気</button><button type="button" onclick="filter94('hydraulic')">💧 油圧</button><button type="button" onclick="filter94('pneumatic')">💨 空圧</button><button type="button" onclick="filter94('weld')">🔥 溶接</button></div>
+<label for="query94">名前・別名・略号・用途で探す（入力すると全分類から検索）</label><input id="query94" type="search" placeholder="例：ぎゃくしべん、PNP、空圧 5ポート、溶接 開先" oninput="search94()">
+<button type="button" onclick="document.getElementById('query94').value='';filter94('all')">検索をクリア</button><p id="count94" class="note"></p><div id="list94" class="symgrid94"></div><div id="detail94" class="comment" aria-live="polite">項目を選ぶと説明と図解を表示します。図解は学習用で、実機の施工図ではありません。</div>
 <p class="note">参考規格の領域：電気回路図 IEC 60617、流体回路図 ISO 1219。各図形と文字表記は学習用で、規格適合を保証しません。</p></section><section id="rigGeo67" class="card"><h2>🪝 玉掛け 吊り角度・吊り具確認 v91</h2>
 <p class="note"><b>安全重要：</b>計算は段取り検討用です。シャックル、アイボルト、チェーン等の使用可否・WLLは現物刻印/タグとメーカー資料で確認してください。</p>
 <h3>吊り点間距離＋スリング長 → 吊り角度</h3>
@@ -613,7 +617,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <button onclick="jump41('electric')">⚡ 電気</button><button onclick="jump41('weight')">📐 材料・計算</button>
 </div><p class="note">検索はこの端末内だけで動作します。通信なしでも利用できる構成です。</p></section>
 
-<section id="weld96" class="card ref96"><h2>🔥 溶接記号・溶接種類 v96</h2>
+<section id="weld96" class="card ref96"><button type="button" onclick="document.getElementById('query94').value='';filter94('weld');openView97('symbol94')">溶接の記号・用語を検索する →</button><h2>🔥 溶接記号・溶接種類 v96</h2>
 <p class="note">図面で最初に確認：適用規格と記号方式（ISO 2553 のシステムA／Bなど）、矢の指す側、継手の断面、寸法と施工要領。下の図形は学習用の簡略図です。</p>
 <h3>記号の読み順</h3><div class="refgrid96"><div><b>① 矢と基線</b><p>矢先が指す継手を特定。矢側／反対側の指定は図面の適用方式で確認。</p></div><div><b>② 基本記号</b><p>すみ肉、I／V／X／レ形、プラグなどで溶接部の形を表す。</p></div><div><b>③ 寸法</b><p>脚長・のど厚・長さ・ピッチ・開先角度・ルート間隔など。数値の意味は規格と図面注記で確認。</p></div><div><b>④ 補助表示</b><p>全周、現場溶接、仕上げ形状、施工方法、品質要求などを読む。</p></div></div>
 <h3>基本記号と継手</h3><div id="weldList96" class="refgrid96"></div><div id="weldDetail96" class="comment" aria-live="polite">記号をタップすると形と用途を表示します。</div>
@@ -1930,44 +1934,151 @@ calc();</script><div class="card">
 </div>
 <div id="panel82" class="panel82" style="display:none"></div><script>
 const SYMBOLS94 = {"electric": [["接点", "a接点 / NO", "—| |—", "通常時は開。操作・励磁で閉じる。", "コイルや押しボタンが非動作の状態を基準に読む。"], ["接点", "b接点 / NC", "—|/|—", "通常時は閉。操作・励磁で開く。", "非常停止などの安全機能は接点一つだけで判断しない。"], ["接点", "切換接点 / c接点", "COM → NO / NC", "共通端子がNO側とNC側を切り替える。", "端子番号は機器の端子図で確認。"], ["接点", "タイマ遅延接点", "—| |— ⏱", "設定時間後に接点が切り替わる。オン遅延・オフ遅延を区別。", "タイマの動作図と時限設定を確認。"], ["操作", "押しボタン", "PB —| |—", "押した間だけ接点が切り替わる代表例。", "a/b接点と保持形・復帰形を確認。"], ["操作", "セレクタスイッチ", "SS 0–1–2", "手動・自動など選択位置ごとに接点が変わる。", "各位置で閉じる端子の組合せを確認。"], ["操作", "リミットスイッチ", "LS —| |—", "機械位置により接点が切り替わる。", "カム位置と作動前後の接点状態を照合。"], ["検出", "近接センサ", "PX → IN", "近づいた対象物を非接触で検出する。", "PNP/NPN、電源、出力形式を型式で確認。"], ["検出", "光電センサ", "光 ⇢ IN", "光の遮断・反射で物体を検出する。", "透過・回帰反射・拡散反射の方式を確認。"], ["検出", "圧力スイッチ", "PS —| |—", "設定圧に応じて接点または出力が変わる。", "設定値とヒステリシス、NO/NCを確認。"], ["検出", "温度スイッチ", "TS —| |—", "温度条件で接点が変わる。", "上昇時か下降時か、復帰温度を確認。"], ["制御", "リレーコイル", "—( RY )—", "励磁で対応する接点を切り替える。", "同じ機器番号の接点を図面の別ページまで追う。"], ["制御", "電磁接触器", "—( MC )—", "コイル励磁で主接点・補助接点を切り替える。", "コイル電圧と主接点側の電圧は別に確認。"], ["制御", "電磁弁コイル", "—( SOL )—", "電気指令で弁を切り替える電磁部。", "SOL-a/bと油圧弁本体、コイル定格を対応させる。"], ["制御", "タイマリレー", "—( T )—", "設定時間に応じ接点を切り替える。", "コイルと時限接点の参照番号を追う。"], ["保護", "配線用遮断器 MCCB", "—[ MCCB ]—", "過電流保護・回路の開閉に使う。", "OFFでも一次側は充電している可能性がある。"], ["保護", "漏電遮断器 ELCB", "—[ ELCB ]—", "漏電検出と遮断を行う機器。", "機種による過電流保護の有無を確認。"], ["保護", "ヒューズ", "—[ F ]—", "過電流で溶断する保護部品。", "定格・種類・遮断容量を図面と現物で照合。"], ["保護", "サーマルリレー", "THR → b接点", "モータ過負荷時に制御回路を開く構成に使う。", "主回路側と補助接点を別々に追う。"], ["電源", "変圧器", "AC ~ [TR] ~", "交流電圧を変換する。", "一次・二次端子と各定格電圧を銘板で照合。"], ["電源", "DC24V電源", "AC → 24V DC", "制御回路へ直流24Vを供給する。", "P24/N24等の名称は設備の図面で定義を確認。"], ["電源", "接地 / PE", "⏚ PE", "保護接地の接続を示す代表例。", "PE・0V・盤アースを名称だけで短絡しない。"], ["配線", "端子台 / TB", "—● TB-01 ●—", "配線を接続・中継する端子。", "端子番号と渡り線、盤外への接続先を追う。"], ["配線", "配線の接続点", "─●─", "黒点などで交差線が接続される表現の例。", "単なる交差との描き分けは図面凡例を確認。"], ["PLC", "PLC入力", "センサ → X / I", "外部のセンサや接点信号を受ける。", "COM、入力方式、アドレスと端子を確認。"], ["PLC", "PLC出力", "Y / Q → 負荷", "リレーやランプなどへ指令を出す。", "トランジスタ/リレー出力、極性、定格を確認。"], ["負荷", "表示灯 / PL", "—( PL )—", "運転や異常などの状態を表示する。", "表示条件とLEDの定格、共通線を確認。"], ["負荷", "三相モータ", "3~ ( M )", "三相交流で回転する電動機。", "U/V/W、MC、サーマルと回転方向を図面で追う。"]], "fluid": [["線・ポート", "主配管 / 作動線", "P ───── A", "圧力源から機器へつながる主流路。", "線の交点・分岐を凡例で確認。"], ["線・ポート", "パイロット線", "X - - - ▷", "圧力を使って弁を操作する信号線。", "外部・内部パイロットの取り方を確認。"], ["線・ポート", "ドレン線", "Y ⋯⋯ T", "機器の漏れ油をタンクへ逃がす系統。", "ケースドレンを塞がない。戻り圧条件を確認。"], ["線・ポート", "P / T / A / B", "P→弁→A/B→T", "Pは供給、Tは戻り、A/Bはアクチュエータ側の代表表記。", "実回路のポート表記と中立時の接続を照合。"], ["線・ポート", "チェックポイント", "● M / G", "測定口や圧力計接続点を示す例。", "どの配管の圧力かを図面で追う。"], ["動力源", "油圧ポンプ", "○▷", "機械エネルギーを流体の流れに変える。", "固定・可変容量、回転方向、吸込・吐出を確認。"], ["動力源", "可変容量ポンプ", "○▷ ↗", "吐出容量を変えられるポンプ。", "制御圧、ドレン、圧力補償方式を確認。"], ["動力源", "油圧モータ", "◁○", "流体エネルギーを回転運動に変える。", "ケースドレンと負荷による回転方向を確認。"], ["動力源", "タンク / リザーバ", "┴ TANK", "作動油の貯留・戻り先。", "開放/密閉表記、戻り線、吸込線を確認。"], ["アクチュエータ", "単動シリンダ", "[□|→] ↩", "圧力で一方向へ動き、ばねや外力で戻る。", "戻り側の力と排出先を確認。"], ["アクチュエータ", "複動シリンダ", "A [□|→] B", "両室に圧力を切り替えて伸縮する。", "ロッド側とヘッド側の面積差を確認。"], ["方向弁", "2/2方向切換弁", "[→][×]", "2ポート・2位置の開閉弁。", "無励磁時に通るか止まるかを確認。"], ["方向弁", "3/2方向切換弁", "[P→A][A→T]", "3ポート・2位置。単動シリンダやパイロット用。", "ばね側の休止位置とポート番号を確認。"], ["方向弁", "4/2方向切換弁", "[P→A][P→B]", "4ポート・2位置でA/Bの流路を切り替える。", "反対側の戻り経路も各枠内で追う。"], ["方向弁", "4/3方向切換弁", "[左][中][右]", "4ポート・3位置。中央枠が中立位置。", "中立のP/T/A/Bの接続は弁ごとに異なる。"], ["方向弁", "ソレノイド・ばね復帰", "SOL [弁] /\\/\\/", "電磁操作とばね復帰を表す組合せ。", "ばね側の枠が無励磁時の位置。"], ["逆止・保持", "チェック弁", "→|●", "一方向に流し逆方向は止める。", "向きを確認。これだけで負荷保持の安全性は判断しない。"], ["逆止・保持", "パイロットチェック弁", "→|● ⋯ X", "パイロット圧で逆方向にも開放できる逆止弁。", "解除圧と戻り背圧、シリンダ両室を確認。"], ["逆止・保持", "カウンタバランス弁", "負荷 ↘ [CB]", "下降負荷の暴走を抑える用途の弁。", "設定圧とパイロット比、逆流経路を確認。"], ["圧力制御", "リリーフ弁", "P → [RV] → T", "圧力が設定値に達すると逃がす代表的な弁。", "設定位置とタンク戻り、アンロード経路を確認。"], ["圧力制御", "減圧弁", "P → [PR] → A", "下流側の圧力を設定値に保つ圧力制御弁。", "下流感圧とドレンの接続を確認。"], ["圧力制御", "シーケンス弁", "P → [SEQ] → A", "設定圧到達後に次の動作系統へ通す。", "リリーフ弁との戻り先の違いを確認。"], ["圧力制御", "圧力スイッチ", "● → PS", "圧力を電気信号へ変える機器。", "測定位置、ON/OFF設定を確認。"], ["流量制御", "絞り弁", "──▷◁──", "流路を絞って流量を変える。", "固定/可変を区別し、絞り前後の圧力を確認。"], ["流量制御", "逆止弁付き流量調整弁", "→▷◁ / ←自由", "一方向を絞り、反対方向は自由流れにする。", "メータイン/メータアウトの向きを確認。"], ["流量制御", "圧力補償付き流量調整弁", "▷◁ ＋ ΔP", "差圧を補償し流量を保つ形式。", "補償範囲と設定、並列回路を確認。"], ["補機", "アキュムレータ", "( N₂ | 油 )", "ガス等で油圧エネルギーを蓄える。", "ポンプ停止後も残圧が残り得る。専用の隔離・放圧手順を確認。"], ["補機", "フィルタ", "──◇──", "作動油や圧縮空気中の異物を除去。", "吸込/圧力/戻りの設置位置と差圧表示を確認。"], ["補機", "クーラ / 熱交換器", "──[ HX ]──", "流体の熱を逃がす。", "冷却媒体側と油側、バイパス回路を確認。"], ["補機", "圧力計", "○↗ G", "接続点の圧力を表示する。", "目盛・単位と接続位置を確認。"], ["空圧", "FRL", "[F][R][L]", "フィルタ・レギュレータ・ルブリケータの組合せ。", "給油が必要か、圧力設定と排水方法を確認。"], ["空圧", "急速排気弁", "A → EXH", "シリンダ近くで直接大気へ排気する。", "急な動作と排気方向に注意。"], ["空圧", "サイレンサ", "EXH [S]", "空圧排気の騒音を下げる。", "目詰まりによる背圧を確認。"]]};
-let mode94='all';
+// v110: preserve the original 61 entries; add searchable, illustrated explanations.
+const EXTRA110 = [
+['electric','接点','オンディレイタイマ','ON-delay','入力がONになってから設定時間が経過すると出力が切り替わる。','入力が途中でOFFになった場合の復帰条件をタイムチャートで確認。','オン遅延 おんでぃれい TON','入力ON|設定時間待つ|出力ON'],
+['electric','接点','オフディレイタイマ','OFF-delay','入力がOFFになってから設定時間だけ出力を維持する形式。','電源断時の動作は型式で異なる。電源OFFディレイとの違いを確認。','オフ遅延 おふでぃれい TOF','入力OFF|設定時間保持|出力OFF'],
+['electric','検出','NPN出力','NPN','ON時に出力端子から0V側へ電流を流す構成。負荷は電源＋と出力の間に接続する。','センサとPLCの入力回路・COMを型式別配線図で照合する。','えぬぴーえぬ シンク 吸い込み','電源＋|負荷・入力|NPN → 0V'],
+['electric','検出','PNP出力','PNP','ON時に電源＋側から出力端子へ電流を供給する構成。負荷は出力と0Vの間に接続する。','NPNとそのまま交換しない。PLC入力仕様とCOMを照合する。','ぴーえぬぴー ソース 吐き出し','電源＋ → PNP|負荷・入力|0V'],
+['electric','制御','自己保持回路','MC / RY','始動接点と並列の補助a接点で、始動ボタンを離してもコイルへの指令を保持する構成。','停止条件と過負荷接点を追う。復電時の再始動防止は別途設計で確認。','じこほじ ラッチ 保持回路','始動ON|補助接点で保持|停止で解除'],
+['electric','制御','正逆転インターロック','F / R','正転・逆転の接触器が同時に入らないよう相互の条件で動作を制限する。','電気的・機械的インターロックを照合。解除や短絡による動作確認はしない。','いんたーろっく せいぎゃく 排他','正転指令|逆転OFF確認|正転許可'],
+['electric','制御','無接点リレー','SSR','半導体で負荷を開閉するリレー。機械接点を持たない。','OFF時漏れ電流、発熱、放熱条件と負荷種類を確認。OFF表示は無電圧の保証ではない。','むせってん ソリッドステート','制御入力|半導体スイッチ|負荷'],
+['electric','制御','ラッチングリレー','SET / RESET','セット・リセットで状態を切り替え、操作後も状態を保持する形式。','単巻線・二巻線、極性、電源断後の接点状態を確認。','らっちんぐ キープリレー','セット入力|接点状態を保持|リセット入力'],
+['electric','検出','ロータリエンコーダ','ENC A/B/Z','回転量・方向等を電気信号として出力する。A/B/Zはインクリメンタル形の代表例。','パルス数、出力方式、絶対値形との違いを型式で確認。','えんこーだ 回転検出 パルス','軸の回転|エンコーダ|A/B/Z信号'],
+['electric','負荷','インバータ','INV / VFD','電動機へ供給する周波数・電圧を制御して速度等を調整する機器。','停止後も内部に電荷が残る。待機時間・無電圧確認は取扱説明書と有資格者の手順による。','いんばーた 周波数 速度制御','交流電源|インバータ|モータ'],
+['electric','配線','配線の非接続交差','交差・非接続','線が交差していても電気的に接続されない表現。黒点や飛び越し等の凡例と組み合わせて読む。','古い図面では表現が違う場合がある。接続点と取り違えない。','ひせつぞく こうさ ジャンプ','線1|交差しても|線2と非接続'],
+['electric','保護','安全リレー','Safety relay','安全回路で使用するリレーや監視ユニット。製品によって強制ガイド接点や故障監視機能を持つ。','一般リレーと同一視しない。安全性能は回路全体と適用条件で確認。','あんぜん セーフティ 強制ガイド','安全入力|監視・リセット|安全出力'],
+['pneumatic','方向弁','5/2方向切換弁','5ポート2位置','供給1(P)、作動2/4(A/B)、排気3/5(R/S)を二つの位置で切り替える。','A/Bと2/4の対応は図面確認。単ソレノイド復帰形と複ソレノイド保持形を区別。','5方弁 ５ポート ごぽーと 電磁弁','位置1：P→A|位置2：P→B|反対室は排気'],
+['pneumatic','方向弁','5/3クローズドセンタ','中央：全ポート閉','中立で供給・作動・排気のポートを閉じる形式。','内部漏れと空気の圧縮性により停止位置を保証しない。閉じ込め圧力にも注意。','5方弁 3位置 くろーずど 閉止','中立位置|全ポート閉|両室の圧力残留'],
+['pneumatic','方向弁','5/3エキゾーストセンタ','中央：A/B排気','中立で供給を止め、作動ポートを排気へつなぐ形式。','排気すると外力や自重で動くことがある。支持方法を設備手順で確認。','5方弁 3位置 えきぞーすと 排気','中立位置|A/B→排気|P供給は遮断'],
+['pneumatic','方向弁','5/3プレッシャセンタ','中央：A/B加圧','中立で供給を両作動ポートへつなぐ形式。','片ロッドシリンダでは両室同圧でも面積差による力が生じる。','5方弁 3位置 ぷれっしゃ 加圧','中立位置|P→A/B|両室を加圧'],
+['pneumatic','始動・排気','ソフトスタート弁','緩やかな給気','初期給気時の圧力上昇を緩やかにする。排気機能を組み合わせた製品もある。','立上り時間と下流の残圧排出範囲を製品仕様で確認。','そふとすたーと 始動弁','供給開始|制限流量で給気|通常供給へ'],
+['pneumatic','始動・排気','残圧排気弁','供給遮断・下流排気','供給を遮断して下流側を排気する機能。','逆止弁の先や別回路に残圧が残る場合がある。圧力ゼロ表示だけで全箇所を判断しない。','ざんあつ 排気弁 残圧抜き','供給遮断|下流→排気|残圧範囲を確認'],
+['pneumatic','流量制御','メータアウト','排出側を絞る','シリンダから出る空気の流量を制限して動きを調整する回路方式。','スピードコントローラの自由流れ方向と排気側を追う。','めーたあうと スピコン 速度調整','シリンダ排出|絞り|方向弁・排気'],
+['pneumatic','流量制御','メータイン','供給側を絞る','シリンダへ入る空気の流量を制限する回路方式。','負荷方向や低速時の安定性を確認。メータアウトと取付方向が異なる。','めーたいん スピコン 速度調整','方向弁供給|絞り|シリンダ流入'],
+['hydraulic','方向弁','タンデムセンタ','P→T / A・B閉','4/3方向弁の中立でPとTを接続し、A/Bを閉じる形式。','ポンプ方式と戻り背圧、アクチュエータ側の漏れを確認。閉止だけで安全保持を保証しない。','たんでむ 中立 アンロード','中立位置|P→T|A/B閉止'],
+['hydraulic','方向弁','フロートセンタ','A・B→T / P閉','中立でA/Bをタンク側へつなぎ、供給Pを閉じる形式。','外力で動ける状態になり得る。吊り荷保持に読み替えない。','ふろーと 中立 浮動','中立位置|A/B→T|P閉止'],
+['hydraulic','圧力制御','アンロード弁','ポンプ負荷を軽減','条件成立時にポンプ吐出を低圧側へ逃がし、負荷を下げる回路で使う。','リリーフ機能との違い、切換条件、アキュムレータ側の隔離を確認。','あんろーど 無負荷','ポンプ吐出|アンロード経路|タンク'],
+['hydraulic','制御','比例電磁弁','比例指令','電気指令に応じて圧力・流量・方向を連続的に制御する形式がある。','専用アンプ、指令範囲、ゼロ点、フィードバックの有無を確認。','ひれい 比例弁 アンプ','電気指令|比例弁|圧力・流量調整'],
+['hydraulic','動力源','圧力補償可変ポンプ','圧力補償','圧力が設定付近に達すると吐出容量を調整する方式。','定圧制御・ロードセンシング等の方式は機種で異なる。設定変更はメーカー手順による。','あつりょくほしょう 可変容量','負荷圧力|容量を調整|必要流量を供給'],
+['hydraulic','補機','戻りフィルタ','RETURN FILTER','タンクへ戻る油の異物を捕捉する。','差圧表示、バイパス、低温時粘度を確認。高圧側用との交換互換性はない。','もどり ろ過 目詰まり','戻り油|フィルタ|タンク']
+];
+const LABEL110={electric:'⚡ 電気',hydraulic:'💧 油圧',pneumatic:'💨 空圧',fluid:'💧💨 油圧・空圧共通',weld:'🔥 溶接'};
+const ALIAS110=[['チェック','逆止 ぎゃくしべん 逆流 check'],['リリーフ','安全弁 逃がし弁 りりーふ relief'],['減圧','げんあつ レギュレータ regulator'],['ソレノイド','電磁弁 でんじべん solenoid'],['電磁弁','ソレノイド でんじべん solenoid'],['サーマル','過負荷 さーまる thermal'],['シリンダ','シリンダー しりんだ cylinder'],['a接点','常開 メーク ノーマリーオープン えーせってん NO'],['b接点','常閉 ブレーク ノーマリークローズ びーせってん NC'],['c接点','切替 共通 しーせってん COM'],['すみ肉','隅肉 スミ肉 すみにく fillet'],['開先','かいさき groove'],['絞り','しぼり 流量調整'],['サイレンサ','消音器 さいれんさ'],['アキュムレータ','蓄圧器 あきゅむれーた accumulator'],['ポンプ','ぽんぷ pump'],['モータ','モーター motor'],['フィルタ','フィルター ろ過 filter'],['圧力','あつりょく pressure'],['接地','アース earth'],['スポット','点溶接 すぽっと'],['全周','ぜんしゅう 全周溶接'],['現場','げんば 現地溶接']];
+const SOURCE110={electric:['OMRON：リレー基礎','https://components.omron.com/jp-ja/products/basic-knowledge/relays'],hydraulic:['油研：油圧機器カタログ','https://www.yuken.co.jp/catalog_cad/openpg/opg'],pneumatic:['SMC：空気圧回路図・図記号','https://www.smcworld.com/select/pcds/ja-jp/'],fluid:['油研：油圧機器カタログ','https://www.yuken.co.jp/catalog_cad/openpg/opg'],weld:['KEYENCE：開先と溶接記号','https://www.keyence.co.jp/ss/products/measure/welding/trouble/groove.jsp']};
+let entries110=[];let mode94='all';
+function init110(){
+ if(entries110.length)return;
+ for(const [kind,items] of Object.entries(SYMBOLS94))for(const item of items){
+  const [group,name,mark,meaning,check]=item;
+  const k=kind==='electric'?'electric':group==='空圧'?'pneumatic':/油圧|ポンプ|タンク|アキュムレータ|ドレン|クーラ|4\//.test(name)?'hydraulic':'fluid';
+  entries110.push({kind:k,group,name,mark,meaning,check});
+ }
+ for(const [kind,group,name,mark,meaning,check,alias,flow] of EXTRA110)entries110.push({kind,group,name,mark,meaning,check,alias,flow});
+ for(const [name,meaning,use,originalShape] of WELDS96){const shape=name==='U形・J形開先'?'<path d="M15 8V27Q15 43 30 43Q45 43 45 27V8 M74 8V43 M80 43Q105 43 105 20V8"/><text x="30" y="58" stroke="none" fill="#243749" font-size="10" text-anchor="middle">U形</text><text x="90" y="58" stroke="none" fill="#243749" font-size="10" text-anchor="middle">J形</text>':originalShape;entries110.push({kind:'weld',group:'継手・補助記号',name,mark:'継手の模式図',meaning,check:use+' 指示面・寸法・適用規格・WPSを照合。',shape});}
+ for(const [name,meaning] of PROCESS96)entries110.push({kind:'weld',group:'施工法の用語',name,mark:'施工法',meaning,check:'方法の名称だけでは施工条件は決まりません。母材・溶加材・姿勢・施工要領を確認。',flow:'母材・継手|施工法を選定|WPSで条件確認'});
+ const weldMore=[
+ ['K形開先','片側の部材に両面から開先を設ける形。','片側の直線と反対側の二つの斜面を区別。','けーがた 両面レ形','<path d="M35 8V50 M88 8L58 29L88 50"/>'],
+ ['断続すみ肉溶接','溶接区間を連続させず、所定の長さと間隔で配置する。','溶接長さとピッチ、並列・千鳥配置を図面で確認。','だんぞく 千鳥 ピッチ','<path d="M5 30H115"/><path stroke-width="8" d="M10 30H30 M48 30H68 M86 30H106"/>'],
+ ['脚長 z','すみ肉断面のルートから止端まで、母材面に沿って測る寸法。','脚長とのど厚を混同しない。不等脚では両脚を区別。','きゃくちょう 寸法 隅肉','<path d="M30 8V48H100 M30 15L85 48"/><text x="60" y="59" stroke="none" fill="#243749" font-size="10">脚長 z</text>'],
+ ['のど厚 a','すみ肉溶接の有効断面を評価するための寸法。','実際の有効のど厚の定義は適用規格と設計条件で確認。脚長と同じ値ではない。','のどあつ 寸法 隅肉','<path d="M25 8V48H100 M25 12L85 48 M25 48L41 21"/><text x="49" y="30" stroke="none" fill="#243749" font-size="10">a</text>'],
+ ['ルート間隔','継手のルート部で向かい合う母材間のすきま。','指定値・許容差・仮付け後のすきまを施工要領で確認。','るーと ギャップ 開先','<path d="M10 10L48 40V50 M110 10L72 40V50 M48 55H72 M48 52V58 M72 52V58"/>'],
+ ['開先角度','開先を構成する面の間の角度。','片側のベベル角度と全体の開先角度を区別する。','かいさき かくど ベベル','<path d="M20 8L60 49L100 8 M40 29Q60 12 80 29"/>'],
+ ['裏当て','継手の裏側に配置して溶接を支える部材等。','材質、取外しの要否、寸法、施工法を図面とWPSで確認。','うらあて バッキング 裏金','<path d="M10 10H35L55 42 M110 10H85L65 42"/><rect x="25" y="45" width="70" height="8"/>']
+ ];
+ for(const [name,meaning,check,alias,shape] of weldMore)entries110.push({kind:'weld',group:'形状・寸法・施工指示',name,meaning,check,alias,shape,mark:'模式図'});
+ for(const e of entries110){e.alias=(e.alias||'')+' '+ALIAS110.filter(([word])=>e.name.includes(word)).map(x=>x[1]).join(' ');}
+}
+function norm110(s){return s.normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60)).replace(/[・/／−ー\-]/g,'');}
 function filter94(mode){mode94=mode;draw94()}
-function search94(){
- // A query is a search of the whole dictionary, even when opened from a category shortcut.
- mode94='all';draw94();
+function search94(){mode94='all';draw94()}
+function svg110(e){
+ const ns='http://www.w3.org/2000/svg',s=document.createElementNS(ns,'svg');s.setAttribute('viewBox','0 0 360 210');s.setAttribute('role','img');s.setAttribute('aria-label',e.name+'の学習用模式図');
+ const node=(tag,attrs,text)=>{const n=document.createElementNS(ns,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);if(text)n.textContent=text;s.append(n);return n};
+ const line=(x1,y1,x2,y2)=>node('line',{x1,y1,x2,y2,stroke:'#24618d','stroke-width':3});
+ const txt=(x,y,t)=>node('text',{x,y,'text-anchor':'middle',fill:'#17364f','font-size':14},t);
+ const arrow=(y)=>{line(180,y,180,y+17);node('path',{d:`M174 ${y+11} L180 ${y+17} L186 ${y+11}`,fill:'none',stroke:'#24618d','stroke-width':2})};
+ if(e.shape){const g=node('g',{transform:'translate(0,8) scale(3)',fill:'none',stroke:'#243749','stroke-width':2,'stroke-linejoin':'round'});g.innerHTML=e.shape;txt(180,200,'継手・寸法の模式図');return s;}
+ if(/^[ab]接点/.test(e.name)){
+  const nc=e.name.startsWith('b');txt(180,25,'非操作・非励磁時の接点');line(45,90,130,90);line(230,90,315,90);node('circle',{cx:130,cy:90,r:5,fill:'white',stroke:'#24618d','stroke-width':2});node('circle',{cx:230,cy:90,r:5,fill:'white',stroke:'#24618d','stroke-width':2});line(132,88,228,nc?88:48);txt(180,135,nc?'通常：閉じる（導通）':'通常：開く（遮断）');txt(180,175,nc?'操作・励磁で開く':'操作・励磁で閉じる');return s;
+ }
+ let flow=e.flow?e.flow.split('|'):null;
+ if(!flow){
+ if(e.kind==='electric')flow=['入力・電源',e.name,'信号・負荷側'];
+ else if(/チェック弁/.test(e.name))flow=['入口', '順方向は通過', '逆方向は遮断'];
+ else if(/リリーフ/.test(e.name))flow=['圧力ラインP','設定圧で逃がす','タンクT'];
+ else if(/減圧/.test(e.name))flow=['上流圧力','減圧・下流圧を制御','下流回路'];
+ else if(/シリンダ/.test(e.name))flow=['流体の圧力','ピストンに作用','ロッドの直線運動'];
+ else if(/ポンプ/.test(e.name))flow=['機械の回転','ポンプ','油の流れ'];
+ else if(/モータ/.test(e.name))flow=['油の流れ','油圧モータ','軸の回転'];
+ else if(/排気|サイレンサ/.test(e.name))flow=['機器からの空気',e.name,'大気へ排気'];
+ else if(/フィルタ/.test(e.name))flow=['流入する流体','異物を捕捉','下流側'];
+ else if(/圧力計|圧力スイッチ|チェックポイント/.test(e.name))flow=['測定箇所の圧力',e.name,'指示・信号'];
+ else if(/ドレン/.test(e.name))flow=['機器内部の漏れ油','ドレン配管','タンク'];
+ else if(/パイロット線/.test(e.name))flow=['制御圧力','パイロット線','弁の操作部'];
+ else if(/アキュムレータ/.test(e.name))flow=['圧力ライン','蓄圧・放出','停止後も残圧'];
+ else flow=['上流・入力',e.name,'下流・出力'];
+ }
+ flow.forEach((t,i)=>{node('rect',{x:20,y:10+i*67,width:320,height:45,rx:8,fill:i===1?'#d8efff':'#f3f7fb',stroke:'#75a6c9'});txt(180,38+i*67,t);if(i<2)arrow(56+i*67)});return s;
+}
+function symbolDrawing110(e){
+ let paths='',caption='記号の簡略例（接続・寸法は実図面で照合）';
+ if(/リレーコイル|電磁接触器|電磁弁コイル|タイマリレー/.test(e.name))paths='<path d="M30 55H120 M240 55H330"/><rect x="120" y="30" width="120" height="50"/><text x="180" y="62">'+(/タイマ/.test(e.name)?'T':/接触/.test(e.name)?'MC':/電磁弁/.test(e.name)?'SOL':'RY')+'</text>';
+ else if(e.name==='ヒューズ')paths='<path d="M30 55H330"/><rect x="125" y="38" width="110" height="34"/>';
+ else if(/接地/.test(e.name))paths='<path d="M180 15V60 M140 60H220 M152 73H208 M167 86H193"/>';
+ else if(e.name==='三相モータ')paths='<circle cx="180" cy="55" r="37"/><path d="M30 55H143 M217 55H330"/><text x="180" y="53">M</text><text x="180" y="77">3~</text>';
+ else if(/ポンプ|油圧モータ/.test(e.name)){
+ const motor=/モータ/.test(e.name);paths='<circle cx="180" cy="55" r="38"/><path d="M30 55H142 M218 55H330"/><path fill="#17364f" d="'+(motor?'M145 42L166 55L145 68Z':'M194 42L214 55L194 68Z')+'"/>';
+ if(/可変/.test(e.name))paths+='<path d="M135 98L225 12 M212 14L225 12L223 25"/>';
+ caption='黒三角：油圧。ポンプは円の外向き、モータは内向き。斜め矢印：可変。';
+ }
+ else if(e.name==='フィルタ'||e.name==='戻りフィルタ')paths='<path d="M30 55H130 M230 55H330 M130 55L180 20L230 55L180 90Z"/><path stroke-dasharray="5 4" d="M180 20V90"/>';
+ else if(e.name==='圧力計')paths='<circle cx="180" cy="48" r="32"/><path d="M180 80V102 M163 65L198 30 M187 33L198 30L195 42"/>';
+ else if(e.name==='絞り弁')paths='<path d="M30 55H330 M150 28Q185 55 150 82 M210 28Q175 55 210 82 M140 96L220 14 M207 17L220 14L218 27"/>';
+ else if(/複動シリンダ/.test(e.name))paths='<rect x="80" y="25" width="180" height="55"/><path d="M180 25V80 M180 52H330 M100 80V105 M240 80V105"/><text x="100" y="120">A</text><text x="240" y="120">B</text>';
+ else if(/5\/2|4\/2/.test(e.name)){
+ paths='<rect x="55" y="25" width="125" height="80"/><rect x="180" y="25" width="125" height="80"/><path d="M90 91V40 M83 49L90 40L97 49 M143 40V91 M136 82L143 91L150 82 M211 91L275 40 M265 42L275 40L273 50 M212 40L273 91 M263 89L273 91L271 81"/>';
+ caption='2つの枠＝2位置。矢印は各位置の通路。ポート対応は下の動作図と実図面で確認。';
+ }
+ if(!paths)return null;
+ const wrap=document.createElement('div');wrap.innerHTML='<svg viewBox="0 0 360 135" role="img" aria-label="記号の学習用簡略図"><g fill="none" stroke="#17364f" stroke-width="2.5" stroke-linejoin="round">'+paths+'</g></svg>';
+ wrap.querySelectorAll('text').forEach(t=>{t.setAttribute('fill','#17364f');t.setAttribute('stroke','none');t.setAttribute('font-size','18');t.setAttribute('text-anchor','middle')});
+ const p=document.createElement('p');p.textContent=caption;wrap.append(p);return wrap;
+}
+
+function detail110(e){
+ const d=document.getElementById('detail94');d.replaceChildren();
+ const h=document.createElement('h3');h.textContent=e.name;d.append(h);
+ const para=(label,value)=>{const p=document.createElement('p'),b=document.createElement('b');b.textContent=label;p.append(b,document.createTextNode(value));d.append(p)};
+ para('分類：',LABEL110[e.kind]+' / '+e.group);para('役割・読み方：',e.meaning);const symbol=symbolDrawing110(e);if(symbol)d.append(symbol);d.append(svg110(e));
+ para('図の見方：',e.shape?'継手の形や補助表示を理解するための図です。規格の基本記号・寸法指示とは区別してください。':'矢印は流れ・信号・動作の関係を表す概念図です。実際の配線・配管接続を指示するものではありません。');
+ para('図面・現物で確認：',e.check);
+ para('別名・検索語：',e.alias.trim()||e.name);
+ const [label,url]=/NPN|PNP/.test(e.name)?['OMRON：NPN/PNPの配線方式','https://www.ia.omron.com/support/faq/answer/43/faq00379/']:/5\//.test(e.name)?['SMC：5ポート弁の動作','https://www.smcworld.com/products/video/ja-jp/sy_work.html']:SOURCE110[e.kind];
+ const a=document.createElement('a');a.textContent='関連メーカー資料：'+label;a.href=url;a.target='_blank';a.rel='noopener noreferrer';d.append(a);
+ const note=document.createElement('p');note.className='note';note.textContent='説明・図は学習用に再構成しています。規格原図の転載ではありません。型式別の図面・取扱説明書を優先してください。外部資料の閲覧には通信が必要です。';d.append(note);
+ const related=entries110.filter(x=>x!==e&&x.kind===e.kind&&x.group===e.group).slice(0,4);
+ if(related.length){para('関連項目：','');for(const r of related){const b=document.createElement('button');b.type='button';b.textContent=r.name;b.onclick=()=>detail110(r);d.append(b)}}
+ d.scrollIntoView({block:'start',behavior:'smooth'});
 }
 function draw94(){
- const q=document.getElementById('query94').value.trim().toLocaleLowerCase();
+ init110();const q=document.getElementById('query94').value.trim(),words=norm110(q).split(/\s+/).filter(Boolean);
  const list=document.getElementById('list94');list.replaceChildren();let total=0;
- for(const [kind,items] of Object.entries(SYMBOLS94)){
-  if(mode94!=='all'&&mode94!==kind)continue;
-  for(const item of items){
-   if(q&&!item.join(' ').toLocaleLowerCase().includes(q))continue;
-   total++;const [group,name,mark,meaning,check]=item;
-   const b=document.createElement('button');b.type='button';b.className='symitem94';
-   const label=document.createElement('small');label.textContent=(kind==='electric'?'⚡ 電気':'💧 油圧・空圧')+' / '+group;
-   const visual=document.createElement('span');visual.className='symmark94';visual.textContent=mark;
-   const title=document.createElement('b');title.textContent=name;
-   b.append(label,visual,title);
-   b.onclick=()=>{
-    const detail=document.getElementById('detail94');detail.replaceChildren();
-    const strong=document.createElement('strong');strong.textContent=name+'　'+mark;
-    const role=document.createElement('p');role.textContent='役割：'+meaning;
-    const point=document.createElement('p');point.textContent='図面で確認：'+check;
-    detail.append(strong,role,point);
-    detail.scrollIntoView({block:'nearest',behavior:'smooth'});
-   };list.append(b);
-  }
+ for(const e of entries110){
+  const fits=mode94==='all'||mode94===e.kind||(['hydraulic','pneumatic'].includes(mode94)&&e.kind==='fluid')||(mode94==='fluid'&&['fluid','hydraulic','pneumatic'].includes(e.kind));
+  if(!fits)continue;
+  const searchable=norm110([e.group,e.name,e.mark,e.meaning,e.check,e.alias,LABEL110[e.kind]].join(' '));
+  if(!words.every(w=>searchable.includes(w)))continue;
+  total++;const b=document.createElement('button');b.type='button';b.className='symitem94';
+  const small=document.createElement('small');small.textContent=LABEL110[e.kind]+' / '+e.group;const title=document.createElement('b');title.textContent=e.name;
+  b.append(small,title);b.onclick=()=>detail110(e);list.append(b);
  }
- const all=SYMBOLS94.electric.length+SYMBOLS94.fluid.length;
- document.getElementById('count94').textContent=total+'種類を表示 / 全'+all+'種類'+(q?'（全分類を検索）':'');
- if(total===0){
-  const p=document.createElement('p');p.className='comment';
-  p.textContent=q?'該当する記号がありません。別の呼び名や略号でも検索してください。この辞典に登録された記号から探しています。':'この分類には記号が登録されていません。';
-  list.append(p);
- }
+ document.getElementById('count94').textContent=total+'項目を表示 / 全'+entries110.length+'項目（記号・機器・回路方式・施工法を含む）'+(mode94==='all'?'：全分類':'：'+(LABEL110[mode94]||'油圧・空圧'));
+ document.querySelectorAll('#symbol94 .symcontrols94 button').forEach(b=>b.setAttribute('aria-pressed',String(b.getAttribute('onclick')===`filter94('${mode94}')`)));
+ if(!total){const p=document.createElement('p');p.textContent='該当なし。短い言葉や別名で検索してください。複数ワードはすべてを含む項目を探します。';list.append(p)}
 }
 document.addEventListener('DOMContentLoaded',draw94);
+
 </script><script>
 const WELDS96=[
  ['すみ肉','隅部・T継手・重ね継手など。脚長zとのど厚aを区別。','2本の板が作る角に三角形状の溶着金属。','<path d="M14 48H100 M55 9V48 M55 48L83 48L55 20Z"/>'],
@@ -2025,7 +2136,7 @@ document.addEventListener('DOMContentLoaded',()=>{drawRef96();calcFit96();makeUn
 const itemGroups97=[
  ['🎯 測定・芯出し',['dialCenter64','alignment','shim','soft','measure','coord63','multi87','trend88']],
  ['🩺 点検・記録',['diagnosis43','trouble42','workflow44','record85','records45','karte89','report86','field84']],
- ['⚡ 電気・油圧・空圧',['symbol94','electric70','control71','power72','panel73','drawing74','fluidAdv91','fluid68','diagnose75','hydraulic76','holding77','pinch78','circuit79','promptPage80']],
+ ['⚡ 電気・油圧・空圧・溶接辞書',['symbol94','electric70','control71','power72','panel73','drawing74','fluidAdv91','fluid68','diagnose75','hydraulic76','holding77','pinch78','circuit79','promptPage80']],
  ['🔥 溶接・公差・換算',['weld96','fit96','fits103','geo103','unit96']],
  ['⚙️ 加工・機械要素',['cut58','lathe59','lathePro61','millPro62','material60','hole57','threadPro56','bolt55','elements48','rings103','keys103','bearings103','bore103','bearingCode49','bearingWizard54','bearingReverse52','interchange51','makerBearing50','tools47']],
  ['🏗️ 玉掛け・その他',['rigGeo67','rigTable66','nylon102','rig65','dashboard41','home81','myhome83']]
@@ -2128,4 +2239,70 @@ async function copyText107(field){
 }
 function array105(key){try{let a=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(a)?a.filter(x=>x&&typeof x==='object'):[]}catch(e){return []}}
 function store105(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){alert('保存できませんでした。端末の保存容量またはブラウザの設定を確認してください。入力内容は画面に残しています。');return false}}
-</script></body></html>
+</script><script>
+// v111: explanatory layer only; existing calculations and stored data are unchanged.
+const GUIDES111={
+align:{title:'芯出しの測定と補正',basic:'平行ずれと角度ずれを分けます。外径の振れは取付偏心や表面形状も含むため、測定値をそのまま軸中心のずれと扱わないでください。',steps:['停止・再起動防止を行い、基準軸、動かす機械、観察方向、＋X/＋Yを図に記録する。','ブラケットの剛性、測定子の当たり、予圧、軸の軸方向移動を確認。0°→90°→180°→270°→0°を同じ回転条件で測り、ゼロ戻りを確認する。','基準径Dとフット距離L1・L2を測り、平行補正と傾き補正を別々に検討する。ソフトフットを先に是正する。','少量調整し、所定の締付け状態に戻して再測定。計算上の符号と実際の移動方向が一致するか確認する。'],example:'幾何例：対向外径読みが＋0.10 / −0.10 mmなら差0.20 mm、中心偏心の成分は0.10 mm（理想的な測定条件）。面の対向差0.04 mmを直径600 mmで測れば傾き≈0.04/600、1 m先では約0.0667 mm。どちらも許容値ではありません。',fail:[['調整のたび値が変わる','ブラケット、軸の遊び、ボルト締付け、測定位置を再確認。'],['外径差を全量動かす','中心偏心は対向差の半分になる条件かを確認。'],['面振れが大きい','軸方向移動・面の傷・測定径を切り分ける。']],checks:['最終締付け後の値を保存','メーカーの回転数・温度条件別許容値を適用','測定径・観察方向・符号を記録'],diagram:'align',source:'skf'},
+shim:{title:'シムと4本フットの調整',basic:'計算上の高さ補正は、足裏の接触状態が安定して初めて有効です。左右差と前後差を分け、既存シム厚と増減量を混同しないようにします。',steps:['現状の4か所のシム厚・枚数・足位置を記録。錆や異物、折れや浮きを除き、足裏とベースを確認する。','前フット距離をL1、前後フット間をL2として、傾きによる補正差を計算する。','必要厚が負になる場合は既存シムを減らせるか、基準側を含む据付条件を再検討する。','荷重を適切な方法で支持して交換し、指定順序・トルクで締めて再測定する。'],example:'計算例：基準位置の高さずれ＋0.10 mm、傾き＋0.0002、L1=250 mm、L2=500 mmなら前のずれ＋0.15 mm、後＋0.25 mm。機械を下げる補正はそれぞれ−0.15、−0.25 mm。既存厚0.50 mmなら残り0.35、0.25 mm。',fail:[['枚数だけ増やす','薄板の重ね過ぎやバリで不安定になる。必要厚と接触面を確認。'],['片足だけで傾きを直す','フレームのねじれを生む場合がある。4足とソフトフットを再確認。']],checks:['増減と交換後厚を別欄で記録','足裏全面の支持を確認','締付け後に芯出し再測定'],diagram:'align',source:'skf'},
+soft:{title:'ソフトフットの切り分け',basic:'足が均等に接触していないと、締付けでフレームが変形して軸位置が変わります。浮き量だけで平行すきまか角度すきまかは決まりません。',steps:['設備を安全に停止し、配管などの外力とベースの状態を確認する。','メーカー手順に従い、他の足の締付け条件を保ちながら対象足の変位を測る。全ボルトを一度に緩めない。','足裏の各辺で接触状態を確認し、異物・変形・シム不良・配管引張りを切り分ける。','是正して締め直し、全足の再現性と軸位置を再確認する。'],example:'診断例：足の上面が0.08 mm動いても「0.08 mmの板を1枚入れる」とは限りません。角度すきまなら辺ごとにすきまが違い、測定位置でも変位が変わります。',fail:[['厚さを足すだけで解決しない','傾斜した足裏・ベースや外力を確認。'],['芯出し後に足を修正する','軸位置が変わるため芯出しをやり直す。']],checks:['測定時のボルト条件を統一','足位置と変位を記録','判定値は設備手順から設定'],diagram:'align',source:'skf'},
+coord:{title:'座標・据付基準の読み方',basic:'原点、＋方向、測定面を最初にそろえます。機械が動く向きと工具が相対的に動く向きは逆になる場合があります。',steps:['基準面と原点を決め、X/Yの正方向を現物に対応させる。','対向面を同じ測定方法で測定。工具径や測定子半径の補正が必要かを確認する。','中心座標・距離・角度を計算し、移動前に符号と単位を読み合わせる。','小さく移動して方向を確認し、最終位置を再測定する。'],example:'対向位置X=12.20 mmと32.60 mmの中心は(12.20+32.60)/2=22.40 mm。基準距離2500 mmで読み差0.50 mmなら傾き0.0002、角度約0.01146°。差の測定方向により補正符号が変わります。',fail:[['原点を途中で変更する','全座標を新原点で再確認。'],['測定方向を逆に読む','図に観察方向と＋を残す。']],checks:['基準点を写真で残す','往復で再現性確認','許容値と分解能を区別'],diagram:'coordinate',source:'measure'},
+record:{title:'作業報告を再現できる記録にする',basic:'誰が見ても、作業前の状態、実施した処置、作業後の結果が分かるように分けます。原因の推定は確認済み事実と区別して記録します。',steps:['設備番号、日時、作業者、停止条件、発生症状を記入する。','同じ測定位置・単位・運転条件でBefore/Afterをそろえる。写真には全景と測定箇所の両方を残す。','処置内容、交換品型式、設定変更前後、使用した判定基準を具体的に書く。','保存後に記録を開いて確認し、必要な内容を出力・共有する。未解決事項と次回確認日を残す。'],example:'記載例：設備M-02／外径対向差 Before 0.20 mm → After 0.04 mm。前足のシムを0.10 mm減、後足を0.15 mm減。最終締付け後に再測定。合否はメーカー指定値と測定条件で別途判定。',fail:[['「調整しました」だけを書く','どこをどれだけ調整したかを書く。'],['写真だけ保存する','撮影位置・方向・数値・日時を併記。'],['保存場所を誤解する','アプリ内保存は端末・ブラウザ側。別端末への自動同期ではありません。']],checks:['保存後に再表示','写真と設備名の対応','ブラウザデータ削除前に必要記録を退避'],diagram:'record',source:null},
+trend:{title:'比較・履歴を正しく読む',basic:'同じ名前の測定でも位置や条件が変わると比較できません。時系列の変化は原因を調べる手掛かりで、自動的な故障確定ではありません。',steps:['設備名、項目名、単位、測定点を統一する。','負荷・回転数・温度などの条件をメモし、変更があれば区別する。','絶対値と増減を確認し、設定した許容値の根拠を記録する。','急変時は再測定して、測定誤差か実変化かを切り分ける。'],example:'0.20→0.04 mmは0.16 mm低下、低下率80%。ただし元の値が0なら低下率は定義できません。絶対差と実機の許容値で評価します。',fail:[['測定単位が混在','μmとmmを統一。'],['1点だけで寿命を判断','条件をそろえた複数回の傾向と現物を確認。']],checks:['設備名の表記を統一','基準値の出典を保存','異常値は消さず理由を付記'],diagram:'record',source:null},
+diagnose:{title:'原因候補を絞り込む手順',basic:'症状からすぐ部品を交換せず、指令・供給・機器動作・負荷の順に分けます。「不明」は正常扱いにせず、未確認として残します。',steps:['危険な兆候があれば停止し、安全に観察できる範囲を決める。','発生時刻、常時か断続か、温度・負荷・直前の変更を記録する。','一つずつ確認し、根拠となる測定値と機器番号を残す。','処置後は同じ条件で再確認。再発条件と未確認項目を作業記録へ送る。'],example:'シリンダが遅い場合：指令は出ているか→供給圧と動作中圧はどうか→弁・流量設定はどうか→排出側背圧や負荷抵抗はどうか。圧力があるだけで流量も正常とは判断できません。',fail:[['複数の設定を同時変更','原因が追えなくなるので変更前後を分ける。'],['候補を確定原因と記載','確認した事実と推定を別に残す。']],checks:['安全装置を無効化しない','未確認の枝を残す','交換前後の差を検証'],diagram:'diagnose',source:'smc'},
+electric:{title:'電気図面を追う順序',basic:'主回路は負荷へ電力を供給し、制御回路は運転条件や指令を扱います。電源表示・端子番号・機器番号を使って追い、線の色だけで判断しません。',steps:['図面の版、電源種類、一次・二次側、端子番号を確認する。停止ボタンと電源隔離は別です。','非励磁・非操作時を基準として接点を読み、同じ番号のコイルと接点を別ページまで対応させる。','電源→保護→停止条件→運転条件→コイル／PLC出力→負荷の順に追う。','現物確認・測定は担当資格と作業手順に従う。活線部に触れる確認や保護回路の短絡を行わない。'],example:'自己保持例：停止b接点が閉じ、始動a接点が閉じるとコイルON。並列の補助a接点が閉じて保持し、停止b接点を開くと解除。実回路には過負荷や運転許可などの条件も加わります。',fail:[['LED点灯＝負荷正常','指令表示と出力・負荷動作は別。'],['0Vと保護接地を同じ扱い','設計上の接続を図面で確認。'],['停止したので一次側も無電圧と思う','給電経路と隔離範囲を別に確認。']],checks:['機器番号と型式を照合','電圧・AC/DC・極性確認','測定は適切な機器と正式な手順で'],diagram:'electric',source:'omron'},
+fluid:{title:'油圧・空圧回路の読み方',basic:'圧力は力に、流量は速度に関係します。方向弁は各位置で供給と排出の両方を追います。油圧のTと空圧の排気を混同しないでください。',steps:['供給源、P、A/B、戻りTまたは排気R/S、パイロット・ドレンを識別する。','ばねや中立枠から休止位置を確認し、励磁時の通路を枠ごとに読む。','圧力制御、流量制御、逆止・保持機能を分けて、どこに圧力が残るか検討する。','測定点・動作状態・負荷条件を記録し、型式ごとの回路と照合する。'],example:'理論例：内径50 mmの受圧面積は約1963.5 mm²。0.5 MPaで押出す理論力は約982 N。摩擦、排出側圧力、加速分を除いた値で、実際の使用可能荷重ではありません。',fail:[['圧力を上げれば速度が出ると思う','流量不足・絞り・排気背圧を確認。'],['中立なら必ず停止保持と思う','中立流路、漏れ、外力を確認。']],checks:['供給だけでなく排出経路も追う','設定前の値を記録','残圧配管を緩めて確認しない'],diagram:'fluid',source:'smc'},
+hold:{title:'保持・残圧・ロール負荷',basic:'ポンプやコンプレッサを止めても、逆止弁、蓄圧器、シリンダ室に圧力が残る場合があります。重力やロール荷重も別のエネルギー源です。',steps:['図面で負荷、両シリンダ室、保持弁、パイロット、蓄圧器の位置を確認する。','落下・回転・挟まれの範囲を避け、設備で定めた機械的支持と隔離を実施する。','専用の放圧手順と所定の測定点で、隔離された各範囲を確認する。','再加圧時の動作も予測し、周囲確認と手順に従って復旧する。'],example:'片側の圧力計が0 MPaでも、逆止弁の先の室は別圧力の可能性があります。DS/WS、ヘッド側／ロッド側、パイロット側を区別して記録します。',fail:[['手動スプールを試しに押す','保持解除や予期しない動作が起き得る。設備手順なしに操作しない。'],['停止＝エネルギーなしと考える','残圧・自重・ばね・熱を別々に確認。']],checks:['支持と隔離範囲を明示','放圧の完了判定は設備手順による','配管を緩めて残圧を調べない'],diagram:'fluid',source:'smc'},
+weld:{title:'溶接指示を読む・記録する',basic:'基本記号、矢線・基準線、寸法、補助記号、施工法を一組として読みます。記号が似ていても継手形状と必要寸法は異なります。',steps:['適用規格と図面注記を確認し、矢側・反対側・加工する部材を特定する。','継手形状、脚長またはのど厚、長さ・ピッチ、開先角度・ルート間隔を読み取る。','母材・板厚・姿勢・溶加材とWPSを照合し、施工条件を決める。','外観・寸法・指定された検査を確認し、欠陥があれば基準に従って処置する。'],example:'等脚で理想的な直角すみ肉の幾何例：脚長z=6 mmなら理論のど厚a≈6/√2=4.24 mm。設計の有効のど厚や実測・合否を、この計算だけで決めません。',fail:[['脚長とのど厚を混同','寸法記号と断面を照合。'],['全周を単に大きい溶接と解釈','施工範囲の指示として読む。'],['記号から電流を一意に決める','施工条件は材料・方法・姿勢等で異なる。']],checks:['図面指示面と現物の向きを照合','施工条件を記録','検査方法と判定基準を明記'],diagram:'weld',source:'weld'},
+fit:{title:'寸法公差・はめあいの計算',basic:'基準寸法に上下の許容差を加えて限界寸法を求めます。穴と軸の最も厳しい組合せで、最大すきま・最小すきまを評価します。',steps:['基準寸法と穴・軸の公差記号、寸法区分を確認する。','表の単位を確認。μm表示なら1000で割ってmmへ変換する。','穴下限−軸上限が最小すきま、穴上限−軸下限が最大すきま。負はしめしろを表す。','実測は温度、測定器、測定方向・位置をそろえ、境界付近は測定不確かさも考慮する。'],example:'仮の寸法例（規格等級値ではない）：穴50.000〜50.025 mm、軸49.984〜50.000 mmなら、最小すきま0.000 mm、最大すきま0.041 mm。',fail:[['上限同士だけ引く','最大・最小の組合せを取り直す。'],['表にない値を0と読む','未掲載・未定義なら規格またはメーカー資料を確認。']],checks:['穴の大文字と軸の小文字を区別','範囲の境界条件を確認','実寸と許容差を別記'],diagram:'fit',source:'measure'},
+geo:{title:'幾何公差の読み取り',basic:'寸法公差は大きさ、幾何公差は形・姿勢・位置・振れ等の公差域を扱います。値だけでなく、公差域の形とデータムの順序を読みます。',steps:['対象の面・軸線、記号、公差値、直径記号、修飾記号を確認する。','データムがあればA/B/Cの優先順に基準を設定する。','規定した公差域を評価できる測定方法を選ぶ。簡易測定の結果を別の公差へ読み替えない。','測定基準、測定点数、支持条件、結果を記録する。'],example:'平行度0.05 mmは、指定データムに平行な2平面間0.05 mmの公差域等として指示されます。単に両端の差だけで全表面の合格を保証するものではありません。',fail:[['振れ値＝真円度とする','回転基準の偏心などが含まれるため別の評価。'],['基準面を任意に選ぶ','図面のデータム指示を優先。']],checks:['記号と公差域を確認','データム順序を記録','測定方法の適合を確認'],diagram:'geo',source:'geo'},
+bearing:{title:'軸受の型番・選定・交換',basic:'同じ内径・外径・幅でも、荷重方向、内部すきま、精度、密封、潤滑、保持器等が違います。寸法一致だけで相当品とは判断しません。',steps:['外した軸受の全刻印、設備型式、回転数・荷重・潤滑条件を記録する。','基本番号と補助記号をメーカーごとに分解し、寸法と仕様を照合する。','軸・ハウジング・肩・シールを点検。圧入力ははめあう輪に作用させ、転動体経由で力を伝えない。','指定方法で取り付け、回転・すきま・潤滑を確認し、試運転は設備手順で温度・音・振動を確認する。'],example:'番号の読み方例：6205は一般的に内径25 mm、外径52 mm、幅15 mmの深溝玉軸受。C3などの追加記号があれば仕様照合が必要です。メーカー独自接尾記号は単純置換しません。',fail:[['C3を精度等級と読む','内部すきまの区分と精度は別。'],['直火で一律に加熱','加熱方法・上限温度・密封条件をメーカー資料で確認。'],['寸法だけで代替を決める','荷重・速度・すきま・潤滑等も確認。']],checks:['完全な型番を保存','はめあいと使用条件を照合','組付け後の温度・振動を記録'],diagram:'bearing',source:'nsk'},
+element:{title:'キー・止め輪・シールの照合',basic:'呼び寸法は部品選定の入口です。溝寸法、公差、材料、荷重、取付け方向を合わせて確認します。',steps:['軸径・穴径、溝位置、必要な機能と現物型式を記録する。','軸用／穴用、キーの種類、Oリング材質、シールのリップ構造を区別する。','部品寸法と取付溝を図面・メーカー表で照合し、バリや傷を確認する。','適合工具・方法で取り付け、着座、抜け止め、漏れ等を確認する。'],example:'同じ「30」という呼びでも、止め輪の軸用と穴用は別部品です。平行キーは幅・高さだけでなく長さ、溝深さ、はめあいと荷重条件まで確認します。',fail:[['呼び径だけで発注','形式・寸法・材質を含めた完全仕様で照合。'],['止め輪を過度に広げる','変形や保持力低下の原因。専用工具と指定範囲で作業。']],checks:['溝と部品を組で確認','新品と旧品の差を記録','表の未掲載値を推定しない'],diagram:'element',source:'nsk'},
+cut:{title:'切削条件を決める順序',basic:'計算値は工具の使用条件を決める出発点です。材質、工具材種、突出し、保持剛性、機械能力、切込みを合わせて検討します。',steps:['被削材の材質・硬さと、工具の型式・径・刃数・推奨範囲を確認する。','切削速度から回転数、送り量から送り速度を計算する。径と単位を確認する。','工具メーカーの条件を基に、機械の上限・保持力・突出し・加工形状に合わせて設定する。','試加工で寸法・面・切りくず・びびりを確認し、一度に複数条件を変えず記録する。'],example:'算数例：工具径20 mm、切削速度100 m/minならn=1000×100/(π×20)≈1592 min⁻¹。4枚刃、1刃送り0.05 mmなら送り速度≈318 mm/min。実材料への推奨条件ではありません。',fail:[['mm/revとmm/minを混同','送り単位を機械設定と照合。'],['小径で計算回転数が過大','主軸・工具・チャックの上限を超えない。'],['びびりを回転数だけで直す','突出し、保持、切込み、工具損傷も確認。']],checks:['刃径・刃数を再確認','最初の加工で寸法確認','条件変更を履歴に残す'],diagram:'cut',source:'cut'},
+thread:{title:'ねじ・ボルトを選ぶとき',basic:'呼び径だけでなく、ピッチ、ねじ規格、強度区分、有効かかり長さ、相手材、潤滑条件が必要です。締付けトルクは軸力と同じ量ではありません。',steps:['Mねじか管用ねじ等か、並目・細目、右ねじ・左ねじを確認する。','相手材と工具仕様から下穴・加工方法・公差を確認する。','締結では設計指定トルクと乾燥／潤滑状態を確認。汎用表をそのまま重要締結部に適用しない。','指定順序で締め、必要な緩み止め・合いマーク・再点検条件を記録する。'],example:'説明用の式T=KFdで、仮にK=0.20、F=10000 N、d=0.01 mならT=20 N·m。同じトルクでも摩擦条件Kが変われば軸力が変わるため、実際の指定値には置き換えません。',fail:[['油を塗って同じトルクで締める','摩擦低下で軸力が変わる。設計条件を確認。'],['下穴を径−ピッチだけで確定','概算にとどめ、工具・相手材・ねじ方式の表を確認。']],checks:['ピッチと強度区分を確認','相手材・かかり長さ確認','校正された工具と指定条件で締付け'],diagram:'thread',source:'bolt'},
+rig:{title:'吊り角度・荷重・吊り具の確認',basic:'荷の質量と重心、吊り点位置、各脚の角度で張力が変わります。計算上均等でも、実際の多点吊りでは偏りが生じます。',steps:['荷の質量・重心・吊り点強度を確認し、吊り計画と担当者を決める。','角度が鉛直からの角度か、脚間の開き角かを図で確認する。','各脚の張力と、製品表示のWLL・吊り方別使用荷重を照合。フック・シャックル等も確認する。','損傷やタグ、角当て、滑り・外れの防止を点検。吊り作業は有資格者と現場手順に従う。'],example:'静的・対称2脚の計算例：荷重2 t相当、各脚が鉛直から30°なら各脚張力=2/(2cos30°)≈1.155 tf（約11.3 kN）。開き角は60°。衝撃や偏荷重を含まないため、この値だけで吊り具は選定しません。',fail:[['開き角60°を各脚60°で入力','鉛直角30°との関係を確認。'],['4脚なので必ず4等分','実際の荷重分担は保証されない。吊り計画で確認。'],['ナイロンと他繊維を同一視','材質・温度・薬品適合は製品資料で確認。']],checks:['タグと製品別使用荷重表を優先','傷・切れ・変形・腐食等はメーカーの使用中止基準で判断','荷の下へ立ち入らない'],diagram:'rig',source:'rig'},
+unit:{title:'単位・計算値の扱い',basic:'数字と単位を一組で読みます。質量のkgと力のN、トルクのN·mと長さのmmを混同しないでください。',steps:['入力値の単位を現物・図面から確認する。','必要な単位へ変換してから式へ代入する。径・半径・面積も確認する。','途中は十分な桁を保持し、最後に測定精度に合った桁へ丸める。','逆換算や概算で桁を確認し、入力条件と結果を残す。'],example:'1 MPa=1 N/mm²、0.04 mm=40 μm、1 kN=1000 N。標準重力による1 kgf=9.80665 N。質量1 kgが常に1 kgfの外力を生む、という意味ではありません。',fail:[['μmの数値をmm欄に入力','1000倍の差になる。'],['kgをそのままNとする','力への換算条件を確認。']],checks:['表示単位を結果にも付ける','計算の前提を保存','0や未入力を区別'],diagram:'coordinate',source:null},
+app:{title:'この画面の使い方',basic:'用途に合う項目を開き、条件と単位をそろえて利用します。目次、よく使う項目、作業履歴を使い分けると現場で探しやすくなります。',steps:['目次または検索で作業に合う機能を選ぶ。','入力値と条件を確認し、必要な説明を開いて読む。','結果と現物を照合し、必要な内容を作業記録へ残す。','下の←は前の画面、家のボタンは目次へ戻る。'],example:'使い方例：症状を記録→故障診断で確認点を整理→対象の測定・計算へ→作業前後の結果を報告書に残す。',fail:[['履歴を他端末でも同じと思う','端末・ブラウザごとの保存なので必要記録を出力して保管。'],['計算結果だけで正常を決める','測定条件と設備の基準を照合。']],checks:['使うブラウザを統一','重要記録は別途保管','写真には説明を付ける'],diagram:'record',source:null}
+};
+const PAGES111={
+dialCenter64:['align','4方向の読みは同じ測定位置と回転条件で入力します。＋と−を省略せず、ゼロ戻りのずれも記録してください。'],alignment:['align','L1は測定基準から前足中心、L2は前足から後足中心です。後足までの距離はL1＋L2。Dには面振れを実際に測った直径を入れます。'],shim:['shim','表示された増減量と交換後のシム総厚を分けて確認します。既存厚より大きく減らす計算になった場合は据付条件を見直します。'],soft:['soft','表示した1点の変位を、そのまま足裏全面のすきまとは扱いません。測定位置とボルト条件を残します。'],measure:['align','一周後のゼロ戻りと繰返し測定を確認してから補正量を使います。軸方向の動きと測定面の傷を切り分けます。'],coord63:['coord','穴や外形のどちらを測ったか、接触位置と補正の有無を記録します。'],multi87:['trend','各項目の単位と許容値をそれぞれ確認。Before/Afterは同じ位置で比較します。'],trend88:['trend','設備名・測定項目名を統一し、整備日や条件変更も記録すると変化の意味を追いやすくなります。'],diagnosis43:['diagnose','質問の「はい」はその異常条件への回答です。「不明」を無理に「いいえ」にしないでください。原因候補は次の確認で裏付けます。'],trouble42:['diagnose','症状が同じでも原因は複数あり得ます。いつから・どの条件で起きるかを最初に整理します。'],workflow44:['diagnose','診断の確認点と測定結果を対応させ、処置後に同じ条件で比較して記録します。'],record85:['record','写真は全景・機器番号・詳細の組で残すと、後から場所を識別できます。写真の保存完了を再表示で確認してください。'],records45:['record','自動転記した結果にも設備名・実施条件・処置内容を補ってから保存します。'],karte89:['record','設備名の表記を変えると履歴との対応が分かれます。固有の設備番号を使い、型式や次回確認事項を残します。'],report86:['record','報告書の結論には、結果、判定根拠、未完了事項を分けて書きます。数値例は自分の測定結果へ置き換えてください。'],field84:['app','現場モードでも入力単位と最終値を読み合わせます。押しやすさと誤操作防止の両方を確認します。'],symbol94:['app','記号辞書は111項目を対象に検索します。メーカー独自記号や未登録語は、型式別資料を確認してください。概念図をそのまま配線・配管図には使いません。'],electric70:['electric','a/b接点は原則として非操作・非励磁状態を基準に読み、押された状態との違いを確認します。'],control71:['electric','自己保持と正逆転排他は別の役割です。停止条件・運転許可・異常解除の条件を分けて追います。'],power72:['electric','制御電源がOFFでも別電源の主回路が通電している場合があります。複数電源・外部供給の有無を確認します。'],panel73:['electric','銘板の電源定格、機器番号、端子番号を図面と一致させます。外観だけで一次・二次側を判断しません。'],drawing74:['electric','PLCの入力状態→プログラム条件→出力指令→実負荷を分けます。アドレスだけで端子位置を決めずI/O表で照合します。'],fluidAdv91:['fluid','方向弁の位置数とポート数を別々に数え、中立・励磁の各状態で流れを読みます。'],fluid68:['fluid','P/T/A/Bや1/2/3/4/5は図面凡例と実機ポートで照合します。戻り・排気とパイロットを区別します。'],diagnose75:['diagnose','簡易切り分けで確認が足りない場合は、詳しい症状別故障診断へ進んで記録します。'],hydraulic76:['fluid','伸長はピストン全面積、収縮はロッド断面積を差し引いた面積です。反対室の圧力や摩擦も実際の力に影響します。'],holding77:['hold','パイロットチェック弁は解除圧で開くため、パイロット側の状態と外力も確認します。'],pinch78:['hold','DS/WSとヘッド／ロッド側を別々に追います。片側解除で傾きや急動作が起きる可能性を検討します。'],circuit79:['fluid','写真の不鮮明な線や記号は推定で確定せず、機器番号・ポート名・状態をメモして原図に照合します。'],promptPage80:['fluid','質問文には図面全体、対象弁の拡大、型式、現在の励磁状態、実際の症状を含めます。画像からの推定を現物確認に置き換えないでください。'],weld96:['weld','記号・施工法・寸法指示を分けて読みます。矢側／反対側は適用規格と図面凡例で照合します。'],fit96:['fit','上下許容差を符号付きで入力します。実寸法の上限下限を許容差欄に入れないよう注意します。'],fits103:['fit','寸法区分の「を超え」「以下」を確認。未掲載の等級・範囲は別資料で確認し、0で補いません。'],geo103:['geo','同じ0.05 mmでも平面度・平行度・位置度では公差域と測定方法が異なります。'],unit96:['unit','入力元と出力先の単位を結果と一緒に確認します。トルクと力の換算には腕の長さ等の追加条件が必要です。'],cut58:['cut','切削速度・回転数・送りの単位を分けます。計算結果が機械や工具の上限を超える場合は条件を再設定します。'],lathe59:['cut','旋削は加工径が変わると同じ回転数でも切削速度が変わります。外径と仕上げ径を区別します。'],lathePro61:['cut','径で0.20 mm削る場合の片側切込みは0.10 mmです。機械の表示が直径値か半径値かを確認します。'],millPro62:['cut','ワーク座標と機械座標、工具半径補正を区別します。保持具との干渉や加工余裕を確認します。'],material60:['cut','材質名だけでなく硬さ・熱処理・工具材種・コーティングを合わせて条件表を選びます。'],hole57:['cut','穴径、深さ、止まり／貫通、排出性を確認。深穴では工具メーカーの給油・切りくず排出条件を優先します。'],threadPro56:['thread','ピッチ違いのねじを無理に合わせないでください。メートルねじ・管用ねじと有効径公差を確認します。'],bolt55:['thread','強度区分、相手材、座面と潤滑条件を含めて指定トルクを確認します。'],elements48:['element','同じ外形寸法でも材質・使用流体・温度・回転条件により適合しないことがあります。'],rings103:['element','軸用と穴用を区別し、輪の寸法だけでなく溝径・溝幅・端面距離を確認します。'],keys103:['element','キー幅・高さ・長さと、軸側／ボス側の溝深さ・公差を照合します。トルク伝達能力は寸法表だけでは保証されません。'],bearings103:['bearing','ラジアル荷重、アキシアル荷重、調心性、回転数の必要条件から形式を検討します。'],bore103:['bearing','00=10、01=12、02=15、03=17 mmは代表的な例外。04以降の5倍則にも適用外があり、全番号を必ず表と照合します。'],bearingCode49:['bearing','末尾の密封・すきま・保持器などの記号まで記録。読み取れない刻印は写真と寸法を併用して確認します。'],bearingWizard54:['bearing','候補表示は設計承認ではありません。荷重・回転数・寿命・潤滑・温度・はめあいをメーカー条件で評価します。'],bearingReverse52:['bearing','内径・外径・幅が一致する候補から、形式と内部仕様を絞り込みます。'],interchange51:['bearing','相当品候補はメーカー間の補助記号を一つずつ確認します。寸法一致と完全互換は別です。'],makerBearing50:['bearing','同じ文字でもメーカーやシリーズで意味が違う場合があります。該当型式のカタログを確認します。'],tools47:['unit','計算欄ごとに前提を確認します。距離と角度、荷重とトルク等は必要な寸法をそろえてから計算します。'],rigGeo67:['rig','2点吊りで重心が偏る場合は左右の荷重が変わります。左右脚角度も別々に確認します。'],rigTable66:['rig','ワイヤ径だけで使用荷重は決まりません。構成・等級・端末加工・吊り方・劣化状態を製品資料で照合します。'],nylon102:['rig','一般表より現物タグと製品別表を優先します。幅や色だけで耐荷重や材質を決めないでください。'],rig65:['rig','計算張力と吊り具の使用荷重を同じ力の単位で照合します。吊り方や角度による低減条件も確認します。'],dashboard41:['app','機器名が見つからない場合は用途や別名で探します。辞書の詳しい検索は記号・用語辞書で行います。'],home81:['app','この画面は用途別の入口です。目次から目的の項目へ直接進むこともできます。'],myhome83:['app','繰返し使う項目をお気に入りへ登録し、履歴と区別して使います。'],threeAxis:['align','3軸はまず動かさない基準機械を決めます。片方のカップリングを合わせるともう片方にも影響するため、両組を最終条件で再測定します。'],softFootGuide:['soft','測定子の位置を固定し、どの足を緩めた時の変位かを対応させて記録します。'],workNav91:['align','測定の途中で基準軸や測定径を変更した場合は、入力一式と補正量を見直します。']
+};
+const SOURCES111={skf:['SKF：軸芯出し資料','https://www.skf.com/binaries/pub12/Images/0901d1968044c54f-11443EN_ShaftAlignmentTools_tcm_12-263547.pdf'],measure:['ミツトヨ：ダイヤルゲージ・測定の基礎','https://www.mitutoyo.co.jp/about-metrology/knowledge/dgt/'],geo:['ミツトヨ：幾何公差の検証方法','https://www.mitutoyo.co.jp/about-metrology/knowledge/roundness_cylindrical/'],nsk:['NSK：軸受の取付け','https://www.nsk.com/tools-resources/abc-bearings/mounting/'],smc:['SMC：シリンダの機種選定手順','https://www.smcworld.com/catalog/BEST-technical-data/pdf/2-m27-49.pdf'],omron:['OMRON：リレーの基礎','https://components.omron.com/jp-ja/products/basic-knowledge/relays'],weld:['KEYENCE：開先と溶接指示','https://www.keyence.co.jp/ss/products/measure/welding/trouble/groove.jsp'],rig:['大洋製器：製品別資料・荷重表','https://www.taiyoseiki.co.jp/download/'],cut:['三菱マテリアル：切削速度の計算','https://www.mitsubishicarbide.net/contents/mhg/enuk/html/product/technical_information/information/keisan.html'],bolt:['NBK：締付けトルク計算と条件','https://static.nbk1560.com/tools/calc/screw/torque/']};
+function guideDiagram111(type){
+ const drawings={
+ geo:['データムと公差域の概念','<path d="M40 175H325 M40 70H325 M40 100H325"/><path stroke="#cf7b2a" d="M45 88L90 80L130 90L175 78L220 85L270 76L320 90"/><text x="180" y="205">基準：データム平面</text><text x="180" y="48">基準に平行な2平面の間で評価</text><text x="180" y="137">対象面が公差域内に収まるか確認</text>'],
+ thread:['締付けトルクと軸力','<path d="M130 70H230V105H130Z M165 105V210H195V105 M165 125L195 140 M165 150L195 165 M165 175L195 190"/><path d="M105 40Q180 5 255 40 M245 31L255 40L241 43 M250 115V200 M244 188L250 200L256 188"/><text x="180" y="57">回す：トルクT</text><text x="294" y="169">軸力F</text><text x="180" y="242">摩擦条件で軸力が変わる</text>'],
+ element:['キーとキー溝の断面概念','<circle cx="180" cy="125" r="75"/><circle cx="180" cy="125" r="45"/><rect x="162" y="63" width="36" height="32"/><path d="M198 70L275 40"/><text x="290" y="33">キー</text><text x="180" y="138">軸</text><text x="180" y="231">部品寸法と取付溝を組で確認</text>'],
+ align:['フット距離と軸の傾き','<path d="M25 72H345 M40 85L333 50"/><rect x="132" y="95" width="25" height="35"/><rect x="278" y="95" width="25" height="35"/><path d="M40 145H145 M145 145H290 M40 135V153 M145 135V153 M290 135V153"/><text x="87" y="170">L1</text><text x="220" y="170">L2</text><text x="75" y="35">測定基準</text><text x="145" y="195">前足</text><text x="290" y="195">後足</text><text x="185" y="225">後足まで：L1＋L2</text>'],
+ coordinate:['同じ原点・方向で比較','<path d="M65 185H310 M65 185V35 M300 177L310 185L300 193 M57 45L65 35L73 45"/><circle cx="150" cy="120" r="5"/><circle cx="250" cy="70" r="5"/><path stroke-dasharray="5 5" d="M150 120V185 M250 70V185 M65 120H150 M65 70H250"/><text x="320" y="190">＋X</text><text x="67" y="23">＋Y</text><text x="40" y="208">原点</text><text x="205" y="230">位置と単位をそろえる</text>'],
+ fit:['穴と軸の限界寸法の関係','<path d="M30 75H335 M30 145H335"/><path stroke-width="12" stroke="#3480b5" d="M145 75H285"/><path stroke-width="12" stroke="#cf7b2a" d="M75 145H145"/><text x="45" y="50">穴</text><text x="45" y="123">軸</text><text x="215" y="53">下限〜上限</text><text x="125" y="180">下限〜上限</text><text x="180" y="215">最小すきま＝穴下限−軸上限</text><text x="180" y="240">最大すきま＝穴上限−軸下限</text>'],
+ weld:['等脚すみ肉の断面概念','<path d="M70 25V175H300"/><path fill="#dbedfa" d="M70 65V175H180Z"/><path stroke-dasharray="4 4" d="M70 175L125 120"/><text x="40" y="125">z</text><text x="125" y="201">z</text><text x="114" y="153">a</text><text x="180" y="235">脚長zとのど厚aを区別</text>'],
+ rig:['対称2脚の角度定義','<path d="M180 30L65 180H295Z"/><path stroke-dasharray="4 4" d="M180 30V180"/><path d="M150 70Q180 95 210 70"/><rect x="65" y="180" width="230" height="30"/><text x="180" y="24">吊り点</text><text x="164" y="113">θ</text><text x="238" y="110">開き角2θ</text><text x="180" y="235">θ：各脚と鉛直線の角度</text>'],
+ bearing:['力を加える輪を区別','<circle cx="180" cy="107" r="75"/><circle cx="180" cy="107" r="55"/><circle cx="180" cy="107" r="35"/><circle cx="180" cy="107" r="20"/><circle cx="180" cy="62" r="8"/><circle cx="225" cy="107" r="8"/><circle cx="180" cy="152" r="8"/><circle cx="135" cy="107" r="8"/><text x="298" y="55">外輪</text><text x="290" y="145">内輪</text><path d="M249 65L275 50 M213 116L268 137"/><text x="180" y="212">圧入力を転動体経由で伝えない</text>'],
+ cut:['回転と送りの単位を区別','<circle cx="110" cy="95" r="45"/><path d="M70 39Q130 10 163 66 M154 56L163 66L165 51 M195 125H310 M300 117L310 125L300 133"/><text x="110" y="103">工具径D</text><text x="255" y="90">送り</text><text x="110" y="175">回転：min⁻¹</text><text x="255" y="175">mm/min</text><text x="180" y="225">n＝1000Vc／(πD)</text>']
+ };
+ let chosen=drawings[type];
+ if(!chosen){const labels={record:['条件・Before','処置と根拠','After・残課題'],diagnose:['症状と条件','確認・切り分け','処置後に再確認'],electric:['電源・停止条件','制御指令','負荷・実動作'],fluid:['供給源','制御弁・負荷','戻り／排気']}[type]||['確認','作業','再確認'];chosen=['確認する流れ',labels.map((t,i)=>`<rect x="45" y="${15+i*80}" width="270" height="45" rx="7"/><text x="180" y="${44+i*80}">${t}</text>${i<2?`<path d="M180 ${62+i*80}V${89+i*80} M173 ${81+i*80}L180 ${89+i*80}L187 ${81+i*80}"/>`:''}`).join('')]}
+ return '<figure class="guideFigure111"><svg viewBox="0 0 360 260" role="img" aria-label="'+chosen[0]+'"><g fill="none" stroke="#265679" stroke-width="2.5" stroke-linejoin="round">'+chosen[1]+'</g></svg><figcaption>'+chosen[0]+'（説明用の模式図）</figcaption></figure>';
+}
+function installGuides111(){
+ const el=(tag,text)=>{const x=document.createElement(tag);if(text)x.textContent=text;return x};
+ for(const [id,[key,focus]] of Object.entries(PAGES111)){
+  const target=document.getElementById(id),g=GUIDES111[key];if(!target||target.querySelector(':scope > .guide111'))continue;
+  const outer=el('details');outer.className='guide111';outer.dataset.guideFor=id;outer.append(el('summary','📖 詳しい使い方・実務例：'+g.title));
+  const focusP=el('p',focus);focusP.className='guideFocus111';outer.append(focusP);
+  const add=(title)=>{const det=el('details');det.append(el('summary',title));outer.append(det);return det};
+  add('1. 基本と前提').append(el('p',g.basic));
+  const d=add('2. 図で確認');d.innerHTML+=guideDiagram111(g.diagram);
+  const steps=el('ol');for(const text of g.steps)steps.append(el('li',text));add('3. 確認・作業の順序').append(steps);
+  add('4. 数値例・記載例').append(el('p',g.example));
+  const list=el('dl');for(const [problem,action] of g.fail){list.append(el('dt',problem),el('dd',action))}add('5. よくある失敗と見直す点').append(list);
+  const checks=el('ul');for(const c of g.checks)checks.append(el('li',c));add('6. 完了前の確認').append(checks);
+  if(g.source){const [name,url]=SOURCES111[g.source];const p=el('p','関連資料：'),a=el('a',name);a.href=url;a.target='_blank';a.rel='noopener noreferrer';p.append(a);outer.append(p)}
+  outer.append(el('p','例は理解のためのものです。実機の合否・使用条件は図面、メーカー資料、現場の作業手順で確認してください。'));
+  target.append(outer);
+ }
+}
+document.addEventListener('DOMContentLoaded',installGuides111);
+
+</script>
+</body></html>
