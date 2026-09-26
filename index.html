@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v114</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v115</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -96,14 +96,16 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 html.detailLock114{overflow:hidden}
 body.detailLock114{position:fixed;top:var(--detailScroll114);left:0;right:0;width:100%;box-sizing:border-box;overflow:hidden}
 #detailDialog114{position:fixed;inset:0;width:calc(100vw - 24px);max-width:850px;max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));margin:auto;padding:0;border:0;border-radius:12px;box-shadow:0 8px 28px #0006;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+#detailBackdrop115{position:fixed;inset:0;z-index:10000;background:#0009;touch-action:none}
+#detailDialog114{z-index:10001;touch-action:none}
 #detailDialog114::backdrop{background:#0009}
 #detailDialog114 #detail94{position:static;margin:0;padding:16px;box-sizing:border-box;overflow:visible;background:#eef7ff;border:1px solid #9ac4e7}
 body.dark84 #detailDialog114 #detail94{background:#1e1e1e}
 #detailDialog114 .detailClose114{position:sticky;top:0;z-index:1;display:block;margin:0 0 12px auto;width:auto;min-height:44px;background:#fff;border:1px solid #8bb8da;border-radius:10px;color:#17364f;font-size:16px}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v114</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v114：</b>記号辞書の詳細をモーダル画面として開き、背後の画面操作を止めました。閉じると元の一覧位置へ戻ります。<br>資料リンク、センサの模式図、詳しい使い方と検索も利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v115</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v115：</b>記号辞書の詳細を開いた際、背後と下のナビゲーションを覆い、指の操作を詳細内だけに限定しました。閉じると元の一覧位置へ戻ります。<br>資料リンク、センサの模式図、詳しい使い方と検索も利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -393,7 +395,7 @@ body.dark84 #detailDialog114 #detail94{background:#1e1e1e}
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
 <h3>4/3方向切換弁の状態</h3><button onclick="valve68('a')">SOL-a</button><button onclick="valve68('n')">中立</button><button onclick="valve68('b')">SOL-b</button><div id="vo68" class="comment"></div>
-</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v114</h2>
+</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v115</h2>
 <p class="note">図は形を覚えるための<b>模式表示</b>です。規格の記号を正確に複製したものではありません。機器ごとの図面凡例、型式、端子表、回路図を優先してください。</p>
 <div class="symcontrols94"><button type="button" onclick="filter94('all')">すべて</button><button type="button" onclick="filter94('electric')">⚡ 電気</button><button type="button" onclick="filter94('hydraulic')">💧 油圧</button><button type="button" onclick="filter94('pneumatic')">💨 空圧</button><button type="button" onclick="filter94('weld')">🔥 溶接</button></div>
 <label for="query94">名前・別名・略号・用途で探す（入力すると全分類から検索）</label><input id="query94" type="search" placeholder="例：ぎゃくしべん、PNP、空圧 5ポート、溶接 開先" oninput="search94()">
@@ -2087,7 +2089,7 @@ function closeDetail114(){
  if(modal.open&&modal.close)modal.close();
  const d=document.getElementById('detail94');
  if(detailParent114)detailParent114.insertBefore(d,detailNext114);
- modal.remove();detailParent114=null;detailNext114=null;
+ modal.remove();document.getElementById('detailBackdrop115')?.remove();detailParent114=null;detailNext114=null;
  document.body.classList.remove('detailLock114');document.documentElement.classList.remove('detailLock114');document.body.style.removeProperty('--detailScroll114');
  window.scrollTo(0,detailScroll114);return true;
 }
@@ -2097,12 +2099,28 @@ function openDetail114(){
   const d=document.getElementById('detail94');detailParent114=d.parentNode;detailNext114=d.nextSibling;detailScroll114=window.scrollY||0;
   modal=document.createElement('dialog');modal.id='detailDialog114';modal.setAttribute('aria-labelledby','detailTitle114');
   modal.addEventListener('cancel',e=>{e.preventDefault();closeDetail114()});
-  modal.append(d);document.body.append(modal);
+  const backdrop=document.createElement('div');backdrop.id='detailBackdrop115';backdrop.onclick=closeDetail114;
+  modal.append(d);document.body.append(backdrop,modal);
   document.body.style.setProperty('--detailScroll114',-detailScroll114+'px');document.body.classList.add('detailLock114');document.documentElement.classList.add('detailLock114');
   if(modal.showModal)modal.showModal();else modal.setAttribute('open','');
  }
  modal.scrollTop=0;
 }
+// iOS WebViews may not make showModal() inert. Route every swipe to the detail
+// scroller and cancel the document's default page scroll in either mode.
+let lastDetailTouch115=null;
+document.addEventListener('touchstart',e=>{
+ if(!document.getElementById('detailDialog114'))return;
+ lastDetailTouch115=e.target.closest?.('#detailDialog114')&&e.touches.length===1?e.touches[0].clientY:null;
+},{capture:true,passive:true});
+document.addEventListener('touchmove',e=>{
+ const modal=document.getElementById('detailDialog114');if(!modal)return;
+ if(lastDetailTouch115!==null&&e.touches.length===1){const y=e.touches[0].clientY;modal.scrollTop+=lastDetailTouch115-y;lastDetailTouch115=y}
+ e.preventDefault();
+},{capture:true,passive:false});
+document.addEventListener('touchend',()=>{lastDetailTouch115=null},{capture:true});
+document.addEventListener('touchcancel',()=>{lastDetailTouch115=null},{capture:true});
+document.addEventListener('wheel',e=>{const modal=document.getElementById('detailDialog114');if(!modal)return;if(modal.contains(e.target))modal.scrollTop+=e.deltaY;e.preventDefault()},{capture:true,passive:false});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&closeDetail114())e.preventDefault()});
 
 function detail110(e){
