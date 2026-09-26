@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v116</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v117</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -99,8 +99,8 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 body.detailPage116 #nav91{display:none}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v116</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v116：</b>記号辞書の詳細を独立したページに変更しました。辞書一覧と下のナビゲーションは詳細を読む間隠れます。戻ると一覧の位置に戻ります。<br>資料リンク、センサの模式図、詳しい使い方と検索も利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v117</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v117：</b>記号辞書の詳細から一覧へ戻るボタンを修正しました。詳細は独立したページで開き、戻ると一覧の位置に戻ります。<br>資料リンク、センサの模式図、詳しい使い方と検索も利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -390,7 +390,7 @@ body.detailPage116 #nav91{display:none}
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
 <h3>4/3方向切換弁の状態</h3><button onclick="valve68('a')">SOL-a</button><button onclick="valve68('n')">中立</button><button onclick="valve68('b')">SOL-b</button><div id="vo68" class="comment"></div>
-</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v116</h2>
+</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v117</h2>
 <p class="note">図は形を覚えるための<b>模式表示</b>です。規格の記号を正確に複製したものではありません。機器ごとの図面凡例、型式、端子表、回路図を優先してください。</p>
 <div class="symcontrols94"><button type="button" onclick="filter94('all')">すべて</button><button type="button" onclick="filter94('electric')">⚡ 電気</button><button type="button" onclick="filter94('hydraulic')">💧 油圧</button><button type="button" onclick="filter94('pneumatic')">💨 空圧</button><button type="button" onclick="filter94('weld')">🔥 溶接</button></div>
 <label for="query94">名前・別名・略号・用途で探す（入力すると全分類から検索）</label><input id="query94" type="search" placeholder="例：ぎゃくしべん、PNP、空圧 5ポート、溶接 開先" oninput="search94()">
@@ -2093,7 +2093,7 @@ function openDetail116(){
 
 function detail110(e){
  const d=document.getElementById('detail94');d.replaceChildren();
- const close=document.createElement('button');close.type='button';close.className='detailClose116';close.textContent='← 辞書の一覧へ戻る';close.onclick=()=>backView99();d.append(close);
+ const close=document.createElement('button');close.type='button';close.className='detailClose116';close.textContent='← 辞書の一覧へ戻る';close.onclick=()=>window.returnDetail116();d.append(close);
  const h=document.createElement('h3');h.id='detailTitle116';h.textContent=e.name;d.append(h);
  const para=(label,value)=>{const p=document.createElement('p'),b=document.createElement('b');b.textContent=label;p.append(b,document.createTextNode(value));d.append(p)};
  para('分類：',LABEL110[e.kind]+' / '+e.group);para('役割・読み方：',e.meaning);const symbol=symbolDrawing110(e);if(symbol)d.append(symbol);d.append(svg110(e));
@@ -2196,6 +2196,7 @@ window.saveViewState109=persist109;
 window.pushViewState109=function(){viewHistory99.push(snapshot109());if(viewHistory99.length>100)viewHistory99.shift();persist109()};
 function restoreLegacy109(x){if(!x||!Q75[x.type]||!Number.isInteger(x.step)||x.step<0||x.step>Q75[x.type].length||!Array.isArray(x.path))return;document.getElementById('sym75').value=x.type;step75=x.step;path75=x.path;showQ75();document.getElementById('res75').textContent=x.result||'';}
 window.backView99=function(){
+ if(active97==='detailPage116'){window.returnDetail116();return;}
  const panel=document.getElementById('panel82');
  if(panel && panel.style.display!=='none' && panel.style.display!==''){closePanel82();return;}
  const prev=viewHistory99.pop();
@@ -2204,6 +2205,14 @@ window.backView99=function(){
  if(prev.diag&&window.restoreDiag109)window.restoreDiag109(prev.diag);
  restoreLegacy109(prev.legacy);
  window.scrollTo(0,Math.max(0,Number(prev.scroll)||0));persist109();
+};
+window.returnDetail116=function(){
+ if(active97!=='detailPage116')return;
+ const last=viewHistory99[viewHistory99.length-1];
+ if(last?.id==='symbol94')viewHistory99.pop();
+ window.openView97('symbol94',false);
+ window.scrollTo(0,Math.max(0,Number(last?.id==='symbol94'?last.scroll:0)||0));
+ persist109();
 };
 function section97(id){let e=document.getElementById(id);return e&&e.closest('body > .card')===e?e:null}
 function page97(id){let e=document.getElementById(id);if(!e)return null;return e.closest('body > .card')||e.closest('body > section.card')||e}
