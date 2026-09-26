@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v113</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v114</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -93,16 +93,17 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 </style><style>
 .guide111{margin:24px 0 12px;border:1px solid #a9cbe3;border-radius:12px;background:#f5faff;padding:14px;clear:both}.guide111 summary{cursor:pointer;font-weight:700;line-height:1.7;padding:8px 0;color:#18527c}.guide111 details{border-top:1px solid #d8e6f0;padding:6px 0}.guide111 p,.guide111 li,.guide111 dd{font-size:16px;line-height:1.85;overflow-wrap:anywhere}.guide111 li{margin:8px 0}.guide111 dt{font-weight:bold;margin-top:12px}.guide111 dd{margin:4px 0 14px 12px}.guideFocus111{background:#e6f2fc;padding:12px;border-radius:8px}.guideFigure111{margin:12px 0}.guideFigure111 svg{display:block;background:white;width:100%;max-width:440px;height:auto;border-radius:8px}.guideFigure111 text{font-size:14px;text-anchor:middle;fill:#17364f;stroke:none}.guideFigure111 figcaption{font-size:14px;color:#425c70}.guide111 a{overflow-wrap:anywhere}
 </style><style>@media print{.guide111{display:none!important}}</style><style>
-html.detailLock113{overflow:hidden}
-body.detailLock113{position:fixed;top:var(--detailScroll113);left:0;right:0;width:100%;box-sizing:border-box;overflow:hidden}
-#detailBackdrop113{position:fixed;inset:0;z-index:10000;background:#0008}
-#detail94.detailOpen113{position:fixed;top:calc(12px + env(safe-area-inset-top));bottom:calc(12px + env(safe-area-inset-bottom));left:max(12px,calc((100vw - 850px)/2));right:max(12px,calc((100vw - 850px)/2));z-index:10001;margin:0;padding:16px;box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;background:#eef7ff;box-shadow:0 8px 28px #0006}
-body.dark84 #detail94.detailOpen113{background:#1e1e1e}
-#detail94 .detailClose113{position:sticky;top:0;z-index:1;display:block;margin:0 0 12px auto;width:auto;min-height:44px;background:#fff;border:1px solid #8bb8da;border-radius:10px;color:#17364f;font-size:16px}
+html.detailLock114{overflow:hidden}
+body.detailLock114{position:fixed;top:var(--detailScroll114);left:0;right:0;width:100%;box-sizing:border-box;overflow:hidden}
+#detailDialog114{position:fixed;inset:0;width:calc(100vw - 24px);max-width:850px;max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));margin:auto;padding:0;border:0;border-radius:12px;box-shadow:0 8px 28px #0006;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+#detailDialog114::backdrop{background:#0009}
+#detailDialog114 #detail94{position:static;margin:0;padding:16px;box-sizing:border-box;overflow:visible;background:#eef7ff;border:1px solid #9ac4e7}
+body.dark84 #detailDialog114 #detail94{background:#1e1e1e}
+#detailDialog114 .detailClose114{position:sticky;top:0;z-index:1;display:block;margin:0 0 12px auto;width:auto;min-height:44px;background:#fff;border:1px solid #8bb8da;border-radius:10px;color:#17364f;font-size:16px}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v113</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v113：</b>記号辞書の詳細画面を独立したスクロール画面に変更しました。閉じると元の一覧位置に戻ります。<br>資料リンクの修正、センサの模式図、詳しい使い方と検索機能も利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v114</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v114：</b>記号辞書の詳細をモーダル画面として開き、背後の画面操作を止めました。閉じると元の一覧位置へ戻ります。<br>資料リンク、センサの模式図、詳しい使い方と検索も利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -392,7 +393,7 @@ body.dark84 #detail94.detailOpen113{background:#1e1e1e}
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
 <h3>4/3方向切換弁の状態</h3><button onclick="valve68('a')">SOL-a</button><button onclick="valve68('n')">中立</button><button onclick="valve68('b')">SOL-b</button><div id="vo68" class="comment"></div>
-</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v113</h2>
+</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v114</h2>
 <p class="note">図は形を覚えるための<b>模式表示</b>です。規格の記号を正確に複製したものではありません。機器ごとの図面凡例、型式、端子表、回路図を優先してください。</p>
 <div class="symcontrols94"><button type="button" onclick="filter94('all')">すべて</button><button type="button" onclick="filter94('electric')">⚡ 電気</button><button type="button" onclick="filter94('hydraulic')">💧 油圧</button><button type="button" onclick="filter94('pneumatic')">💨 空圧</button><button type="button" onclick="filter94('weld')">🔥 溶接</button></div>
 <label for="query94">名前・別名・略号・用途で探す（入力すると全分類から検索）</label><input id="query94" type="search" placeholder="例：ぎゃくしべん、PNP、空圧 5ポート、溶接 開先" oninput="search94()">
@@ -2080,30 +2081,34 @@ function symbolDrawing110(e){
  const p=document.createElement('p');p.textContent=caption;wrap.append(p);return wrap;
 }
 
-let detailScroll113=0;
-function closeDetail113(){
- const d=document.getElementById('detail94');if(!d?.classList.contains('detailOpen113'))return false;
- d.classList.remove('detailOpen113');d.removeAttribute('role');d.removeAttribute('aria-modal');d.removeAttribute('aria-labelledby');
- document.getElementById('detailBackdrop113')?.remove();
- document.body.classList.remove('detailLock113');document.documentElement.classList.remove('detailLock113');document.body.style.removeProperty('--detailScroll113');
- window.scrollTo(0,detailScroll113);return true;
-}
-function openDetail113(){
+let detailScroll114=0,detailParent114=null,detailNext114=null;
+function closeDetail114(){
+ const modal=document.getElementById('detailDialog114');if(!modal)return false;
+ if(modal.open&&modal.close)modal.close();
  const d=document.getElementById('detail94');
- if(!d.classList.contains('detailOpen113')){
-  detailScroll113=window.scrollY||0;
-  const backdrop=document.createElement('div');backdrop.id='detailBackdrop113';backdrop.onclick=closeDetail113;document.body.append(backdrop);
-  document.body.style.setProperty('--detailScroll113',-detailScroll113+'px');document.body.classList.add('detailLock113');document.documentElement.classList.add('detailLock113');
-  d.classList.add('detailOpen113');d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','detailTitle113');
- }
- d.scrollTop=0;
+ if(detailParent114)detailParent114.insertBefore(d,detailNext114);
+ modal.remove();detailParent114=null;detailNext114=null;
+ document.body.classList.remove('detailLock114');document.documentElement.classList.remove('detailLock114');document.body.style.removeProperty('--detailScroll114');
+ window.scrollTo(0,detailScroll114);return true;
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&closeDetail113())e.preventDefault()});
+function openDetail114(){
+ let modal=document.getElementById('detailDialog114');
+ if(!modal){
+  const d=document.getElementById('detail94');detailParent114=d.parentNode;detailNext114=d.nextSibling;detailScroll114=window.scrollY||0;
+  modal=document.createElement('dialog');modal.id='detailDialog114';modal.setAttribute('aria-labelledby','detailTitle114');
+  modal.addEventListener('cancel',e=>{e.preventDefault();closeDetail114()});
+  modal.append(d);document.body.append(modal);
+  document.body.style.setProperty('--detailScroll114',-detailScroll114+'px');document.body.classList.add('detailLock114');document.documentElement.classList.add('detailLock114');
+  if(modal.showModal)modal.showModal();else modal.setAttribute('open','');
+ }
+ modal.scrollTop=0;
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&closeDetail114())e.preventDefault()});
 
 function detail110(e){
  const d=document.getElementById('detail94');d.replaceChildren();
- const close=document.createElement('button');close.type='button';close.className='detailClose113';close.textContent='✕ 閉じる';close.onclick=closeDetail113;d.append(close);
- const h=document.createElement('h3');h.id='detailTitle113';h.textContent=e.name;d.append(h);
+ const close=document.createElement('button');close.type='button';close.className='detailClose114';close.textContent='✕ 閉じる';close.onclick=closeDetail114;d.append(close);
+ const h=document.createElement('h3');h.id='detailTitle114';h.textContent=e.name;d.append(h);
  const para=(label,value)=>{const p=document.createElement('p'),b=document.createElement('b');b.textContent=label;p.append(b,document.createTextNode(value));d.append(p)};
  para('分類：',LABEL110[e.kind]+' / '+e.group);para('役割・読み方：',e.meaning);const symbol=symbolDrawing110(e);if(symbol)d.append(symbol);d.append(svg110(e));
  para('図の見方：',e.shape?'継手の形や補助表示を理解するための図です。規格の基本記号・寸法指示とは区別してください。':e.name==='近接センサ'?'誘導形で金属を検出する一例です。静電容量形などは検出原理が異なります。電源・出力・配線は2線式・3線式や型式で異なるため、実際の配線図で確認してください。':e.name==='光電センサ'?'透過形で光を遮って検出する一例です。回帰反射形・拡散反射形では配置が異なります。実際の配線図を確認してください。':'矢印は流れ・信号・動作の関係を表す概念図です。実際の配線・配管接続を指示するものではありません。');
@@ -2114,7 +2119,7 @@ function detail110(e){
  const note=document.createElement('p');note.className='note';note.textContent='説明・図は学習用に再構成しています。規格原図の転載ではありません。型式別の図面・取扱説明書を優先してください。外部資料の閲覧には通信が必要です。';d.append(note);
  const related=entries110.filter(x=>x!==e&&x.kind===e.kind&&x.group===e.group).slice(0,4);
  if(related.length){para('関連項目：','');for(const r of related){const b=document.createElement('button');b.type='button';b.textContent=r.name;b.onclick=()=>detail110(r);d.append(b)}}
- openDetail113();
+ openDetail114();
 }
 function draw94(){
  init110();const q=document.getElementById('query94').value.trim(),words=norm110(q).split(/\s+/).filter(Boolean);
@@ -2205,7 +2210,7 @@ window.saveViewState109=persist109;
 window.pushViewState109=function(){viewHistory99.push(snapshot109());if(viewHistory99.length>100)viewHistory99.shift();persist109()};
 function restoreLegacy109(x){if(!x||!Q75[x.type]||!Number.isInteger(x.step)||x.step<0||x.step>Q75[x.type].length||!Array.isArray(x.path))return;document.getElementById('sym75').value=x.type;step75=x.step;path75=x.path;showQ75();document.getElementById('res75').textContent=x.result||'';}
 window.backView99=function(){
- if(window.closeDetail113?.())return;
+ if(window.closeDetail114?.())return;
  const panel=document.getElementById('panel82');
  if(panel && panel.style.display!=='none' && panel.style.display!==''){closePanel82();return;}
  const prev=viewHistory99.pop();
@@ -2218,7 +2223,7 @@ window.backView99=function(){
 function section97(id){let e=document.getElementById(id);return e&&e.closest('body > .card')===e?e:null}
 function page97(id){let e=document.getElementById(id);if(!e)return null;return e.closest('body > .card')||e.closest('body > section.card')||e}
 window.openView97=function(id,remember99=true){
- window.closeDetail113?.();
+ window.closeDetail114?.();
  let e=document.getElementById(id),p=id==='release90'?e:page97(id);if(!p)return;
  if(remember99 && id!==active97){window.pushViewState109();}
  active97=id;
