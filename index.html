@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v111</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v113</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -92,10 +92,17 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 #symbol94 input{box-sizing:border-box;width:100%;max-width:100%;font-size:16px}#symbol94 .symcontrols94{display:flex;flex-wrap:wrap;gap:6px}#symbol94 .symcontrols94 button{width:auto;min-width:65px;margin:2px;padding:12px}#symbol94 .symcontrols94 button[aria-pressed="true"]{background:#d5eaff;outline:2px solid #1671b8}#detail94{scroll-margin:20px;overflow-wrap:anywhere}#detail94 svg{display:block;width:100%;max-width:480px;height:auto;background:white;border:1px solid #d5e1ed;border-radius:12px;margin:12px 0}#detail94 h3{font-size:1.15em}#detail94 button{width:auto;padding:10px;margin:4px}#list94 .symitem94{overflow-wrap:anywhere;min-width:0}#symbol94 .symgrid94{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}
 </style><style>
 .guide111{margin:24px 0 12px;border:1px solid #a9cbe3;border-radius:12px;background:#f5faff;padding:14px;clear:both}.guide111 summary{cursor:pointer;font-weight:700;line-height:1.7;padding:8px 0;color:#18527c}.guide111 details{border-top:1px solid #d8e6f0;padding:6px 0}.guide111 p,.guide111 li,.guide111 dd{font-size:16px;line-height:1.85;overflow-wrap:anywhere}.guide111 li{margin:8px 0}.guide111 dt{font-weight:bold;margin-top:12px}.guide111 dd{margin:4px 0 14px 12px}.guideFocus111{background:#e6f2fc;padding:12px;border-radius:8px}.guideFigure111{margin:12px 0}.guideFigure111 svg{display:block;background:white;width:100%;max-width:440px;height:auto;border-radius:8px}.guideFigure111 text{font-size:14px;text-anchor:middle;fill:#17364f;stroke:none}.guideFigure111 figcaption{font-size:14px;color:#425c70}.guide111 a{overflow-wrap:anywhere}
-</style><style>@media print{.guide111{display:none!important}}</style></head><body>
+</style><style>@media print{.guide111{display:none!important}}</style><style>
+html.detailLock113{overflow:hidden}
+body.detailLock113{position:fixed;top:var(--detailScroll113);left:0;right:0;width:100%;box-sizing:border-box;overflow:hidden}
+#detailBackdrop113{position:fixed;inset:0;z-index:10000;background:#0008}
+#detail94.detailOpen113{position:fixed;top:calc(12px + env(safe-area-inset-top));bottom:calc(12px + env(safe-area-inset-bottom));left:max(12px,calc((100vw - 850px)/2));right:max(12px,calc((100vw - 850px)/2));z-index:10001;margin:0;padding:16px;box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;background:#eef7ff;box-shadow:0 8px 28px #0006}
+body.dark84 #detail94.detailOpen113{background:#1e1e1e}
+#detail94 .detailClose113{position:sticky;top:0;z-index:1;display:block;margin:0 0 12px auto;width:auto;min-height:44px;background:#fff;border:1px solid #8bb8da;border-radius:10px;color:#17364f;font-size:16px}
+</style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v111</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v111：</b>各項目に「詳しい使い方・実務例」を追加。基本・図解・手順・数値例・よくある失敗・完了前の確認を開いて読めます。<br>111項目の記号・用語検索と故障診断、一つ前に戻る操作も引き継いでいます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v113</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v113：</b>記号辞書の詳細画面を独立したスクロール画面に変更しました。閉じると元の一覧位置に戻ります。<br>資料リンクの修正、センサの模式図、詳しい使い方と検索機能も利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -385,7 +392,7 @@ body.dark84 #contents97 button{color:#fff;background:#303030}
 <button onclick="i68('gauge')"><svg viewBox="0 0 110 65"><circle cx="55" cy="30" r="23"/><line x1="55" y1="30" x2="70" y2="17"/><line x1="55" y1="53" x2="55" y2="64"/></svg><b>圧力計</b></button></div>
 <div id="io68" class="comment">記号をタップしてください。</div>
 <h3>4/3方向切換弁の状態</h3><button onclick="valve68('a')">SOL-a</button><button onclick="valve68('n')">中立</button><button onclick="valve68('b')">SOL-b</button><div id="vo68" class="comment"></div>
-</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v110</h2>
+</section><section id="symbol94" class="card"><h2>📚 電気・油圧・空圧・溶接 記号・用語辞書 v113</h2>
 <p class="note">図は形を覚えるための<b>模式表示</b>です。規格の記号を正確に複製したものではありません。機器ごとの図面凡例、型式、端子表、回路図を優先してください。</p>
 <div class="symcontrols94"><button type="button" onclick="filter94('all')">すべて</button><button type="button" onclick="filter94('electric')">⚡ 電気</button><button type="button" onclick="filter94('hydraulic')">💧 油圧</button><button type="button" onclick="filter94('pneumatic')">💨 空圧</button><button type="button" onclick="filter94('weld')">🔥 溶接</button></div>
 <label for="query94">名前・別名・略号・用途で探す（入力すると全分類から検索）</label><input id="query94" type="search" placeholder="例：ぎゃくしべん、PNP、空圧 5ポート、溶接 開先" oninput="search94()">
@@ -1965,7 +1972,21 @@ const EXTRA110 = [
 ];
 const LABEL110={electric:'⚡ 電気',hydraulic:'💧 油圧',pneumatic:'💨 空圧',fluid:'💧💨 油圧・空圧共通',weld:'🔥 溶接'};
 const ALIAS110=[['チェック','逆止 ぎゃくしべん 逆流 check'],['リリーフ','安全弁 逃がし弁 りりーふ relief'],['減圧','げんあつ レギュレータ regulator'],['ソレノイド','電磁弁 でんじべん solenoid'],['電磁弁','ソレノイド でんじべん solenoid'],['サーマル','過負荷 さーまる thermal'],['シリンダ','シリンダー しりんだ cylinder'],['a接点','常開 メーク ノーマリーオープン えーせってん NO'],['b接点','常閉 ブレーク ノーマリークローズ びーせってん NC'],['c接点','切替 共通 しーせってん COM'],['すみ肉','隅肉 スミ肉 すみにく fillet'],['開先','かいさき groove'],['絞り','しぼり 流量調整'],['サイレンサ','消音器 さいれんさ'],['アキュムレータ','蓄圧器 あきゅむれーた accumulator'],['ポンプ','ぽんぷ pump'],['モータ','モーター motor'],['フィルタ','フィルター ろ過 filter'],['圧力','あつりょく pressure'],['接地','アース earth'],['スポット','点溶接 すぽっと'],['全周','ぜんしゅう 全周溶接'],['現場','げんば 現地溶接']];
-const SOURCE110={electric:['OMRON：リレー基礎','https://components.omron.com/jp-ja/products/basic-knowledge/relays'],hydraulic:['油研：油圧機器カタログ','https://www.yuken.co.jp/catalog_cad/openpg/opg'],pneumatic:['SMC：空気圧回路図・図記号','https://www.smcworld.com/select/pcds/ja-jp/'],fluid:['油研：油圧機器カタログ','https://www.yuken.co.jp/catalog_cad/openpg/opg'],weld:['KEYENCE：開先と溶接記号','https://www.keyence.co.jp/ss/products/measure/welding/trouble/groove.jsp']};
+// A reference is shown only when its subject matches the selected entry.
+function sourceFor110(e){
+ const n=e.name;
+ if(/近接センサ/.test(n))return ['OMRON：近接センサの概要','https://www.ia.omron.com/support/guide/41/overview.html'];
+ if(/光電センサ/.test(n))return ['OMRON：光電センサの概要','https://www.ia.omron.com/support/guide/43/overview.html'];
+ if(/NPN|PNP/.test(n))return ['OMRON：センサのNPN/PNP出力','https://faq.fa.omron.co.jp/tech/s/article/faq00379'];
+ if(e.kind==='electric'&&/リレー|接触器|接点|コイル/.test(n))return ['OMRON：リレーの基礎','https://components.omron.com/jp-ja/products/basic-knowledge/relays'];
+ if(e.kind==='pneumatic'&&/5\/2|5\/3|5ポート/.test(n))return ['SMC：5ポート弁の動作','https://www.smcworld.com/products/video/ja-jp/sy_work.html'];
+ if(e.kind==='pneumatic')return ['SMC：空気圧回路の資料','https://www.smcworld.com/select/pcds/ja-jp/'];
+ if(e.kind==='hydraulic'&&/リリーフ|減圧|圧力制御|アンロード/.test(n))return ['油研：圧力制御弁の資料','https://www.yuken.co.jp/catalog_cad/00193/00193_01'];
+ if(e.kind==='hydraulic'&&/方向弁|センタ|4\/|比例電磁弁/.test(n))return ['油研：方向制御弁の資料','https://www.yuken.co.jp/catalog_cad/00195/00195_01'];
+ if(e.kind==='weld'&&/開先|ルート|裏当て/.test(n))return ['KEYENCE：開先の解説','https://www.keyence.co.jp/ss/products/measure/welding/trouble/groove.jsp'];
+ if(e.kind==='weld')return ['KEYENCE：溶接用語集','https://www.keyence.co.jp/ss/products/measure/welding/glossary/'];
+ return null;
+}
 let entries110=[];let mode94='all';
 function init110(){
  if(entries110.length)return;
@@ -2001,6 +2022,19 @@ function svg110(e){
  if(e.shape){const g=node('g',{transform:'translate(0,8) scale(3)',fill:'none',stroke:'#243749','stroke-width':2,'stroke-linejoin':'round'});g.innerHTML=e.shape;txt(180,200,'継手・寸法の模式図');return s;}
  if(/^[ab]接点/.test(e.name)){
   const nc=e.name.startsWith('b');txt(180,25,'非操作・非励磁時の接点');line(45,90,130,90);line(230,90,315,90);node('circle',{cx:130,cy:90,r:5,fill:'white',stroke:'#24618d','stroke-width':2});node('circle',{cx:230,cy:90,r:5,fill:'white',stroke:'#24618d','stroke-width':2});line(132,88,228,nc?88:48);txt(180,135,nc?'通常：閉じる（導通）':'通常：開く（遮断）');txt(180,175,nc?'操作・励磁で開く':'操作・励磁で閉じる');return s;
+ }
+ if(e.name==='近接センサ'){
+  txt(180,23,'誘導形近接センサの検出例');
+  node('rect',{x:125,y:38,width:110,height:30,rx:4,fill:'#a8bbc7',stroke:'#456879'});txt(180,59,'金属の対象物');
+  node('path',{d:'M145 80Q180 110 215 80 M155 88Q180 106 205 88',fill:'none',stroke:'#da8742','stroke-width':2});
+  node('rect',{x:105,y:112,width:150,height:48,rx:10,fill:'#d8efff',stroke:'#75a6c9'});txt(180,142,'検出面・センサ');
+  line(180,160,180,179);txt(180,199,'検出状態 → 出力信号');return s;
+ }
+ if(e.name==='光電センサ'){
+  txt(180,23,'透過形光電センサの検出例');
+  node('rect',{x:20,y:76,width:80,height:55,rx:8,fill:'#d8efff',stroke:'#75a6c9'});txt(60,109,'投光器');
+  node('rect',{x:260,y:76,width:80,height:55,rx:8,fill:'#d8efff',stroke:'#75a6c9'});txt(300,109,'受光器');
+  line(102,103,135,103);line(225,103,258,103);node('rect',{x:145,y:66,width:70,height:75,rx:5,fill:'#a8bbc7',stroke:'#456879'});txt(180,108,'対象物');txt(180,181,'光が遮られる → 検出信号');return s;
  }
  let flow=e.flow?e.flow.split('|'):null;
  if(!flow){
@@ -2046,20 +2080,41 @@ function symbolDrawing110(e){
  const p=document.createElement('p');p.textContent=caption;wrap.append(p);return wrap;
 }
 
+let detailScroll113=0;
+function closeDetail113(){
+ const d=document.getElementById('detail94');if(!d?.classList.contains('detailOpen113'))return false;
+ d.classList.remove('detailOpen113');d.removeAttribute('role');d.removeAttribute('aria-modal');d.removeAttribute('aria-labelledby');
+ document.getElementById('detailBackdrop113')?.remove();
+ document.body.classList.remove('detailLock113');document.documentElement.classList.remove('detailLock113');document.body.style.removeProperty('--detailScroll113');
+ window.scrollTo(0,detailScroll113);return true;
+}
+function openDetail113(){
+ const d=document.getElementById('detail94');
+ if(!d.classList.contains('detailOpen113')){
+  detailScroll113=window.scrollY||0;
+  const backdrop=document.createElement('div');backdrop.id='detailBackdrop113';backdrop.onclick=closeDetail113;document.body.append(backdrop);
+  document.body.style.setProperty('--detailScroll113',-detailScroll113+'px');document.body.classList.add('detailLock113');document.documentElement.classList.add('detailLock113');
+  d.classList.add('detailOpen113');d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','detailTitle113');
+ }
+ d.scrollTop=0;
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&closeDetail113())e.preventDefault()});
+
 function detail110(e){
  const d=document.getElementById('detail94');d.replaceChildren();
- const h=document.createElement('h3');h.textContent=e.name;d.append(h);
+ const close=document.createElement('button');close.type='button';close.className='detailClose113';close.textContent='✕ 閉じる';close.onclick=closeDetail113;d.append(close);
+ const h=document.createElement('h3');h.id='detailTitle113';h.textContent=e.name;d.append(h);
  const para=(label,value)=>{const p=document.createElement('p'),b=document.createElement('b');b.textContent=label;p.append(b,document.createTextNode(value));d.append(p)};
  para('分類：',LABEL110[e.kind]+' / '+e.group);para('役割・読み方：',e.meaning);const symbol=symbolDrawing110(e);if(symbol)d.append(symbol);d.append(svg110(e));
- para('図の見方：',e.shape?'継手の形や補助表示を理解するための図です。規格の基本記号・寸法指示とは区別してください。':'矢印は流れ・信号・動作の関係を表す概念図です。実際の配線・配管接続を指示するものではありません。');
+ para('図の見方：',e.shape?'継手の形や補助表示を理解するための図です。規格の基本記号・寸法指示とは区別してください。':e.name==='近接センサ'?'誘導形で金属を検出する一例です。静電容量形などは検出原理が異なります。電源・出力・配線は2線式・3線式や型式で異なるため、実際の配線図で確認してください。':e.name==='光電センサ'?'透過形で光を遮って検出する一例です。回帰反射形・拡散反射形では配置が異なります。実際の配線図を確認してください。':'矢印は流れ・信号・動作の関係を表す概念図です。実際の配線・配管接続を指示するものではありません。');
  para('図面・現物で確認：',e.check);
  para('別名・検索語：',e.alias.trim()||e.name);
- const [label,url]=/NPN|PNP/.test(e.name)?['OMRON：NPN/PNPの配線方式','https://www.ia.omron.com/support/faq/answer/43/faq00379/']:/5\//.test(e.name)?['SMC：5ポート弁の動作','https://www.smcworld.com/products/video/ja-jp/sy_work.html']:SOURCE110[e.kind];
- const a=document.createElement('a');a.textContent='関連メーカー資料：'+label;a.href=url;a.target='_blank';a.rel='noopener noreferrer';d.append(a);
+ const source=sourceFor110(e);
+ if(source){const [label,url]=source,a=document.createElement('a');a.textContent='関連メーカー資料：'+label;a.href=url;a.target='_blank';a.rel='noopener noreferrer';d.append(a)}
  const note=document.createElement('p');note.className='note';note.textContent='説明・図は学習用に再構成しています。規格原図の転載ではありません。型式別の図面・取扱説明書を優先してください。外部資料の閲覧には通信が必要です。';d.append(note);
  const related=entries110.filter(x=>x!==e&&x.kind===e.kind&&x.group===e.group).slice(0,4);
  if(related.length){para('関連項目：','');for(const r of related){const b=document.createElement('button');b.type='button';b.textContent=r.name;b.onclick=()=>detail110(r);d.append(b)}}
- d.scrollIntoView({block:'start',behavior:'smooth'});
+ openDetail113();
 }
 function draw94(){
  init110();const q=document.getElementById('query94').value.trim(),words=norm110(q).split(/\s+/).filter(Boolean);
@@ -2150,6 +2205,7 @@ window.saveViewState109=persist109;
 window.pushViewState109=function(){viewHistory99.push(snapshot109());if(viewHistory99.length>100)viewHistory99.shift();persist109()};
 function restoreLegacy109(x){if(!x||!Q75[x.type]||!Number.isInteger(x.step)||x.step<0||x.step>Q75[x.type].length||!Array.isArray(x.path))return;document.getElementById('sym75').value=x.type;step75=x.step;path75=x.path;showQ75();document.getElementById('res75').textContent=x.result||'';}
 window.backView99=function(){
+ if(window.closeDetail113?.())return;
  const panel=document.getElementById('panel82');
  if(panel && panel.style.display!=='none' && panel.style.display!==''){closePanel82();return;}
  const prev=viewHistory99.pop();
@@ -2162,6 +2218,7 @@ window.backView99=function(){
 function section97(id){let e=document.getElementById(id);return e&&e.closest('body > .card')===e?e:null}
 function page97(id){let e=document.getElementById(id);if(!e)return null;return e.closest('body > .card')||e.closest('body > section.card')||e}
 window.openView97=function(id,remember99=true){
+ window.closeDetail113?.();
  let e=document.getElementById(id),p=id==='release90'?e:page97(id);if(!p)return;
  if(remember99 && id!==active97){window.pushViewState109();}
  active97=id;
