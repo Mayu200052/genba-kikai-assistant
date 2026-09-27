@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v120</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v121</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -129,10 +129,30 @@ body:has(#release90:not(.page97hidden)) #nav91{display:none}
 .lineDetail120[hidden]{display:none}.lineDetail120 h4{margin:0 0 6px}.lineDetail120 p{margin:5px 0}
 body.dark84 .lineStep120,body.dark84 .lineDetail120{background:#25394b;color:#fff}
 @media(max-width:370px){.lineIcon120{width:52px}.lineStep120{font-size:14px}}
+.pressIntro121{line-height:1.7}
+.pressDiagram121{border:1px solid #a9c9df;border-radius:14px;background:#f4faff;padding:12px;margin:14px 0;max-width:620px}
+.pressDiagram121 figcaption{font-size:14px;color:#34546b;margin-bottom:10px}
+.pressStack121{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;max-width:440px;margin:auto;text-align:center}
+.pressPart121{width:100%;margin:0;min-height:43px;padding:7px;border:2px solid #83add0;border-radius:9px;background:white;color:#173c57;font-size:15px}
+.pressPart121[aria-pressed=true]{background:#cdeaff;border-color:#0870af;font-weight:bold}
+.pressArrow121{font-size:18px;color:#176098;line-height:1}
+.pressFrame121{border:4px solid #7a9ab4;border-top:0;border-radius:0 0 12px 12px;padding:11px;display:grid;gap:6px}
+.pressFrame121 .pressDie121{background:#e1eaf2}
+.pressFrame121 .pressGap121{min-height:28px;border-left:2px dashed #87a1b4;border-right:2px dashed #87a1b4;line-height:28px;font-size:13px}
+.pressInfo121{border-left:4px solid #0870af;padding:10px 12px;background:#e9f4fd;line-height:1.7;min-height:65px}
+.pressTypeGrid121{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pressType121{border:1px solid #acc7d9;border-radius:12px;padding:12px;background:#f8fbff;line-height:1.6}
+.pressType121 h3{margin:0 0 8px;font-size:17px}.pressType121 p{margin:6px 0}
+.pressType121 svg{width:100%;height:auto;max-width:330px;background:#fff;border-radius:8px}
+.pressType121 details summary{cursor:pointer;font-weight:bold;color:#18527c;padding:8px 0}
+.pressType121 li{margin:5px 0}
+.pressNote121{border-left:4px solid #3989b7;background:#f2f8fd;padding:12px;line-height:1.7}
+body.dark84 .pressDiagram121,body.dark84 .pressType121,body.dark84 .pressInfo121,body.dark84 .pressNote121{background:#25394b;color:#fff}
+@media(max-width:650px){.pressTypeGrid121{grid-template-columns:1fr}}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v120</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v120：</b>酸洗・連続焼鈍・めっき・カラー塗装ラインを追加。工程図の設備をタップすると役割と確認点を表示します。v119では目次画面の文字サイズと下部操作バーの重なりを調整しました。v118では鋼板の種類、熱延・冷延、スリッター・シャー・ブランキングの代表的なライン構成を工程図と設備一覧で追加しました。記号辞書の詳細は一覧へ戻るボタンで閉じられます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v121</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v121：</b>プレス機械の駆動方式、フレーム・作動方式、加工ライン、主要部品と能力の見方を図解付きで追加しました。図の部品をタップすると役割と確認点を表示します。v120の鋼板加工ライン図解も引き続き利用できます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -2213,7 +2233,7 @@ function calcUnit96(){const val=num96('unitValue96'),cat=document.getElementById
  if(cat==='温度'){let c=from===0?val:from===1?(val-32)*5/9:val-273.15;res=to===0?c:to===1?c*9/5+32:c+273.15;if(c< -273.15-1e-9){out.textContent='絶対零度より低い温度は入力できません。';return}}
  else res=val*a[from][1]/a[to][1];out.textContent=val+' '+a[from][0]+' ＝ '+Number(res.toPrecision(10))+' '+a[to][0]}
 document.addEventListener('DOMContentLoaded',()=>{drawRef96();calcFit96();makeUnit96()});
-</script><script src="./lines120.js"></script><script>
+</script><script src="./lines120.js"></script><script src="./press121.js"></script><script>
 (function(){
 const itemGroups97=[
  ['🎯 測定・芯出し',['dialCenter64','alignment','shim','soft','measure','coord63','multi87','trend88']],
@@ -2221,6 +2241,7 @@ const itemGroups97=[
  ['⚡ 電気・油圧・空圧・溶接辞書',['symbol94','electric70','control71','power72','panel73','drawing74','fluidAdv91','fluid68','diagnose75','hydraulic76','holding77','pinch78','circuit79','promptPage80']],
  ['🔥 溶接・公差・換算',['weld96','fit96','fits103','geo103','unit96']],
  ['🏭 鋼板・圧延加工ライン',['steelSheet118','rollingLine118','picklingLine120','annealingLine120','galvanizingLine120','colorLine120','tinningLine120','slitLine118','shearLine118','blankingLine118']],
+ ['🛠️ プレス機械',['pressGuide121']],
  ['⚙️ 加工・機械要素',['cut58','lathe59','lathePro61','millPro62','material60','hole57','threadPro56','bolt55','elements48','rings103','keys103','bearings103','bore103','bearingCode49','bearingWizard54','bearingReverse52','interchange51','makerBearing50','tools47']],
  ['🏗️ 玉掛け・その他',['rigGeo67','rigTable66','nylon102','rig65','dashboard41','home81','myhome83']]
 ];
