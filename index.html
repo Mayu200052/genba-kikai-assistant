@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v122</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v123</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -16,6 +16,8 @@
 
 /* Scoped v122 guides */
 .drive122{overflow-wrap:anywhere}.drive122 label{display:block;margin:1.2em 0}.drive122 input{display:block;width:100%;box-sizing:border-box;min-width:0;margin-top:.5em;font-size:16px}.driveGrid122{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.driveCard122{min-width:0;border:1px solid #b7d2e5;border-radius:14px;padding:16px;background:#f6faff}.driveCard122[hidden]{display:none!important}.driveCard122 h3{margin-top:0}.driveFig122{margin:12px 0;background:white;border:1px solid #d7e4ef;border-radius:10px;overflow:hidden}.driveFig122 svg{width:100%;height:auto;display:block}.drive122 details{margin:12px 0}.drive122 summary{cursor:pointer;font-weight:700}.driveTerms122{font-size:.85em;color:#526777}.driveStates122{display:flex;flex-wrap:wrap;gap:8px}.drive122 button{min-height:44px;max-width:100%;width:auto;padding:10px 14px;font-size:16px;white-space:normal;margin:4px 0}.drive122 button[aria-pressed=true]{background:#d1e9fa;border:2px solid #347ba9}.drive122 a{display:inline-block;min-height:32px}.drive122 p{line-height:1.7}@media(max-width:760px){.driveGrid122{grid-template-columns:1fr}.driveCard122{padding:12px}.drive122 .driveFig122{margin-left:0;margin-right:0}}
+
+#contents97{display:block!important}#contents97>label{display:block;font-weight:700;margin:16px 0 8px}#contents97 input{display:block;box-sizing:border-box;width:100%;min-width:0;font-size:16px;margin:8px 0;padding:12px}#contents97 .homeGroup123{margin:12px 0;border:1px solid #b5cee1;border-radius:14px;background:#f6faff;overflow:hidden}#contents97 .homeGroup123>summary{cursor:pointer;min-height:44px;padding:16px;font-size:18px;font-weight:700;line-height:1.5}#contents97 .homeGrid123{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px}#contents97 .homeGrid123 button{width:100%;margin:0;min-width:0;font-size:16px;line-height:1.5;padding:14px 8px}#contents97 [hidden]{display:none!important}.drawingTopic123{border:1px solid #b5cee1;border-radius:12px;padding:14px;margin:14px 0}.drawingTopic123>summary{font-weight:700;cursor:pointer;min-height:44px;line-height:1.6}.drawing123 p{line-height:1.75}.drawingFigure123{margin:14px 0;background:#fff}.drawing123 svg{width:100%;height:auto;display:block}.drawingTable123{overflow-x:auto;margin:12px 0}.drawingTable123 table{min-width:550px;width:100%;border-collapse:collapse}.drawingTable123 th,.drawingTable123 td{padding:10px;border:1px solid #cbd9e4;text-align:left;font-size:16px}.drawing123 input{box-sizing:border-box;width:100%;font-size:16px}.drawing123 button{width:auto;min-height:44px;margin:5px;font-size:16px}.drawing123 a{display:block;margin:12px 0}.drawingLine123{border-bottom:1px solid #cbd9e4;padding:8px 0}.lineSample123 svg{height:120px;width:100%}.drawing123 [hidden]{display:none!important}@media(max-width:360px){#contents97 .homeGrid123{grid-template-columns:1fr}}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
@@ -154,8 +156,8 @@ body.dark84 .pressDiagram121,body.dark84 .pressType121,body.dark84 .pressInfo121
 @media(max-width:650px){.pressTypeGrid121{grid-template-columns:1fr}}
 </style></head><body>
 <section id="release90" class="card">
-<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v122</small></h1>
-<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v122：</b>電気モーター（AC・DC）、油圧電磁弁、空圧電磁弁、シリンダーを図解・検索付きで追加しました。電磁弁の流路とシリンダーの伸縮はボタンで比較できます。目次の「モーター・電磁弁・シリンダー」から開けます。プレス・鋼板加工ラインも引き続き利用できます。</p>
+<h1>🛠️ 現場機械アシスタント 1.0候補 <small>v123</small></h1>
+<p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v123：</b>「機械図面」に読み方・線・記号の図解を追加。ホームを用途別に整理しました。分類を開くか、項目名で検索してください。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
@@ -2236,19 +2238,9 @@ function calcUnit96(){const val=num96('unitValue96'),cat=document.getElementById
  if(cat==='温度'){let c=from===0?val:from===1?(val-32)*5/9:val-273.15;res=to===0?c:to===1?c*9/5+32:c+273.15;if(c< -273.15-1e-9){out.textContent='絶対零度より低い温度は入力できません。';return}}
  else res=val*a[from][1]/a[to][1];out.textContent=val+' '+a[from][0]+' ＝ '+Number(res.toPrecision(10))+' '+a[to][0]}
 document.addEventListener('DOMContentLoaded',()=>{drawRef96();calcFit96();makeUnit96()});
-</script><script src="./lines120.js"></script><script src="./press121.js"></script><script src="./drives122.js"></script><script>
+</script><script src="./lines120.js"></script><script src="./press121.js"></script><script src="./drives122.js"></script><script src="./drawings123.js"></script><script>
 (function(){
-const itemGroups97=[
- ['⚙️ モーター・電磁弁・シリンダー',['motors122','hydValves122','airValves122','cylinders122']],
- ['🎯 測定・芯出し',['dialCenter64','alignment','shim','soft','measure','coord63','multi87','trend88']],
- ['🩺 点検・記録',['diagnosis43','trouble42','workflow44','record85','records45','karte89','report86','field84']],
- ['⚡ 電気・油圧・空圧・溶接辞書',['symbol94','electric70','control71','power72','panel73','drawing74','fluidAdv91','fluid68','diagnose75','hydraulic76','holding77','pinch78','circuit79','promptPage80']],
- ['🔥 溶接・公差・換算',['weld96','fit96','fits103','geo103','unit96']],
- ['🏭 鋼板・圧延加工ライン',['steelSheet118','rollingLine118','picklingLine120','annealingLine120','galvanizingLine120','colorLine120','tinningLine120','slitLine118','shearLine118','blankingLine118']],
- ['🛠️ プレス機械',['pressGuide121']],
- ['⚙️ 加工・機械要素',['cut58','lathe59','lathePro61','millPro62','material60','hole57','threadPro56','bolt55','elements48','rings103','keys103','bearings103','bore103','bearingCode49','bearingWizard54','bearingReverse52','interchange51','makerBearing50','tools47']],
- ['🏗️ 玉掛け・その他',['rigGeo67','rigTable66','nylon102','rig65','dashboard41','home81','myhome83']]
-];
+const itemGroups97=[["🎯 測定・芯出し・据付", ["dialCenter64", "alignment", "shim", "soft", "measure", "coord63", "multi87", "trend88"]], ["📐 機械図面・公差・加工", ["mechanicalDrawing123", "geo103", "fits103", "fit96", "weld96", "cut58", "lathe59", "lathePro61", "millPro62", "material60", "hole57", "threadPro56", "bolt55", "unit96"]], ["⚙️ 機械要素・モーター", ["motors122", "elements48", "rings103", "keys103", "bearings103", "bore103", "bearingCode49", "bearingWizard54", "bearingReverse52", "interchange51", "makerBearing50", "tools47"]], ["⚡ 電気・油圧・空圧", ["symbol94", "hydValves122", "airValves122", "cylinders122", "electric70", "control71", "power72", "panel73", "drawing74", "fluidAdv91", "fluid68", "diagnose75", "hydraulic76", "holding77", "pinch78", "circuit79", "promptPage80"]], ["🏭 生産ライン・プレス", ["steelSheet118", "rollingLine118", "picklingLine120", "annealingLine120", "galvanizingLine120", "colorLine120", "tinningLine120", "slitLine118", "shearLine118", "blankingLine118", "pressGuide121"]], ["🩺 故障診断・点検・作業記録", ["diagnosis43", "trouble42", "workflow44", "record85", "records45", "karte89", "report86", "field84"]], ["🏗️ 玉掛け・吊り具", ["rigGeo67", "rigTable66", "nylon102", "rig65"]], ["⭐ 便利機能・マイホーム", ["dashboard41", "home81", "myhome83"]]];
 let pages97=[];let active97='release90';
 const viewHistory99=[];
 const NAVKEY109='genba-nav109:'+location.pathname;
@@ -2295,15 +2287,32 @@ window.openView97=function(id,remember99=true){
 document.addEventListener('DOMContentLoaded',function(){
  const index=document.getElementById('release90'),list=document.getElementById('contents97');
  list.replaceChildren();
- const seen=new Set();
- for(const [title,ids] of itemGroups97){
-  let h=document.createElement('h2');h.textContent=title;list.appendChild(h);
-  for(const id of ids){let e=document.getElementById(id);if(!e)continue;
-   let b=document.createElement('button');b.type='button';b.textContent=(e.querySelector('h2,h1')?.textContent||id).replace(/\s*v\d+\s*$/,'');b.onclick=()=>openView97(id);list.appendChild(b);seen.add(id);
+ const seen=new Set(),groups123=[];
+ const label123=document.createElement('label');label123.textContent='項目を探す';
+ const search123=document.createElement('input');search123.type='search';search123.placeholder='例：図面、モーター、軸受、作業報告';label123.append(search123);
+ const status123=document.createElement('p');status123.setAttribute('aria-live','polite');list.append(label123,status123);
+ function group123(title,ids){
+  const group=document.createElement('details');group.className='homeGroup123';
+  const summary=document.createElement('summary');const grid=document.createElement('div');grid.className='homeGrid123';
+  const entries=[];
+  for(const id of ids){const e=document.getElementById(id);if(!e||seen.has(id))continue;
+   const button=document.createElement('button');button.type='button';button.textContent=(e.querySelector('h2,h1')?.textContent||id).replace(/\s*v\d+\s*$/,'');button.onclick=()=>openView97(id);grid.append(button);seen.add(id);entries.push(button);
   }
+  if(!entries.length)return;summary.textContent=title+'（'+entries.length+'）';group.append(summary,grid);list.append(group);groups123.push({group,entries,title,wasOpen:false});
  }
+ for(const [title,ids] of itemGroups97)group123(title,ids);
  const extras=[...document.querySelectorAll('body > section.card[id]')].filter(e=>!seen.has(e.id)&&e.id!=='release90'&&e.id!=='detailPage116');
- if(extras.length){let h=document.createElement('h2');h.textContent='その他の機能';list.appendChild(h);extras.forEach(e=>{let b=document.createElement('button');b.type='button';b.textContent=e.querySelector('h2,h1')?.textContent||e.id;b.onclick=()=>openView97(e.id);list.appendChild(b)})}
+ group123('その他の機能',extras.map(e=>e.id));
+ let searching123=false;
+ search123.addEventListener('input',()=>{
+  const q=search123.value.normalize('NFKC').toLowerCase().trim().split(/\s+/).filter(Boolean);let n=0;
+  for(const g of groups123){if(q.length&&!searching123)g.wasOpen=g.group.open;let hits=0;
+   for(const b of g.entries){b.hidden=!q.every(w=>b.textContent.normalize('NFKC').toLowerCase().includes(w));if(!b.hidden)hits++;}
+   g.group.hidden=hits===0;if(q.length)g.group.open=hits>0;else if(searching123)g.group.open=g.wasOpen;n+=hits;
+  }
+  searching123=q.length>0;status123.textContent=searching123?n+'件見つかりました':'分類をタップすると項目が開きます。';
+ });
+ status123.textContent='分類をタップすると項目が開きます。';
  pages97=[...document.body.children].filter(e=>e.tagName!=='SCRIPT'&&e.id!=='nav91'&&e.id!=='panel82'&&e.id!=='signedpad95'&&!e.classList.contains('signedpad95'));
  let align=false;for(const p of pages97){if(p.id==='alignment')align=true;if(align)p.dataset.align97='yes';if(p.id==='soft')align=false;}
  let target=location.hash.slice(1);target=target&&document.getElementById(target)?target:'release90';
