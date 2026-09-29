@@ -1,7 +1,7 @@
 // Keep this application's cache separate from other apps on the same origin.
 const PREFIX='genba-kikai:'+new URL(self.registration.scope).pathname+':';
-const CACHE=PREFIX+'v124';
-const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./lines120.js','./press121.js','./drives122.js','./drawings123.js','./weight124.js'];
+const CACHE=PREFIX+'v125';
+const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./lines120.js','./press121.js','./drives122.js','./drawings123.js','./weight124.js','./mass-core125.js','./fabrication125.js'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));
 });
