@@ -2,7 +2,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="現場機械">
-<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v130</title>
+<meta name="theme-color" content="#f5f7fa"><title>現場機械アシスタント v131</title>
 <style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:18px;background:#f5f7fa}.card{background:#fff;padding:16px;margin:12px 0;border-radius:12px}input,select,button{padding:9px;margin:4px;width:140px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:center}.note{font-size:13px;color:#555}.comment{background:#eef7ff;padding:14px;border-radius:10px;line-height:1.7}
 .animAxis{transition:transform 1.2s ease,opacity .6s ease}
 .pulse{animation:pulse 1.2s infinite alternate}
@@ -160,6 +160,7 @@ body.dark84 .pressDiagram121,body.dark84 .pressType121,body.dark84 .pressInfo121
 <p><b>測る → 判断する → 調整する → 記録する</b> を1つのアプリで。</p><p class="note"><b>v130：</b>トランシット、Yレベル・光学レベル、レーザー測定器を図解・使い方・計算付きで追加しました。「測定・芯出し・据付」から開けます。ネジ下穴表、ギヤ、配管、モーターなども引き続き使えます。</p>
 <div class="releasegrid90" id="contents97">
 <button onclick="jump81('align')">🎯 芯出し・振れ</button>
+<button onclick="openView97('dissimilar98')">🔗 異種金属接合</button>
 <button onclick="jump81('trouble')">🩺 故障切り分け</button>
 <button onclick="jump81('fluid')">💧 油圧・空圧</button>
 <button onclick="jump81('electric')">⚡ 電気・図面</button>
@@ -692,6 +693,15 @@ body.dark84 .pressDiagram121,body.dark84 .pressType121,body.dark84 .pressInfo121
 <label>基本記号 <select id="weldType108"></select></label><label>継手・指示面 <input id="weldSide108" placeholder="例：T継手、矢が指す部材"></label><label>寸法・長さ・ピッチ <input id="weldSize108" placeholder="図面に記された値をそのまま入力"></label><label>適用規格・施工法 <input id="weldSpec108" placeholder="例：図面注記、WPS番号"></label><button type="button" onclick="analyzeWeld108()">読み取りメモを作る</button><div id="weldAnalysis108" class="comment" aria-live="polite"></div>
 <p class="note">すみ肉の脚長 z と有効のど厚 a は別の寸法です。等脚の理想直角三角形では a ≒ 0.707z ですが、実際の有効寸法は図面・施工条件で判定してください。溶接法の番号は ISO 4063 の体系を参照。</p>
 <p class="sources96">参照：<a href="https://www.iso.org/standard/72740.html" target="_blank" rel="noopener">ISO 2553</a> ・ <a href="https://www.iso.org/standard/38134.html" target="_blank" rel="noopener">ISO 4063</a></p></section>
+<section id="dissimilar98" class="card"><h2>🔗 異種金属溶接・接合辞典</h2>
+<p class="note">現場学習用。適否は母材の合金番号・板厚・用途・適用規格・施工試験で最終判断。構造・圧力・電気用途では認定施工法と有資格者による確認が必要です。</p>
+<h3>金属の組み合わせを選択</h3><label>母材A <select id="wmA98" onchange="showWeld98()"><option>鉄</option><option>ステンレス</option><option>アルミ</option><option>銅</option><option>鋳鉄</option><option>チタン</option><option>マグネシウム</option></select></label> <label>母材B <select id="wmB98" onchange="showWeld98()"><option>アルミ</option><option>鉄</option><option>ステンレス</option><option>銅</option><option>鋳鉄</option><option>チタン</option><option>マグネシウム</option></select></label>
+<div id="wmResult98" class="comment" aria-live="polite"></div>
+<h3>代表的な接合方法・断面模式図</h3><div class="refgrid96" id="wmMethods98"></div>
+<h3>作業の基本フロー</h3><div class="comment">① 母材の材質・合金番号・表面処理・板厚を確認 → ② 必要強度、耐食性、導電性、温度、振動を確認 → ③ 接合法・継手形状を選定 → ④ 油分・酸化膜を適切に除去 → ⑤ 試験片で施工条件を検証 → ⑥ 外観・断面・強度・必要に応じ非破壊検査 → ⑦ 記録と承認</div>
+<h3>主な欠陥と原因</h3><table><tr><th>現象</th><th>原因例／確認事項</th></tr><tr><td>割れ・脆化</td><td>金属間化合物、凝固割れ、急冷、拘束。接合方法・入熱・材質を再検討</td></tr><tr><td>ブローホール</td><td>油分、水分、シールド不良。前処理とガスを確認</td></tr><tr><td>溶込み不足</td><td>開先・熱入力・位置ずれ。断面試験で確認</td></tr><tr><td>腐食</td><td>異種金属の電食。水分・電解質・絶縁・表面処理を確認</td></tr></table>
+<p class="note">⚠️ 亜鉛めっき・塗装・未知の合金は有害ヒュームに注意。マグネシウム・チタンは火災／酸化リスクがあり、設備・保護ガス・消火方法を含む専門手順が必要。具体的な電流・速度・予熱温度は材質と施工試験なしに一律指定できません。</p></section>
+
 <section id="fit96" class="card ref96"><h2>📐 寸法公差・はめあい v96</h2><button onclick="openView97('fits103')">穴・軸の許容差表</button><button onclick="openView97('geo103')">幾何公差一覧</button>
 <p>寸法公差は、許される最大寸法と最小寸法の幅です。<b>呼び寸法＋上の寸法差＝最大許容寸法</b>、<b>呼び寸法＋下の寸法差＝最小許容寸法</b>。穴の記号は大文字、軸は小文字です。</p>
 <div class="refgrid96"><div><b>穴基準：H</b><p>H穴の下の寸法差は0。例：H7/g6。穴寸法を基準に軸の公差域を変える。</p></div><div><b>軸基準：h</b><p>h軸の上の寸法差は0。例：G7/h6。軸寸法を基準に穴の公差域を変える。</p></div><div><b>記号の読み方</b><p>Ø30 H7/g6ならØ30が呼び寸法、H7が穴、g6が軸。数字は公差等級。</p></div><div><b>はめあいの種類</b><p>常にすきま＝すきまばめ／すきまとしめしろ両方あり得る＝中間ばめ／常にしめしろ＝しまりばめ。</p></div></div>
@@ -1819,7 +1829,28 @@ function reportBody101(){
 }
 function readyReport101(){if(photoJobs101.size){document.getElementById('msg86').textContent='写真の読み込みが終わってから、もう一度押してください。';return false;}return true;}
 function previewReport101(){if(!readyReport101())return;const p=document.getElementById('photoReport101');p.innerHTML=reportBody101();p.hidden=false;document.getElementById('msg86').textContent='写真入りの報告書を下に作成しました。保存するには「写真入り報告書を保存」を押してください。';}
-function reportDocument101(){return '<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>作業報告書</title><style>body{font-family:sans-serif;max-width:800px;margin:24px auto;padding:0 16px;color:#222}h1{font-size:26px}h2{font-size:18px;border-bottom:1px solid #ccc;padding-top:12px}.text101{white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:20px 0;break-inside:avoid}figcaption{font-weight:bold;margin-bottom:8px}img{max-width:100%;max-height:650px;object-fit:contain}@media print{button{display:none}body{margin:0}img{max-height:180mm}}</style><body><button onclick="window.print()">印刷／PDF保存</button>'+reportBody101()+'</body></html>';}
+function reportDocument101(){return '<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>作業報告書</title><style>body{font-family:sans-serif;max-width:800px;margin:24px auto;padding:0 16px;color:#222}h1{font-size:26px}h2{font-size:18px;border-bottom:1px solid #ccc;padding-top:12px}.text101{white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:20px 0;break-inside:avoid}figcaption{font-weight:bold;margin-bottom:8px}img{max-width:100%;max-height:650px;object-fit:contain}@media print{button{display:none}body{margin:0}img{max-height:180mm}}</style><body><button onclick="window.print()">印刷／PDF保存</button>'+reportBody101()+'<script>
+const WM98={
+'アルミ|銅':['非常に難しい','溶融時に脆いAl-Cu金属間化合物が生じやすい。融点・熱伝導の違いも大きい。','超音波接合／摩擦圧接／条件管理したレーザー接合／異種金属クラッド材','端子・バスバーでは導電性、接触抵抗、熱サイクルも検証。'],
+'アルミ|鉄':['非常に難しい','脆いFe-Al金属間化合物が生じやすい。','摩擦圧接／ろう付け／レーザー接合／異種金属中間材','反応層厚さと腐食を評価。'],
+'銅|鉄':['難しい','濡れ・溶け込み・熱伝導差・割れの管理が必要。','適切な溶加材によるTIG等／ろう付け／摩擦圧接','鉄側の割れと接合界面を検査。'],
+'チタン|鉄':['非常に難しい','脆いTi-Fe反応層を形成しやすい。','拡散接合／摩擦圧接／中間材を用いた固相接合','通常の直接溶融溶接は避け、専門施工法を検証。'],
+'マグネシウム|鉄':['非常に難しい','冶金的接合が難しく、酸化・燃焼管理も必要。','中間材を用いた特殊接合／機械締結','一般工場で安易に試みない。'],
+'アルミ|ステンレス':['非常に難しい','Fe-Al反応層が脆くなる。','摩擦圧接／中間材／特殊レーザー接合','電食・熱膨張差にも注意。'],
+'銅|ステンレス':['難しい','熱伝導差と溶融金属の割れを管理。','TIG／レーザー／ろう付け','材質・溶加材・継手形状で変わる。']};
+function showWeld98(){const a=document.getElementById('wmA98')?.value,b=document.getElementById('wmB98')?.value,out=document.getElementById('wmResult98');if(!out)return;let k=[a,b].sort().join('|'),v=WM98[k]||WM98[[b,a].join('|')]||WM98[[a,b].join('|')];if(a===b){v=['同種材でも条件確認が必要','合金・熱処理・板厚によって溶接性は大きく異なる。','TIG／MIG／被覆アーク等から母材に適した方法を選ぶ','鋳鉄・高炭素鋼・一部アルミ合金等は特別な管理が必要。']}else if(!v){v=['要個別検証','材質記号と要求性能がないと溶接可否を確定できない。','溶融溶接・固相接合・ろう付け・機械締結を比較','試験片・施工要領・強度試験で判断。']}out.innerHTML='<b>'+a+' × '+b+'：'+v[0]+'</b><p>理由：'+v[1]+'</p><p>候補：'+v[2]+'</p><p>注意：'+v[3]+'</p>'}
+const methods98=[
+['TIG溶接','電極と母材の間にアーク。溶加棒は必要に応じて供給。','①材質と溶加材を照合 ②清掃・固定 ③適切なシールド下で試験溶接 ④外観・溶込み確認','<path d="M15 58H125 M65 10L80 37 M80 37L80 51 M52 58Q70 40 88 58"/>'],
+['MIG/MAG溶接','ワイヤを連続供給し、アークで溶融接合。','①ワイヤ・ガス選定 ②開先・仮付け ③試験片で条件調整 ④ビードと欠陥確認','<path d="M15 58H125 M70 8V43 M70 43L70 56 M55 58Q70 39 85 58"/>'],
+['レーザー溶接','集光した光で局所的に加熱。異材では界面反応を制御。','①継手とギャップ設計 ②固定・位置決め ③試験片で熱入力調整 ④断面・強度検査','<path d="M70 7L60 52 M70 7L80 52 M15 56H125 M65 56L70 43L75 56"/>'],
+['摩擦圧接','片側を回転等で相対運動させ、摩擦熱と圧力で固相接合。','①端面加工・清掃 ②専用機で相対運動・加圧 ③停止・鍛圧 ④バリ・強度検査','<path d="M12 28H62V49H12Z M78 28H128V49H78Z M65 38H75 M30 17Q70 -2 110 17"/>'],
+['超音波接合','重ねた金属に加圧と高周波振動を与えて固相接合。','①表面清掃 ②重ね位置決め ③ホーンで加圧・振動 ④剥離・抵抗・断面検査','<path d="M20 52H120 M20 59H120 M53 8H87V37H53Z M70 37V52 M44 20L33 20 M96 20H107"/>'],
+['ろう付け','母材は原則溶かさず、溶融ろう材を毛細管作用で流す。','①ろう材とフラックス選定 ②適正すきま・清掃 ③均一加熱・ろう流し ④残渣除去・漏れ/強度確認','<path d="M15 24H72V44H125 M15 31H65V51H125 M65 31V44"/>'],
+['抵抗スポット溶接','重ね板を電極で挟み、通電と加圧で局所接合。','①電極・板厚・材質確認 ②位置決め・加圧 ③試験条件で通電 ④ナゲット・剥離検査','<path d="M15 40H125 M15 48H125 M65 8V40 M65 48V65 M58 44A7 4 0 1 0 72 44A7 4 0 1 0 58 44"/>']];
+function initMethods98(){let x=document.getElementById('wmMethods98');if(!x||x.dataset.ready)return;x.dataset.ready='1';methods98.forEach(m=>{let d=document.createElement('div');d.innerHTML='<b>'+m[0]+'</b><svg viewBox="0 0 140 72" style="width:100%;max-width:260px;height:95px" aria-label="'+m[0]+'の簡略断面図"><g fill="none" stroke="currentColor" stroke-width="2.5">'+m[3]+'</g></svg><p>'+m[1]+'</p><details><summary>施工の基本手順</summary><p>'+m[2]+'</p></details>';x.append(d)});showWeld98()}
+document.addEventListener('DOMContentLoaded',initMethods98);if(document.readyState!=='loading')initMethods98();
+</script>
+</body></html>';}
 function saveReport101(){if(!readyReport101())return;const blob=new Blob([reportDocument101()],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='作業報告書_'+new Date().toISOString().slice(0,10)+'.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);document.getElementById('msg86').textContent='写真入りのHTML報告書を保存します。写真はファイル内に含まれます。';}
 function printReport101(){if(!readyReport101())return;const win=window.open('','_blank');if(!win){document.getElementById('msg86').textContent='別画面を開けませんでした。「写真入り報告書を保存」を使ってください。';return;}win.document.write(reportDocument101());win.document.close();}
 
@@ -2432,5 +2463,26 @@ function installGuides111(){
 }
 document.addEventListener('DOMContentLoaded',installGuides111);
 
+</script>
+<script>
+const WM98={
+'アルミ|銅':['非常に難しい','溶融時に脆いAl-Cu金属間化合物が生じやすい。融点・熱伝導の違いも大きい。','超音波接合／摩擦圧接／条件管理したレーザー接合／異種金属クラッド材','端子・バスバーでは導電性、接触抵抗、熱サイクルも検証。'],
+'アルミ|鉄':['非常に難しい','脆いFe-Al金属間化合物が生じやすい。','摩擦圧接／ろう付け／レーザー接合／異種金属中間材','反応層厚さと腐食を評価。'],
+'銅|鉄':['難しい','濡れ・溶け込み・熱伝導差・割れの管理が必要。','適切な溶加材によるTIG等／ろう付け／摩擦圧接','鉄側の割れと接合界面を検査。'],
+'チタン|鉄':['非常に難しい','脆いTi-Fe反応層を形成しやすい。','拡散接合／摩擦圧接／中間材を用いた固相接合','通常の直接溶融溶接は避け、専門施工法を検証。'],
+'マグネシウム|鉄':['非常に難しい','冶金的接合が難しく、酸化・燃焼管理も必要。','中間材を用いた特殊接合／機械締結','一般工場で安易に試みない。'],
+'アルミ|ステンレス':['非常に難しい','Fe-Al反応層が脆くなる。','摩擦圧接／中間材／特殊レーザー接合','電食・熱膨張差にも注意。'],
+'銅|ステンレス':['難しい','熱伝導差と溶融金属の割れを管理。','TIG／レーザー／ろう付け','材質・溶加材・継手形状で変わる。']};
+function showWeld98(){const a=document.getElementById('wmA98')?.value,b=document.getElementById('wmB98')?.value,out=document.getElementById('wmResult98');if(!out)return;let k=[a,b].sort().join('|'),v=WM98[k]||WM98[[b,a].join('|')]||WM98[[a,b].join('|')];if(a===b){v=['同種材でも条件確認が必要','合金・熱処理・板厚によって溶接性は大きく異なる。','TIG／MIG／被覆アーク等から母材に適した方法を選ぶ','鋳鉄・高炭素鋼・一部アルミ合金等は特別な管理が必要。']}else if(!v){v=['要個別検証','材質記号と要求性能がないと溶接可否を確定できない。','溶融溶接・固相接合・ろう付け・機械締結を比較','試験片・施工要領・強度試験で判断。']}out.innerHTML='<b>'+a+' × '+b+'：'+v[0]+'</b><p>理由：'+v[1]+'</p><p>候補：'+v[2]+'</p><p>注意：'+v[3]+'</p>'}
+const methods98=[
+['TIG溶接','電極と母材の間にアーク。溶加棒は必要に応じて供給。','①材質と溶加材を照合 ②清掃・固定 ③適切なシールド下で試験溶接 ④外観・溶込み確認','<path d="M15 58H125 M65 10L80 37 M80 37L80 51 M52 58Q70 40 88 58"/>'],
+['MIG/MAG溶接','ワイヤを連続供給し、アークで溶融接合。','①ワイヤ・ガス選定 ②開先・仮付け ③試験片で条件調整 ④ビードと欠陥確認','<path d="M15 58H125 M70 8V43 M70 43L70 56 M55 58Q70 39 85 58"/>'],
+['レーザー溶接','集光した光で局所的に加熱。異材では界面反応を制御。','①継手とギャップ設計 ②固定・位置決め ③試験片で熱入力調整 ④断面・強度検査','<path d="M70 7L60 52 M70 7L80 52 M15 56H125 M65 56L70 43L75 56"/>'],
+['摩擦圧接','片側を回転等で相対運動させ、摩擦熱と圧力で固相接合。','①端面加工・清掃 ②専用機で相対運動・加圧 ③停止・鍛圧 ④バリ・強度検査','<path d="M12 28H62V49H12Z M78 28H128V49H78Z M65 38H75 M30 17Q70 -2 110 17"/>'],
+['超音波接合','重ねた金属に加圧と高周波振動を与えて固相接合。','①表面清掃 ②重ね位置決め ③ホーンで加圧・振動 ④剥離・抵抗・断面検査','<path d="M20 52H120 M20 59H120 M53 8H87V37H53Z M70 37V52 M44 20L33 20 M96 20H107"/>'],
+['ろう付け','母材は原則溶かさず、溶融ろう材を毛細管作用で流す。','①ろう材とフラックス選定 ②適正すきま・清掃 ③均一加熱・ろう流し ④残渣除去・漏れ/強度確認','<path d="M15 24H72V44H125 M15 31H65V51H125 M65 31V44"/>'],
+['抵抗スポット溶接','重ね板を電極で挟み、通電と加圧で局所接合。','①電極・板厚・材質確認 ②位置決め・加圧 ③試験条件で通電 ④ナゲット・剥離検査','<path d="M15 40H125 M15 48H125 M65 8V40 M65 48V65 M58 44A7 4 0 1 0 72 44A7 4 0 1 0 58 44"/>']];
+function initMethods98(){let x=document.getElementById('wmMethods98');if(!x||x.dataset.ready)return;x.dataset.ready='1';methods98.forEach(m=>{let d=document.createElement('div');d.innerHTML='<b>'+m[0]+'</b><svg viewBox="0 0 140 72" style="width:100%;max-width:260px;height:95px" aria-label="'+m[0]+'の簡略断面図"><g fill="none" stroke="currentColor" stroke-width="2.5">'+m[3]+'</g></svg><p>'+m[1]+'</p><details><summary>施工の基本手順</summary><p>'+m[2]+'</p></details>';x.append(d)});showWeld98()}
+document.addEventListener('DOMContentLoaded',initMethods98);if(document.readyState!=='loading')initMethods98();
 </script>
 </body></html>
